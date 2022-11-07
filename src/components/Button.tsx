@@ -1,34 +1,36 @@
 import React from "react"
 import styled from "styled-components"
-import { Icon as IconType } from "react-feather"
 
-interface IconButtonProps {
-  icon: IconType
-  label: string
-  link?: string
+interface ButtonProps {
   onClick?: () => void
+  label?: string
   styles?: string
   size?: number
-  color?: string
+  children?: React.ReactNode
+  link?: string
 }
 
-export default function IconButton({
-  icon: Icon,
-  link,
+export default function Button({
   onClick,
   label,
   styles,
-  size,
-  color = "#000",
-}: IconButtonProps) {
+  children,
+  link,
+}: ButtonProps) {
   const buttonStyles = `
     min-height: 44px;
     min-width: 44px;
+    padding: 16px 24px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: rgba(0, 0, 0, 0);
+    border-radius: 8px;
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    line-height: 26px;
     ${styles}
   `
 
@@ -36,16 +38,17 @@ export default function IconButton({
     ${buttonStyles}
   `
   const Link = styled.a`
+    text-decoration: none;
     ${buttonStyles}
   `
 
   return link ? (
     <Link href={link} aria-label={label}>
-      <Icon size={size} color={color} />
+      {children}
     </Link>
   ) : (
     <Button onClick={onClick} aria-label={label}>
-      <Icon size={size} color={color} />
+      {children}
     </Button>
   )
 }

@@ -13,7 +13,7 @@ export const RootContainer = styled.div`
 `
 
 interface LayoutProps {
-  children: JSX.Element
+  children: React.ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {

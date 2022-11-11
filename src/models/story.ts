@@ -1,8 +1,9 @@
-import { Roles } from "./roles"
+import { ElementNames } from "../constants/elements"
 
 export default interface Story {
+  edit: boolean
   name: string
   description: string
-  role: Roles
-  expectation: string
+  element: ElementNames
+  action: string
 }

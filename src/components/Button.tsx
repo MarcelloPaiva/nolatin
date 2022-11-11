@@ -4,7 +4,7 @@ import styled from "styled-components"
 interface ButtonProps {
   onClick?: () => void
   label?: string
-  styles?: string
+  style?: string
   size?: number
   children?: React.ReactNode
   link?: string
@@ -13,7 +13,7 @@ interface ButtonProps {
 export default function Button({
   onClick,
   label,
-  styles,
+  style,
   children,
   link,
 }: ButtonProps) {
@@ -31,7 +31,7 @@ export default function Button({
     font-weight: bold;
     font-size: 1rem;
     line-height: 26px;
-    ${styles}
+    ${style}
   `
 
   const Button = styled.button`

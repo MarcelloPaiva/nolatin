@@ -34,15 +34,13 @@ export const Bold = styled.strong`
   font-size: 1rem;
   line-height: 26px;
 `
+export const Label = styled.div`
+  font-size: 0.75rem;
+  line-height: 17px;
+  color: #757575;
+`
 export const Divider = styled.div`
   height: 2px;
   width: 100%;
   background-color: #000;
-`
-export const RootContainer = styled.div`
-  margintop: 40px;
-  marginleft: 48px;
-  marginright: 48px;
-  display: flex;
-  flex-direction: column;
 `

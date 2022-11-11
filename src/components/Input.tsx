@@ -1,38 +1,36 @@
 import React from "react"
 import styled from "styled-components"
-
-const Label = styled.div`
-  font-size: 0.75rem;
-  line-height: 17px;
-  color: #757575;
-`
+import { Label } from "."
 
 interface InputProps {
   label: string
-  defaultValue?: string
+  defaultValue: string
+  id?: string
   title?: boolean
-  styles?: string
+  style?: string
   multiline?: boolean
 }
 
 export default function Input({
   label,
   defaultValue,
+  id,
   title = false,
   multiline = false,
-  styles,
+  style,
 }: InputProps) {
   const InputContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    ${styles}
+    ${style}
   `
 
   const inputStyles = `
     background-color: #fff;
     border: 1px solid #000;
     padding: 8px;
+    font-family: "Roboto", sans-serif;
     font-size: ${title ? 1.5 : 1}rem;
     font-weight: ${title ? "bold" : "regular"};
     line-height: ${title ? 32 : 26}px;
@@ -47,9 +45,9 @@ export default function Input({
     <InputContainer>
       <Label>{label}</Label>
       {multiline ? (
-        <TextArea defaultValue={defaultValue} />
+        <TextArea aria-label={label} defaultValue={defaultValue} id={id} />
       ) : (
-        <TextInput defaultValue={defaultValue} />
+        <TextInput aria-label={label} defaultValue={defaultValue} id={id} />
       )}
     </InputContainer>
   )

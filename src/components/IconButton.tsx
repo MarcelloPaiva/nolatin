@@ -7,7 +7,7 @@ interface IconButtonProps {
   label: string
   link?: string
   onClick?: () => void
-  styles?: string
+  style?: string
   size?: number
   color?: string
 }
@@ -17,7 +17,7 @@ export default function IconButton({
   link,
   onClick,
   label,
-  styles,
+  style,
   size,
   color = "#000",
 }: IconButtonProps) {
@@ -29,7 +29,7 @@ export default function IconButton({
     align-items: center;
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    ${styles}
+    ${style}
   `
 
   const Button = styled.button`

@@ -24,7 +24,7 @@ export default function NavBar() {
       <Row>
         <IconButton size={24} icon={Search} onClick={() => {}} label="Search" />
         <IconButton
-          styles={`margin-left: 24px;`}
+          style={`margin-left: 24px;`}
           size={24}
           icon={Menu}
           onClick={() => {}}

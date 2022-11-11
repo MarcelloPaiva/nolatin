@@ -7,22 +7,31 @@ const Label = styled.div`
   color: #757575;
 `
 
+interface OptionData {
+  label: string
+  value: string
+}
+
 interface DropdownProps {
   label: string
+  options: Array<OptionData>
+  id?: string
   defaultValue?: string
-  styles?: string
+  style?: string
 }
 
 export default function Dropdown({
   label,
+  options,
+  id,
   defaultValue,
-  styles,
+  style,
 }: DropdownProps) {
   const InputContainer = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
-    ${styles}
+    ${style}
   `
 
   const Select = styled.select`
@@ -31,12 +40,23 @@ export default function Dropdown({
     padding: 8px;
     font-size: 1rem;
     font-weight: regular;
+    font-family: "Roboto", sans-serif;
+    line-height: 26px;
+  `
+
+  const Option = styled.option`
+    font-size: 1rem;
+    font-weight: regular;
     line-height: 26px;
   `
   return (
     <InputContainer>
       <Label>{label}</Label>
-      <Select defaultValue={defaultValue} />
+      <Select defaultValue={defaultValue} id={id}>
+        {options.map((option) => (
+          <Option value={option.value}>{option.label}</Option>
+        ))}
+      </Select>
     </InputContainer>
   )
 }

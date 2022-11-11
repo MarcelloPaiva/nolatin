@@ -54,7 +54,7 @@ export default function Root() {
         Creating good content is a matter of putting intent in each step of your
         design effort.
       </Text>
-      <Button styles={`margin: 40px 0px`} link="guides">
+      <Button style={`margin: 40px 0px`} link="guides">
         Getting started
       </Button>
       <Divider />

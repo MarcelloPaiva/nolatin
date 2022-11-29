@@ -20,14 +20,21 @@ const Row = styled.div`
 export default function NavBar() {
   return (
     <Header>
-      <IconButton size={40} icon={Aperture} link="/" label="Logo" />
+      <IconButton size={40} icon={Aperture} link="/" aria="Logo" label="Logo" />
       <Row>
-        <IconButton size={24} icon={Search} onClick={() => {}} label="Search" />
+        <IconButton
+          size={24}
+          icon={Search}
+          onClick={() => {}}
+          aria="Search"
+          label="Search"
+        />
         <IconButton
           style={`margin-left: 24px;`}
           size={24}
           icon={Menu}
           onClick={() => {}}
+          aria="Menu"
           label="Menu"
         />
       </Row>

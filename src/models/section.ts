@@ -1,9 +1,10 @@
 import { ElementNames } from "../constants/elements"
+import Content from "./content"
 
-export default interface Story {
+export default interface Section {
+  id: string
   edit: boolean
   name: string
-  description: string
   element: ElementNames
-  action: string
+  content: Content[]
 }

@@ -1,9 +1,11 @@
 import React from "react"
 import styled from "styled-components"
+import { IconLabel } from "."
 import { Icon as IconType } from "react-feather"
 
 interface IconButtonProps {
   icon: IconType
+  aria: string
   label: string
   link?: string
   onClick?: () => void
@@ -14,6 +16,7 @@ interface IconButtonProps {
 
 export default function IconButton({
   icon: Icon,
+  aria,
   link,
   onClick,
   label,
@@ -29,6 +32,7 @@ export default function IconButton({
     align-items: center;
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    flex-direction: column;
     ${style}
   `
 
@@ -40,12 +44,14 @@ export default function IconButton({
   `
 
   return link ? (
-    <Link href={link} aria-label={label}>
+    <Link href={link} aria-label={aria}>
       <Icon size={size} color={color} />
+      <IconLabel>{label}</IconLabel>
     </Link>
   ) : (
-    <Button onClick={onClick} aria-label={label}>
+    <Button onClick={onClick} aria-label={aria}>
       <Icon size={size} color={color} />
+      <IconLabel>{label}</IconLabel>
     </Button>
   )
 }

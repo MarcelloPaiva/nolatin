@@ -44,3 +44,8 @@ export const Divider = styled.div`
   width: 100%;
   background-color: #000;
 `
+export const IconLabel = styled.div`
+  font-size: 0.75rem;
+  line-height: 17px;
+  color: #000;
+`

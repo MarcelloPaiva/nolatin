@@ -1,39 +1,38 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
 import Input from "./Input"
 import IconButton from "./IconButton"
 import { Check, Edit, Trash, X } from "react-feather"
-import Story from "../models/story"
-import { Role } from "../models/roles"
+import Section from "../models/section"
 import Elements, { ElementNames } from "../constants/elements"
-import { CardData } from "../routes/create"
 import Button from "./Button"
 
-const cardStyles = `
-border-radius: 12px;
-border: 2px solid #000;
-display: flex;
-flex-direction: column;
-padding: 16px;
-margin-bottom: 40px;
-margin-top: 16px;
-flex: 1
+const sectionStyles = `
+  border-radius: 12px;
+  border: 2px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin-bottom: 40px;
+  margin-top: 16px;
+  flex: 1;
+  width: 100%;
 
-p,
-h2,
-h3 {
-  margin-top: 0px;
-  margin-bottom: 16px;
-}
+  p,
+  h2,
+  h3 {
+    margin-top: 0px;
+    margin-bottom: 16px;
+  }
 `
 
-const CardContainer = styled.div`
-  ${cardStyles}
+const SectionContainer = styled.div`
+  ${sectionStyles}
 `
-const CardForm = styled.form`
-  ${cardStyles}
+const SectionForm = styled.form`
+  ${sectionStyles}
 `
 const Column = styled.div`
   display: flex;
@@ -44,19 +43,17 @@ const Row = styled.div`
   justify-content: flex-end;
 `
 
-interface CardProps {
-  id: string
-  state: Story
+interface SectionProps {
+  state: Section
   onCancel: () => void
   onDelete: () => void
   onEdit: () => void
-  onSave: (newCard: Story) => void
+  onSave: (newSection: Section) => void
   onAddChild: () => void
   children?: React.ReactNode
 }
 
-export default function Card({
-  id,
+export default function SectionCard({
   state,
   onCancel,
   onDelete,
@@ -64,7 +61,7 @@ export default function Card({
   onSave,
   onAddChild,
   children,
-}: CardProps) {
+}: SectionProps) {
   function getRoles(element: ElementNames): string {
     let roles = Elements[element].roles
     let roleString = ""
@@ -75,54 +72,47 @@ export default function Card({
     return roleString
   }
 
-  function getFormData(): Story {
-    const name = document.getElementById(id + "-name") as HTMLInputElement
-    const description = document.getElementById(
-      id + "-description"
-    ) as HTMLInputElement
+  function getFormData(): Section {
+    const name = document.getElementById(state.id + "-name") as HTMLInputElement
     const element = document.getElementById(
-      id + "-element"
+      state.id + "-element"
     ) as HTMLSelectElement
-    const action = document.getElementById(id + "-action") as HTMLInputElement
     return {
+      id: state.id,
       edit: false,
       name: name.value,
-      description: description.value,
       element: element.value as ElementNames,
-      action: action.value,
+      content: state.content,
     }
   }
 
   return state.edit ? (
-    <CardForm>
+    <SectionForm>
       <Row>
         <IconButton
           icon={Check}
-          label="Save Story"
+          aria="Save Section"
+          label="Save"
           onClick={() => onSave(getFormData())}
         />
-        <IconButton icon={X} label="Cancel Edit" onClick={onCancel} />
+        <IconButton
+          icon={X}
+          aria="Cancel Edit"
+          label="Cancel"
+          onClick={onCancel}
+        />
       </Row>
       <Input
-        id={id + "-name"}
-        label="Name"
+        id={state.id + "-name"}
+        label="Section Name"
         defaultValue={state.name}
         title
         style={`
             margin-bottom: 16px;
         `}
       />
-      <Input
-        id={id + "-description"}
-        label="Description"
-        defaultValue={state.description}
-        multiline
-        style={`
-            margin-bottom: 16px;
-        `}
-      />
       <Dropdown
-        id={id + "-element"}
+        id={state.id + "-element"}
         label="Element"
         defaultValue={state.element}
         options={Object.keys(Elements).map((name) => {
@@ -132,34 +122,49 @@ export default function Card({
             margin-bottom: 16px;
         `}
       />
+      {/* <Input
+        id={id + "-description"}
+        label="Description"
+        defaultValue={state.description}
+        multiline
+        style={`
+            margin-bottom: 16px;
+        `}
+      />
       <Input
         id={id + "-action"}
         label="Expected action"
         defaultValue={state.action}
         multiline
-      />
+      /> */}
       <Button style={`margin-top: 16px;`} onClick={onAddChild}>
         Add Child
       </Button>
       <Column>{children}</Column>
-    </CardForm>
+    </SectionForm>
   ) : (
-    <CardContainer>
+    <SectionContainer>
       <Row>
-        <IconButton icon={Edit} label="Edit Story" onClick={onEdit} />
-        <IconButton icon={Trash} label="Delete Story" onClick={onDelete} />
+        <IconButton
+          icon={Edit}
+          aria="Edit Story"
+          label="Edit"
+          onClick={onEdit}
+        />
+        <IconButton
+          icon={Trash}
+          aria="Delete Story"
+          label="Delete"
+          onClick={onDelete}
+        />
       </Row>
       <Label>Name</Label>
       <SubHeading aria-level={2}>{state.name}</SubHeading>
-      <Label>Description</Label>
-      <Text>{state.description}</Text>
       <Label>Element</Label>
       <Text>{state.element}</Text>
       <Label>Roles</Label>
       <Text>{getRoles(state.element)}</Text>
-      <Label>Expected action</Label>
-      <Text>{state.action}</Text>
       <Column>{children}</Column>
-    </CardContainer>
+    </SectionContainer>
   )
 }

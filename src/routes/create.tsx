@@ -4,6 +4,7 @@ import Button from "../components/Button"
 import SectionCard from "../components/SectionCard"
 import Layout from "../components/Layout"
 import Section from "../models/section"
+import Content from "../models/content"
 import { ElementNames } from "../constants/elements"
 import { clone } from "../utilities/arrayUtilities"
 import { v4 as uuidv4 } from "uuid"
@@ -34,31 +35,20 @@ export default function Create() {
     },
   ])
 
-  function addCard(sectionsData: Section[], id: string) {
-    return sectionsData
-    // let newCards = clone(sectionsData)
-    // return newCards.map((section) => {
-    //   if (section.id === id) {
-    //     let newCard = clone(section)
-    //     newCard.children.push({
-    //       id: uuidv4(),
-    //       section: {
-    //         edit: true,
-    //         name: "Header",
-    //         description: "What's the user's expectation? Please describe.",
-    //         element: ElementNames.Header,
-    //         action: "How do you think the user will react?",
-    //       },
-    //       children: [],
-    //     })
-    //     return newCard
-    //   } else if (section.children.length) {
-    //     let newCard = clone(section)
-    //     newCard.children = addCard(section.children, id)
-    //     return newCard
-    //   }
-    //   return section
-    // })
+  function addContent(sectionsData: Section[], id: string) {
+    let newSections = clone(sectionsData)
+    return newSections.map((section) => {
+      if (section.id === id) {
+        let newSection = clone(section)
+        newSection.content.push({
+          id: uuidv4(),
+          edit: true,
+          name: "",
+        })
+        return newSection
+      }
+      return section
+    })
   }
 
   function cancelCard(sectionsData: Section[], id: string) {
@@ -76,6 +66,27 @@ export default function Create() {
     //   }
     //   return card
     // })
+  }
+
+  function deleteContent(
+    sectionsData: Section[],
+    sectionId: string,
+    contentId: string
+  ) {
+    let newSections = clone(sectionsData)
+    return newSections.map((section) => {
+      if (section.id === sectionId) {
+        let newSection = clone(section)
+        newSection.content = section.content.filter((content) => {
+          if (content.id === contentId) {
+            return false
+          }
+          return true
+        })
+        return newSection
+      }
+      return section
+    })
   }
 
   function deleteCard(sectionsData: Section[], id: string) {
@@ -108,6 +119,28 @@ export default function Create() {
     //   }
     //   return section
     // })
+  }
+
+  function updateContent(
+    sectionsData: Section[],
+    sectionId: string,
+    contentId: string,
+    newContentData: Content
+  ) {
+    let newSections = clone(sectionsData)
+    return newSections.map((section) => {
+      if (section.id === sectionId) {
+        let newSection = clone(section)
+        newSection.content = section.content.map((content) => {
+          if (content.id === contentId) {
+            return newContentData
+          }
+          return content
+        })
+        return newSection
+      }
+      return section
+    })
   }
 
   function updateCard(
@@ -145,29 +178,19 @@ export default function Create() {
 
   function renderCards(sectionsData: Section[]) {
     return sectionsData.map((section) => {
-      // if (section.children.length > 0) {
-      //   return (
-      //     <SectionCard
-      //       id={section.id}
-      //       key={section.id}
-      //       state={section}
-      //       onAddChild={() => setSections(addCard(sections, section.id))}
-      //       onCancel={() => setSections(cancelCard(sections, section.id))}
-      //       onDelete={() => setSections(deleteCard(sections, section.id))}
-      //       onEdit={() => setSections(editCard(sections, section.id))}
-      //       onSave={(newCard: Story) =>
-      //         setSections(updateCard(sections, section.id, newCard))
-      //       }
-      //     >
-      //       {renderCards(section.content)}
-      //     </SectionCard>
-      //   )
-      // }
       return (
         <SectionCard
           key={section.id}
           state={section}
-          onAddChild={() => setSections(addCard(sections, section.id))}
+          onDeleteContent={(contentId: string) =>
+            setSections(deleteContent(sections, section.id, contentId))
+          }
+          onUpdateContent={(contentId: string, contentData: Content) =>
+            setSections(
+              updateContent(sections, section.id, contentId, contentData)
+            )
+          }
+          onAddChild={() => setSections(addContent(sections, section.id))}
           onCancel={() => setSections(cancelCard(sections, section.id))}
           onDelete={() => setSections(deleteCard(sections, section.id))}
           onEdit={() => setSections(editCard(sections, section.id))}

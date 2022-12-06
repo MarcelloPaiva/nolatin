@@ -6,12 +6,14 @@ import Input from "./Input"
 import IconButton from "./IconButton"
 import { Check, Edit, Trash, X } from "react-feather"
 import Section from "../models/section"
+import Content from "../models/content"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
+import ContentCard from "./ContentCard"
 
 const sectionStyles = `
   border-radius: 12px;
-  border: 2px solid #000;
+  border: 2px solid #a8a8a8;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -19,6 +21,7 @@ const sectionStyles = `
   margin-top: 16px;
   flex: 1;
   width: 100%;
+  background-color: #f5f5f5;
 
   p,
   h2,
@@ -50,7 +53,8 @@ interface SectionProps {
   onEdit: () => void
   onSave: (newSection: Section) => void
   onAddChild: () => void
-  children?: React.ReactNode
+  onDeleteContent: (contentId: string) => void
+  onUpdateContent: (contentId: string, contentData: Content) => void
 }
 
 export default function SectionCard({
@@ -60,7 +64,8 @@ export default function SectionCard({
   onEdit,
   onSave,
   onAddChild,
-  children,
+  onDeleteContent,
+  onUpdateContent,
 }: SectionProps) {
   function getRoles(element: ElementNames): string {
     let roles = Elements[element].roles
@@ -137,10 +142,27 @@ export default function SectionCard({
         defaultValue={state.action}
         multiline
       /> */}
-      <Button style={`margin-top: 16px;`} onClick={onAddChild}>
-        Add Child
+      <Column>
+        {state.content.map((contentState) => (
+          <ContentCard
+            state={contentState}
+            onDeleteContent={() => onDeleteContent(contentState.id)}
+            onUpdateContent={(contentData: Content) =>
+              onUpdateContent(contentState.id, contentData)
+            }
+          />
+        ))}
+      </Column>
+      <Button
+        style={`
+        margin-top: 16px;
+        color: #0000ff;
+        background-color: #e1e1e1;
+      `}
+        onClick={onAddChild}
+      >
+        Add content block
       </Button>
-      <Column>{children}</Column>
     </SectionForm>
   ) : (
     <SectionContainer>
@@ -164,7 +186,17 @@ export default function SectionCard({
       <Text>{state.element}</Text>
       <Label>Roles</Label>
       <Text>{getRoles(state.element)}</Text>
-      <Column>{children}</Column>
+      <Column>
+        {state.content.map((contentState) => (
+          <ContentCard
+            state={contentState}
+            onDeleteContent={() => onDeleteContent(contentState.id)}
+            onUpdateContent={(contentData: Content) =>
+              onUpdateContent(contentState.id, contentData)
+            }
+          />
+        ))}
+      </Column>
     </SectionContainer>
   )
 }

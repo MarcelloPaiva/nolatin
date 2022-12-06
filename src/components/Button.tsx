@@ -20,12 +20,12 @@ export default function Button({
   const buttonStyles = `
     min-height: 44px;
     min-width: 44px;
-    padding: 16px 24px;
+    padding: 8px 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    border-radius: 8px;
+    border-radius: 12px;
     background-color: #000;
     color: #fff;
     font-weight: bold;

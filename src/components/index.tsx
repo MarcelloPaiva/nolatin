@@ -49,3 +49,9 @@ export const IconLabel = styled.div`
   line-height: 17px;
   color: #000;
 `
+export const ButtonNoStyle = styled.button`
+  min-height: 44px;
+  min-width: 44px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+`

@@ -4,7 +4,7 @@ import { Label } from "."
 
 interface InputProps {
   label: string
-  defaultValue: string
+  defaultValue?: string
   id?: string
   title?: boolean
   style?: string

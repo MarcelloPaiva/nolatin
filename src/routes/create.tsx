@@ -43,7 +43,6 @@ export default function Create() {
         newSection.content.push({
           id: uuidv4(),
           edit: true,
-          name: "",
         })
         return newSection
       }

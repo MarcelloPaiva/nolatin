@@ -5,6 +5,8 @@ import { ButtonNoStyle, Text } from "."
 import IconButton from "./IconButton"
 import { X } from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
+import ButtonContent from "./contentCards/ButtonContent"
+import TitleContent from "./contentCards/TitleContent"
 
 interface ContentProps {
   state: Content
@@ -48,11 +50,23 @@ export default function ContentCard({
   function renderContent(type: ContentTypes) {
     switch (type) {
       case ContentTypes.Bullets:
-        return <div>{type}</div>
+        return (
+          <ButtonContent
+            edit={state.edit}
+            label={state.title ?? ""}
+            action={state.description ?? ""}
+          />
+        )
       case ContentTypes.BulletsLink:
         return <div>{type}</div>
       case ContentTypes.Button:
-        return <div>{type}</div>
+        return (
+          <ButtonContent
+            edit={state.edit}
+            label={state.title ?? ""}
+            action={state.description ?? ""}
+          />
+        )
       case ContentTypes.Checkbox:
         return <div>{type}</div>
       case ContentTypes.Dropdown:
@@ -70,7 +84,13 @@ export default function ContentCard({
       case ContentTypes.Radio:
         return <div>{type}</div>
       case ContentTypes.Title:
-        return <div>{type}</div>
+        return (
+          <TitleContent
+            edit={state.edit}
+            title={state.title ?? ""}
+            description={state.description ?? ""}
+          />
+        )
       default:
         return null
     }

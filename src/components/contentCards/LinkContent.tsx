@@ -1,24 +1,25 @@
 import Input from "../Input"
 import { Label, Text } from ".."
+import { ContentProps } from "./ContentProps"
 
-interface LinkContentProps {
-  edit: boolean
-  label: string
-  url: string
-}
-
-export default function LinkContent({ edit, label, url }: LinkContentProps) {
+export default function LinkContent({
+  state: { edit, title, url, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
-          <Input label="Descriptive Link" defaultValue={label} />
-          <Input label="Destination URL" defaultValue={url} />
+          <Input
+            id={`${id}-title`}
+            label="Descriptive Link"
+            defaultValue={title}
+          />
+          <Input id={`${id}-url`} label="Destination URL" defaultValue={url} />
         </>
       ) : (
         <>
           <Label>Descriptive Link</Label>
-          <Text>{label}</Text>
+          <Text>{title}</Text>
           <Label>Destination URL</Label>
           <Text>{url}</Text>
         </>

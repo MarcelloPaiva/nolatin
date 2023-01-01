@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { ContentTypes } from "../constants/contentTypes"
 
 const Label = styled.div`
   font-size: 0.75rem;
@@ -18,6 +19,7 @@ interface DropdownProps {
   id?: string
   defaultValue?: string
   style?: string
+  onSelect?: (value: any) => void
 }
 
 export default function Dropdown({
@@ -26,6 +28,7 @@ export default function Dropdown({
   id,
   defaultValue,
   style,
+  onSelect,
 }: DropdownProps) {
   const InputContainer = styled.div`
     width: 100%;
@@ -52,7 +55,13 @@ export default function Dropdown({
   return (
     <InputContainer>
       <Label>{label}</Label>
-      <Select defaultValue={defaultValue} id={id}>
+      <Select
+        defaultValue={defaultValue}
+        id={id}
+        onChange={(event) => {
+          if (onSelect) onSelect(event.target.value)
+        }}
+      >
         {options.map((option) => (
           <Option value={option.value}>{option.label}</Option>
         ))}

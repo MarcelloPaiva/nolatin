@@ -35,13 +35,21 @@ export default function appReducer(state: AppContextState, action: Actions) {
           id: uuid(),
           edit: true,
           children: [],
+          title: "",
+          description: "",
         })
       } else {
         pages[pageIndex].sections[sectionIndex].children = modifyNode(
           clone(pages[pageIndex].sections[sectionIndex].children),
           action.payload.parentId,
           (node) => {
-            node.children.push({ id: uuid(), edit: true, children: [] })
+            node.children.push({
+              id: uuid(),
+              edit: true,
+              children: [],
+              title: "",
+              description: "",
+            })
             return node
           }
         )

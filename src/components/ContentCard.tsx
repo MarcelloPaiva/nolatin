@@ -10,6 +10,14 @@ import TitleContent from "./contentCards/TitleContent"
 import { useContext } from "react"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
+import BulletedContent from "./contentCards/BulletedContent"
+import BulletedLinkContent from "./contentCards/BulletedLinkContent"
+import ImageContent from "./contentCards/ImageContent"
+import InputContent from "./contentCards/InputContent"
+import LinkContent from "./contentCards/LinkContent"
+import NumberedContent from "./contentCards/NumberedContent"
+import NumberedLinkContent from "./contentCards/NumberedLinkContent"
+import Dropdown from "./Dropdown"
 
 interface ContentProps {
   pageId: string
@@ -60,61 +68,113 @@ export default function ContentCard({
   function renderContent(type: ContentTypes) {
     switch (type) {
       case ContentTypes.Bullets:
-        return (
-          <ButtonContent
-            edit={state.edit}
-            label={state.title ?? ""}
-            action={state.description ?? ""}
-          />
-        )
+        return <BulletedContent state={state} />
       case ContentTypes.BulletsLink:
-        return <div>{type}</div>
+        return <BulletedLinkContent state={state} />
       case ContentTypes.Button:
-        return (
-          <ButtonContent
-            edit={state.edit}
-            label={state.title ?? ""}
-            action={state.description ?? ""}
-          />
-        )
-      case ContentTypes.Checkbox:
-        return <div>{type}</div>
-      case ContentTypes.Dropdown:
-        return <div>{type}</div>
+        return <ButtonContent state={state} />
+      // case ContentTypes.Checkbox:
+      //   return <div>{type}</div>
+      // case ContentTypes.Dropdown:
+      //   return <div>{type}</div>
       case ContentTypes.Image:
-        return <div>{type}</div>
+        return <ImageContent state={state} />
       case ContentTypes.Input:
-        return <div>{type}</div>
+        return <InputContent state={state} />
       case ContentTypes.Link:
-        return <div>{type}</div>
+        return <LinkContent state={state} />
       case ContentTypes.Numbers:
-        return <div>{type}</div>
+        return <NumberedContent state={state} />
       case ContentTypes.NumbersLink:
-        return <div>{type}</div>
-      case ContentTypes.Radio:
-        return <div>{type}</div>
+        return <NumberedLinkContent state={state} />
+      // case ContentTypes.Radio:
+      //   return <div>{type}</div>
       case ContentTypes.Title:
         return (
-          <TitleContent
-            edit={state.edit}
-            title={state.title ?? ""}
-            description={state.description ?? ""}
-          />
+          <TitleContent state={state} pageId={pageId} sectionId={sectionId} />
         )
       default:
         return null
     }
   }
 
+  function getFormData(): Omit<Content, "id" | "children" | "type" | "edit"> {
+    const title = document.getElementById(
+      state.id + "-title"
+    ) as HTMLInputElement | null
+    const description = document.getElementById(
+      state.id + "-description"
+    ) as HTMLSelectElement | null
+    const url = document.getElementById(
+      state.id + "-url"
+    ) as HTMLSelectElement | null
+    return {
+      title: title?.value ?? "",
+      description: description?.value ?? "",
+      url: url?.value ?? "",
+    }
+  }
+
   function handleSelect(type: ContentTypes) {
     let newContent = clone(state)
     newContent.type = type
-    // onUpdateContent(newContent)
+    dispatch({
+      type: ActionTypes.UpdateContent,
+      payload: {
+        pageId,
+        sectionId,
+        id: state.id,
+        state: newContent,
+      },
+    })
   }
 
-  function handleSave() {}
-  function handleCancel() {}
-  function handleEdit() {}
+  function handleSave() {
+    let formData = getFormData()
+    let newContent = clone(state)
+    dispatch({
+      type: ActionTypes.UpdateContent,
+      payload: {
+        pageId,
+        sectionId,
+        id: state.id,
+        state: {
+          ...newContent,
+          ...formData,
+          edit: false,
+          children: newContent.children,
+        },
+      },
+    })
+  }
+
+  function handleCancel() {
+    let newContent = clone(state)
+    newContent.edit = false
+    dispatch({
+      type: ActionTypes.UpdateContent,
+      payload: {
+        pageId,
+        sectionId,
+        id: state.id,
+        state: newContent,
+      },
+    })
+  }
+
+  function handleEdit() {
+    let newContent = clone(state)
+    newContent.edit = true
+    dispatch({
+      type: ActionTypes.UpdateContent,
+      payload: {
+        pageId,
+        sectionId,
+        id: state.id,
+        state: newContent,
+      },
+    })
+  }
 
   if (state.type) {
     if (state.edit) {
@@ -134,6 +194,15 @@ export default function ContentCard({
               onClick={handleCancel}
             />
           </Row>
+          <Dropdown
+            label="Content type"
+            defaultValue={state.type}
+            options={Object.values(ContentTypes).map((type) => ({
+              label: type,
+              value: type,
+            }))}
+            onSelect={handleSelect}
+          />
           {renderContent(state.type)}
         </CardForm>
       )

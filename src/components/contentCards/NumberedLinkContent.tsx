@@ -1,22 +1,18 @@
 import Input from "../Input"
 import { Label } from ".."
-
-interface NumberedLinkContentProps {
-  edit: boolean
-  items: string
-}
+import { ContentProps } from "./ContentProps"
 
 export default function NumberedLinkContent({
-  edit,
-  items,
-}: NumberedLinkContentProps) {
+  state: { edit, description, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
           <Input
+            id={`${id}-description`}
             label="List items in separate lines (Markdown)"
-            defaultValue={items}
+            defaultValue={description}
             multiline
           />
         </>

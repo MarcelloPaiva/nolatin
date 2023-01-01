@@ -1,19 +1,18 @@
 import Input from "../Input"
 import { Label } from ".."
+import { ContentProps } from "./ContentProps"
 
-interface BulletedContentProps {
-  edit: boolean
-  items: string
-}
-
-export default function BulletedContent({ edit, items }: BulletedContentProps) {
+export default function BulletedContent({
+  state: { edit, description, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
           <Input
+            id={`${id}-description`}
             label="List items in separate lines (Markdown)"
-            defaultValue={items}
+            defaultValue={description}
             multiline
           />
         </>

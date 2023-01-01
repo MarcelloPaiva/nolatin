@@ -13,6 +13,7 @@ import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
 import { Actions, ActionTypes } from "../context/actions"
 import { Action } from "@remix-run/router"
+import { clone } from "../utilities/arrayUtilities"
 
 const sectionStyles = `
   border-radius: 12px;
@@ -81,11 +82,31 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     }
   }
 
-  function handleSave() {}
+  function handleSave() {
+    let newState = getFormData()
+    dispatch({
+      type: ActionTypes.UpdateSection,
+      payload: { pageId, sectionId: state.id, state: newState },
+    })
+  }
 
-  function handleCancel() {}
+  function handleCancel() {
+    let newState = clone(state)
+    newState.edit = false
+    dispatch({
+      type: ActionTypes.UpdateSection,
+      payload: { pageId, sectionId: state.id, state: newState },
+    })
+  }
 
-  function handleEdit() {}
+  function handleEdit() {
+    let newState = clone(state)
+    newState.edit = true
+    dispatch({
+      type: ActionTypes.UpdateSection,
+      payload: { pageId, sectionId: state.id, state: newState },
+    })
+  }
 
   return state.edit ? (
     <SectionForm>
@@ -123,31 +144,14 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             margin-bottom: 16px;
         `}
       />
-      {/* <Input
-        id={id + "-description"}
-        label="Description"
-        defaultValue={state.description}
-        multiline
-        style={`
-            margin-bottom: 16px;
-        `}
-      />
-      <Input
-        id={id + "-action"}
-        label="Expected action"
-        defaultValue={state.action}
-        multiline
-      /> */}
       <Column>
-        {/* {state.children.map((contentState) => (
+        {state.children.map((contentState) => (
           <ContentCard
+            pageId={pageId}
+            sectionId={state.id}
             state={contentState}
-            onDeleteContent={() => onDeleteContent(contentState.id)}
-            onUpdateContent={(contentData: Content) =>
-              onUpdateContent(contentState.id, contentData)
-            }
           />
-        ))} */}
+        ))}
       </Column>
       <Button
         style={`
@@ -201,15 +205,13 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       <Label>Roles</Label>
       <Text>{getRoles(state.element)}</Text>
       <Column>
-        {/* {state.children.map((contentState) => (
+        {state.children.map((contentState) => (
           <ContentCard
+            pageId={pageId}
+            sectionId={state.id}
             state={contentState}
-            onDeleteContent={() => onDeleteContent(contentState.id)}
-            onUpdateContent={(contentData: Content) =>
-              onUpdateContent(contentState.id, contentData)
-            }
           />
-        ))} */}
+        ))}
       </Column>
     </SectionContainer>
   )

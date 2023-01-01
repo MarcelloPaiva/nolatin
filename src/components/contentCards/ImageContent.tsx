@@ -1,26 +1,21 @@
 import Input from "../Input"
 import { Label, Text } from ".."
+import { ContentProps } from "./ContentProps"
 
-interface ButtonContentProps {
-  edit: boolean
-  title: string
-  url: string
-  caption: string
-}
-
-export default function ButtonContent({
-  edit,
-  title,
-  url,
-  caption,
-}: ButtonContentProps) {
+export default function ImageContent({
+  state: { edit, title, url, description, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
-          <Input label="Description" defaultValue={title} />
-          <Input label="Source URL" defaultValue={url} />
-          <Input label="Caption" defaultValue={caption} />
+          <Input id={`${id}-title`} label="Description" defaultValue={title} />
+          <Input id={`${id}-url`} label="Source URL" defaultValue={url} />
+          <Input
+            id={`${id}-description`}
+            label="Caption"
+            defaultValue={description}
+          />
         </>
       ) : (
         <>
@@ -29,7 +24,7 @@ export default function ButtonContent({
           <Label>Source URL</Label>
           <Text>{url}</Text>
           <Label>Caption</Label>
-          <Text>{caption}</Text>
+          <Text>{description}</Text>
         </>
       )}
     </>

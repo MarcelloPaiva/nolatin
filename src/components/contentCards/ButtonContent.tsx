@@ -1,30 +1,31 @@
 import Input from "../Input"
 import { Label, Text } from ".."
-
-interface ButtonContentProps {
-  edit: boolean
-  label: string
-  action: string
-}
+import { ContentProps } from "./ContentProps"
 
 export default function ButtonContent({
-  edit,
-  label,
-  action,
-}: ButtonContentProps) {
+  state: { edit, description, title, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
-          <Input label="Descriptive label" defaultValue={label} />
-          <Input label="Action" defaultValue={action} />
+          <Input
+            id={`${id}-title`}
+            label="Descriptive label"
+            defaultValue={title}
+          />
+          <Input
+            id={`${id}-description`}
+            label="Action"
+            defaultValue={description}
+          />
         </>
       ) : (
         <>
           <Label>Descriptive label</Label>
-          <Text>{label}</Text>
+          <Text>{title}</Text>
           <Label>Action</Label>
-          <Text>{action}</Text>
+          <Text>{description}</Text>
         </>
       )}
     </>

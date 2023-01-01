@@ -1,14 +1,7 @@
 import Input from "../Input"
 import Dropdown from "../Dropdown"
 import { Label, Text } from ".."
-
-interface InputContentProps {
-  edit: boolean
-  label: string
-  type: string
-  placeholder: string
-}
-
+import { ContentProps } from "./ContentProps"
 const inputTypes = [
   { label: "text", value: "text" },
   { label: "password", value: "password" },
@@ -22,31 +15,37 @@ const inputTypes = [
 ]
 
 export default function InputContent({
-  edit,
-  label,
-  type,
-  placeholder,
-}: InputContentProps) {
+  state: { edit, title, url, description, id },
+}: ContentProps) {
   return (
     <>
       {edit ? (
         <>
-          <Input label="Descriptive label" defaultValue={label} />
+          <Input
+            id={`${id}-title`}
+            label="Descriptive label"
+            defaultValue={title}
+          />
           <Dropdown
+            id={`${id}-url`}
             label="Input type"
             options={inputTypes}
-            defaultValue={type}
+            defaultValue={url}
           />
-          <Input label="Placeholder" defaultValue={placeholder} />
+          <Input
+            id={`${id}-description`}
+            label="Placeholder"
+            defaultValue={description}
+          />
         </>
       ) : (
         <>
           <Label>Descriptive label</Label>
-          <Text>{label}</Text>
+          <Text>{title}</Text>
           <Label>Input type</Label>
-          <Text>{type}</Text>
+          <Text>{url}</Text>
           <Label>Placeholder</Label>
-          <Text>{placeholder}</Text>
+          <Text>{description}</Text>
         </>
       )}
     </>

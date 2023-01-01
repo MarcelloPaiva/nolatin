@@ -3,15 +3,18 @@ import styled from "styled-components"
 import { ContentTypes } from "../constants/contentTypes"
 import { ButtonNoStyle, Text } from "."
 import IconButton from "./IconButton"
-import { X } from "react-feather"
+import { Check, Edit, Trash, X } from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
 import TitleContent from "./contentCards/TitleContent"
+import { useContext } from "react"
+import { AppContext } from "../context/AppContext"
+import { ActionTypes } from "../context/actions"
 
 interface ContentProps {
+  pageId: string
+  sectionId: string
   state: Content
-  onDeleteContent: () => void
-  onUpdateContent: (contentData: Content) => void
 }
 
 const Selection = styled.div`
@@ -42,11 +45,18 @@ const CardForm = styled.form`
   ${cardStyles}
 `
 
+const Row = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 export default function ContentCard({
   state,
-  onDeleteContent,
-  onUpdateContent,
+  pageId,
+  sectionId,
 }: ContentProps) {
+  const { dispatch } = useContext(AppContext)
+
   function renderContent(type: ContentTypes) {
     switch (type) {
       case ContentTypes.Bullets:
@@ -99,14 +109,63 @@ export default function ContentCard({
   function handleSelect(type: ContentTypes) {
     let newContent = clone(state)
     newContent.type = type
-    onUpdateContent(newContent)
+    // onUpdateContent(newContent)
   }
+
+  function handleSave() {}
+  function handleCancel() {}
+  function handleEdit() {}
 
   if (state.type) {
     if (state.edit) {
-      return <CardForm>{renderContent(state.type)}</CardForm>
+      return (
+        <CardForm>
+          <Row>
+            <IconButton
+              icon={Check}
+              aria="Save Section"
+              label="Save"
+              onClick={handleSave}
+            />
+            <IconButton
+              icon={X}
+              aria="Cancel Edit"
+              label="Cancel"
+              onClick={handleCancel}
+            />
+          </Row>
+          {renderContent(state.type)}
+        </CardForm>
+      )
     }
-    return <CardContainer>{renderContent(state.type)}</CardContainer>
+    return (
+      <CardContainer>
+        <Row>
+          <IconButton
+            icon={Edit}
+            aria="Edit Story"
+            label="Edit"
+            onClick={handleEdit}
+          />
+          <IconButton
+            icon={Trash}
+            aria="Delete Story"
+            label="Delete"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.DeleteNode,
+                payload: {
+                  pageId,
+                  sectionId,
+                  id: state.id,
+                },
+              })
+            }
+          />
+        </Row>
+        {renderContent(state.type)}
+      </CardContainer>
+    )
   }
   return (
     <Selection>
@@ -115,7 +174,16 @@ export default function ContentCard({
           icon={X}
           aria="Remove Content Block"
           label="Cancel"
-          onClick={onDeleteContent}
+          onClick={() =>
+            dispatch({
+              type: ActionTypes.DeleteNode,
+              payload: {
+                pageId,
+                sectionId,
+                id: state.id,
+              },
+            })
+          }
         />
       </Corner>
       <Text

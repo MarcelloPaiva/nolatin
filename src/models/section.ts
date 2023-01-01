@@ -6,5 +6,9 @@ export default interface Section {
   edit: boolean
   name: string
   element: ElementNames
-  content: Content[]
+  children: Content[]
+}
+
+export function isSection(object: Section | Content): object is Section {
+  return (object as Section).element !== undefined
 }

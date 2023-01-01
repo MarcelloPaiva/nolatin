@@ -34,7 +34,7 @@ export default function Guides() {
       <Text>
         The following examples show the content hierachy for a Job Board page:
       </Text>
-      <Button style={`margin: 40px 0px`} link="create">
+      <Button style={`margin: 40px 0px`} link="pages">
         Create Priority Guides
       </Button>
       <Divider />

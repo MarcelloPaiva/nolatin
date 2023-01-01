@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
@@ -10,6 +10,9 @@ import Content from "../models/content"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
 import ContentCard from "./ContentCard"
+import { AppContext } from "../context/AppContext"
+import { Actions, ActionTypes } from "../context/actions"
+import { Action } from "@remix-run/router"
 
 const sectionStyles = `
   border-radius: 12px;
@@ -47,26 +50,13 @@ const Row = styled.div`
 `
 
 interface SectionProps {
+  pageId: string
   state: Section
-  onCancel: () => void
-  onDelete: () => void
-  onEdit: () => void
-  onSave: (newSection: Section) => void
-  onAddChild: () => void
-  onDeleteContent: (contentId: string) => void
-  onUpdateContent: (contentId: string, contentData: Content) => void
 }
 
-export default function SectionCard({
-  state,
-  onCancel,
-  onDelete,
-  onEdit,
-  onSave,
-  onAddChild,
-  onDeleteContent,
-  onUpdateContent,
-}: SectionProps) {
+export default function SectionCard({ pageId, state }: SectionProps) {
+  const { dispatch } = useContext(AppContext)
+
   function getRoles(element: ElementNames): string {
     let roles = Elements[element].roles
     let roleString = ""
@@ -87,9 +77,15 @@ export default function SectionCard({
       edit: false,
       name: name.value,
       element: element.value as ElementNames,
-      content: state.content,
+      children: state.children,
     }
   }
+
+  function handleSave() {}
+
+  function handleCancel() {}
+
+  function handleEdit() {}
 
   return state.edit ? (
     <SectionForm>
@@ -98,13 +94,13 @@ export default function SectionCard({
           icon={Check}
           aria="Save Section"
           label="Save"
-          onClick={() => onSave(getFormData())}
+          onClick={handleSave}
         />
         <IconButton
           icon={X}
           aria="Cancel Edit"
           label="Cancel"
-          onClick={onCancel}
+          onClick={handleCancel}
         />
       </Row>
       <Input
@@ -143,7 +139,7 @@ export default function SectionCard({
         multiline
       /> */}
       <Column>
-        {state.content.map((contentState) => (
+        {/* {state.children.map((contentState) => (
           <ContentCard
             state={contentState}
             onDeleteContent={() => onDeleteContent(contentState.id)}
@@ -151,7 +147,7 @@ export default function SectionCard({
               onUpdateContent(contentState.id, contentData)
             }
           />
-        ))}
+        ))} */}
       </Column>
       <Button
         style={`
@@ -159,7 +155,16 @@ export default function SectionCard({
         color: #0000ff;
         background-color: #e1e1e1;
       `}
-        onClick={onAddChild}
+        onClick={() =>
+          dispatch({
+            type: ActionTypes.CreateContent,
+            payload: {
+              pageId,
+              parentId: state.id,
+              sectionId: state.id,
+            },
+          })
+        }
       >
         Add content block
       </Button>
@@ -171,13 +176,22 @@ export default function SectionCard({
           icon={Edit}
           aria="Edit Story"
           label="Edit"
-          onClick={onEdit}
+          onClick={handleEdit}
         />
         <IconButton
           icon={Trash}
           aria="Delete Story"
           label="Delete"
-          onClick={onDelete}
+          onClick={() =>
+            dispatch({
+              type: ActionTypes.DeleteNode,
+              payload: {
+                pageId,
+                sectionId: state.id,
+                id: state.id,
+              },
+            })
+          }
         />
       </Row>
       <Label>Name</Label>
@@ -187,7 +201,7 @@ export default function SectionCard({
       <Label>Roles</Label>
       <Text>{getRoles(state.element)}</Text>
       <Column>
-        {state.content.map((contentState) => (
+        {/* {state.children.map((contentState) => (
           <ContentCard
             state={contentState}
             onDeleteContent={() => onDeleteContent(contentState.id)}
@@ -195,7 +209,7 @@ export default function SectionCard({
               onUpdateContent(contentState.id, contentData)
             }
           />
-        ))}
+        ))} */}
       </Column>
     </SectionContainer>
   )

@@ -6,4 +6,5 @@ export default interface Content {
   title?: string
   description?: string
   type?: ContentTypes
+  children: Content[]
 }

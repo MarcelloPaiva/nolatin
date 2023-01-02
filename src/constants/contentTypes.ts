@@ -3,7 +3,7 @@ export enum ContentTypes {
   Button = "Call-to-action button",
   Link = "Call-to-action link",
   Input = "Input field",
-  // Dropdown = "Select field",
+  Dropdown = "Select field",
   Image = "Image with description",
   // Checkbox = "List of check-boxes",
   // Radio = "List of radio-buttons",

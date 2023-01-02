@@ -18,6 +18,7 @@ import LinkContent from "./contentCards/LinkContent"
 import NumberedContent from "./contentCards/NumberedContent"
 import NumberedLinkContent from "./contentCards/NumberedLinkContent"
 import Dropdown from "./Dropdown"
+import DropdownContent from "./contentCards/DropdownContent"
 
 interface ContentProps {
   pageId: string
@@ -75,8 +76,8 @@ export default function ContentCard({
         return <ButtonContent state={state} />
       // case ContentTypes.Checkbox:
       //   return <div>{type}</div>
-      // case ContentTypes.Dropdown:
-      //   return <div>{type}</div>
+      case ContentTypes.Dropdown:
+        return <DropdownContent state={state} />
       case ContentTypes.Image:
         return <ImageContent state={state} />
       case ContentTypes.Input:

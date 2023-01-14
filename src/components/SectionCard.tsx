@@ -16,8 +16,8 @@ import { Action } from "@remix-run/router"
 import { clone } from "../utilities/arrayUtilities"
 
 const sectionStyles = `
-  border-radius: 12px;
-  border: 2px solid #a8a8a8;
+  border-radius: 16px;
+  border: 4px dashed #000;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -25,7 +25,7 @@ const sectionStyles = `
   margin-top: 16px;
   flex: 1;
   width: 100%;
-  background-color: #f5f5f5;
+  background-color: #fff;
 
   p,
   h2,
@@ -155,9 +155,13 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       </Column>
       <Button
         style={`
-        margin-top: 16px;
-        color: #0000ff;
-        background-color: #e1e1e1;
+        margin-top: 1rem;
+        font-size: 1.25rem;
+        background-color: hsla(120,100%,60%, 0.1);
+        color: hsla(120,100%,25%, 0.85);
+        border: 3px solid hsla(120,100%,30%, 0.75);
+        width: auto;
+        margin: 2rem auto 0;
       `}
         onClick={() =>
           dispatch({

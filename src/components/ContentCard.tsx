@@ -28,12 +28,13 @@ interface ContentProps {
 
 const Selection = styled.div`
   position: relative;
-  background-color: #f5f5f5;
-  box-shadow: 0 0 0 16px #e1e1e1;
+  background-color: #fff;
+  box-shadow: 0 0 0 4px hsla(120,100%,40%, 0.5);
   border-radius: 8px;
-  padding: 16px;
+  padding: 24px;
   margin: 16px;
-  margin-bottom: 32px;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
   display: flex;
   flex-direction: column;
 `
@@ -43,7 +44,10 @@ const Corner = styled.div`
   right: 16px;
 `
 const cardStyles = `
-  background-color: #e1e1e1;
+  background-color: hsla(120,100%,60%, 0.1);
+  border: 3px solid hsla(120,100%,20%, 0.25); 
+  margin-top: 1rem;
+  margin-bottom: .5rem;
   border-radius: 8px;
   padding: 16px;
 `
@@ -258,16 +262,25 @@ export default function ContentCard({
       </Corner>
       <Text
         style={{
-          color: "#a8a8a8",
+          color: "#000",
+          fontWeight: "bold",
+          marginBottom: "2rem",
         }}
       >
-        Block type
+        Select content block type:
       </Text>
 
       {(Object.keys(ContentTypes) as Array<keyof typeof ContentTypes>).map(
         (key) => (
           <ButtonNoStyle onClick={() => handleSelect(ContentTypes[key])}>
-            <Text>{ContentTypes[key]}</Text>
+            <Text    
+            style={{
+              color: "hsla(120,100%,25%, 1)",
+              fontSize: "1.25rem",
+              lineHeight: "1.25rem",
+            }}
+            >
+              {ContentTypes[key]}</Text>
           </ButtonNoStyle>
         )
       )}

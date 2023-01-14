@@ -4,3 +4,8 @@ body {
   margin: 0 auto;
   float: none;
 }
+
+*:focus {
+ outline: hsl(213, 87%, 42%) solid 8px;
+ outline-offset: 4px; 
+}

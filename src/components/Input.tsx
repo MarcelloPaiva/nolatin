@@ -28,12 +28,13 @@ export default function Input({
 
   const inputStyles = `
     background-color: #fff;
-    border: 1px solid #000;
-    padding: 8px;
+    border: 3px solid #000;
+    border-radius: 4px;
+    padding: 1rem;
     font-family: "Roboto", sans-serif;
-    font-size: ${title ? 1.5 : 1}rem;
+    font-size: ${title ? 1.5 : 1.25}rem;
     font-weight: ${title ? "bold" : "regular"};
-    line-height: ${title ? 32 : 26}px;
+    line-height: ${title ? 1.5 : 1.25}rem;
   `
   const TextInput = styled.input`
     ${inputStyles}

@@ -1,12 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { ContentTypes } from "../constants/contentTypes"
-
-const Label = styled.div`
-  font-size: 0.75rem;
-  line-height: 17px;
-  color: #757575;
-`
+import { Label } from "./"
 
 interface OptionData {
   label: string
@@ -39,18 +34,19 @@ export default function Dropdown({
 
   const Select = styled.select`
     background-color: #fff;
-    border: 1px solid #000;
-    padding: 8px;
-    font-size: 1rem;
-    font-weight: regular;
-    font-family: "Roboto", sans-serif;
-    line-height: 26px;
+    border: 3px solid #000;
+    border-radius: 4px;
+    padding: 1rem;
+    font-size: 1.25rem;
+    // font-weight: regular;
+    // font-family: "Roboto", sans-serif;
+    // line-height: 26px;
   `
-
+  
   const Option = styled.option`
-    font-size: 1rem;
-    font-weight: regular;
-    line-height: 26px;
+    // font-size: 1rem;
+    // font-weight: regular;
+    // line-height: 26px;
   `
   return (
     <InputContainer>

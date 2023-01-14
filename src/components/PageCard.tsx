@@ -4,7 +4,7 @@ import { ChevronRight } from "react-feather"
 const PageTitle = styled.span`
   text-align: left;
   font-weight: bold;
-  font-size: 1.25rem;
+  // font-size: 1.25rem;
   line-height: 28px;
 `
 

@@ -35,10 +35,11 @@ export const Bold = styled.strong`
   // line-height: 26px;
 `
 export const Label = styled.div`
-  // font-size: 0.75rem;
+  font-size: 1.25rem;
   // line-height: 17px;
   // color: #000;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
 `
 export const Divider = styled.div`
   height: 2px;

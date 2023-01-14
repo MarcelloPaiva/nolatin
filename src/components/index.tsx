@@ -15,7 +15,7 @@ export const SubTitleBold = styled.h2`
   // font-size: 1rem;
   // line-height: 26px;
 `
-export const SubHeading = styled.h3`
+export const SubHeading = styled.h2`
   font-weight: bold;
   // font-size: 1.5rem;
   // line-height: 32px;

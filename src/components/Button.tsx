@@ -29,7 +29,7 @@ export default function Button({
     background-color: #000;
     color: #fff;
     font-weight: bold;
-    // font-size: 1.5rem; 
+    font-size: 1.5rem; 
     line-height: 26px;
     ${style}
   `

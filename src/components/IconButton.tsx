@@ -12,6 +12,7 @@ interface IconButtonProps {
   style?: string
   size?: number
   color?: string
+  disabled?: boolean
 }
 
 export default function IconButton({
@@ -23,6 +24,7 @@ export default function IconButton({
   style,
   size,
   color = "#000",
+  disabled = false,
 }: IconButtonProps) {
   const buttonStyles = `
     min-height: 44px;
@@ -38,6 +40,9 @@ export default function IconButton({
 
   const Button = styled.button`
     ${buttonStyles}
+    &:disabled {
+      color: #a8a8a8;
+    }
   `
   const Link = styled.a`
     ${buttonStyles}
@@ -49,8 +54,8 @@ export default function IconButton({
       <IconLabel>{label}</IconLabel>
     </Link>
   ) : (
-    <Button onClick={onClick} aria-label={aria}>
-      <Icon size={size} color={color} />
+    <Button onClick={onClick} aria-label={aria} disabled={disabled}>
+      <Icon size={size} color={disabled ? "#a8a8a8" : color} />
       <IconLabel>{label}</IconLabel>
     </Button>
   )

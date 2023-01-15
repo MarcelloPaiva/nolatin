@@ -9,6 +9,7 @@ interface InputProps {
   title?: boolean
   style?: string
   multiline?: boolean
+  onBlur?: () => void
 }
 
 export default function Input({
@@ -18,6 +19,7 @@ export default function Input({
   title = false,
   multiline = false,
   style,
+  onBlur,
 }: InputProps) {
   const InputContainer = styled.div`
     width: 100%;
@@ -46,9 +48,19 @@ export default function Input({
     <InputContainer>
       <Label>{label}</Label>
       {multiline ? (
-        <TextArea aria-label={label} defaultValue={defaultValue} id={id} />
+        <TextArea
+          aria-label={label}
+          defaultValue={defaultValue}
+          id={id}
+          onBlur={onBlur}
+        />
       ) : (
-        <TextInput aria-label={label} defaultValue={defaultValue} id={id} />
+        <TextInput
+          aria-label={label}
+          defaultValue={defaultValue}
+          id={id}
+          onBlur={onBlur}
+        />
       )}
     </InputContainer>
   )

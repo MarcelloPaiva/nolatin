@@ -2,6 +2,7 @@ import Input from "../Input"
 import Dropdown from "../Dropdown"
 import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
+
 const inputTypes = [
   { label: "text", value: "text" },
   { label: "password", value: "password" },

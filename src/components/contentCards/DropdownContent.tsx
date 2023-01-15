@@ -1,6 +1,7 @@
 import Input from "../Input"
 import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
+import { getQuoteList } from "../../utilities/listUtilities"
 
 export default function DropdownContent({
   state: { edit, title, url, description, id },
@@ -16,7 +17,7 @@ export default function DropdownContent({
           />
           <Input
             id={`${id}-description`}
-            label="Options (separated by comma)"
+            label={`Options: Wrap each item in double quotes ("option1" "option2")`}
             defaultValue={description}
             multiline
           />
@@ -25,8 +26,12 @@ export default function DropdownContent({
         <>
           <Label>Descriptive label</Label>
           <Text>{title}</Text>
-          <Label>Options (separated by comma)</Label>
-          <Text>{description}</Text>
+          <Label>Options</Label>
+          <ul>
+            {getQuoteList(description)?.map((item) => (
+              <li key={id + item}>{item}</li>
+            ))}
+          </ul>
         </>
       )}
     </>

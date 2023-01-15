@@ -1,6 +1,4 @@
-import React from "react"
 import styled from "styled-components"
-import { ContentTypes } from "../constants/contentTypes"
 import { Label } from "./"
 
 interface OptionData {
@@ -42,7 +40,7 @@ export default function Dropdown({
     // font-family: "Roboto", sans-serif;
     // line-height: 26px;
   `
-  
+
   const Option = styled.option`
     // font-size: 1rem;
     // font-weight: regular;
@@ -59,7 +57,9 @@ export default function Dropdown({
         }}
       >
         {options.map((option) => (
-          <Option value={option.value}>{option.label}</Option>
+          <Option value={option.value} key={option.value}>
+            {option.label}
+          </Option>
         ))}
       </Select>
     </InputContainer>

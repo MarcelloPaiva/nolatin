@@ -1,5 +1,5 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { Label, Link, Text } from ".."
 import { ContentProps } from "./ContentProps"
 import styled from "styled-components"
 
@@ -28,7 +28,7 @@ export default function ImageContent({
           <Label>Description</Label>
           <Text>{title}</Text>
           <Label>Source URL</Label>
-          <Text>{url}</Text>
+          <Link href={url}>{url}</Link>
           <Image src={url} alt={title} />
           <Label>Caption</Label>
           <Text>{description}</Text>

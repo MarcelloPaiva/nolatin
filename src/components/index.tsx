@@ -25,6 +25,7 @@ export const Text = styled.p`
   text-align: left;
   font-weight: normal;
   font-size: 1.25rem;
+  overflow-wrap: anywhere;
   // line-height: 26px;
 `
 export const Bold = styled.strong`
@@ -56,4 +57,11 @@ export const ButtonNoStyle = styled.button`
   min-width: 44px;
   background-color: rgba(0, 0, 0, 0);
   border: none;
+`
+export const Link = styled.a`
+  width: 100%;
+  text-align: left;
+  font-weight: normal;
+  font-size: 1.25rem;
+  overflow-wrap: anywhere;
 `

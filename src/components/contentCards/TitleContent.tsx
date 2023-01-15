@@ -49,7 +49,12 @@ export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
             Add content block
           </Button>
           {state.children.map((child) => (
-            <ContentCard state={child} sectionId={sectionId} pageId={pageId} />
+            <ContentCard
+              state={child}
+              sectionId={sectionId}
+              pageId={pageId}
+              key={child.id}
+            />
           ))}
         </>
       ) : (
@@ -59,7 +64,12 @@ export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
           <Label>Description</Label>
           <Text>{state.description}</Text>
           {state.children.map((child) => (
-            <ContentCard state={child} sectionId={sectionId} pageId={pageId} />
+            <ContentCard
+              state={child}
+              sectionId={sectionId}
+              pageId={pageId}
+              key={child.id}
+            />
           ))}
         </>
       )}

@@ -29,12 +29,12 @@ interface ContentProps {
 const Selection = styled.div`
   position: relative;
   background-color: #fff;
-  box-shadow: 0 0 0 4px hsla(120,100%,40%, 0.5);
+  box-shadow: 0 0 0 4px hsla(120, 100%, 40%, 0.5);
   border-radius: 8px;
   padding: 24px;
   margin: 16px;
   margin-top: 1rem;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
 `
@@ -272,15 +272,19 @@ export default function ContentCard({
 
       {(Object.keys(ContentTypes) as Array<keyof typeof ContentTypes>).map(
         (key) => (
-          <ButtonNoStyle onClick={() => handleSelect(ContentTypes[key])}>
-            <Text    
-            style={{
-              color: "hsla(120,100%,25%, 1)",
-              fontSize: "1.25rem",
-              lineHeight: "1.25rem",
-            }}
+          <ButtonNoStyle
+            onClick={() => handleSelect(ContentTypes[key])}
+            key={`${key}-content`}
+          >
+            <Text
+              style={{
+                color: "hsla(120,100%,25%, 1)",
+                fontSize: "1.25rem",
+                lineHeight: "1.25rem",
+              }}
             >
-              {ContentTypes[key]}</Text>
+              {ContentTypes[key]}
+            </Text>
           </ButtonNoStyle>
         )
       )}

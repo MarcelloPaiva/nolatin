@@ -1,6 +1,7 @@
 import Input from "../Input"
 import { Label } from ".."
 import { ContentProps } from "./ContentProps"
+import { getQuoteList } from "../../utilities/listUtilities"
 
 export default function BulletedLinkContent({
   state: { edit, description, id },
@@ -11,7 +12,7 @@ export default function BulletedLinkContent({
         <>
           <Input
             id={`${id}-description`}
-            label="List items in separate lines (Markdown)"
+            label={`List Items: Wrap each item in double quotes ("url1" "url2")`}
             defaultValue={description}
             multiline
           />
@@ -19,6 +20,13 @@ export default function BulletedLinkContent({
       ) : (
         <>
           <Label>List items</Label>
+          <ul>
+            {getQuoteList(description)?.map((url) => (
+              <li key={id + url}>
+                <a href={url}>{url}</a>
+              </li>
+            ))}
+          </ul>
         </>
       )}
     </>

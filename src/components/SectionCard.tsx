@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled from "styled-components"
 import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
@@ -57,6 +57,7 @@ interface SectionProps {
 
 export default function SectionCard({ pageId, state }: SectionProps) {
   const { dispatch } = useContext(AppContext)
+  const [localName, setLocalName] = useState(state.name)
 
   function getRoles(element: ElementNames): string {
     let roles = Elements[element].roles
@@ -116,6 +117,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           aria="Save Section"
           label="Save"
           onClick={handleSave}
+          disabled={localName === ""}
         />
         <IconButton
           icon={X}
@@ -127,11 +129,18 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       <Input
         id={state.id + "-name"}
         label="Section Name"
-        defaultValue={state.name}
+        defaultValue={localName}
         title
         style={`
             margin-bottom: 16px;
         `}
+        onBlur={() => {
+          console.log("BLUUUUUUR")
+          const name = document.getElementById(
+            state.id + "-name"
+          ) as HTMLInputElement
+          setLocalName(name.value)
+        }}
       />
       <Dropdown
         id={state.id + "-element"}
@@ -150,32 +159,10 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             pageId={pageId}
             sectionId={state.id}
             state={contentState}
+            key={pageId}
           />
         ))}
       </Column>
-      <Button
-        style={`
-        margin-top: 1rem;
-        font-size: 1.25rem;
-        background-color: hsla(120,100%,60%, 0.1);
-        color: hsla(120,100%,25%, 0.85);
-        border: 3px solid hsla(120,100%,30%, 0.75);
-        width: auto;
-        margin: 2rem auto 0;
-      `}
-        onClick={() =>
-          dispatch({
-            type: ActionTypes.CreateContent,
-            payload: {
-              pageId,
-              parentId: state.id,
-              sectionId: state.id,
-            },
-          })
-        }
-      >
-        Add content block
-      </Button>
     </SectionForm>
   ) : (
     <SectionContainer>
@@ -214,9 +201,33 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             pageId={pageId}
             sectionId={state.id}
             state={contentState}
+            key={pageId}
           />
         ))}
       </Column>
+      <Button
+        style={`
+        margin-top: 1rem;
+        font-size: 1.25rem;
+        background-color: hsla(120,100%,60%, 0.1);
+        color: hsla(120,100%,25%, 0.85);
+        border: 3px solid hsla(120,100%,30%, 0.75);
+        width: auto;
+        margin: 2rem auto 0;
+      `}
+        onClick={() =>
+          dispatch({
+            type: ActionTypes.CreateContent,
+            payload: {
+              pageId,
+              parentId: state.id,
+              sectionId: state.id,
+            },
+          })
+        }
+      >
+        Add content block
+      </Button>
     </SectionContainer>
   )
 }

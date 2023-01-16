@@ -15,7 +15,7 @@ export default function Layout({ children, style }: LayoutProps) {
     margin-right: 48px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     ${style}
   `
   return (

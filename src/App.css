@@ -6,6 +6,6 @@ body {
 }
 
 *:focus {
- outline: hsl(213, 87%, 42%) solid 8px;
- outline-offset: 4px; 
+  outline: #f60 solid 8px;
+  outline-offset: 4px;
 }

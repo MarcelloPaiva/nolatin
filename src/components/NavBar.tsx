@@ -29,20 +29,18 @@ const Row = styled.div`
 export default function NavBar() {
   return (
     <Header>
-      <div>
-        <IconButton
-          size={40}
-          icon={Slash}
-          link="/"
-          aria="No Latin - A shift-left tool for product designers"
-          label=""
-          color="#f60"
-          style="
-            transform: scaleX(-1);
+      <IconButton
+        size={40}
+        icon={Slash}
+        onClick={() => {}}
+        aria="No Latin - A shift-left tool for product designers"
+        label="No Latin"
+        color="#6f00ff"
+        style="
+        color:#6f00ff;
+        font-weight: bold;
         "
-        />
-        <strong>No Latin</strong>
-      </div>
+      />
       <Row>
         <IconButton
           size={24}

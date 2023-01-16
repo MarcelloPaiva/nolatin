@@ -1,11 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Sofia+Sans:wght@300;400;800&display=swap");
+
+:root {
+  --h: 60;
+  --s: 2%;
+  --l: 10%;
+
+  --primary-light: #fafbf6;
+  --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
+  --primary-100: var(--primary-dark);
+  --primary-80: hsla(var(--h), var(--s), var(--l), 0.8);
+  --primary-40: hsla(var(--h), var(--s), var(--l), 0.4);
+  --primary-20: hsla(var(--h), var(--s), var(--l), 0.2);
+
+  --accent: #6f00ff;
+
+  --surface-light: var(--primary-light);
+
+  --text-light: #151514;
+  --text-low-emphasis: var(--primary-80);
+
+  --button-primary: var(--text-light);
+}
+
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Sofia Sans", "Roboto", sans-serif;
   max-width: 1024px;
   margin: 0 auto;
   float: none;
+  font-size: larger;
+  background-color: var(--surface-light);
+  color: var(--text-light);
+  line-height: auto;
+  letter-spacing: 0.05rem;
+}
+
+p {
+  margin: 0;
+  margin-top: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Lora", serif;
+  margin: 0;
+  padding: 0;
+  margin-top: 1.5rem;
+}
+
+img {
+  margin-top: 3rem;
+  border: 1rem solid var(--primary-20);
+}
+figcaption {
+  font-family: "Lora", serif;
+  font-style: italic;
+  color: var(--text-low-emphasis);
+  margin-top: 8px;
+  margin-bottom: 3rem;
 }
 
 *:focus {
-  outline: #f60 solid 8px;
+  outline: var(--accent) solid 8px;
   outline-offset: 4px;
+  border-radius: 4px;
 }

@@ -39,18 +39,27 @@ export default function Root() {
         Try No Latin now
       </Button>
       <Divider />
-      <h2>Inclusive Tips:</h2>
+      <h2>Lorem Ipsum creates barriers</h2>
+      <img
+        src="images/NoLorem.png"
+        alt="A young blind student, wearing glasses and a backpack, walking carefully with the assistance of a white cane"
+      ></img>
+      <figcaption>
+        A young blind student, wearing glasses and a backpack, walking carefully
+        with the assistance of a white cane.
+      </figcaption>
+      <h3>Inclusive Tips:</h3>
       <Text>
         Creating good content is a matter of putting intent in each step of your
         design effort.
       </Text>
-      <h3>Lorem Ipsum creates barriers</h3>
       <Text>
         Adding placeholders like ”Lorem ipsum” only create barriers to start
         evaluating your solution with people with disabilities.
       </Text>
+
       <Text>
-        <Bold>Instead, follow these tips:</Bold>
+        <h3>Instead, follow these tips:</h3>
         <ol>
           <li>Write purposeful headlines</li>
           <li>A brief description for each headline</li>

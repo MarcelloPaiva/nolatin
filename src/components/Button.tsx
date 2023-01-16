@@ -26,7 +26,7 @@ export default function Button({
     align-items: center;
     border: none;
     border-radius: 12px;
-    background-color: #000;
+    background-color: #00f;
     color: #fff;
     font-weight: bold;
     font-size: 1.5rem; 

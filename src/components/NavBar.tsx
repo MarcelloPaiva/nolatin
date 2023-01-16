@@ -1,7 +1,16 @@
 import React from "react"
-import { Aperture, Search, Menu } from "react-feather"
+import {
+  Aperture,
+  Search,
+  Menu,
+  Home,
+  LogIn,
+  CornerUpLeft,
+  Slash,
+} from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
+import { Text } from "."
 
 const Header = styled.header`
   width: 100%;
@@ -20,7 +29,20 @@ const Row = styled.div`
 export default function NavBar() {
   return (
     <Header>
-      <IconButton size={40} icon={Aperture} link="/" aria="Logo" label="Logo" />
+      <div>
+        <IconButton
+          size={40}
+          icon={Slash}
+          link="/"
+          aria="No Latin - A shift-left tool for product designers"
+          label=""
+          color="#f60"
+          style="
+            transform: scaleX(-1);
+        "
+        />
+        <strong>No Latin</strong>
+      </div>
       <Row>
         <IconButton
           size={24}

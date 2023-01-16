@@ -13,24 +13,38 @@ import Layout from "../components/Layout"
 export default function Root() {
   return (
     <Layout>
-      <Title>No Latin</Title>
-      <SubTitle>Stop procastinating. Do not use Lorem ipsum!</SubTitle>
+      <h1>No Latin: Content-first for Good Accessibility</h1>
       <Text>
-        As UX professionals, we are committed to designing solutions as
-        ambassadors for all users, including people with disabilities.
+        A shift-left tool to help people with disabilities, one word at the
+        time.
       </Text>
-      <SubTitle>Content design leads to good Accessibility.</SubTitle>
       <Text>
-        This tool invites all UX designers and researchers to bring intent into
-        our design process by elevating the content quality early for People
-        with Disabilities.
+        Our goal is to improve accessibility for people with disabilities by
+        identifying and eliminating the use of Latin-based scripts (a.k.a.:
+        Lorem Ipsum) in the design industry.
       </Text>
+      <h2>The Industry Problem:</h2>
+      <Text>
+        Many UX designers and user researchers struggle to incorporate
+        accessibility considerations into their design process, resulting in
+        poor experiences for users with disabilities.
+      </Text>
+      <h2>What is No Latin?</h2>
+      <Text>
+        No Latin is a tool that helps designers and researchers bring intent
+        into their design process by elevating the content quality early for
+        people with disabilities.
+      </Text>
+      <Button style={`margin: 40px 0px`} link="guides">
+        Try No Latin now
+      </Button>
       <Divider />
-      <SubHeading>As simple as 1, 2, 3.</SubHeading>
+      <h2>Inclusive Tips:</h2>
       <Text>
         Creating good content is a matter of putting intent in each step of your
         design effort.
       </Text>
+      <h3>Lorem Ipsum creates barriers</h3>
       <Text>
         Adding placeholders like ”Lorem ipsum” only create barriers to start
         evaluating your solution with people with disabilities.
@@ -43,21 +57,15 @@ export default function Root() {
           <li>If there's an action to a headline, state the expected action</li>
         </ol>
       </Text>
-      <Divider />
-      <SubHeading>From Content to Accessibility in minutes!</SubHeading>
+      <h3>Use Priority Guides as your first step</h3>
       <Text>
-        Creating good content is a matter of putting intent in each step of your
-        design effort.
-      </Text>
-      <SubTitle>Intentional Design</SubTitle>
-      <Text>
-        Creating good content is a matter of putting intent in each step of your
-        design effort.
+        Priority guides prioritize the content and its accessibility needs
+        before the design, ensuring that the user experience is inclusive for
+        all.
       </Text>
       <Button style={`margin: 40px 0px`} link="guides">
-        Getting started
+        Learn about Priority Guides
       </Button>
-      <Divider />
     </Layout>
   )
 }

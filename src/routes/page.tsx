@@ -24,7 +24,6 @@ const Root = styled.div`
   flex-direction: column;
   width: 100%;
   align-items: center;
-  max-width: 480px;
 `
 
 export default function Page() {

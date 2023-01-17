@@ -4,15 +4,24 @@
   --h: 60;
   --s: 2%;
   --l: 10%;
+  --h-accent: 270;
 
   --primary-light: #fafbf6;
   --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
   --primary-100: var(--primary-dark);
   --primary-80: hsla(var(--h), var(--s), var(--l), 0.8);
+  --primary-60: hsla(var(--h), var(--s), var(--l), 0.6);
   --primary-40: hsla(var(--h), var(--s), var(--l), 0.4);
   --primary-20: hsla(var(--h), var(--s), var(--l), 0.2);
+  --primary-10: hsla(var(--h), var(--s), var(--l), 0.1);
+  --primary-05: hsla(var(--h), var(--s), var(--l), 0.05);
 
-  --accent: #6f00ff;
+  --accent: hsl(var(--h-accent), 100%, 50%);
+  --secondary-25: hsla(var(--h-accent), 50%, 50%, 0.15);
+  --secondary-50: hsla(var(--h-accent), 50%, 50%, 0.5);
+  --secondary-60: hsla(var(--h-accent), 50%, 50%, 0.6);
+  --secondary-80: hsla(var(--h-accent), 40%, 40%, 0.85);
+  --secondary-100: hsla(var(--h-accent), 30%, 50%, 1);
 
   --surface-light: var(--primary-light);
 
@@ -23,7 +32,7 @@
 }
 
 body {
-  font-family: "Sofia Sans", "Roboto", sans-serif;
+  font-family: "Lora", serif;
   max-width: 1024px;
   margin: 0 auto;
   float: none;
@@ -37,6 +46,9 @@ body {
 p {
   margin: 0;
   margin-top: 1rem;
+  font-size: 1.5rem !important;
+  line-height: 2.25rem;
+  color: var(--primary-100);
 }
 
 h1,
@@ -48,19 +60,39 @@ h6 {
   font-family: "Lora", serif;
   margin: 0;
   padding: 0;
-  margin-top: 1.5rem;
+  margin-top: 3rem;
+  font-style: italic;
+  color: var(--secondary-80);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 3rem 0;
+  margin-bottom: 0;
+  color: var(--secondary-100);
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.5rem;
 }
 
 img {
   margin-top: 3rem;
-  border: 1rem solid var(--primary-20);
+  border: 1rem solid var(--secondary-25);
 }
 figcaption {
   font-family: "Lora", serif;
   font-style: italic;
-  color: var(--text-low-emphasis);
+  color: var(--secondary-80);
   margin-top: 8px;
   margin-bottom: 3rem;
+  font-size: 1.5rem;
 }
 
 *:focus {

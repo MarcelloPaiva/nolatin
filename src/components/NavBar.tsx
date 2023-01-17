@@ -30,15 +30,19 @@ export default function NavBar() {
   return (
     <Header>
       <IconButton
-        size={40}
+        size={60}
         icon={Slash}
         onClick={() => {}}
         aria="No Latin - A shift-left tool for product designers"
         label="No Latin"
-        color="#6f00ff"
+        color="var(--accent)"
         style="
-        color:#6f00ff;
-        font-weight: bold;
+        fill: red;
+        stroke: red;
+        color: var(--accent);
+        font-weight: 700;
+        font-family: Lora;
+        font-style: italic;
         "
       />
       <Row>

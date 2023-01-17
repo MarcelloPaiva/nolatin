@@ -18,6 +18,12 @@ export default function Root() {
         A shift-left tool to help people with disabilities, one word at the
         time.
       </Text>
+      <img src="images/InclusiveBunch.png" alt=""></img>
+      <figcaption>
+        An illustration of a multicultural children with an woman in a
+        wheelchair smiling for a photo celebrating those who design with
+        Accessibility in mind.
+      </figcaption>
       <Text>
         Our goal is to improve accessibility for people with disabilities by
         identifying and eliminating the use of Latin-based scripts (a.k.a.:
@@ -39,16 +45,25 @@ export default function Root() {
         Try No Latin now
       </Button>
       <Divider />
-      <h2>Lorem Ipsum creates barriers</h2>
+      <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
+      <Text>
+        Adding placeholders like ”Lorem ipsum” create barriers and it only
+        delays any opportunity to start evaluating your design solution with
+        people who relies on assistive technologies, such as screen readers.
+      </Text>
+
       <img
         src="images/NoLorem.png"
         alt="A young blind student, wearing glasses and a backpack, walking carefully with the assistance of a white cane"
       ></img>
       <figcaption>
-        A young blind student, wearing glasses and a backpack, walking carefully
-        with the assistance of a white cane.
+        A young blind boy with his friend and a dog. The visually impaired kid
+        walks carefully with the assistance of a white cane, because the terrain
+        is rough and full of rocks. That's how most people using assitive
+        technologies feel when designers don't take Accessibility into
+        consideration early on.
       </figcaption>
-      <h3>Inclusive Tips:</h3>
+      <h2>Inclusive Tips:</h2>
       <Text>
         Creating good content is a matter of putting intent in each step of your
         design effort.

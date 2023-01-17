@@ -20,8 +20,8 @@ export default function Root() {
       </Text>
       <img src="images/InclusiveBunch.png" alt=""></img>
       <figcaption>
-        An illustration of a multicultural children with an woman in a
-        wheelchair smiling for a photo celebrating those who design with
+        An illustration of a multicultural children, including a boy in a
+        wheelchair, smiling for a photo celebrating those who design with
         Accessibility in mind.
       </figcaption>
       <Text>
@@ -59,7 +59,7 @@ export default function Root() {
       <figcaption>
         A young blind boy with his friend and a dog. The visually impaired kid
         walks carefully with the assistance of a white cane, because the terrain
-        is rough and full of rocks. That's how most people using assitive
+        is rough and full of rocks. That's how most people using assistive
         technologies feel when designers don't take Accessibility into
         consideration early on.
       </figcaption>

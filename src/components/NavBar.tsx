@@ -1,13 +1,5 @@
 import React from "react"
-import {
-  Aperture,
-  Search,
-  Menu,
-  Home,
-  LogIn,
-  CornerUpLeft,
-  Slash,
-} from "react-feather"
+import { Menu, Slash, FastForward } from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
 import { Text } from "."
@@ -18,7 +10,7 @@ const Header = styled.header`
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: solid 2px #000000;
+  border-bottom: solid 8px var(--secondary-20);
 `
 
 const Row = styled.div`
@@ -29,27 +21,24 @@ const Row = styled.div`
 export default function NavBar() {
   return (
     <Header>
-      <div>
-        <IconButton
-          size={40}
-          icon={Slash}
-          link="/"
-          aria="No Latin - A shift-left tool for product designers"
-          label=""
-          color="#f60"
-          style="
-            transform: scaleX(-1);
+      <IconButton
+        size={60}
+        icon={Slash}
+        onClick={() => {}}
+        aria="No Latin - A shift-left tool for product designers"
+        label="No Latin"
+        color="var( --secondary-80)"
+        style="
+        color: var( --secondary-80);
         "
-        />
-        <strong>No Latin</strong>
-      </div>
+      />
       <Row>
         <IconButton
           size={24}
-          icon={Search}
+          icon={FastForward}
           onClick={() => {}}
-          aria="Search"
-          label="Search"
+          aria="Skip to"
+          label="Skip To"
         />
         <IconButton
           style={`margin-left: 24px;`}

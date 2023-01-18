@@ -18,18 +18,19 @@ export default function Button({
   link,
 }: ButtonProps) {
   const buttonStyles = `
-    min-height: 44px;
+  font-family: "Sofia Sans", sans-serif;  
+  min-height: 44px;
     min-width: 44px;
-    padding: 8px 16px;
+    padding: 1rem 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 12px;
-    background-color: #00f;
+    background-color: var(--button-primary);
     color: #fff;
-    font-weight: bold;
-    font-size: 1.5rem; 
+    font-weight: 400;
+    font-size: 2rem; 
     line-height: 26px;
     ${style}
   `

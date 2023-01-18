@@ -23,7 +23,7 @@ export default function IconButton({
   label,
   style,
   size,
-  color = "#000",
+  color = "var( --secondary-80)",
   disabled = false,
 }: IconButtonProps) {
   const buttonStyles = `
@@ -34,6 +34,7 @@ export default function IconButton({
     align-items: center;
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    color: var(--secondary-80);
     flex-direction: column;
     ${style}
   `
@@ -41,7 +42,7 @@ export default function IconButton({
   const Button = styled.button`
     ${buttonStyles}
     &:disabled {
-      color: #a8a8a8;
+      color: var(--primary-30);
     }
   `
   const Link = styled.a`
@@ -55,7 +56,7 @@ export default function IconButton({
     </Link>
   ) : (
     <Button onClick={onClick} aria-label={aria} disabled={disabled}>
-      <Icon size={size} color={disabled ? "#a8a8a8" : color} />
+      <Icon size={size} color={disabled ? "#var( --primary-30)" : color} />
       <IconLabel>{label}</IconLabel>
     </Button>
   )

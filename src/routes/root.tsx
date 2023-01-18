@@ -1,23 +1,18 @@
 import React from "react"
-import {
-  Bold,
-  Divider,
-  Text,
-  Title,
-  SubHeading,
-  SubTitle,
-} from "../components/"
+import { Text, SubHeading } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 
 export default function Root() {
   return (
     <Layout>
-      <h1>No Latin: Content-first for Good Accessibility</h1>
+      <h1>No Latin</h1>
+      <SubHeading>A content-first tool for good Accessibility</SubHeading>
       <Text>
         A shift-left tool to help people with disabilities, one word at the
         time.
       </Text>
+      <hr className="una" />
       <img src="images/InclusiveBunch.png" alt=""></img>
       <figcaption>
         An illustration of a multicultural children, including a boy in a
@@ -44,7 +39,7 @@ export default function Root() {
       <Button style={`margin: 40px 0px`} link="guides">
         Try No Latin now
       </Button>
-      <Divider />
+      <hr className="una" />
       <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
       <Text>
         Adding placeholders like ”Lorem ipsum” create barriers and it only

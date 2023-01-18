@@ -10,17 +10,25 @@
   --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
   --primary-100: var(--primary-dark);
   --primary-80: hsla(var(--h), var(--s), var(--l), 0.8);
+  --primary-70: hsla(var(--h), var(--s), var(--l), 0.7);
   --primary-60: hsla(var(--h), var(--s), var(--l), 0.6);
+  --primary-50: hsla(var(--h), var(--s), var(--l), 0.5);
   --primary-40: hsla(var(--h), var(--s), var(--l), 0.4);
+  --primary-30: hsla(var(--h), var(--s), var(--l), 0.3);
   --primary-20: hsla(var(--h), var(--s), var(--l), 0.2);
   --primary-10: hsla(var(--h), var(--s), var(--l), 0.1);
   --primary-05: hsla(var(--h), var(--s), var(--l), 0.05);
 
   --accent: hsl(var(--h-accent), 100%, 50%);
-  --secondary-25: hsla(var(--h-accent), 50%, 50%, 0.15);
+  --secondary-10: hsla(var(--h-accent), 50%, 50%, 0);
+  --secondary-20: hsla(var(--h-accent), 50%, 50%, 0.1);
+  --secondary-25: hsla(var(--h-accent), 50%, 50%, 0.25);
+  --secondary-30: hsla(var(--h-accent), 50%, 50%, 0.3);
+  --secondary-40: hsla(var(--h-accent), 50%, 50%, 0.4);
   --secondary-50: hsla(var(--h-accent), 50%, 50%, 0.5);
   --secondary-60: hsla(var(--h-accent), 50%, 50%, 0.6);
-  --secondary-80: hsla(var(--h-accent), 40%, 40%, 0.85);
+  --secondary-70: hsla(var(--h-accent), 40%, 40%, 0.7);
+  --secondary-80: hsla(var(--h-accent), 40%, 40%, 0.8);
   --secondary-100: hsla(var(--h-accent), 30%, 50%, 1);
 
   --surface-light: var(--primary-light);
@@ -99,4 +107,34 @@ figcaption {
   outline: var(--accent) solid 8px;
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+.una {
+  text-align: center;
+  display: block;
+  line-height: 2px;
+  height: 2px;
+  margin: 2rem 0;
+  margin-top: 4rem;
+  background: linear-gradient(
+    to right,
+    var(--secondary-10),
+    var(--secondary-40),
+    var(--secondary-10)
+  );
+  border: none;
+}
+.una:before,
+.una:after {
+  content: "\2021";
+  font-size: 4rem;
+  color: var(--secondary-40);
+  position: absolute;
+  transform: rotate(90deg);
+}
+.una:before {
+  left: auto;
+}
+.una:after {
+  right: auto;
 }

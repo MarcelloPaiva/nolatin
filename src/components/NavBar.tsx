@@ -18,7 +18,7 @@ const Header = styled.header`
   justify-content: space-between;
   padding-top: 20px;
   padding-bottom: 20px;
-  border-bottom: solid 2px #000000;
+  border-bottom: solid 8px var(--secondary-20);
 `
 
 const Row = styled.div`
@@ -35,11 +35,11 @@ export default function NavBar() {
         onClick={() => {}}
         aria="No Latin - A shift-left tool for product designers"
         label="No Latin"
-        color="var(--accent)"
+        color="var( --secondary-80)"
         style="
         fill: red;
         stroke: red;
-        color: var(--accent);
+        color: var( --secondary-80);
         font-weight: 700;
         font-family: Lora;
         font-style: italic;

@@ -48,8 +48,9 @@ export const Divider = styled.div`
   background-color: #000;
 `
 export const IconLabel = styled.div`
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 1.25rem;
+  line-height: 3rem;
+  font-family: "Sofia Sans";
   // color: #000;
 `
 export const ButtonNoStyle = styled.button`

@@ -1,13 +1,5 @@
 import React from "react"
-import {
-  Aperture,
-  Search,
-  Menu,
-  Home,
-  LogIn,
-  CornerUpLeft,
-  Slash,
-} from "react-feather"
+import { Menu, Slash, FastForward } from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
 import { Text } from "."
@@ -37,21 +29,16 @@ export default function NavBar() {
         label="No Latin"
         color="var( --secondary-80)"
         style="
-        fill: red;
-        stroke: red;
         color: var( --secondary-80);
-        font-weight: 700;
-        font-family: Lora;
-        font-style: italic;
         "
       />
       <Row>
         <IconButton
           size={24}
-          icon={Search}
+          icon={FastForward}
           onClick={() => {}}
-          aria="Search"
-          label="Search"
+          aria="Skip to"
+          label="Skip To"
         />
         <IconButton
           style={`margin-left: 24px;`}

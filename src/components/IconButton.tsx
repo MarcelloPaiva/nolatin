@@ -47,6 +47,7 @@ export default function IconButton({
   `
   const Link = styled.a`
     ${buttonStyles}
+    text-decoration: none;
   `
 
   return link ? (

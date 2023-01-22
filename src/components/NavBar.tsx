@@ -28,9 +28,8 @@ export default function NavBar() {
         aria="No Latin - A shift-left tool for product designers"
         label="No Latin"
         color="var( --secondary-80)"
-        style="
-        color: var( --secondary-80);
-        "
+        styles="color: var( --secondary-80);"
+        link="/"
       />
       <Row>
         <IconButton
@@ -41,7 +40,7 @@ export default function NavBar() {
           label="Skip To"
         />
         <IconButton
-          style={`margin-left: 24px;`}
+          styles={`margin-left: 24px;`}
           size={24}
           icon={Menu}
           onClick={() => {}}

@@ -9,7 +9,7 @@ interface IconButtonProps {
   label: string
   link?: string
   onClick?: () => void
-  style?: string
+  styles?: string
   size?: number
   color?: string
   disabled?: boolean
@@ -21,7 +21,7 @@ export default function IconButton({
   link,
   onClick,
   label,
-  style,
+  styles,
   size,
   color = "var( --secondary-80)",
   disabled = false,
@@ -36,7 +36,7 @@ export default function IconButton({
     background-color: rgba(0, 0, 0, 0);
     color: var(--secondary-80);
     flex-direction: column;
-    ${style}
+    ${styles}
   `
 
   const Button = styled.button`

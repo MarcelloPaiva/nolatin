@@ -27,11 +27,12 @@ export default function Button({
     align-items: center;
     border: none;
     border-radius: 12px;
-    background-color: var(--button-primary);
+    background-color: var(--secondary-90);
     color: #fff;
     font-weight: 400;
     font-size: 2rem; 
     line-height: 26px;
+    margin-top: 2rem;
     ${style}
   `
 

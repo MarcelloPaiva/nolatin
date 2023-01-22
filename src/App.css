@@ -29,6 +29,7 @@
   --secondary-60: hsla(var(--h-accent), 50%, 50%, 0.6);
   --secondary-70: hsla(var(--h-accent), 40%, 40%, 0.7);
   --secondary-80: hsla(var(--h-accent), 40%, 40%, 0.8);
+  --secondary-90: hsla(var(--h-accent), 40%, 40%, 0.9);
   --secondary-100: hsla(var(--h-accent), 30%, 50%, 1);
 
   --surface-light: var(--primary-light);

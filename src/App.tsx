@@ -3,9 +3,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Root from "./routes/root"
 import Guides from "./routes/guides"
 import Create from "./routes/create"
-import "./App.css"
 import Pages from "./routes/pages"
 import Page from "./routes/page"
+import Preview from "./routes/preview"
+import "./App.css"
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path: "create",
     element: <Create />,
+  },
+  {
+    path: "preview/:pageId",
+    element: <Preview />,
   },
   {
     path: "pages",

@@ -6,7 +6,7 @@ import { Icon as IconType } from "react-feather"
 interface IconButtonProps {
   icon: IconType
   aria: string
-  label: string
+  label?: string
   link?: string
   onClick?: () => void
   styles?: string
@@ -58,7 +58,7 @@ export default function IconButton({
   ) : (
     <Button onClick={onClick} aria-label={aria} disabled={disabled}>
       <Icon size={size} color={disabled ? "#var( --primary-30)" : color} />
-      <IconLabel>{label}</IconLabel>
+      {label && <IconLabel>{label}</IconLabel>}
     </Button>
   )
 }

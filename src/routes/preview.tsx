@@ -1,10 +1,21 @@
 import { useContext } from "react"
 import { AppContext } from "../context/AppContext"
 import { useParams } from "react-router-dom"
+import styled from "styled-components"
 import Header from "../components/generated/Header"
 import Section from "../models/section"
 import Content from "../models/content"
 import { ElementNames } from "../constants/elements"
+import { ContentTypes } from "../constants/contentTypes"
+import { getQuoteList } from "../utilities/listUtilities"
+import Button from "../components/Button"
+import Dropdown from "../components/Dropdown"
+import Input from "../components/Input"
+
+const Image = styled.img`
+  border: 1px solid #a8a8a8;
+  width: 100%;
+`
 
 export default function Preview() {
   const { pageId } = useParams()
@@ -46,6 +57,105 @@ function generateSections(sections: Section[]) {
   })
 }
 
-function generateContents(contents: Content[]) {
-  return contents.map((content) => null)
+function generateContents(contents: Content[], level?: number) {
+  let headingLevel = level ?? 3
+  return contents.map((content) => {
+    switch (content.type) {
+      case ContentTypes.Bullets:
+        return (
+          <ul>
+            {getQuoteList(content.description)?.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        )
+      case ContentTypes.BulletsLink:
+        return (
+          <ul>
+            {getQuoteList(content.description)?.map((item) => (
+              <li>
+                <a href="item">{item}</a>
+              </li>
+            ))}
+          </ul>
+        )
+      case ContentTypes.Button:
+        // What do I do with "Button Action"?
+        return <Button>{content.title}</Button>
+      case ContentTypes.Dropdown:
+        return (
+          <Dropdown
+            label={content.title}
+            options={
+              getQuoteList(content.description)?.map((option) => ({
+                label: option,
+                value: option,
+              })) ?? []
+            }
+          />
+        )
+      case ContentTypes.Image:
+        return (
+          <>
+            <Image src={content.url} alt={content.title} />
+            <p>{content.description}</p>
+          </>
+        )
+      case ContentTypes.Input:
+        return (
+          <Input
+            label={content.title}
+            defaultValue={content.description}
+            type={content.url}
+          />
+        )
+      case ContentTypes.Link:
+        return <a href={content.url}>{content.title}</a>
+      case ContentTypes.Numbers:
+        return (
+          <ol>
+            {getQuoteList(content.description)?.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ol>
+        )
+      case ContentTypes.NumbersLink:
+        return (
+          <ol>
+            {getQuoteList(content.description)?.map((item) => (
+              <li>
+                <a href="item">{item}</a>
+              </li>
+            ))}
+          </ol>
+        )
+      case ContentTypes.Title:
+        return (
+          <section>
+            {getHeading(headingLevel, content.title)}
+            <p>{content.description}</p>
+            {generateContents(content.children, headingLevel + 1)}
+          </section>
+        )
+      default:
+        return null
+    }
+  })
+}
+
+function getHeading(level: number, text: string) {
+  switch (level) {
+    case 1:
+      return <h1>{text}</h1>
+    case 2:
+      return <h2>{text}</h2>
+    case 3:
+      return <h3>{text}</h3>
+    case 4:
+      return <h4>{text}</h4>
+    case 5:
+      return <h5>{text}</h5>
+    default:
+      return <h6>{text}</h6>
+  }
 }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { RefObject } from "react"
 import styled from "styled-components"
 import { IconLabel } from "."
 import { Icon as IconType } from "react-feather"
@@ -6,16 +6,19 @@ import { Icon as IconType } from "react-feather"
 interface IconButtonProps {
   icon: IconType
   aria: string
+  id?: string
   label?: string
   link?: string
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
+  onClick?: (event?: any) => void
   styles?: string
   size?: number
   color?: string
   disabled?: boolean
+  ref?: RefObject<HTMLButtonElement> | null
 }
 
 export default function IconButton({
+  id,
   icon: Icon,
   aria,
   link,
@@ -25,6 +28,7 @@ export default function IconButton({
   size,
   color = "var( --secondary-80)",
   disabled = false,
+  ref,
 }: IconButtonProps) {
   const buttonStyles = `
     min-height: 44px;
@@ -48,7 +52,7 @@ export default function IconButton({
   `
 
   return link ? (
-    <Link href={link} aria-label={aria}>
+    <Link href={link} aria-label={aria} id={id}>
       <Icon size={size} color={color} />
       <IconLabel>{label}</IconLabel>
     </Link>
@@ -59,6 +63,8 @@ export default function IconButton({
       }}
       aria-label={aria}
       disabled={disabled}
+      id={id}
+      ref={ref}
     >
       <Icon size={size} color={disabled ? `var( --primary-30)` : color} />
       {label && (

@@ -15,6 +15,11 @@ const Column = styled.div`
   width: 100%;
   align-items: center;
 `
+const Row = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+`
 const Root = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +31,6 @@ export default function Page() {
   const { id } = useParams()
   const { dispatch, getPage } = useContext(AppContext)
   const page = getPage(id ?? "")
-  console.log("PAGE PAGE", id)
 
   function renderCards(sectionsData: Section[], id: string) {
     return sectionsData.map((section) => {
@@ -43,7 +47,10 @@ export default function Page() {
       `}
       >
         <Root>
-          <Title>{page.title}</Title>
+          <Row>
+            <Title>{page.title}</Title>
+            <Button link={`/preview/${id}`}>Preview Page</Button>
+          </Row>
           <Text>Step 1</Text>
           <SubTitle>Priority Guides</SubTitle>
           <Text>Create</Text>

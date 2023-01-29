@@ -52,6 +52,12 @@ body {
   letter-spacing: 0.05rem;
 }
 
+.MuiPopover-paper {
+  /* position: relative;
+  top: 0 !important;
+  left: 0 !important; */
+}
+
 p {
   margin: 0;
   margin-top: 1rem;

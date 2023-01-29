@@ -16,6 +16,8 @@ const GenHeader = styled.header`
 
 const Nav = styled.nav`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 const Heading = styled.h1`
@@ -77,7 +79,12 @@ export default function Header({ pages, info, title }: HeaderProps) {
               open={menuOpen}
               onClose={handleMenuClose}
             >
-              {menuItems(pages)}
+              <Nav>
+                {menuItems(pages)}
+                {menuItems(pages)}
+                {menuItems(pages)}
+                {menuItems(pages)}
+              </Nav>
             </Menu>
           </Nav>
           <Heading>{title}</Heading>
@@ -116,7 +123,7 @@ const Description = styled.span`
 `
 
 const MenuItem = styled.a`
-  padding: 16px 8px;
+  padding: 8px;
   text-decoration: none;
 `
 

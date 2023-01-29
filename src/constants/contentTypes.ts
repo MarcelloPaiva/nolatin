@@ -11,4 +11,7 @@ export enum ContentTypes {
   BulletsLink = "Bulleted list of links",
   Numbers = "Numbered list of text",
   NumbersLink = "Numbered list of links",
+  Paragraph = "Text paragraph",
+  HeadingText = "Heading text",
+  HeadingLink = "Heading link",
 }

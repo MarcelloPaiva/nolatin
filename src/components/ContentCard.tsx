@@ -19,6 +19,9 @@ import NumberedContent from "./contentCards/NumberedContent"
 import NumberedLinkContent from "./contentCards/NumberedLinkContent"
 import Dropdown from "./Dropdown"
 import DropdownContent from "./contentCards/DropdownContent"
+import HeadingLinkContent from "./contentCards/HeadingLinkContent"
+import HeadingContent from "./contentCards/HeadingContent"
+import ParagraphContent from "./contentCards/ParagraphContent"
 
 interface ContentProps {
   pageId: string
@@ -78,8 +81,6 @@ export default function ContentCard({
         return <BulletedLinkContent state={state} />
       case ContentTypes.Button:
         return <ButtonContent state={state} />
-      // case ContentTypes.Checkbox:
-      //   return <div>{type}</div>
       case ContentTypes.Dropdown:
         return <DropdownContent state={state} />
       case ContentTypes.Image:
@@ -92,8 +93,12 @@ export default function ContentCard({
         return <NumberedContent state={state} />
       case ContentTypes.NumbersLink:
         return <NumberedLinkContent state={state} />
-      // case ContentTypes.Radio:
-      //   return <div>{type}</div>
+      case ContentTypes.HeadingLink:
+        return <HeadingLinkContent state={state} />
+      case ContentTypes.HeadingText:
+        return <HeadingContent state={state} />
+      case ContentTypes.Paragraph:
+        return <ParagraphContent state={state} />
       case ContentTypes.Title:
         return (
           <TitleContent state={state} pageId={pageId} sectionId={sectionId} />

@@ -130,6 +130,12 @@ function generateContents(contents: Content[], level?: number) {
             ))}
           </ol>
         )
+      case ContentTypes.HeadingLink:
+        return getHeading(headingLevel, content.title, content.url)
+      case ContentTypes.HeadingText:
+        return getHeading(headingLevel, content.title)
+      case ContentTypes.Paragraph:
+        return <p>{content.title}</p>
       case ContentTypes.Title:
         return (
           <section>
@@ -144,19 +150,20 @@ function generateContents(contents: Content[], level?: number) {
   })
 }
 
-function getHeading(level: number, text: string) {
+function getHeading(level: number, text: string, link?: string) {
+  let inner = link ? <a href={link}>{text}</a> : text
   switch (level) {
     case 1:
-      return <h1>{text}</h1>
+      return <h1>{inner}</h1>
     case 2:
-      return <h2>{text}</h2>
+      return <h2>{inner}</h2>
     case 3:
-      return <h3>{text}</h3>
+      return <h3>{inner}</h3>
     case 4:
-      return <h4>{text}</h4>
+      return <h4>{inner}</h4>
     case 5:
-      return <h5>{text}</h5>
+      return <h5>{inner}</h5>
     default:
-      return <h6>{text}</h6>
+      return <h6>{inner}</h6>
   }
 }

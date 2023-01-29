@@ -1,13 +1,9 @@
-import React, { useContext, useState } from "react"
+import { useContext } from "react"
 import { SubTitle, Text, Title } from "../components/"
 import Button from "../components/Button"
 import SectionCard from "../components/SectionCard"
 import Layout from "../components/Layout"
 import Section from "../models/section"
-import Content from "../models/content"
-import { ElementNames } from "../constants/elements"
-import { clone } from "../utilities/arrayUtilities"
-import { v4 as uuidv4 } from "uuid"
 import styled from "styled-components"
 import { AppContext } from "../context/AppContext"
 import { useParams } from "react-router-dom"
@@ -28,9 +24,9 @@ const Root = styled.div`
 
 export default function Page() {
   const { id } = useParams()
-  console.log("PAGEID", id)
   const { dispatch, getPage } = useContext(AppContext)
   const page = getPage(id ?? "")
+  console.log("PAGE PAGE", id)
 
   function renderCards(sectionsData: Section[], id: string) {
     return sectionsData.map((section) => {

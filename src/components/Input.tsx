@@ -10,6 +10,7 @@ interface InputProps {
   style?: string
   multiline?: boolean
   onBlur?: () => void
+  type?: string
 }
 
 export default function Input({
@@ -20,6 +21,7 @@ export default function Input({
   multiline = false,
   style,
   onBlur,
+  type,
 }: InputProps) {
   const InputContainer = styled.div`
     width: 100%;
@@ -60,6 +62,7 @@ export default function Input({
           defaultValue={defaultValue}
           id={id}
           onBlur={onBlur}
+          type={type}
         />
       )}
     </InputContainer>

@@ -75,6 +75,9 @@ export default function appReducer(state: AppContextState, action: Actions) {
         )
       }
       break
+    case ActionTypes.DeletePage:
+      pages.splice(pageIndex, 1)
+      break
     default:
       break
   }

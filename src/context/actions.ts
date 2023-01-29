@@ -17,6 +17,7 @@ export enum ActionTypes {
   CreateSection = "CREATE_SECTION",
   CreateContent = "CREATE_CONTENT",
   DeleteNode = "DELETE_NODE",
+  DeletePage = "DELETE_PAGE",
   UpdateSection = "UPDATE_SECTION",
   UpdateContent = "UPDATE_CONTENT",
   EditNode = "EDIT_NODE",
@@ -43,6 +44,10 @@ type Payload = {
     pageId: string
     sectionId: string
     id: string
+  }
+  [ActionTypes.DeletePage]: {
+    pageId: string
+    sectionId?: string
   }
   [ActionTypes.UpdateSection]: {
     pageId: string

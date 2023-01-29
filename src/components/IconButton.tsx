@@ -8,7 +8,7 @@ interface IconButtonProps {
   aria: string
   label?: string
   link?: string
-  onClick?: () => void
+  onClick?: (event?: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   styles?: string
   size?: number
   color?: string
@@ -41,9 +41,6 @@ export default function IconButton({
 
   const Button = styled.button`
     ${buttonStyles}
-    &:disabled {
-      color: var(--primary-30);
-    }
   `
   const Link = styled.a`
     ${buttonStyles}
@@ -56,9 +53,23 @@ export default function IconButton({
       <IconLabel>{label}</IconLabel>
     </Link>
   ) : (
-    <Button onClick={onClick} aria-label={aria} disabled={disabled}>
-      <Icon size={size} color={disabled ? "#var( --primary-30)" : color} />
-      {label && <IconLabel>{label}</IconLabel>}
+    <Button
+      onClick={(event) => {
+        onClick && onClick(event)
+      }}
+      aria-label={aria}
+      disabled={disabled}
+    >
+      <Icon size={size} color={disabled ? `var( --primary-30)` : color} />
+      {label && (
+        <IconLabel
+          style={{
+            color: disabled ? `var( --primary-30)` : color,
+          }}
+        >
+          {label}
+        </IconLabel>
+      )}
     </Button>
   )
 }

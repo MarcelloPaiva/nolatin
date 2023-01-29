@@ -28,26 +28,6 @@ export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
             label="Description"
             defaultValue={state.description}
           />
-          <Button
-            style={`
-              width: 100%;
-              margin-top: 16px;
-              color: #0000ff;
-              background-color: #f5f5f5;
-            `}
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateContent,
-                payload: {
-                  pageId,
-                  sectionId,
-                  parentId: state.id,
-                },
-              })
-            }
-          >
-            Add content block
-          </Button>
           {state.children.map((child) => (
             <ContentCard
               state={child}
@@ -71,6 +51,25 @@ export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
               key={child.id}
             />
           ))}
+
+          <Button
+            style={`
+              width: 100%;
+              margin-top: 16px;
+            `}
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.CreateContent,
+                payload: {
+                  pageId,
+                  sectionId,
+                  parentId: state.id,
+                },
+              })
+            }
+          >
+            Add content block
+          </Button>
         </>
       )}
     </>

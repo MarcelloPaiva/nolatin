@@ -2,7 +2,6 @@ import React from "react"
 import { Menu, Slash, FastForward } from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
-import { Text } from "."
 
 const Header = styled.header`
   width: 100%;

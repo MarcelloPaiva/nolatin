@@ -1,11 +1,20 @@
+import { useContext } from "react"
+import { AppContext } from "../context/AppContext"
 import styled from "styled-components"
-import { ChevronRight } from "react-feather"
+import { ChevronRight, Trash } from "react-feather"
+import IconButton from "./IconButton"
+import { ActionTypes } from "../context/actions"
 
 const PageTitle = styled.span`
   text-align: left;
   font-weight: bold;
   // font-size: 1.25rem;
   line-height: 28px;
+`
+
+const Row = styled.div`
+  display: flex;
+  align-items: center;
 `
 
 interface PageCardProps {
@@ -15,6 +24,7 @@ interface PageCardProps {
 }
 
 export default function PageCard({ id, title, last = false }: PageCardProps) {
+  const { dispatch } = useContext(AppContext)
   const CardContainer = styled.a`
     width: 100%;
     display: flex;
@@ -27,7 +37,22 @@ export default function PageCard({ id, title, last = false }: PageCardProps) {
   return (
     <CardContainer href={`page/${id}`}>
       <PageTitle>{title}</PageTitle>
-      <ChevronRight size={24} color="#0000FF" />
+      <Row>
+        <IconButton
+          icon={Trash}
+          aria={`Delete ${title} page`}
+          onClick={(event) => {
+            event?.preventDefault()
+            dispatch({
+              type: ActionTypes.DeletePage,
+              payload: {
+                pageId: id,
+              },
+            })
+          }}
+        />
+        <ChevronRight size={24} color="#0000FF" />
+      </Row>
     </CardContainer>
   )
 }

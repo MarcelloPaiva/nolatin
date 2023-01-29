@@ -26,6 +26,7 @@ export default function Preview() {
       <Header
         title={page?.title ?? ""}
         pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}
+        info={page?.description ?? ""}
       />
       <main>{generateSections(page?.sections ?? [])}</main>
     </div>

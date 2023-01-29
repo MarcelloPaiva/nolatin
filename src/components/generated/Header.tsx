@@ -36,17 +36,26 @@ interface PageItem {
 interface HeaderProps {
   pages: PageItem[]
   title: string
+  info: string
 }
 
-export default function Header({ pages, title }: HeaderProps) {
+export default function Header({ pages, info, title }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLElement>(null)
-
-  const handleClick = () => {
+  const handleMenuClick = () => {
     setMenuOpen(true)
   }
-  const handleClose = () => {
+  const handleMenuClose = () => {
     setMenuOpen(false)
+  }
+
+  const [infoOpen, setInfoOpen] = useState(false)
+  const infoRef = useRef<HTMLDivElement>(null)
+  const handleInfoClick = () => {
+    setInfoOpen(true)
+  }
+  const handleInfoClose = () => {
+    setInfoOpen(false)
   }
 
   return (
@@ -61,12 +70,12 @@ export default function Header({ pages, title }: HeaderProps) {
               color="var(--primary-light)"
               icon={Hamburger}
               aria="Navigate to another page"
-              onClick={handleClick}
+              onClick={handleMenuClick}
             />
             <Menu
               anchorEl={menuRef.current}
               open={menuOpen}
-              onClose={handleClose}
+              onClose={handleMenuClose}
             >
               {menuItems(pages)}
             </Menu>
@@ -74,15 +83,37 @@ export default function Header({ pages, title }: HeaderProps) {
           <Heading>{title}</Heading>
         </StyledEngineProvider>
       </Row>
-      <IconButton
-        size={32}
-        color="var(--primary-light)"
-        icon={Info}
-        aria="Page Description"
-      />
+      <div ref={infoRef}>
+        <IconButton
+          size={32}
+          color="var(--primary-light)"
+          icon={Info}
+          aria="Page Description"
+          onClick={handleInfoClick}
+        />
+        <Menu
+          anchorEl={infoRef.current}
+          open={infoOpen}
+          onClose={handleInfoClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+        >
+          <Description>{info}</Description>
+        </Menu>
+      </div>
     </GenHeader>
   )
 }
+
+const Description = styled.span`
+  padding: 16px 8px;
+`
 
 const MenuItem = styled.a`
   padding: 16px 8px;

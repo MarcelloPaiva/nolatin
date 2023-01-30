@@ -22,6 +22,7 @@ import DropdownContent from "./contentCards/DropdownContent"
 import HeadingLinkContent from "./contentCards/HeadingLinkContent"
 import HeadingContent from "./contentCards/HeadingContent"
 import ParagraphContent from "./contentCards/ParagraphContent"
+import { Modal } from "@mui/material"
 
 interface ContentProps {
   pageId: string
@@ -71,44 +72,52 @@ export default function ContentCard({
   pageId,
   sectionId,
 }: ContentProps) {
-  const { dispatch } = useContext(AppContext)
+  const {
+    dispatch,
+    state: { editing },
+  } = useContext(AppContext)
 
-  function renderContent(type: ContentTypes) {
+  function renderContent(type: ContentTypes, edit: boolean) {
     switch (type) {
       case ContentTypes.Bullets:
-        return <BulletedContent state={state} />
+        return <BulletedContent state={state} edit={edit} />
       case ContentTypes.BulletsLink:
-        return <BulletedLinkContent state={state} />
+        return <BulletedLinkContent state={state} edit={edit} />
       case ContentTypes.Button:
-        return <ButtonContent state={state} />
+        return <ButtonContent state={state} edit={edit} />
       case ContentTypes.Dropdown:
-        return <DropdownContent state={state} />
+        return <DropdownContent state={state} edit={edit} />
       case ContentTypes.Image:
-        return <ImageContent state={state} />
+        return <ImageContent state={state} edit={edit} />
       case ContentTypes.Input:
-        return <InputContent state={state} />
+        return <InputContent state={state} edit={edit} />
       case ContentTypes.Link:
-        return <LinkContent state={state} />
+        return <LinkContent state={state} edit={edit} />
       case ContentTypes.Numbers:
-        return <NumberedContent state={state} />
+        return <NumberedContent state={state} edit={edit} />
       case ContentTypes.NumbersLink:
-        return <NumberedLinkContent state={state} />
+        return <NumberedLinkContent state={state} edit={edit} />
       case ContentTypes.HeadingLink:
-        return <HeadingLinkContent state={state} />
+        return <HeadingLinkContent state={state} edit={edit} />
       case ContentTypes.HeadingText:
-        return <HeadingContent state={state} />
+        return <HeadingContent state={state} edit={edit} />
       case ContentTypes.Paragraph:
-        return <ParagraphContent state={state} />
+        return <ParagraphContent state={state} edit={edit} />
       case ContentTypes.Title:
         return (
-          <TitleContent state={state} pageId={pageId} sectionId={sectionId} />
+          <TitleContent
+            state={state}
+            pageId={pageId}
+            sectionId={sectionId}
+            edit={edit}
+          />
         )
       default:
         return null
     }
   }
 
-  function getFormData(): Omit<Content, "id" | "children" | "type" | "edit"> {
+  function getFormData(): Omit<Content, "id" | "children" | "type"> {
     const title = document.getElementById(
       state.id + "-title"
     ) as HTMLInputElement | null
@@ -129,12 +138,12 @@ export default function ContentCard({
     let newContent = clone(state)
     newContent.type = type
     dispatch({
-      type: ActionTypes.UpdateContent,
+      type: ActionTypes.UpdateType,
       payload: {
         pageId,
         sectionId,
         id: state.id,
-        state: newContent,
+        type,
       },
     })
   }
@@ -151,7 +160,6 @@ export default function ContentCard({
         state: {
           ...newContent,
           ...formData,
-          edit: false,
           children: newContent.children,
         },
       },
@@ -159,62 +167,52 @@ export default function ContentCard({
   }
 
   function handleCancel() {
-    let newContent = clone(state)
-    newContent.edit = false
     dispatch({
-      type: ActionTypes.UpdateContent,
-      payload: {
-        pageId,
-        sectionId,
-        id: state.id,
-        state: newContent,
-      },
+      type: ActionTypes.CancelNode,
+      payload: {},
     })
   }
 
   function handleEdit() {
-    let newContent = clone(state)
-    newContent.edit = true
     dispatch({
-      type: ActionTypes.UpdateContent,
+      type: ActionTypes.EditNode,
       payload: {
-        pageId,
-        sectionId,
         id: state.id,
-        state: newContent,
       },
     })
   }
 
   if (state.type) {
-    if (state.edit) {
+    if (state.id === editing) {
       return (
-        <CardForm>
-          <Row>
-            <IconButton
-              icon={Check}
-              aria="Save Section"
-              label="Save"
-              onClick={handleSave}
+        <Modal open={true}>
+          <CardForm>
+            <Row>
+              <IconButton
+                icon={Check}
+                aria="Save Section"
+                label="Save"
+                onClick={handleSave}
+              />
+              <IconButton
+                icon={X}
+                aria="Cancel Edit"
+                label="Cancel"
+                onClick={handleCancel}
+              />
+            </Row>
+            <Dropdown
+              label="Content type"
+              defaultValue={state.type}
+              options={Object.values(ContentTypes).map((type) => ({
+                label: type,
+                value: type,
+              }))}
+              onSelect={handleSelect}
             />
-            <IconButton
-              icon={X}
-              aria="Cancel Edit"
-              label="Cancel"
-              onClick={handleCancel}
-            />
-          </Row>
-          <Dropdown
-            label="Content type"
-            defaultValue={state.type}
-            options={Object.values(ContentTypes).map((type) => ({
-              label: type,
-              value: type,
-            }))}
-            onSelect={handleSelect}
-          />
-          {renderContent(state.type)}
-        </CardForm>
+            {renderContent(state.type, true)}
+          </CardForm>
+        </Modal>
       )
     }
     return (
@@ -242,7 +240,7 @@ export default function ContentCard({
             }
           />
         </Row>
-        {renderContent(state.type)}
+        {renderContent(state.type, false)}
       </CardContainer>
     )
   }

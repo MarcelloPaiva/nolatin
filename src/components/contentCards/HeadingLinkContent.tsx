@@ -3,7 +3,8 @@ import { Label, Text, Link } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function HeadingLinkContent({
-  state: { edit, title, url, id },
+  state: { title, url, id },
+  edit,
 }: ContentProps) {
   return (
     <>

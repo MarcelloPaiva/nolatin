@@ -11,10 +11,12 @@ import appReducer from "./reducers"
 
 export interface AppContextState {
   pages: Page[]
+  editing: null | string
 }
 
 const initialState = {
   pages: [],
+  editing: null,
 }
 
 const AppContext = createContext<{

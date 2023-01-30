@@ -1,5 +1,6 @@
 import Content from "../models/content"
 import Section from "../models/section"
+import { ContentTypes } from "../constants/contentTypes"
 
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
@@ -20,6 +21,7 @@ export enum ActionTypes {
   DeletePage = "DELETE_PAGE",
   UpdateSection = "UPDATE_SECTION",
   UpdateContent = "UPDATE_CONTENT",
+  UpdateType = "UPDATE_TYPE",
   EditNode = "EDIT_NODE",
   CancelNode = "CANCEL_NODE",
 }
@@ -60,15 +62,20 @@ type Payload = {
     id: string
     state: Content
   }
-  [ActionTypes.EditNode]: {
+  [ActionTypes.UpdateType]: {
     pageId: string
     sectionId: string
+    id: string
+    type: ContentTypes
+  }
+  [ActionTypes.EditNode]: {
+    pageId?: string
+    sectionId?: string
     id: string
   }
   [ActionTypes.CancelNode]: {
-    pageId: string
-    sectionId: string
-    id: string
+    pageId?: string
+    sectionId?: string
   }
 }
 

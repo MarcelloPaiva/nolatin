@@ -4,7 +4,8 @@ import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
 
 export default function DropdownContent({
-  state: { edit, title, url, description, id },
+  state: { title, description, id },
+  edit,
 }: ContentProps) {
   return (
     <>

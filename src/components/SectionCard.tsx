@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import { useContext, useState } from "react"
 import styled from "styled-components"
 import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
@@ -6,14 +6,12 @@ import Input from "./Input"
 import IconButton from "./IconButton"
 import { Check, Edit, Trash, X } from "react-feather"
 import Section from "../models/section"
-import Content from "../models/content"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
 import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
-import { Actions, ActionTypes } from "../context/actions"
-import { Action } from "@remix-run/router"
-import { clone } from "../utilities/arrayUtilities"
+import { ActionTypes } from "../context/actions"
+import { Modal } from "@mui/material"
 
 const sectionStyles = `
   border-radius: 16px;
@@ -56,7 +54,10 @@ interface SectionProps {
 }
 
 export default function SectionCard({ pageId, state }: SectionProps) {
-  const { dispatch } = useContext(AppContext)
+  const {
+    dispatch,
+    state: { editing },
+  } = useContext(AppContext)
   const [localName, setLocalName] = useState(state.name)
 
   function getRoles(element: ElementNames): string {
@@ -76,7 +77,6 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     ) as HTMLSelectElement
     return {
       id: state.id,
-      edit: false,
       name: name.value,
       element: element.value as ElementNames,
       children: state.children,
@@ -92,78 +92,66 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   }
 
   function handleCancel() {
-    let newState = clone(state)
-    newState.edit = false
     dispatch({
-      type: ActionTypes.UpdateSection,
-      payload: { pageId, sectionId: state.id, state: newState },
+      type: ActionTypes.CancelNode,
+      payload: {},
     })
   }
 
   function handleEdit() {
-    let newState = clone(state)
-    newState.edit = true
     dispatch({
-      type: ActionTypes.UpdateSection,
-      payload: { pageId, sectionId: state.id, state: newState },
+      type: ActionTypes.EditNode,
+      payload: { id: state.id },
     })
   }
 
-  return state.edit ? (
-    <SectionForm>
-      <Row>
-        <IconButton
-          icon={Check}
-          aria="Save Section"
-          label="Save"
-          onClick={handleSave}
-          disabled={localName === ""}
-        />
-        <IconButton
-          icon={X}
-          aria="Cancel Edit"
-          label="Cancel"
-          onClick={handleCancel}
-        />
-      </Row>
-      <Input
-        id={state.id + "-name"}
-        label="Section Name"
-        defaultValue={localName}
-        title
-        style={`
-            margin-bottom: 16px;
-        `}
-        onBlur={() => {
-          console.log("BLUUUUUUR")
-          const name = document.getElementById(
-            state.id + "-name"
-          ) as HTMLInputElement
-          setLocalName(name.value)
-        }}
-      />
-      <Dropdown
-        id={state.id + "-element"}
-        label="Element"
-        defaultValue={state.element}
-        options={Object.keys(Elements).map((name) => {
-          return { label: name, value: name }
-        })}
-        style={`
-            margin-bottom: 16px;
-        `}
-      />
-      <Column>
-        {state.children.map((contentState) => (
-          <ContentCard
-            pageId={pageId}
-            sectionId={state.id}
-            state={contentState}
-            key={pageId}
+  return state.id === editing ? (
+    <Modal open={true}>
+      <SectionForm>
+        <Row>
+          <IconButton
+            icon={Check}
+            aria="Save Section"
+            label="Save"
+            onClick={handleSave}
+            disabled={localName === ""}
           />
-        ))}
-      </Column>
-    </SectionForm>
+          <IconButton
+            icon={X}
+            aria="Cancel Edit"
+            label="Cancel"
+            onClick={handleCancel}
+          />
+        </Row>
+        <Input
+          id={state.id + "-name"}
+          label="Section Name"
+          defaultValue={localName}
+          title
+          style={`
+            margin-bottom: 16px;
+        `}
+          onBlur={() => {
+            console.log("BLUUUUUUR")
+            const name = document.getElementById(
+              state.id + "-name"
+            ) as HTMLInputElement
+            setLocalName(name.value)
+          }}
+        />
+        <Dropdown
+          id={state.id + "-element"}
+          label="Element"
+          defaultValue={state.element}
+          options={Object.keys(Elements).map((name) => {
+            return { label: name, value: name }
+          })}
+          style={`
+            margin-bottom: 16px;
+        `}
+        />
+      </SectionForm>
+    </Modal>
   ) : (
     <SectionContainer>
       <Row>

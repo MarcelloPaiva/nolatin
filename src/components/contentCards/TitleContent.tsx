@@ -12,11 +12,16 @@ interface TitleProps extends ContentProps {
   sectionId: string
 }
 
-export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
+export default function TitleContent({
+  pageId,
+  sectionId,
+  state,
+  edit,
+}: TitleProps) {
   const { dispatch } = useContext(AppContext)
   return (
     <>
-      {state.edit ? (
+      {edit ? (
         <>
           <Input
             id={`${state.id}-title`}
@@ -28,14 +33,6 @@ export default function TitleContent({ pageId, sectionId, state }: TitleProps) {
             label="Description"
             defaultValue={state.description}
           />
-          {state.children.map((child) => (
-            <ContentCard
-              state={child}
-              sectionId={sectionId}
-              pageId={pageId}
-              key={child.id}
-            />
-          ))}
         </>
       ) : (
         <>

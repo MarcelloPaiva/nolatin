@@ -43,7 +43,7 @@ export default function Create() {
     <Layout>
       <Root>
         <LeftTitle>Create Page</LeftTitle>
-        <Input id="title" label="Title" />
+        <Input id="title" label="Page Title" />
         <Input id="description" label="Description" multiline />
         <Button
           style={`

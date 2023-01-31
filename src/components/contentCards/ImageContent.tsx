@@ -9,7 +9,8 @@ const Image = styled.img`
 `
 
 export default function ImageContent({
-  state: { edit, title, url, description, id },
+  state: { title, url, description, id },
+  edit,
 }: ContentProps) {
   return (
     <>

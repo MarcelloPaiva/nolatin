@@ -3,7 +3,8 @@ import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function ButtonContent({
-  state: { edit, description, title, id },
+  state: { description, title, id },
+  edit,
 }: ContentProps) {
   return (
     <>

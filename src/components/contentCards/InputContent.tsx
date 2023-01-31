@@ -16,7 +16,8 @@ const inputTypes = [
 ]
 
 export default function InputContent({
-  state: { edit, title, url, description, id },
+  state: { title, url, description, id },
+  edit,
 }: ContentProps) {
   return (
     <>

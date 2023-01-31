@@ -4,7 +4,8 @@ import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
 
 export default function BulletedLinkContent({
-  state: { edit, description, id },
+  state: { description, id },
+  edit,
 }: ContentProps) {
   return (
     <>

@@ -6,6 +6,7 @@ import { ElementNames } from "../constants/elements"
 import Content from "../models/content"
 
 export default function appReducer(state: AppContextState, action: Actions) {
+  let editing = state.editing
   const pages = clone(state.pages)
   const pageIndex = pages.findIndex((page) => page.id === action.payload.pageId)
   const sectionIndex = pages[pageIndex]?.sections.findIndex(
@@ -21,19 +22,20 @@ export default function appReducer(state: AppContextState, action: Actions) {
       })
       break
     case ActionTypes.CreateSection:
+      const sectionId = uuid()
       pages[pageIndex].sections.push({
-        id: uuid(),
-        edit: true,
+        id: sectionId,
         name: "",
         element: ElementNames.Section,
         children: [],
       })
+      editing = sectionId
       break
     case ActionTypes.CreateContent:
+      const contentId = uuid()
       if (action.payload.parentId === action.payload.sectionId) {
         pages[pageIndex].sections[sectionIndex].children.push({
-          id: uuid(),
-          edit: true,
+          id: contentId,
           children: [],
           title: "",
           description: "",
@@ -44,8 +46,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
           action.payload.parentId,
           (node) => {
             node.children.push({
-              id: uuid(),
-              edit: true,
+              id: contentId,
               children: [],
               title: "",
               description: "",
@@ -54,15 +55,34 @@ export default function appReducer(state: AppContextState, action: Actions) {
           }
         )
       }
+      editing = contentId
+      break
+    case ActionTypes.EditNode:
+      editing = action.payload.id
+      break
+    case ActionTypes.CancelNode:
+      editing = null
       break
     case ActionTypes.UpdateSection:
       pages[pageIndex].sections[sectionIndex] = action.payload.state
+      editing = null
       break
     case ActionTypes.UpdateContent:
       pages[pageIndex].sections[sectionIndex].children = modifyNode(
         clone(pages[pageIndex].sections[sectionIndex].children),
         action.payload.id,
         () => action.payload.state
+      )
+      editing = null
+      break
+    case ActionTypes.UpdateType:
+      pages[pageIndex].sections[sectionIndex].children = modifyNode(
+        clone(pages[pageIndex].sections[sectionIndex].children),
+        action.payload.id,
+        (node) => {
+          node.type = action.payload.type
+          return node
+        }
       )
       break
     case ActionTypes.DeleteNode:
@@ -81,7 +101,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
     default:
       break
   }
-  return { pages }
+  return { pages, editing }
 }
 
 function deleteNode(nodes: Content[], id: string) {

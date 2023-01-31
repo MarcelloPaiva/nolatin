@@ -3,7 +3,6 @@ import Content from "./content"
 
 export default interface Section {
   id: string
-  edit: boolean
   name: string
   element: ElementNames
   children: Content[]

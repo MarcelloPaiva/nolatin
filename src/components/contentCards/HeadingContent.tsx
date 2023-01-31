@@ -3,7 +3,8 @@ import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function HeadingContent({
-  state: { edit, title, id },
+  state: { title, id },
+  edit,
 }: ContentProps) {
   return (
     <>

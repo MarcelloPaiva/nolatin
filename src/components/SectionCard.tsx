@@ -132,7 +132,6 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             margin-bottom: 16px;
         `}
           onBlur={() => {
-            console.log("BLUUUUUUR")
             const name = document.getElementById(
               state.id + "-name"
             ) as HTMLInputElement

@@ -49,7 +49,9 @@ export default function Page() {
         <Root>
           <Row>
             <Title>{page.title}</Title>
-            <Button link={`/preview/${id}`}>Preview Page</Button>
+            <Button link={`/preview/${id}`} newTab>
+              Preview Page
+            </Button>
           </Row>
           <Text>Step 1</Text>
           <SubTitle>Priority Guides</SubTitle>

@@ -8,6 +8,8 @@ interface ButtonProps {
   size?: number
   children?: React.ReactNode
   link?: string
+  disabled?: boolean
+  newTab?: boolean
 }
 
 export default function Button({
@@ -16,6 +18,8 @@ export default function Button({
   style,
   children,
   link,
+  disabled,
+  newTab,
 }: ButtonProps) {
   const buttonStyles = `
   font-family: "Sofia Sans", sans-serif;  
@@ -45,11 +49,11 @@ export default function Button({
   `
 
   return link ? (
-    <Link href={link} aria-label={label}>
+    <Link href={link} aria-label={label} target={newTab ? "_blank" : undefined}>
       {children}
     </Link>
   ) : (
-    <Button onClick={onClick} aria-label={label}>
+    <Button onClick={onClick} aria-label={label} disabled={disabled}>
       {children}
     </Button>
   )

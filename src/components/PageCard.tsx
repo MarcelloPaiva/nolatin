@@ -20,11 +20,16 @@ const Row = styled.div`
 interface PageCardProps {
   id: string
   title: string
+  onDelete: () => void
   last?: boolean
 }
 
-export default function PageCard({ id, title, last = false }: PageCardProps) {
-  const { dispatch } = useContext(AppContext)
+export default function PageCard({
+  id,
+  title,
+  onDelete,
+  last = false,
+}: PageCardProps) {
   const CardContainer = styled.a`
     width: 100%;
     display: flex;
@@ -43,12 +48,7 @@ export default function PageCard({ id, title, last = false }: PageCardProps) {
           aria={`Delete ${title} page`}
           onClick={(event) => {
             event?.preventDefault()
-            dispatch({
-              type: ActionTypes.DeletePage,
-              payload: {
-                pageId: id,
-              },
-            })
+            onDelete()
           }}
         />
         <ChevronRight size={24} color="#0000FF" />

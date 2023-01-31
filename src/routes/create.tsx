@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useState } from "react"
 import { Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
@@ -6,6 +6,7 @@ import styled from "styled-components"
 import { AppContext } from "../context/AppContext"
 import Input from "../components/Input"
 import { ActionTypes } from "../context/actions"
+import { useNavigate } from "react-router"
 
 const LeftTitle = styled(Title)`
   align-self: flex-start;
@@ -18,11 +19,10 @@ const Root = styled.form`
 `
 
 export default function Create() {
-  const { state, dispatch } = useContext(AppContext)
-
-  useEffect(() => {
-    console.log(state)
-  }, [state])
+  const { dispatch } = useContext(AppContext)
+  const [localTitle, setLocalTitle] = useState("")
+  const [localDescription, setLocalDescription] = useState("")
+  const navigate = useNavigate()
 
   function getFormData(): { title: string; description: string } {
     const title = document.getElementById("title") as HTMLInputElement
@@ -37,22 +37,41 @@ export default function Create() {
 
   function handleCreate() {
     dispatch({ type: ActionTypes.CreatePage, payload: getFormData() })
+    navigate("/pages")
+  }
+
+  function handleBlur() {
+    const data = getFormData()
+    setLocalTitle(data.title)
+    setLocalDescription(data.description)
   }
 
   return (
     <Layout>
       <Root>
         <LeftTitle>Create Page</LeftTitle>
-        <Input id="title" label="Page Title" />
-        <Input id="description" label="Description" multiline />
+        <Input
+          id="title"
+          label="Page Title"
+          onBlur={handleBlur}
+          defaultValue={localTitle}
+        />
+        <Input
+          id="description"
+          label="Description"
+          onBlur={handleBlur}
+          defaultValue={localDescription}
+          multiline
+        />
         <Button
           style={`
             margin: 40px 0px;
             width: 100%;
         `}
           onClick={handleCreate}
+          disabled={localTitle === "" || localDescription === ""}
         >
-          Add a headline
+          Add Page
         </Button>
       </Root>
     </Layout>

@@ -245,52 +245,54 @@ export default function ContentCard({
     )
   }
   return (
-    <Selection>
-      <Corner>
-        <IconButton
-          icon={X}
-          aria="Remove Content Block"
-          label="Cancel"
-          onClick={() =>
-            dispatch({
-              type: ActionTypes.DeleteNode,
-              payload: {
-                pageId,
-                sectionId,
-                id: state.id,
-              },
-            })
-          }
-        />
-      </Corner>
-      <Text
-        style={{
-          color: "#000",
-          fontWeight: "bold",
-          marginBottom: "2rem",
-        }}
-      >
-        Select content block type:
-      </Text>
+    <Modal open={state.type === undefined}>
+      <Selection>
+        <Corner>
+          <IconButton
+            icon={X}
+            aria="Remove Content Block"
+            label="Cancel"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.DeleteNode,
+                payload: {
+                  pageId,
+                  sectionId,
+                  id: state.id,
+                },
+              })
+            }
+          />
+        </Corner>
+        <Text
+          style={{
+            color: "#000",
+            fontWeight: "bold",
+            marginBottom: "2rem",
+          }}
+        >
+          Select content block type:
+        </Text>
 
-      {(Object.keys(ContentTypes) as Array<keyof typeof ContentTypes>).map(
-        (key) => (
-          <ButtonNoStyle
-            onClick={() => handleSelect(ContentTypes[key])}
-            key={`${key}-content`}
-          >
-            <Text
-              style={{
-                color: "hsla(120,100%,25%, 1)",
-                fontSize: "1.25rem",
-                lineHeight: "1.25rem",
-              }}
+        {(Object.keys(ContentTypes) as Array<keyof typeof ContentTypes>).map(
+          (key) => (
+            <ButtonNoStyle
+              onClick={() => handleSelect(ContentTypes[key])}
+              key={`${key}-content`}
             >
-              {ContentTypes[key]}
-            </Text>
-          </ButtonNoStyle>
-        )
-      )}
-    </Selection>
+              <Text
+                style={{
+                  color: "hsla(120,100%,25%, 1)",
+                  fontSize: "1.25rem",
+                  lineHeight: "1.25rem",
+                }}
+              >
+                {ContentTypes[key]}
+              </Text>
+            </ButtonNoStyle>
+          )
+        )}
+      </Selection>
+    </Modal>
   )
 }

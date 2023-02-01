@@ -4,4 +4,8 @@ export enum Role {
   ContentInfo = "contentinfo",
   Navigation = "navigation",
   Region = "region",
+  Form = "form",
+  Search = "search",
+  Complementary = "complementary",
+  Main = "main",
 }

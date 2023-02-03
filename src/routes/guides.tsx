@@ -7,33 +7,33 @@ export default function Guides() {
   return (
     <Layout>
       <Title>No Latin</Title>
-      <SubTitle>Content design leads to good Accessibility.</SubTitle>
-      <Text>
+      <h2>Content design leads to good Accessibility.</h2>
+      <p>
         As UX professionals, we are committed to designing solutions as
         ambassadors for all users, including people with disabilities.
-      </Text>
-      <Text>
+      </p>
+      <p>
         This tool invites all UX designers and researchers to bring intent into
         our design process by elevating the content quality early for People
         with Disabilities.
-      </Text>
-      <Divider />
-      <SubTitleBold>Step 1 - Create Priority Guides</SubTitleBold>
-      <Text>
+      </p>
+
+      <h3>Step 1 - Create Priority Guides</h3>
+      <p>
         A good way to start focusing on the content design is using a method
         called Priority Guides to evolve your content into accessible
         prototyping, which you can start evaluating with assistive technologies
         early in the design process.
-      </Text>
-      <Text>
+      </p>
+      <p>
         Priority guide contains content and elements for a mobile screen, sorted
         by hierarchy from top to bottom and without layout specifications. The
         hierarchy is based on relevance to users, with the content most critical
         to satisfying user needs. (credits)
-      </Text>
-      <Text>
+      </p>
+      <p>
         The following examples show the content hierachy for a Job Board page:
-      </Text>
+      </p>
       <Button style={`margin: 40px 0px`} link="pages">
         Create Priority Guides
       </Button>

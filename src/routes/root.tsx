@@ -7,11 +7,18 @@ export default function Root() {
   return (
     <Layout>
       <h1>No Latin</h1>
-      <SubHeading>A content-first tool for good Accessibility</SubHeading>
-      <Text>
-        A shift-left tool to help people with disabilities, one word at the
-        time.
-      </Text>
+      <p>Tagline 1: A content-first tool for good Accessibility</p>
+      <p>
+        Tagline 2: A shift-left tool to help people with disabilities, one word
+        at the time.
+      </p>
+      <hr className="una" />
+
+      <blockquote>
+        Our goal is to improve accessibility for people with disabilities by
+        identifying and eliminating the use of Latin-based scripts (a.k.a.:
+        Lorem Ipsum) in the design industry.
+      </blockquote>
       <hr className="una" />
       <img src="images/InclusiveBunch.png" alt=""></img>
       <figcaption>
@@ -19,11 +26,6 @@ export default function Root() {
         wheelchair, smiling for a photo celebrating those who design with
         Accessibility in mind.
       </figcaption>
-      <Text>
-        Our goal is to improve accessibility for people with disabilities by
-        identifying and eliminating the use of Latin-based scripts (a.k.a.:
-        Lorem Ipsum) in the design industry.
-      </Text>
       <h2>The Industry Problem:</h2>
       <Text>
         Many UX designers and user researchers struggle to incorporate

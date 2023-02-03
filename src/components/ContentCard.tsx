@@ -31,16 +31,13 @@ interface ContentProps {
 }
 
 const Selection = styled.div`
-  position: relative;
-  background-color: #fff;
-  box-shadow: 0 0 0 4px hsla(120, 100%, 40%, 0.5);
-  border-radius: 8px;
-  padding: 24px;
-  margin: 16px;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
   display: flex;
   flex-direction: column;
+  position: relative;
+  margin: 40px;
+  padding: 40px;
+  border-radius: 8px;
+  background: white;
 `
 const Corner = styled.div`
   position: absolute;
@@ -48,8 +45,8 @@ const Corner = styled.div`
   right: 16px;
 `
 const cardStyles = `
-  background-color: hsla(120,100%,60%, 0.1);
-  border: 3px solid hsla(120,100%,20%, 0.25); 
+  background-color: hsla(270,100%,60%, 0.1);
+  border: 3px solid hsla(270,100%,20%, 0.25); 
   margin-top: 1rem;
   margin-bottom: .5rem;
   border-radius: 8px;
@@ -59,7 +56,10 @@ const CardContainer = styled.div`
   ${cardStyles}
 `
 const CardForm = styled.form`
-  ${cardStyles}
+  margin: 40px;
+  padding: 40px;
+  border-radius: 8px;
+  background: white;
 `
 
 const Row = styled.div`

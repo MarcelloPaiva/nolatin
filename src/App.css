@@ -1,10 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400&family=Sofia+Sans:wght@300;400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;800&family=Sofia+Sans:wght@300;400;800&display=swap");
 
 :root {
   --h: 60;
   --s: 2%;
   --l: 10%;
-  --h-accent: 270;
+  --h-accent: 240;
 
   --primary-light: #fafbf6;
   --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
@@ -28,9 +28,9 @@
   --secondary-50: hsla(var(--h-accent), 50%, 50%, 0.5);
   --secondary-60: hsla(var(--h-accent), 50%, 50%, 0.6);
   --secondary-70: hsla(var(--h-accent), 40%, 40%, 0.7);
-  --secondary-80: hsla(var(--h-accent), 40%, 40%, 0.8);
+  --secondary-80: hsla(var(--h-accent), 80%, 40%, 0.8);
   --secondary-90: hsla(var(--h-accent), 40%, 40%, 0.9);
-  --secondary-100: hsla(var(--h-accent), 30%, 50%, 1);
+  --secondary-100: hsla(var(--h-accent), 50%, 50%, 1);
 
   --surface-light: var(--primary-light);
 
@@ -38,10 +38,11 @@
   --text-low-emphasis: var(--primary-80);
 
   --button-primary: var(--text-light);
+  --button-child: blue;
 }
 
 body {
-  font-family: "Lora", serif;
+  font-family: "Sofia Sans", serif;
   max-width: 1024px;
   margin: 0 auto;
   float: none;
@@ -49,7 +50,7 @@ body {
   background-color: var(--surface-light);
   color: var(--text-light);
   line-height: auto;
-  letter-spacing: 0.05rem;
+  letter-spacing: -0.025rem;
 }
 
 .MuiPopover-paper {
@@ -60,10 +61,10 @@ body {
 
 p {
   margin: 0;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
   font-size: 1.5rem !important;
   line-height: 2.25rem;
-  color: var(--primary-100);
+  color: var(--primary-90);
 }
 
 h1,
@@ -72,42 +73,52 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Lora", serif;
+  font-family: "Roboto Slab", serif;
   margin: 0;
   padding: 0;
   margin-top: 3rem;
-  font-style: italic;
   color: var(--secondary-80);
 }
 
 h1 {
-  font-size: 4rem;
-  font-weight: 700;
-  font-style: italic;
-  margin: 3rem 0;
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 2rem 0;
   margin-bottom: 0;
   color: var(--secondary-100);
 }
 
 h2 {
   font-size: 3rem;
+  font-weight: 600;
 }
 
 h3 {
   font-size: 2.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
 img {
   margin-top: 3rem;
+  filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
   border: 1rem solid var(--secondary-25);
 }
 figcaption {
-  font-family: "Lora", serif;
-  font-style: italic;
+  font-family: "Roboto Slab", serif;
   color: var(--secondary-80);
   margin-top: 8px;
   margin-bottom: 3rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
+  letter-spacing: normal;
+  line-height: 1.6rem;
+}
+
+blockquote {
+  font-family: "Roboto Slab", "Times New Roman", Times, serif;
+  font-size: 1.75rem;
+  color: var(--secondary-100);
+  line-height: 2.75rem;
 }
 
 *:focus {
@@ -135,7 +146,7 @@ figcaption {
 .una:after {
   content: "\2021";
   font-size: 4rem;
-  color: var(--secondary-40);
+  color: var(--secondary-100);
   position: absolute;
   transform: rotate(90deg);
 }
@@ -144,4 +155,46 @@ figcaption {
 }
 .una:after {
   right: auto;
+}
+
+.exportApp {
+  background-color: #fff;
+}
+
+.exportApp h1,
+.exportApp h2,
+.exportApp h3,
+.exportApp h4,
+.exportApp h5,
+.exportApp h6 {
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  line-height: normal;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  margin: auto;
+}
+
+.exportApp h1 {
+  font-size: 2em;
+}
+.exportApp h2 {
+  font-size: 1.5em;
+}
+.exportApp h3 {
+  font-size: 1.17em;
+}
+.exportApp h4 {
+  font-size: 1em;
+}
+.exportApp h5 {
+  font-size: 0.83em;
+}
+.exportApp h6 {
+  font-size: 0.67em;
+}
+
+.exportApp p {
+  font-size: 1em !important;
+  line-height: normal;
 }

@@ -17,19 +17,28 @@ const Image = styled.img`
   width: 100%;
 `
 
+const ExportApp = styled.div`
+  font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+`
+const Main = styled.main`
+  background-color: #fff;
+  margin: 0;
+  padding: 40px;
+`
 export default function Preview() {
   const { pageId } = useParams()
   const { state, getPage } = useContext(AppContext)
   const page = getPage(pageId ?? "")
   return (
-    <div>
+    <ExportApp className="exportApp">
       <Header
         title={page?.title ?? ""}
         pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}
         info={page?.description ?? ""}
       />
-      <main>{generateSections(page?.sections ?? [])}</main>
-    </div>
+      <Main>{generateSections(page?.sections ?? [])}</Main>
+    </ExportApp>
   )
 }
 

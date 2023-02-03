@@ -25,7 +25,8 @@ const ModalContainer = styled.div`
   align-items: center;
   background-color: var(--primary-light);
   padding: 24px;
-  margin: auto;
+  margin: 40px;
+  border-radius: 8px;
 `
 
 const Row = styled.div`
@@ -62,19 +63,24 @@ export default function Pages() {
               Are you sure you want to delete the {open?.title} page?
             </Typography>
             <Row>
-              <Button onClick={() => handleDelete(open?.id)}>Delete</Button>
               <Button onClick={() => setOpen(null)}>Cancel</Button>
+              <Button
+                onClick={() => handleDelete(open?.id)}
+                style="background: red"
+              >
+                Delete
+              </Button>
             </Row>
           </ModalContainer>
         </Modal>
         <LeftTitle>Pages</LeftTitle>
         <Text>
           {pages.length > 0
-            ? `${
+            ? `You have created ${
                 pages.length === 1
                   ? `${pages.length} page`
                   : `${pages.length} pages`
-              } created so far`
+              } so far`
             : "Start by adding a page"}
         </Text>
         {pages.map((page, index) => (

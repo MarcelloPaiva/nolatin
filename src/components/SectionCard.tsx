@@ -12,6 +12,7 @@ import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import { Modal } from "@mui/material"
+import { red } from "@mui/material/colors"
 
 const sectionStyles = `
   border-radius: 16px;
@@ -19,8 +20,7 @@ const sectionStyles = `
   display: flex;
   flex-direction: column;
   padding: 16px;
-  margin-bottom: 40px;
-  margin-top: 16px;
+  margin: 16px; 
   flex: 1;
   width: 100%;
   background-color: #fff;
@@ -37,7 +37,10 @@ const SectionContainer = styled.div`
   ${sectionStyles}
 `
 const SectionForm = styled.form`
-  ${sectionStyles}
+  margin: 40px;
+  padding: 40px;
+  border-radius: 8px;
+  background: white;
 `
 const Column = styled.div`
   display: flex;

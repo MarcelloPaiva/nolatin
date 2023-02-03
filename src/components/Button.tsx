@@ -22,21 +22,20 @@ export default function Button({
   newTab,
 }: ButtonProps) {
   const buttonStyles = `
-  font-family: "Sofia Sans", sans-serif;  
-  min-height: 44px;
-    min-width: 44px;
-    padding: 1rem 16px;
+  font-family: "Roboto", sans-serif;  
+    padding: 16px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
     border-radius: 12px;
-    background-color: var(--secondary-90);
+    background-color: var(--secondary-100);
     color: #fff;
-    font-weight: 400;
-    font-size: 2rem; 
-    line-height: 26px;
+    font-weight: 600;
+    font-size: 1.2rem; 
+    line-height: 1.2rem;
     margin-top: 2rem;
+    letter-spacing: 0.025rem;
     ${style}
   `
 

@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import { Info, Menu as Hamburger } from "react-feather"
-import { StyledEngineProvider } from "@mui/material/styles"
 import { Menu } from "@mui/material"
 import { useState } from "react"
 import { useRef } from "react"
@@ -63,32 +62,30 @@ export default function Header({ pages, info, title }: HeaderProps) {
   return (
     <GenHeader>
       <Row>
-        <StyledEngineProvider injectFirst>
-          <Nav aria-label="Page Navigation" ref={menuRef}>
-            <IconButton
-              key="page-menu"
-              id="page-menu"
-              size={32}
-              color="var(--primary-light)"
-              icon={Hamburger}
-              aria="Navigate to another page"
-              onClick={handleMenuClick}
-            />
-            <Menu
-              anchorEl={menuRef.current}
-              open={menuOpen}
-              onClose={handleMenuClose}
-            >
-              <Nav>
-                {menuItems(pages)}
-                {menuItems(pages)}
-                {menuItems(pages)}
-                {menuItems(pages)}
-              </Nav>
-            </Menu>
-          </Nav>
-          <Heading>{title}</Heading>
-        </StyledEngineProvider>
+        <Nav aria-label="Page Navigation" ref={menuRef}>
+          <IconButton
+            key="page-menu"
+            id="page-menu"
+            size={32}
+            color="var(--primary-light)"
+            icon={Hamburger}
+            aria="Navigate to another page"
+            onClick={handleMenuClick}
+          />
+          <Menu
+            anchorEl={menuRef.current}
+            open={menuOpen}
+            onClose={handleMenuClose}
+          >
+            <Nav>
+              {menuItems(pages)}
+              {menuItems(pages)}
+              {menuItems(pages)}
+              {menuItems(pages)}
+            </Nav>
+          </Menu>
+        </Nav>
+        <Heading>{title}</Heading>
       </Row>
       <div ref={infoRef}>
         <IconButton

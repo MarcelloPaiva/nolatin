@@ -53,12 +53,6 @@ body {
   letter-spacing: -0.025rem;
 }
 
-.MuiPopover-paper {
-  /* position: relative;
-  top: 0 !important;
-  left: 0 !important; */
-}
-
 p {
   margin: 0;
   margin-bottom: 1rem;
@@ -76,7 +70,6 @@ h6 {
   font-family: "Roboto Slab", serif;
   margin: 0;
   padding: 0;
-  margin-top: 3rem;
   color: var(--secondary-80);
 }
 
@@ -84,7 +77,7 @@ h1 {
   font-size: 3.5rem;
   font-weight: 800;
   margin: 2rem 0;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   color: var(--secondary-100);
 }
 
@@ -169,14 +162,17 @@ blockquote {
 .exportApp h6 {
   font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
-  line-height: normal;
+  line-height: 200%;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
   margin: auto;
+  color: var(--primary-80);
 }
 
 .exportApp h1 {
   font-size: 2em;
+  line-height: 100%;
+  color: #fff;
 }
 .exportApp h2 {
   font-size: 1.5em;
@@ -195,6 +191,6 @@ blockquote {
 }
 
 .exportApp p {
-  font-size: 1em !important;
+  font-size: 1rem !important;
   line-height: normal;
 }

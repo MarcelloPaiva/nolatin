@@ -6,11 +6,17 @@ import { useContext } from "react"
 import { AppContext } from "../../context/AppContext"
 import { ActionTypes } from "../../context/actions"
 import ContentCard from "../ContentCard"
+import styled from "styled-components"
 
 interface TitleProps extends ContentProps {
   pageId: string
   sectionId: string
 }
+const LabelToo = styled.label`
+  color: var(--primary-60);
+  margin-top: 32px;
+  font-size: 1rem;
+`
 
 export default function TitleContent({
   pageId,
@@ -36,10 +42,10 @@ export default function TitleContent({
         </>
       ) : (
         <>
-          <Label>Title</Label>
-          <Text>{state.title}</Text>
-          <Label>Description</Label>
-          <Text>{state.description}</Text>
+          <LabelToo>Title</LabelToo>
+          <p>{state.title}</p>
+          <LabelToo>Description</LabelToo>
+          <p>{state.description}</p>
           {state.children.map((child) => (
             <ContentCard
               state={child}

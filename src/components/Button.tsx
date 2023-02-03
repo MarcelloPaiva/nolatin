@@ -29,13 +29,15 @@ export default function Button({
     align-items: center;
     border: none;
     border-radius: 12px;
-    background-color: var(--secondary-100);
+    background-color: var(--secondary-90);
     color: #fff;
     font-weight: 600;
     font-size: 1.2rem; 
     line-height: 1.2rem;
     margin-top: 2rem;
     letter-spacing: 0.025rem;
+    height: 100%;
+    width: auto;
     ${style}
   `
 

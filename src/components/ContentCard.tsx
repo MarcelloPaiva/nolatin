@@ -45,8 +45,8 @@ const Corner = styled.div`
   right: 16px;
 `
 const cardStyles = `
-  background-color: hsla(270,100%,60%, 0.1);
-  border: 3px solid hsla(270,100%,20%, 0.25); 
+  background-color: hsla(var(--h-accent),100%,80%, 0.15);
+  border: 2px solid hsla(var(--h-accent),100%,20%, 0.05); 
   margin-top: 1rem;
   margin-bottom: .5rem;
   border-radius: 8px;
@@ -282,9 +282,7 @@ export default function ContentCard({
             >
               <Text
                 style={{
-                  color: "hsla(120,100%,25%, 1)",
-                  fontSize: "1.25rem",
-                  lineHeight: "1.25rem",
+                  color: "red",
                 }}
               >
                 {ContentTypes[key]}

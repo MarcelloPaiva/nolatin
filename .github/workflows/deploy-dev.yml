@@ -25,3 +25,4 @@ jobs:
           local-dir: ./build/
           exclude: |
             **/public/**
+            **/src/**

@@ -6,3 +6,6 @@ package-lock.json
 
 # VSCode
 .vscode/
+
+# macos
+**/.DS_Store

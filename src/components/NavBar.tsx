@@ -37,14 +37,17 @@ export default function NavBar() {
           onClick={() => {}}
           aria="Skip to"
           label="Skip To"
+          color="var( --secondary-80)"
+          styles="color: var( --secondary-80); margin-right: 1rem;"
         />
         <IconButton
-          styles={`margin-left: 24px;`}
           size={24}
           icon={Menu}
           onClick={() => {}}
           aria="Menu"
           label="Menu"
+          color="var( --secondary-80)"
+          styles="color: var( --secondary-80);"
         />
       </Row>
     </Header>

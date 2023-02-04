@@ -24,7 +24,6 @@ const Root = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  align-items: center;
 `
 
 export default function Page() {
@@ -49,14 +48,15 @@ export default function Page() {
         <Root>
           <Row>
             <Title>{page.title}</Title>
-            <Button link={`/preview/${id}`} newTab>
-              Preview Page
+            <Button link={`/preview/${id}`} style="height:100%;" newTab>
+              Export
             </Button>
           </Row>
-          <Text>Step 1</Text>
-          <SubTitle>Priority Guides</SubTitle>
-          <Text>Create</Text>
-          <Text>Add as many headlines you think your view would require.</Text>
+          <h3>Next steps:</h3>
+          <p>
+            Add as many headlines you need to guide someone without any visual
+            aid.
+          </p>
           <Column>{renderCards(page.sections, page.id)}</Column>
           <Button
             onClick={() =>

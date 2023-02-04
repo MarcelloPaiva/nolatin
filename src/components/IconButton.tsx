@@ -26,7 +26,7 @@ export default function IconButton({
   label,
   styles,
   size,
-  color = "var( --secondary-80)",
+  color = "var( --button-child)",
   disabled = false,
   ref,
 }: IconButtonProps) {
@@ -38,7 +38,6 @@ export default function IconButton({
     align-items: center;
     border: none;
     background-color: rgba(0, 0, 0, 0);
-    color: var(--secondary-80);
     flex-direction: column;
     ${styles}
   `

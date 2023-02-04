@@ -7,14 +7,15 @@ import { ActionTypes } from "../context/actions"
 
 const PageTitle = styled.span`
   text-align: left;
-  font-weight: bold;
-  // font-size: 1.25rem;
-  line-height: 28px;
+  font-weight: normal;
+  line-height: 80px;
 `
 
 const Row = styled.div`
   display: flex;
   align-items: center;
+  border: solid 1px blue;
+  line-height: 80px;
 `
 
 interface PageCardProps {
@@ -34,7 +35,11 @@ export default function PageCard({
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 16px 24px;
+    padding: 0 24px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 120%;
+    font-weight: normal !important;
     border-top: 1px solid #eee;
     ${last && "border-bottom: 1px solid #eee;"}
   `
@@ -51,7 +56,7 @@ export default function PageCard({
             onDelete()
           }}
         />
-        <ChevronRight size={24} color="#0000FF" />
+        <ChevronRight size={32} />
       </Row>
     </CardContainer>
   )

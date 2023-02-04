@@ -12,24 +12,30 @@ import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import { Modal } from "@mui/material"
+import { red } from "@mui/material/colors"
 
 const sectionStyles = `
   border-radius: 16px;
-  border: 4px dashed #000;
+  border: 2px dashed var(--secondary-40);
   display: flex;
   flex-direction: column;
   padding: 16px;
-  margin-bottom: 40px;
-  margin-top: 16px;
+  margin: 0px; 
   flex: 1;
-  width: 100%;
+  width: auto;
   background-color: #fff;
 
   p,
   h2,
   h3 {
     margin-top: 0px;
-    margin-bottom: 16px;
+    margin-bottom: 0;
+    line-height: auto;
+  }
+
+  p { 
+    font-size: 1.25rem !important;
+    line-height: 1.25rem;
   }
 `
 
@@ -37,7 +43,10 @@ const SectionContainer = styled.div`
   ${sectionStyles}
 `
 const SectionForm = styled.form`
-  ${sectionStyles}
+  margin: 40px;
+  padding: 40px;
+  border-radius: 8px;
+  background: white;
 `
 const Column = styled.div`
   display: flex;
@@ -46,6 +55,11 @@ const Column = styled.div`
 const Row = styled.div`
   display: flex;
   justify-content: flex-end;
+`
+const LabelToo = styled.label`
+  color: var(--primary-60);
+  margin-top: 16px;
+  font-size: 1rem;
 `
 
 interface SectionProps {
@@ -164,6 +178,8 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           icon={Trash}
           aria="Delete Story"
           label="Delete"
+          color="red"
+          styles="margin-left:24px;"
           onClick={() =>
             dispatch({
               type: ActionTypes.DeleteNode,
@@ -176,12 +192,14 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           }
         />
       </Row>
-      <Label>Name</Label>
-      <SubHeading aria-level={2}>{state.name}</SubHeading>
-      <Label>Element</Label>
-      <Text>{state.element}</Text>
-      <Label>Roles</Label>
-      <Text>{getRoles(state.element)}</Text>
+      <LabelToo>Name</LabelToo>
+      <p>
+        <strong>{state.name}</strong>
+      </p>
+      <LabelToo>Element</LabelToo>
+      <p>{state.element}</p>
+      <LabelToo>Export as</LabelToo>
+      <p>{getRoles(state.element)}</p>
       <Column>
         {state.children.map((contentState) => (
           <ContentCard

@@ -1,5 +1,5 @@
 import { AppProvider } from "./context/AppContext"
-import { HashRouter, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Root from "./routes/root"
 import Guides from "./routes/guides"
 import Create from "./routes/create"
@@ -11,7 +11,7 @@ import "./App.css"
 function App() {
   return (
     <AppProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />} />
           <Route path="/guides" element={<Guides />} />
@@ -20,7 +20,7 @@ function App() {
           <Route path="/pages" element={<Pages />} />
           <Route path="/page/:id" element={<Page />} />
         </Routes>
-      </HashRouter>
+      </BrowserRouter>
     </AppProvider>
   )
 }

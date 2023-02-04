@@ -1,4 +1,4 @@
-import React, { RefObject } from "react"
+import { RefObject } from "react"
 import styled from "styled-components"
 import { IconLabel } from "."
 import { Icon as IconType } from "react-feather"

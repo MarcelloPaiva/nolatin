@@ -1,12 +1,12 @@
-import React from "react"
+import { ReactNode } from "react"
 import styled from "styled-components"
 
 interface ButtonProps {
   onClick?: () => void
   label?: string
-  style?: string
+  styles?: string
   size?: number
-  children?: React.ReactNode
+  children?: ReactNode
   link?: string
   disabled?: boolean
   newTab?: boolean
@@ -15,7 +15,7 @@ interface ButtonProps {
 export default function Button({
   onClick,
   label,
-  style,
+  styles,
   children,
   link,
   disabled,
@@ -38,7 +38,7 @@ export default function Button({
     letter-spacing: 0.025rem;
     height: 100%;
     width: auto;
-    ${style}
+    ${styles}
   `
 
   const Button = styled.button`

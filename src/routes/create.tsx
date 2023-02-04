@@ -64,7 +64,7 @@ export default function Create() {
           multiline
         />
         <Button
-          style={`
+          styles={`
             margin: 40px 0px;
             width: 100%;
         `}

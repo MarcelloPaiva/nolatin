@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
 import Input from "./Input"
 import IconButton from "./IconButton"
@@ -12,7 +11,6 @@ import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import { Modal } from "@mui/material"
-import { red } from "@mui/material/colors"
 
 const sectionStyles = `
   border-radius: 16px;
@@ -211,7 +209,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
         ))}
       </Column>
       <Button
-        style={`
+        styles={`
         margin-top: 1rem;
         font-size: 1.25rem;
         background-color: hsla(120,100%,60%, 0.1);

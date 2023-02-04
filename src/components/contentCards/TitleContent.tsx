@@ -1,5 +1,4 @@
 import Input from "../Input"
-import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
 import Button from "../Button"
 import { useContext } from "react"
@@ -56,7 +55,7 @@ export default function TitleContent({
           ))}
 
           <Button
-            style={`
+            styles={`
               width: 100%;
               margin-top: 16px;
             `}

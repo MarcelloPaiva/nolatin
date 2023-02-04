@@ -66,7 +66,7 @@ export default function Pages() {
               <Button onClick={() => setOpen(null)}>Cancel</Button>
               <Button
                 onClick={() => handleDelete(open?.id)}
-                style="background: red"
+                styles="background: red"
               >
                 Delete
               </Button>
@@ -93,7 +93,7 @@ export default function Pages() {
           />
         ))}
         <Button
-          style={`
+          styles={`
             margin: 40px 0px;
             width: 100%;
         `}

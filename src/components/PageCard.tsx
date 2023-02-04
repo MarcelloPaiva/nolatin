@@ -1,9 +1,6 @@
-import { useContext } from "react"
-import { AppContext } from "../context/AppContext"
 import styled from "styled-components"
 import { ChevronRight, Trash } from "react-feather"
 import IconButton from "./IconButton"
-import { ActionTypes } from "../context/actions"
 
 const PageTitle = styled.span`
   text-align: left;

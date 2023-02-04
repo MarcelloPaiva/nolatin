@@ -1,5 +1,4 @@
-import React from "react"
-import { Text, SubHeading } from "../components/"
+import { Text } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 
@@ -38,7 +37,7 @@ export default function Root() {
         into their design process by elevating the content quality early for
         people with disabilities.
       </Text>
-      <Button style={`margin: 40px 0px`} link="guides">
+      <Button styles={`margin: 40px 0px`} link="guides">
         Try No Latin now
       </Button>
       <hr className="una" />
@@ -84,7 +83,7 @@ export default function Root() {
         before the design, ensuring that the user experience is inclusive for
         all.
       </Text>
-      <Button style={`margin: 40px 0px`} link="guides">
+      <Button styles={`margin: 40px 0px`} link="guides">
         Learn about Priority Guides
       </Button>
     </Layout>

@@ -1,10 +1,10 @@
-import React from "react"
+import { ReactNode } from "react"
 import styled from "styled-components"
 import NavBar from "./NavBar"
 import Footer from "./Footer"
 
 interface LayoutProps {
-  children?: React.ReactNode
+  children?: ReactNode
   style?: string
 }
 

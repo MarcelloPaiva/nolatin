@@ -1,5 +1,4 @@
-import React from "react"
-import { Divider, Text, Title, SubTitle, SubTitleBold } from "../components/"
+import { Divider, Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 
@@ -34,7 +33,7 @@ export default function Guides() {
       <p>
         The following examples show the content hierachy for a Job Board page:
       </p>
-      <Button style={`margin: 40px 0px`} link="pages">
+      <Button styles={`margin: 40px 0px`} link="pages">
         Create Priority Guides
       </Button>
       <Divider />

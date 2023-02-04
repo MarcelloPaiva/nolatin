@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { SubTitle, Text, Title } from "../components/"
+import { Title } from "../components/"
 import Button from "../components/Button"
 import SectionCard from "../components/SectionCard"
 import Layout from "../components/Layout"
@@ -48,7 +48,7 @@ export default function Page() {
         <Root>
           <Row>
             <Title>{page.title}</Title>
-            <Button link={`/preview/${id}`} style="height:100%;" newTab>
+            <Button link={`/preview/${id}`} styles="height:100%;" newTab>
               Export
             </Button>
           </Row>

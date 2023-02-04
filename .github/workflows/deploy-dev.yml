@@ -23,3 +23,5 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.DEV_FOLDER }}
           local-dir: ./build/
+          exclude: |
+            **/public/**

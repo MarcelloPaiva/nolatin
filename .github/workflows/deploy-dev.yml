@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
+      - name: Install dependencies
+        run: npm i
       - name: Run build script
         run: npm run build
       - name: 📂 Sync files

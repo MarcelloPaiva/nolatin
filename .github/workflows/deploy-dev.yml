@@ -11,7 +11,8 @@ jobs:
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v3
-
+      - name: Run build script
+        run: npm run build
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
@@ -19,3 +20,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ${{ secrets.DEV_FOLDER }}
+          local-dir: ./build/

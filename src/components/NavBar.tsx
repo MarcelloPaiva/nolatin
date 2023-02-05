@@ -1,4 +1,4 @@
-import { Menu, Slash, FastForward } from "react-feather"
+import { Menu, Slash } from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
 

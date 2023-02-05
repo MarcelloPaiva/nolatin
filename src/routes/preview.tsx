@@ -47,6 +47,7 @@ function generateSections(sections: Section[]) {
     const content = (
       <>
         <h2>{section.name}</h2>
+        {section.description && <p>{section.description}</p>}
         {generateContents(section.children)}
       </>
     )

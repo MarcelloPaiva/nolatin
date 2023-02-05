@@ -26,6 +26,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
       pages[pageIndex].sections.push({
         id: sectionId,
         name: "",
+        description: "",
         element: ElementNames.Section,
         children: [],
       })

@@ -84,12 +84,16 @@ export default function SectionCard({ pageId, state }: SectionProps) {
 
   function getFormData(): Section {
     const name = document.getElementById(state.id + "-name") as HTMLInputElement
+    const description = document.getElementById(
+      state.id + "-description"
+    ) as HTMLTextAreaElement
     const element = document.getElementById(
       state.id + "-element"
     ) as HTMLSelectElement
     return {
       id: state.id,
       name: name.value,
+      description: description.value,
       element: element.value as ElementNames,
       children: state.children,
     }
@@ -150,6 +154,14 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             setLocalName(name.value)
           }}
         />
+        <Input
+          id={state.id + "-description"}
+          label="Section Description"
+          style={`
+            margin-bottom: 16px;
+        `}
+          multiline
+        />
         <Dropdown
           id={state.id + "-element"}
           label="Element"
@@ -194,6 +206,8 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       <p>
         <strong>{state.name}</strong>
       </p>
+      <LabelToo>Description</LabelToo>
+      <p>{state.description}</p>
       <LabelToo>Element</LabelToo>
       <p>{state.element}</p>
       <LabelToo>Export as</LabelToo>

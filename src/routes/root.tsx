@@ -36,7 +36,7 @@ export default function Root() {
         into their design process by elevating the content quality early for
         people with disabilities.
       </p>
-      <Button styles={`margin: 40px 0px`} link="guides">
+      <Button styles={`margin: 40px 0px`} link="/guides">
         Try No Latin now
       </Button>
       <hr className="una" />
@@ -82,7 +82,7 @@ export default function Root() {
         before the design, ensuring that the user experience is inclusive for
         all.
       </p>
-      <Button styles={`margin: 40px 0px`} link="guides">
+      <Button styles={`margin: 40px 0px`} link="/guides">
         Learn about Priority Guides
       </Button>
     </Layout>

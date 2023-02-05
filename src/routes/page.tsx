@@ -8,6 +8,7 @@ import styled from "styled-components"
 import { AppContext } from "../context/AppContext"
 import { useParams } from "react-router-dom"
 import { ActionTypes } from "../context/actions"
+import { ChevronLeft } from "react-feather"
 
 const Column = styled.div`
   display: flex;
@@ -19,6 +20,12 @@ const Row = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+`
+const BackLink = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
 `
 const Root = styled.div`
   display: flex;
@@ -46,6 +53,10 @@ export default function Page() {
       `}
       >
         <Root>
+          <BackLink href="/pages">
+            <ChevronLeft />
+            Back to Pages
+          </BackLink>
           <Row>
             <Title>{page.title}</Title>
             <Button link={`/preview/${id}`} styles="height:100%;" newTab>

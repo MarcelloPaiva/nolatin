@@ -95,7 +95,7 @@ export default function Pages() {
             margin: 40px 0px;
             width: 100%;
         `}
-          link="create"
+          link="/create"
         >
           Add a page
         </Button>

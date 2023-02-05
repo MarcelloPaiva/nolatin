@@ -42,7 +42,7 @@ export default function PageCard({
   `
 
   return (
-    <CardContainer href={`page/${id}`}>
+    <CardContainer href={`/page/${id}`}>
       <PageTitle>{title}</PageTitle>
       <Row>
         <IconButton

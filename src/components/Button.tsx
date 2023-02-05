@@ -31,9 +31,6 @@ export default function Button({
     border-radius: 12px;
     background-color: var(--secondary-90);
     color: #fff;
-    font-weight: 600;
-    font-size: 1.2rem; 
-    line-height: 1.2rem;
     margin-top: 2rem;
     letter-spacing: 0.025rem;
     height: 100%;

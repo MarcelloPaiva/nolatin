@@ -39,25 +39,44 @@
 
   --button-primary: var(--text-light);
   --button-child: blue;
+
+  /*SkipTo Theme Variables*/
+
+  --skipToIcon: "\f11c";
+  --skipToMenuTextColor: var(--primary-100);
+  --skipToButtonBackgroundColor: var(--surface-light);
+  --skipToMenuBackgroundColor: var(--surface-light);
+  --skipToFocusBorderColor: var(--secondary-100);
+  --skipToMenuitemFocusBackgroundColor: var(--secondary-100);
+  --skipToMenuitemFocusTextColor: var(--primary-light);
+
+  font-size: 125%;
+}
+
+.nolatin-skipTo button:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 300;
+  content: var(--skipToIcon);
+}
+
+.nolatin-skipTo [role="menu"],
+.nolatin-skipTo button {
+  font-size: 80% !important;
 }
 
 body {
   font-family: "Sofia Sans", serif;
   max-width: 1024px;
-  margin: 0 auto;
+  margin: 0 16px;
   float: none;
-  font-size: larger;
   background-color: var(--surface-light);
   color: var(--text-light);
-  line-height: auto;
-  letter-spacing: -0.025rem;
+  line-height: 150%;
 }
 
 p {
   margin: 0;
-  margin-bottom: 1rem;
-  font-size: 1.5rem !important;
-  line-height: 2.25rem;
+  margin-bottom: 0.5rem;
   color: var(--primary-90);
 }
 
@@ -68,28 +87,23 @@ h4,
 h5,
 h6 {
   font-family: "Roboto Slab", serif;
-  margin: 0;
-  padding: 0;
   color: var(--secondary-80);
 }
 
 h1 {
-  font-size: 3.5rem;
   font-weight: 800;
-  margin: 2rem 0;
   margin-bottom: 2rem;
+  line-height: 120%;
   color: var(--secondary-100);
 }
 
 h2 {
-  font-size: 3rem;
   font-weight: 600;
 }
 
 h3 {
-  font-size: 2.5rem;
   font-weight: 400;
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
 }
 
 img {
@@ -99,19 +113,19 @@ img {
 }
 figcaption {
   font-family: "Roboto Slab", serif;
+  font-size: 80%;
   color: var(--secondary-80);
   margin-top: 8px;
   margin-bottom: 3rem;
-  font-size: 1rem;
   letter-spacing: normal;
-  line-height: 1.6rem;
+  line-height: 150%;
 }
 
 blockquote {
   font-family: "Roboto Slab", "Times New Roman", Times, serif;
-  font-size: 1.75rem;
   color: var(--secondary-100);
-  line-height: 2.75rem;
+  line-height: 150%;
+  margin: 0 16px;
 }
 
 *:focus {
@@ -125,8 +139,7 @@ blockquote {
   display: block;
   line-height: 2px;
   height: 2px;
-  margin: 2rem 0;
-  margin-top: 4rem;
+  margin: 3rem 0;
   background: linear-gradient(
     to right,
     var(--secondary-10),

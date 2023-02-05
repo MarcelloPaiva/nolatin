@@ -1,4 +1,3 @@
-import { Text } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 
@@ -26,27 +25,27 @@ export default function Root() {
         Accessibility in mind.
       </figcaption>
       <h2>The Industry Problem:</h2>
-      <Text>
+      <p>
         Many UX designers and user researchers struggle to incorporate
         accessibility considerations into their design process, resulting in
         poor experiences for users with disabilities.
-      </Text>
+      </p>
       <h2>What is No Latin?</h2>
-      <Text>
+      <p>
         No Latin is a tool that helps designers and researchers bring intent
         into their design process by elevating the content quality early for
         people with disabilities.
-      </Text>
+      </p>
       <Button styles={`margin: 40px 0px`} link="guides">
         Try No Latin now
       </Button>
       <hr className="una" />
       <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
-      <Text>
+      <p>
         Adding placeholders like ”Lorem ipsum” create barriers and it only
         delays any opportunity to start evaluating your design solution with
         people who relies on assistive technologies, such as screen readers.
-      </Text>
+      </p>
 
       <img
         src="images/NoLorem.png"
@@ -60,29 +59,29 @@ export default function Root() {
         consideration early on.
       </figcaption>
       <h2>Inclusive Tips:</h2>
-      <Text>
+      <p>
         Creating good content is a matter of putting intent in each step of your
         design effort.
-      </Text>
-      <Text>
+      </p>
+      <p>
         Adding placeholders like ”Lorem ipsum” only create barriers to start
         evaluating your solution with people with disabilities.
-      </Text>
+      </p>
 
-      <Text>
+      <p>
         <h3>Instead, follow these tips:</h3>
         <ol>
           <li>Write purposeful headlines</li>
           <li>A brief description for each headline</li>
           <li>If there's an action to a headline, state the expected action</li>
         </ol>
-      </Text>
+      </p>
       <h3>Use Priority Guides as your first step</h3>
-      <Text>
+      <p>
         Priority guides prioritize the content and its accessibility needs
         before the design, ensuring that the user experience is inclusive for
         all.
-      </Text>
+      </p>
       <Button styles={`margin: 40px 0px`} link="guides">
         Learn about Priority Guides
       </Button>

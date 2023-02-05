@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css"
+      rel="stylesheet"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -33,16 +37,6 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script src="https://paypal.github.io/skipto/downloads/js/skipto.min.js"></script>
-    <script>
-      var SkipToConfig = {
-        settings: {
-          skipTo: {
-            headings: "h1, h2, h3, h4, h5, h6",
-          },
-        },
-      }
-    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
@@ -52,5 +46,41 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script src="https://paypal.github.io/skipto/downloads/js/skipto.min.js"></script>
+    <script>
+      var skipToButtonLabel = " Keyboard only?"
+      var skipToFontFamily = "Sofia Sans"
+
+      var skipToButtonBackgroundColor = "var(--skipToButtonBackgroundColor)"
+      var skipToMenuTextColor = "var(--skipToMenuTextColor)"
+      var skipToFocusBorderColor = "var(--skipToFocusBorderColor)"
+      var skipToMenuBackgroundColor = "var(--skipToMenuBackgroundColor)"
+      var skipToMenuitemFocusBackgroundColor =
+        "var(--skipToMenuitemFocusBackgroundColor)"
+      var skipToMenuitemFocusTextColor = "var(--skipToMenuitemFocusTextColor)"
+
+      var SkipToConfig = {
+        settings: {
+          skipTo: {
+            headings: "h1, h2, h3, h4, h5, h6",
+            colorTheme: "default",
+            attachElement: "#skipToHere",
+            containerElement: "div",
+            customClass: "nolatin-skipTo",
+            containerRole: "nav",
+            positionLeft: "40%",
+            fontFamily: skipToFontFamily,
+            buttonLabel: skipToButtonLabel,
+            menuTextColor: skipToMenuTextColor,
+            buttonBackgroundColor: skipToButtonBackgroundColor,
+            menuitemFocusTextColor: skipToMenuitemFocusTextColor,
+            focusBorderColor: skipToFocusBorderColor,
+            menuBackgroundColor: skipToMenuBackgroundColor,
+            menuitemFocusBackgroundColor: skipToMenuitemFocusBackgroundColor,
+            menuitemFocusTextColor: skipToMenuitemFocusTextColor,
+          },
+        },
+      }
+    </script>
   </body>
 </html>

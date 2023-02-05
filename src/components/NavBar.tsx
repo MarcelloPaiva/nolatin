@@ -32,15 +32,6 @@ export default function NavBar() {
       <Row>
         <IconButton
           size={24}
-          icon={FastForward}
-          onClick={() => {}}
-          aria="Skip to"
-          label="Skip To"
-          color="var( --secondary-80)"
-          styles="color: var( --secondary-80); margin-right: 1rem;"
-        />
-        <IconButton
-          size={24}
           icon={Menu}
           onClick={() => {}}
           aria="Menu"

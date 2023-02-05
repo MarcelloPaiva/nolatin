@@ -10,12 +10,8 @@ interface LayoutProps {
 
 export default function Layout({ children, style }: LayoutProps) {
   const RootContainer = styled.div`
-    margin-top: 40px;
-    margin-left: 48px;
-    margin-right: 48px;
     display: flex;
     flex-direction: column;
-    // align-items: center;
     ${style}
   `
   return (

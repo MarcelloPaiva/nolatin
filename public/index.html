@@ -37,10 +37,19 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
     <script src="https://paypal.github.io/skipto/downloads/js/skipto.min.js"></script>
     <script>
       var skipToButtonLabel = " Keyboard only?"
-      var skipToFontFamily = "Sofia Sans, Roboto Slab"
+      var skipToFontFamily = "Sofia Sans"
 
       var skipToButtonBackgroundColor = "var(--skipToButtonBackgroundColor)"
       var skipToMenuTextColor = "var(--skipToMenuTextColor)"
@@ -55,10 +64,11 @@
           skipTo: {
             headings: "h1, h2, h3, h4, h5, h6",
             colorTheme: "default",
-            attachElement: "#topnav",
+            attachElement: "#skipToHere",
             containerElement: "div",
             customClass: "nolatin-skipTo",
             containerRole: "nav",
+            positionLeft: "40%",
             fontFamily: skipToFontFamily,
             buttonLabel: skipToButtonLabel,
             menuTextColor: skipToMenuTextColor,
@@ -72,14 +82,5 @@
         },
       }
     </script>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>

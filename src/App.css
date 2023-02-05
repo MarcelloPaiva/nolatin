@@ -53,6 +53,12 @@
   font-size: 125%;
 }
 
+/** SkipTo Styles **/
+
+#skipToHere {
+  border: 1px solid red;
+  height: 100%;
+}
 .nolatin-skipTo button:before {
   font-family: "Font Awesome 5 Free";
   font-weight: 300;
@@ -67,7 +73,8 @@
 body {
   font-family: "Sofia Sans", serif;
   max-width: 1024px;
-  margin: 0 16px;
+  margin: 0 auto;
+  padding: 0 16px;
   float: none;
   background-color: var(--surface-light);
   color: var(--text-light);

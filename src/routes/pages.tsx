@@ -5,7 +5,7 @@ import Button from "../components/Button"
 import Layout from "../components/Layout"
 import PageCard from "../components/PageCard"
 import { AppContext } from "../context/AppContext"
-import { Modal, Typography } from "@mui/material"
+import { Modal } from "@mui/material"
 import { ActionTypes } from "../context/actions"
 import Page from "../models/page"
 
@@ -59,9 +59,7 @@ export default function Pages() {
       <Root>
         <Modal open={open !== null} onClose={() => setOpen(null)}>
           <ModalContainer>
-            <Typography>
-              Are you sure you want to delete the {open?.title} page?
-            </Typography>
+            <p>Are you sure you want to delete the {open?.title} page?</p>
             <Row>
               <Button onClick={() => setOpen(null)}>Cancel</Button>
               <Button

@@ -50,9 +50,23 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Row = styled.div`
+const EndRow = styled.div`
   display: flex;
   justify-content: flex-end;
+`
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`
+const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 24px;
+  margin: 40px;
+  border-radius: 8px;
 `
 const LabelToo = styled.label`
   color: var(--primary-60);
@@ -70,6 +84,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     dispatch,
     state: { editing },
   } = useContext(AppContext)
+  const [open, setOpen] = useState(false)
   const [localName, setLocalName] = useState(state.name)
 
   function getRoles(element: ElementNames): string {
@@ -124,7 +139,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   return state.id === editing ? (
     <Modal open={true}>
       <SectionForm>
-        <Row>
+        <EndRow>
           <IconButton
             icon={Check}
             aria="Save Section"
@@ -138,7 +153,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             label="Cancel"
             onClick={handleCancel}
           />
-        </Row>
+        </EndRow>
         <Input
           id={state.id + "-name"}
           label="Section Name"
@@ -177,7 +192,30 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     </Modal>
   ) : (
     <SectionContainer>
-      <Row>
+      <Modal open={open}>
+        <ModalContainer>
+          <p>Are you sure you want to delete this section?</p>
+          <Row>
+            <Button onClick={() => setOpen(false)}>Cancel</Button>
+            <Button
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.DeleteNode,
+                  payload: {
+                    pageId,
+                    sectionId: state.id,
+                    id: state.id,
+                  },
+                })
+              }
+              styles="background: red"
+            >
+              Delete
+            </Button>
+          </Row>
+        </ModalContainer>
+      </Modal>
+      <EndRow>
         <IconButton
           icon={Edit}
           aria="Edit Story"
@@ -190,18 +228,9 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           label="Delete"
           color="red"
           styles="margin-left:24px;"
-          onClick={() =>
-            dispatch({
-              type: ActionTypes.DeleteNode,
-              payload: {
-                pageId,
-                sectionId: state.id,
-                id: state.id,
-              },
-            })
-          }
+          onClick={() => setOpen(true)}
         />
-      </Row>
+      </EndRow>
       <LabelToo>Name</LabelToo>
       <p>
         <strong>{state.name}</strong>

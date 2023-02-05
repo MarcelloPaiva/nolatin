@@ -7,7 +7,7 @@ import { Check, Edit, Trash, X } from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
 import TitleContent from "./contentCards/TitleContent"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import BulletedContent from "./contentCards/BulletedContent"
@@ -23,6 +23,7 @@ import HeadingLinkContent from "./contentCards/HeadingLinkContent"
 import HeadingContent from "./contentCards/HeadingContent"
 import ParagraphContent from "./contentCards/ParagraphContent"
 import { Modal } from "@mui/material"
+import Button from "./Button"
 
 interface ContentProps {
   pageId: string
@@ -62,9 +63,25 @@ const CardForm = styled.form`
   background: white;
 `
 
-const Row = styled.div`
+const EndRow = styled.div`
   display: flex;
   justify-content: flex-end;
+`
+
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`
+
+const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 24px;
+  margin: 40px;
+  border-radius: 8px;
 `
 
 export default function ContentCard({
@@ -72,6 +89,7 @@ export default function ContentCard({
   pageId,
   sectionId,
 }: ContentProps) {
+  const [open, setOpen] = useState(false)
   const {
     dispatch,
     state: { editing },
@@ -187,7 +205,7 @@ export default function ContentCard({
       return (
         <Modal open={true}>
           <CardForm>
-            <Row>
+            <EndRow>
               <IconButton
                 icon={Check}
                 aria="Save Section"
@@ -200,7 +218,7 @@ export default function ContentCard({
                 label="Cancel"
                 onClick={handleCancel}
               />
-            </Row>
+            </EndRow>
             <Dropdown
               label="Content type"
               defaultValue={state.type}
@@ -217,7 +235,30 @@ export default function ContentCard({
     }
     return (
       <CardContainer>
-        <Row>
+        <Modal open={open}>
+          <ModalContainer>
+            <p>Are you sure you want to delete this content block?</p>
+            <Row>
+              <Button onClick={() => setOpen(false)}>Cancel</Button>
+              <Button
+                onClick={() =>
+                  dispatch({
+                    type: ActionTypes.DeleteNode,
+                    payload: {
+                      pageId,
+                      sectionId,
+                      id: state.id,
+                    },
+                  })
+                }
+                styles="background: red"
+              >
+                Delete
+              </Button>
+            </Row>
+          </ModalContainer>
+        </Modal>
+        <EndRow>
           <IconButton
             icon={Edit}
             aria="Edit Story"
@@ -228,18 +269,9 @@ export default function ContentCard({
             icon={Trash}
             aria="Delete Story"
             label="Delete"
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.DeleteNode,
-                payload: {
-                  pageId,
-                  sectionId,
-                  id: state.id,
-                },
-              })
-            }
+            onClick={() => setOpen(true)}
           />
-        </Row>
+        </EndRow>
         {renderContent(state.type, false)}
       </CardContainer>
     )

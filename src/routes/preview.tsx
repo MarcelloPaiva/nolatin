@@ -68,10 +68,8 @@ function generateSections(sections: Section[]) {
         return <form role="search">{content}</form>
       case ElementNames.Complementary:
         return <aside>{content}</aside>
-      // case ElementNames.Main:
-      //   return <main>{content}</main>
-      // case ElementNames.Alert:
-      //   return <section aria-live="assertive">{content}</section>
+      case ElementNames.Alert:
+        return <div role="alert">{content}</div>
       default:
         return null
     }

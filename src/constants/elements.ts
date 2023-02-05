@@ -7,11 +7,11 @@ const Elements: { [key in ElementNames]: Element } = {
     tag: "section",
     roles: [Role.Region],
   },
-  Main: {
-    name: "Main",
-    tag: "main",
-    roles: [Role.Main],
-  },
+  // Main: {
+  //   name: "Main",
+  //   tag: "main",
+  //   roles: [Role.Main],
+  // },
   Header: {
     name: "Header",
     tag: "header",
@@ -64,7 +64,7 @@ export enum ElementNames {
   Navigation = "Navigation",
   Search = "Search",
   Section = "Section",
-  Main = "Main",
+  // Main = "Main",
 }
 
 export default Elements

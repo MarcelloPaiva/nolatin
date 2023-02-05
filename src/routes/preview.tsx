@@ -123,13 +123,7 @@ function generateContents(contents: Content[], level?: number) {
           </>
         )
       case ContentTypes.Input:
-        return (
-          <Input
-            label={content.title}
-            defaultValue={content.description}
-            type={content.url}
-          />
-        )
+        return <Input label={content.title} type={content.url} />
       case ContentTypes.Link:
         return <a href={content.url}>{content.title}</a>
       case ContentTypes.Numbers:

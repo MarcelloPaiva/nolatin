@@ -18,6 +18,8 @@ export const Label = styled.div`
 export const Divider = styled.div``
 
 export const IconLabel = styled.div`
+  font-family: "Sofia Sans", serif;
+  font-size: 120%;
   line-height: 3rem;
 `
 export const ButtonNoStyle = styled.button`

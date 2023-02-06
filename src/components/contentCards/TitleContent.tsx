@@ -1,7 +1,5 @@
 import Input from "../Input"
 import { ContentProps } from "./ContentProps"
-import { useContext } from "react"
-import { AppContext } from "../../context/AppContext"
 import ContentCard from "../ContentCard"
 import styled from "styled-components"
 
@@ -21,7 +19,6 @@ export default function TitleContent({
   state,
   edit,
 }: TitleProps) {
-  const { dispatch } = useContext(AppContext)
   return (
     <>
       {edit ? (

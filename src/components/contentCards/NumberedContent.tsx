@@ -1,5 +1,4 @@
 import Input from "../Input"
-import { Label } from ".."
 import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
 import styled from "styled-components"

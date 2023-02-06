@@ -1,5 +1,5 @@
 import Input from "../Input"
-import { Label, Link, Text } from ".."
+import { Link, Text } from ".."
 import { ContentProps } from "./ContentProps"
 import styled from "styled-components"
 

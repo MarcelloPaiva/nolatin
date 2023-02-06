@@ -31,13 +31,16 @@ export default function IconButton({
   ref,
 }: IconButtonProps) {
   const buttonStyles = `
-    min-height: 44px;
-    min-width: 44px;
+    min-width: 72px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    border-radius:8px;
+    margin:4px;
+    padding: 16px 0 0;
+    border: 2px solid var(--secondary-20);
     flex-direction: column;
     ${styles}
   `

@@ -65,8 +65,12 @@ export default function Page() {
                 payload: { pageId: page.id },
               })
             }
+            styles="
+            margin-bottom:32px;
+            font-size:120%;
+            "
           >
-            Add a headline
+            Add new headline
           </Button>
         </Root>
       </Layout>

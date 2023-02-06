@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { ContentTypes } from "../constants/contentTypes"
 import { ButtonNoStyle, Text } from "."
 import IconButton from "./IconButton"
-import { Check, Edit, Trash, X } from "react-feather"
+import { PlusSquare, Check, Edit, Trash, X } from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
 import TitleContent from "./contentCards/TitleContent"
@@ -207,16 +207,18 @@ export default function ContentCard({
           <CardForm>
             <EndRow>
               <IconButton
-                icon={Check}
-                aria="Save Section"
-                label="Save"
-                onClick={handleSave}
-              />
-              <IconButton
                 icon={X}
                 aria="Cancel Edit"
                 label="Cancel"
                 onClick={handleCancel}
+              />
+              <IconButton
+                icon={Check}
+                color="hsla(120,100%,10%, 0.9)"
+                aria="Save Section"
+                label="Save"
+                styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+                onClick={handleSave}
               />
             </EndRow>
             <Dropdown
@@ -260,14 +262,30 @@ export default function ContentCard({
         </Modal>
         <EndRow>
           <IconButton
+            icon={PlusSquare}
+            aria="Add Story"
+            label="Add"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.CreateContent,
+                payload: {
+                  pageId,
+                  sectionId,
+                  parentId: state.id,
+                },
+              })
+            }
+          />
+          <IconButton
             icon={Edit}
-            aria="Edit Story"
+            aria="Edit content block"
             label="Edit"
             onClick={handleEdit}
           />
           <IconButton
             icon={Trash}
-            aria="Delete Story"
+            color="red"
+            aria="Delete content block"
             label="Delete"
             onClick={() => setOpen(true)}
           />

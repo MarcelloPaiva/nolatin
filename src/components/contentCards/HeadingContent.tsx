@@ -1,6 +1,13 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { Text } from ".."
 import { ContentProps } from "./ContentProps"
+import styled from "styled-components"
+
+const LabelToo = styled.label`
+  color: var(--secondary-80);
+  margin-top: 32px;
+  font-size: 0.75rem;
+`
 
 export default function HeadingContent({
   state: { title, id },
@@ -14,7 +21,7 @@ export default function HeadingContent({
         </>
       ) : (
         <>
-          <Label>Heading Text</Label>
+          <LabelToo>Heading Text</LabelToo>
           <Text>{title}</Text>
         </>
       )}

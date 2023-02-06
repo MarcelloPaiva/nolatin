@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Dropdown from "./Dropdown"
 import Input from "./Input"
 import IconButton from "./IconButton"
-import { Check, Edit, Trash, X } from "react-feather"
+import { PlusSquare, Check, Edit, Trash, X } from "react-feather"
 import Section from "../models/section"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
@@ -23,18 +23,53 @@ const sectionStyles = `
   width: auto;
   background-color: #fff;
 
-  p,
+  p, ol, ul, a,
   h2,
   h3 {
+    display: block;
     margin-top: 0px;
     margin-bottom: 0;
+    padding: 8px;
     line-height: auto;
+    background-color: var(--primary-05);
   }
 
-  p { 
-    font-size: 1.25rem !important;
+  p, ol, ul, li { 
     line-height: 1.25rem;
+    font-size: 1rem;
   }
+
+  ol, ul {
+    list-style: none;
+    counter-reset: item;
+  }
+  li {
+    counter-increment: item;
+    margin-bottom: 4px;
+  }
+  ol>li:before {
+    margin-right: 10px;
+    content: counter(item);
+    font-size: .75rem;
+    background: var(--secondary-60);
+    border-radius: 100%;
+    color: white;
+    width: 1.25rem;
+    text-align: center;
+    display: inline-block;
+  }
+  ul>li:before {
+    margin-right: 10px;
+    content: "•";
+    font-size: .75rem;
+    background: var(--secondary-60);
+    border-radius: 100%;
+    color: white;
+    width: 1.25rem;
+    text-align: center;
+    display: inline-block;
+  }
+}
 `
 
 const SectionContainer = styled.div`
@@ -69,9 +104,9 @@ const ModalContainer = styled.div`
   border-radius: 8px;
 `
 const LabelToo = styled.label`
-  color: var(--primary-60);
+  color: var(--primary-70);
   margin-top: 16px;
-  font-size: 1rem;
+  font-size: 0.75rem;
 `
 
 interface SectionProps {
@@ -139,55 +174,59 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   return state.id === editing ? (
     <Modal open={true}>
       <SectionForm>
-        <EndRow>
-          <IconButton
-            icon={Check}
-            aria="Save Section"
-            label="Save"
-            onClick={handleSave}
-            disabled={localName === ""}
+        <div className="scrollMe">
+          <EndRow>
+            <IconButton
+              icon={X}
+              aria="Cancel Edit"
+              label="Cancel"
+              onClick={handleCancel}
+            />
+            <IconButton
+              icon={Check}
+              color="hsla(120,100%,10%, 0.9)"
+              aria="Save Section"
+              label="Save MP"
+              styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+              onClick={handleSave}
+              disabled={localName === ""}
+            />
+          </EndRow>
+          <Input
+            id={state.id + "-name"}
+            label="Section Name"
+            defaultValue={localName}
+            title
+            style={`
+            margin-bottom: 16px;
+        `}
+            onBlur={() => {
+              const name = document.getElementById(
+                state.id + "-name"
+              ) as HTMLInputElement
+              setLocalName(name.value)
+            }}
           />
-          <IconButton
-            icon={X}
-            aria="Cancel Edit"
-            label="Cancel"
-            onClick={handleCancel}
+          <Input
+            id={state.id + "-description"}
+            label="Section Description"
+            style={`
+            margin-bottom: 16px;
+        `}
+            multiline
           />
-        </EndRow>
-        <Input
-          id={state.id + "-name"}
-          label="Section Name"
-          defaultValue={localName}
-          title
-          style={`
+          <Dropdown
+            id={state.id + "-element"}
+            label="Element"
+            defaultValue={state.element}
+            options={Object.keys(Elements).map((name) => {
+              return { label: name, value: name }
+            })}
+            style={`
             margin-bottom: 16px;
         `}
-          onBlur={() => {
-            const name = document.getElementById(
-              state.id + "-name"
-            ) as HTMLInputElement
-            setLocalName(name.value)
-          }}
-        />
-        <Input
-          id={state.id + "-description"}
-          label="Section Description"
-          style={`
-            margin-bottom: 16px;
-        `}
-          multiline
-        />
-        <Dropdown
-          id={state.id + "-element"}
-          label="Element"
-          defaultValue={state.element}
-          options={Object.keys(Elements).map((name) => {
-            return { label: name, value: name }
-          })}
-          style={`
-            margin-bottom: 16px;
-        `}
-        />
+          />
+        </div>
       </SectionForm>
     </Modal>
   ) : (
@@ -217,9 +256,25 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       </Modal>
       <EndRow>
         <IconButton
+          icon={PlusSquare}
+          aria="Add Story"
+          label="Add"
+          onClick={() =>
+            dispatch({
+              type: ActionTypes.CreateContent,
+              payload: {
+                pageId,
+                parentId: state.id,
+                sectionId: state.id,
+              },
+            })
+          }
+        />
+        <IconButton
           icon={Edit}
           aria="Edit Story"
           label="Edit"
+          styles="margin-left:24px;"
           onClick={handleEdit}
         />
         <IconButton
@@ -251,29 +306,6 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           />
         ))}
       </Column>
-      <Button
-        styles={`
-        margin-top: 1rem;
-        font-size: 1.25rem;
-        background-color: hsla(120,100%,60%, 0.1);
-        color: hsla(120,100%,25%, 0.85);
-        border: 3px solid hsla(120,100%,30%, 0.75);
-        width: auto;
-        margin: 2rem auto 0;
-      `}
-        onClick={() =>
-          dispatch({
-            type: ActionTypes.CreateContent,
-            payload: {
-              pageId,
-              parentId: state.id,
-              sectionId: state.id,
-            },
-          })
-        }
-      >
-        Add content block
-      </Button>
     </SectionContainer>
   )
 }

@@ -1,6 +1,13 @@
 import Input from "../Input"
-import { Label, Text, Link } from ".."
+import { Text, Link } from ".."
 import { ContentProps } from "./ContentProps"
+import styled from "styled-components"
+
+const LabelToo = styled.label`
+  color: var(--secondary-80);
+  margin-top: 32px;
+  font-size: 0.75rem;
+`
 
 export default function HeadingLinkContent({
   state: { title, url, id },
@@ -19,9 +26,9 @@ export default function HeadingLinkContent({
         </>
       ) : (
         <>
-          <Label>Heading Link Text</Label>
+          <LabelToo>Heading Link Text</LabelToo>
           <Text>{title}</Text>
-          <Label>Destination URL</Label>
+          <LabelToo>Destination URL</LabelToo>
           <Link href={url}>{url}</Link>
         </>
       )}

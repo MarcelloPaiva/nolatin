@@ -1,7 +1,13 @@
 import Input from "../Input"
-import { Label } from ".."
 import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
+import styled from "styled-components"
+
+const LabelToo = styled.label`
+  color: var(--secondary-80);
+  margin-top: 32px;
+  font-size: 0.75rem;
+`
 
 export default function NumberedContent({
   state: { description, id },
@@ -20,7 +26,7 @@ export default function NumberedContent({
         </>
       ) : (
         <>
-          <Label>List items</Label>
+          <LabelToo>List items</LabelToo>
           <ol>
             {getQuoteList(description)?.map((item) => (
               <li key={id + item}>{item}</li>

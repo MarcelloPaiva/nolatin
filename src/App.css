@@ -39,6 +39,8 @@
 
   --button-primary: var(--text-light);
   --button-child: blue;
+  --button-save-bg: hsla(120, 100%, 60%, 0.1);
+  --button-save-label: hsla(120, 100%, 10%, 1);
 
   /*SkipTo Theme Variables*/
 
@@ -141,6 +143,14 @@ blockquote {
   border-radius: 4px;
 }
 
+/* Modal */
+.scrollMe {
+  display: block;
+  border: 1px solid red !important;
+  overflow-y: scroll !important;
+  max-height: 80vh;
+}
+
 .una {
   text-align: center;
   display: block;
@@ -173,7 +183,12 @@ blockquote {
 .exportApp {
   background-color: #fff;
 }
-
+.exportApp section {
+  border: 1px solid var(--primary-10);
+  margin: 8px;
+  padding: 8px;
+  padding-bottom: 24px;
+}
 .exportApp h1,
 .exportApp h2,
 .exportApp h3,
@@ -182,6 +197,7 @@ blockquote {
 .exportApp h6 {
   font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
+  font-weight: bold;
   line-height: 200%;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;

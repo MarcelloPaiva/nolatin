@@ -12,9 +12,9 @@ interface TitleProps extends ContentProps {
   sectionId: string
 }
 const LabelToo = styled.label`
-  color: var(--primary-60);
+  color: var(--secondary-80);
   margin-top: 32px;
-  font-size: 1rem;
+  font-size: 0.75rem;
 `
 
 export default function TitleContent({
@@ -53,25 +53,6 @@ export default function TitleContent({
               key={child.id}
             />
           ))}
-
-          <Button
-            styles={`
-              width: 100%;
-              margin-top: 16px;
-            `}
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateContent,
-                payload: {
-                  pageId,
-                  sectionId,
-                  parentId: state.id,
-                },
-              })
-            }
-          >
-            Add content block
-          </Button>
         </>
       )}
     </>

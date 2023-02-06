@@ -1,6 +1,13 @@
 import Input from "../Input"
 import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
+import styled from "styled-components"
+
+const LabelToo = styled.label`
+  color: var(--secondary-80);
+  margin-top: 32px;
+  font-size: 0.75rem;
+`
 
 export default function ButtonContent({
   state: { description, title, id },
@@ -23,9 +30,9 @@ export default function ButtonContent({
         </>
       ) : (
         <>
-          <Label>Descriptive label</Label>
+          <LabelToo>Descriptive labelToo</LabelToo>
           <Text>{title}</Text>
-          <Label>Action</Label>
+          <LabelToo>Action</LabelToo>
           <Text>{description}</Text>
         </>
       )}

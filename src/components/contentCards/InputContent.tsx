@@ -2,6 +2,13 @@ import Input from "../Input"
 import Dropdown from "../Dropdown"
 import { Label, Text } from ".."
 import { ContentProps } from "./ContentProps"
+import styled from "styled-components"
+
+const LabelToo = styled.label`
+  color: var(--secondary-80);
+  margin-top: 32px;
+  font-size: 0.75rem;
+`
 
 const inputTypes = [
   { label: "text", value: "text" },
@@ -37,9 +44,9 @@ export default function InputContent({
         </>
       ) : (
         <>
-          <Label>Descriptive label</Label>
+          <LabelToo>Descriptive label</LabelToo>
           <Text>{title}</Text>
-          <Label>Input type</Label>
+          <LabelToo>Input type (Set to "Text" if in doubt)</LabelToo>
           <Text>{url}</Text>
         </>
       )}

@@ -186,24 +186,24 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   return state.id === editing ? (
     <Modal open={true}>
       <SectionForm>
+        <EndRow>
+          <IconButton
+            icon={X}
+            aria="Cancel Edit"
+            label="Cancel"
+            onClick={handleCancel}
+          />
+          <IconButton
+            icon={Check}
+            color="hsla(120,100%,10%, 0.9)"
+            aria="Save Section"
+            label="Save MP"
+            styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+            onClick={handleSave}
+            disabled={localName === ""}
+          />
+        </EndRow>
         <div className="scrollMe">
-          <EndRow>
-            <IconButton
-              icon={X}
-              aria="Cancel Edit"
-              label="Cancel"
-              onClick={handleCancel}
-            />
-            <IconButton
-              icon={Check}
-              color="hsla(120,100%,10%, 0.9)"
-              aria="Save Section"
-              label="Save MP"
-              styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
-              onClick={handleSave}
-              disabled={localName === ""}
-            />
-          </EndRow>
           <Input
             id={state.id + "-name"}
             label="Section Name"

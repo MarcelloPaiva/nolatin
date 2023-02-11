@@ -233,16 +233,18 @@ export default function ContentCard({
                 onClick={handleSave}
               />
             </EndRow>
-            <Dropdown
-              label="Content type"
-              defaultValue={state.type}
-              options={Object.values(ContentTypes).map((type) => ({
-                label: type,
-                value: type,
-              }))}
-              onSelect={handleSelect}
-            />
-            {renderContent(state.type, true)}
+            <div className="scrollMe">
+              <Dropdown
+                label="Content type"
+                defaultValue={state.type}
+                options={Object.values(ContentTypes).map((type) => ({
+                  label: type,
+                  value: type,
+                }))}
+                onSelect={handleSelect}
+              />
+              {renderContent(state.type, true)}
+            </div>
           </CardForm>
         </Modal>
       )

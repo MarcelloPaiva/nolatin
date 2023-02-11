@@ -65,8 +65,9 @@ export default function Page() {
           </Row>
           <h3>Next steps:</h3>
           <p>
-            Add as many headlines you need to guide someone without any visual
-            aid.
+            Add as many headlines you want, but please remember to be
+            descriptive. Afterall, not everyone rely on visual interface
+            elements.
           </p>
           <Column>{renderCards(page.sections, page.id)}</Column>
           <Button

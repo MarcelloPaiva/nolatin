@@ -30,6 +30,7 @@ export default function NavBar() {
         link="/"
       />
       <Row>
+        <div id="skipToHere"></div>
         <IconButton
           size={24}
           icon={Menu}

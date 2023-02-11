@@ -21,9 +21,7 @@ export default function Button({
   disabled,
   newTab,
 }: ButtonProps) {
-  const buttonStyles = `
-  font-family: "Roboto", sans-serif;  
-    padding: 16px;
+  const buttonStyles = ` 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,19 +29,46 @@ export default function Button({
     border-radius: 12px;
     background-color: var(--secondary-90);
     color: #fff;
+    padding: 16px;
     margin-top: 2rem;
-    letter-spacing: 0.025rem;
-    height: 100%;
-    width: auto;
+    font-size: 120%;
+    letter-spacing: .05rem;
     ${styles}
   `
+  const buttonLinkStyles = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--accent);
+  border-radius: 12px;
+  background-color: #fff;
+  color: var(--accent);
+  padding: 16px;
+  margin-top: 2rem;
+  font-size: 120%;
+  letter-spacing: .05rem;
+  font-weight: bold;
 
+  `
+  const buttonDisabledStyles = `
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background-color: var(--secondary-20);
+  color: var(--secondary-50);
+  padding: 16px;
+  margin-top: 2rem;
+  font-size: 120%;
+  letter-spacing: .05rem;
+  `
   const Button = styled.button`
     ${buttonStyles}
+    ${disabled && buttonDisabledStyles}
   `
   const Link = styled.a`
     text-decoration: none;
-    ${buttonStyles}
+    ${buttonLinkStyles}
   `
 
   return link ? (

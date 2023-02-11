@@ -37,13 +37,19 @@ export default function Button({
     width: auto;
     ${styles}
   `
-
+  const buttonLinkStyles = `
+  color: red;
+  `
+  const buttonDisabledStyles = `
+  color: #666;
+  `
   const Button = styled.button`
     ${buttonStyles}
+    ${disabled && buttonDisabledStyles}
   `
   const Link = styled.a`
     text-decoration: none;
-    ${buttonStyles}
+    ${buttonLinkStyles}
   `
 
   return link ? (

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;800&family=Sofia+Sans:wght@300;400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;800&family=Roboto+Mono:wght@200;400;600;800&family=Sofia+Sans:wght@300;400;800&display=swap");
 
 :root {
   --h: 60;
@@ -38,6 +38,9 @@
 
   --text-light: #151514;
   --text-low-emphasis: var(--primary-80);
+
+  --inputLabel: var(--secondary-100);
+  --inputValue: var(--secondary-100);
 
   --button-primary: var(--text-light);
   --button-child: blue;

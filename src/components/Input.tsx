@@ -31,14 +31,26 @@ export default function Input({
 
   const inputStyles = `
     background-color: #fff;
-    border: 3px solid #000;
+    border: 3px solid var(--secondary-80);
     border-radius: 4px;
     padding: 8px;
-    font-family: "Roboto", sans-serif;
-    font-size: ${title ? 1.25 : 1.25}rem;
-    font-weight: ${title ? "bold" : "regular"};
-    line-height: ${title ? 1.25 : 1.25}rem;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: ${title ? "1.25rem" : "auto"};
+    font-weight: bold;
+    line-height: ${title ? "1.25rem" : "auto"};
+    color: var(--inputValue);
+
   `
+  const labelStyles = `
+    color: var(--inputLabel);
+    font-size: 90%;
+    margin-top: 1rem;
+  `
+
+  const Label = styled.label`
+    ${labelStyles}
+  `
+
   const TextInput = styled.input`
     ${inputStyles}
   `

@@ -133,6 +133,11 @@ img {
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
   border: 1rem solid var(--secondary-25);
 }
+
+button {
+  font-family: "Sofia Sans", serif;
+}
+
 figcaption {
   font-family: "Roboto Slab", serif;
   font-size: 80%;

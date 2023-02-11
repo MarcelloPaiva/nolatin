@@ -1,4 +1,5 @@
 import Input from "../Input"
+import { LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 import ContentCard from "../ContentCard"
 import styled from "styled-components"
@@ -7,11 +8,6 @@ interface TitleProps extends ContentProps {
   pageId: string
   sectionId: string
 }
-const LabelToo = styled.label`
-  color: var(--secondary-80);
-  margin-top: 32px;
-  font-size: 0.75rem;
-`
 
 export default function TitleContent({
   pageId,

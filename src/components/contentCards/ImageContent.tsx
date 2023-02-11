@@ -1,13 +1,7 @@
 import Input from "../Input"
-import { Link, Text } from ".."
+import { Link, Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 import styled from "styled-components"
-
-const LabelToo = styled.label`
-  color: var(--secondary-80);
-  margin-top: 32px;
-  font-size: 0.75rem;
-`
 
 const Image = styled.img`
   border: 1px solid #a8a8a8;

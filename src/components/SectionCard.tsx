@@ -14,11 +14,12 @@ import { Modal } from "@mui/material"
 
 const sectionStyles = `
   border-radius: 16px;
-  border: 2px dashed var(--secondary-40);
+  border: 2px dashed var(--secondary-20);
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding: 16px;
-  margin: 0px; 
+  margin-top: 1rem; 
   flex: 1;
   width: auto;
   background-color: #fff;

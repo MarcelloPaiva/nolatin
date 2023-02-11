@@ -40,7 +40,6 @@ export default function IconButton({
     border-radius:8px;
     margin:4px;
     padding: 16px 0 0;
-    border: 2px solid var(--secondary-20);
     flex-direction: column;
     ${styles}
   `

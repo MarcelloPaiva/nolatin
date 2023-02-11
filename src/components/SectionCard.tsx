@@ -32,12 +32,19 @@ const sectionStyles = `
     margin-bottom: 0;
     padding: 8px;
     line-height: auto;
-    background-color: var(--primary-05);
+    background-color: var(--secondary-05);
+    font-family: "Roboto Mono", sans-serif;
   }
 
   p, ol, ul, li { 
     line-height: 1.25rem;
-    font-size: 1rem;
+    color: var(--secondary-70);
+    
+  }
+
+  p:after {
+    content: ".";
+    color: transparent;
   }
 
   ol, ul {
@@ -107,7 +114,6 @@ const ModalContainer = styled.div`
 const LabelToo = styled.label`
   color: var(--primary-70);
   margin-top: 16px;
-  font-size: 0.75rem;
 `
 
 interface SectionProps {

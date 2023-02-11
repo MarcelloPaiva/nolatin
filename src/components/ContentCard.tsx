@@ -46,7 +46,7 @@ const Corner = styled.div`
   right: 16px;
 `
 const cardStyles = `
-  background-color: hsla(var(--h-accent),100%,80%, 0.15);
+  background-color: hsla(var(--h-accent),100%,80%, 0.125);
   border: 2px solid hsla(var(--h-accent),100%,20%, 0.05); 
   margin-top: 1rem;
   margin-bottom: .5rem;

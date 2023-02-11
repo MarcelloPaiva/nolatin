@@ -11,8 +11,8 @@ const PageTitle = styled.span`
 const Row = styled.div`
   display: flex;
   align-items: center;
-  border: solid 1px blue;
-  line-height: 80px;
+  // border: solid 1px blue;
+  // line-height: 80px;
 `
 
 interface PageCardProps {

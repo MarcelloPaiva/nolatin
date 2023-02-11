@@ -18,10 +18,13 @@
   --primary-20: hsla(var(--h), var(--s), var(--l), 0.2);
   --primary-10: hsla(var(--h), var(--s), var(--l), 0.1);
   --primary-05: hsla(var(--h), var(--s), var(--l), 0.05);
+  --primary-03: hsla(var(--h), var(--s), var(--l), 0.03);
 
   --accent: hsl(var(--h-accent), 100%, 50%);
   --focus: deeppink;
 
+  --secondary-03: hsla(var(--h-accent), 50%, 50%, 0.03);
+  --secondary-05: hsla(var(--h-accent), 50%, 50%, 0.05);
   --secondary-10: hsla(var(--h-accent), 50%, 50%, 0);
   --secondary-20: hsla(var(--h-accent), 50%, 50%, 0.1);
   --secondary-25: hsla(var(--h-accent), 50%, 50%, 0.25);
@@ -37,7 +40,7 @@
   --surface-light: var(--primary-light);
 
   --text-light: #151514;
-  --text-low-emphasis: var(--primary-80);
+  --text-low-emphasis: var(--primary-50);
 
   --inputLabel: var(--secondary-100);
   --inputValue: hsla(120, 60%, 40%, 1);

@@ -146,6 +146,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       description: description.value,
       element: element.value as ElementNames,
       children: state.children,
+      draft: false,
     }
   }
 
@@ -158,10 +159,21 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (state.draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId: state.id,
+          id: state.id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {

@@ -135,7 +135,7 @@ export default function ContentCard({
     }
   }
 
-  function getFormData(): Omit<Content, "id" | "children" | "type"> {
+  function getFormData(): Omit<Content, "id" | "children" | "type" | "draft"> {
     const title = document.getElementById(
       state.id + "-title"
     ) as HTMLInputElement | null
@@ -179,16 +179,28 @@ export default function ContentCard({
           ...newContent,
           ...formData,
           children: newContent.children,
+          draft: false,
         },
       },
     })
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (state.draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId,
+          id: state.id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {

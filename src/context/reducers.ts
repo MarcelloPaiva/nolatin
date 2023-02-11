@@ -30,6 +30,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
         description: "",
         element: ElementNames.Section,
         children: [],
+        draft: true,
       })
       editing = sectionId
       break
@@ -42,6 +43,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
           children: [],
           title: "",
           description: "",
+          draft: true,
         })
       } else {
         pages[pageIndex].sections[sectionIndex].children = modifyNode(
@@ -54,6 +56,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
               children: [],
               title: "",
               description: "",
+              draft: true,
             })
             return node
           }

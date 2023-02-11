@@ -79,7 +79,6 @@ export default function Page() {
             }
             styles="
             margin-bottom:32px;
-            font-size:120%;
             "
           >
             Add new headline

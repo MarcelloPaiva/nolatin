@@ -273,21 +273,23 @@ export default function ContentCard({
           </ModalContainer>
         </Modal>
         <EndRow>
-          <IconButton
-            icon={PlusSquare}
-            aria="Add Story"
-            label="Add"
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateContent,
-                payload: {
-                  pageId,
-                  sectionId,
-                  parentId: state.id,
-                },
-              })
-            }
-          />
+          {state.type === ContentTypes.Title && (
+            <IconButton
+              icon={PlusSquare}
+              aria="Add Story"
+              label="Add"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.CreateContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId: state.id,
+                  },
+                })
+              }
+            />
+          )}
           <IconButton
             icon={Edit}
             aria="Edit content block"

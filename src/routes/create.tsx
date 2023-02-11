@@ -35,6 +35,8 @@ export default function Create() {
   const { dispatch } = useContext(AppContext)
   const [localTitle, setLocalTitle] = useState("")
   const [localDescription, setLocalDescription] = useState("")
+  // const descriptionRef = useRef(null)
+  // const buttonRef = useRef(null)
   const navigate = useNavigate()
 
   function getFormData(): { title: string; description: string } {
@@ -59,6 +61,16 @@ export default function Create() {
     setLocalDescription(data.description)
   }
 
+  // function handleFocusOnTab(
+  //   event: React.KeyboardEvent,
+  //   ref: React.RefObject<HTMLElement>
+  // ) {
+  //   if (event.code === "Tab") {
+  //     console.log("CURRENT REF", ref.current)
+  //     ref.current?.focus()
+  //   }
+  // }
+
   return (
     <Layout>
       <Root>
@@ -73,12 +85,15 @@ export default function Create() {
           id="title"
           label="Page Title"
           onBlur={handleBlur}
+          // onKeyDown={(event) => handleFocusOnTab(event, descriptionRef)}
           defaultValue={localTitle}
         />
         <Input
           id="description"
           label="Description"
           onBlur={handleBlur}
+          // onKeyDown={(event) => handleFocusOnTab(event, buttonRef)}
+          // ref={descriptionRef}
           defaultValue={localDescription}
           multiline
         />
@@ -89,6 +104,7 @@ export default function Create() {
         `}
           onClick={handleCreate}
           disabled={localTitle === "" || localDescription === ""}
+          // ref={buttonRef}
         >
           Add Page
         </Button>

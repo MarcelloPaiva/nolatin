@@ -93,7 +93,7 @@ function generateContents(contents: Content[], level?: number) {
           <ul>
             {getQuoteList(content.description)?.map((item) => (
               <li>
-                <a href="item">{item}</a>
+                <a href={item}>{item}</a>
               </li>
             ))}
           </ul>
@@ -137,7 +137,7 @@ function generateContents(contents: Content[], level?: number) {
           <ol>
             {getQuoteList(content.description)?.map((item) => (
               <li>
-                <a href="item">{item}</a>
+                <a href={item}>{item}</a>
               </li>
             ))}
           </ol>

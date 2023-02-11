@@ -62,29 +62,26 @@ export default function Header({ pages, info, title }: HeaderProps) {
   return (
     <GenHeader>
       <Row>
-        <Nav aria-label="Page Navigation" ref={menuRef}>
-          <IconButton
-            key="page-menu"
-            id="page-menu"
-            size={32}
-            color="var(--primary-light)"
-            icon={Hamburger}
-            aria="Navigate to another page"
-            onClick={handleMenuClick}
-          />
-          <Menu
-            anchorEl={menuRef.current}
-            open={menuOpen}
-            onClose={handleMenuClose}
-          >
-            <Nav>
-              {menuItems(pages)}
-              {menuItems(pages)}
-              {menuItems(pages)}
-              {menuItems(pages)}
-            </Nav>
-          </Menu>
-        </Nav>
+        {pages.length > 1 && (
+          <Nav aria-label="Page Navigation" ref={menuRef}>
+            <IconButton
+              key="page-menu"
+              id="page-menu"
+              size={32}
+              color="var(--primary-light)"
+              icon={Hamburger}
+              aria="Navigate to another page"
+              onClick={handleMenuClick}
+            />
+            <Menu
+              anchorEl={menuRef.current}
+              open={menuOpen}
+              onClose={handleMenuClose}
+            >
+              <Nav>{menuItems(pages)}</Nav>
+            </Menu>
+          </Nav>
+        )}
         <Heading>{title}</Heading>
       </Row>
       <div ref={infoRef}>

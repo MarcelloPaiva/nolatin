@@ -1,9 +1,5 @@
 import Input from "../Input"
 import { ContentProps } from "./ContentProps"
-import Button from "../Button"
-import { useContext } from "react"
-import { AppContext } from "../../context/AppContext"
-import { ActionTypes } from "../../context/actions"
 import ContentCard from "../ContentCard"
 import styled from "styled-components"
 
@@ -23,7 +19,6 @@ export default function TitleContent({
   state,
   edit,
 }: TitleProps) {
-  const { dispatch } = useContext(AppContext)
   return (
     <>
       {edit ? (

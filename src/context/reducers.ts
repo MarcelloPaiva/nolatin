@@ -3,6 +3,7 @@ import { Actions, ActionTypes } from "./actions"
 import { v4 as uuid } from "uuid"
 import { clone } from "../utilities/arrayUtilities"
 import { ElementNames } from "../constants/elements"
+import { ContentTypes } from "../constants/contentTypes"
 import Content from "../models/content"
 
 export default function appReducer(state: AppContextState, action: Actions) {
@@ -36,6 +37,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
       const contentId = uuid()
       if (action.payload.parentId === action.payload.sectionId) {
         pages[pageIndex].sections[sectionIndex].children.push({
+          type: ContentTypes.Title,
           id: contentId,
           children: [],
           title: "",
@@ -47,6 +49,7 @@ export default function appReducer(state: AppContextState, action: Actions) {
           action.payload.parentId,
           (node) => {
             node.children.push({
+              type: ContentTypes.Title,
               id: contentId,
               children: [],
               title: "",

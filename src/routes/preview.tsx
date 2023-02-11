@@ -100,7 +100,11 @@ function generateContents(contents: Content[], level?: number) {
         )
       case ContentTypes.Button:
         // What do I do with "Button Action"?
-        return <Button>{content.title}</Button>
+        return (
+          <Button link={content.url !== "" ? content.url : undefined}>
+            {content.title}
+          </Button>
+        )
       case ContentTypes.Dropdown:
         return (
           <Dropdown

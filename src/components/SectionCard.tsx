@@ -122,15 +122,15 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   const [open, setOpen] = useState(false)
   const [localName, setLocalName] = useState(state.name)
 
-  function getRoles(element: ElementNames): string {
-    let roles = Elements[element].roles
-    let roleString = ""
-    roles.forEach((role, index) => {
-      roleString += role
-      if (index !== roles.length - 1) roleString += ", "
-    })
-    return roleString
-  }
+  // function getRoles(element: ElementNames): string {
+  //   let roles = Elements[element].roles
+  //   let roleString = ""
+  //   roles.forEach((role, index) => {
+  //     roleString += role
+  //     if (index !== roles.length - 1) roleString += ", "
+  //   })
+  //   return roleString
+  // }
 
   function getFormData(): Section {
     const name = document.getElementById(state.id + "-name") as HTMLInputElement
@@ -294,8 +294,6 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       <p>{state.description}</p>
       <LabelToo>Element</LabelToo>
       <p>{state.element}</p>
-      <LabelToo>Export as</LabelToo>
-      <p>{getRoles(state.element)}</p>
       <Column>
         {state.children.map((contentState) => (
           <ContentCard

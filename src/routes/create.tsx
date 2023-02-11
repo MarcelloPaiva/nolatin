@@ -7,6 +7,7 @@ import { AppContext } from "../context/AppContext"
 import Input from "../components/Input"
 import { ActionTypes } from "../context/actions"
 import { useNavigate } from "react-router"
+import { ChevronLeft } from "react-feather"
 
 const LeftTitle = styled(Title)`
   align-self: flex-start;
@@ -16,6 +17,18 @@ const Root = styled.form`
   flex-direction: column;
   width: 100%;
   align-items: center;
+`
+const BackLink = styled.a`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
+`
+const Row = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
 `
 
 export default function Create() {
@@ -49,6 +62,12 @@ export default function Create() {
   return (
     <Layout>
       <Root>
+        <Row>
+          <BackLink href="/pages">
+            <ChevronLeft />
+            Back to Pages
+          </BackLink>
+        </Row>
         <LeftTitle>Create Page</LeftTitle>
         <Input
           id="title"

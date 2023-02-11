@@ -33,7 +33,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>No Latin - stop using lorem ipsum for better accessibility</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -53,12 +53,12 @@
 
       var skipToButtonBackgroundColor = "var(--skipToButtonBackgroundColor)"
       var skipToMenuTextColor = "var(--skipToMenuTextColor)"
-      var skipToFocusBorderColor = "var(--skipToFocusBorderColor)"
+      var skipToFocusBorderColor = "var(--skipToFocusBorderColor) !important"
       var skipToMenuBackgroundColor = "var(--skipToMenuBackgroundColor)"
       var skipToMenuitemFocusBackgroundColor =
         "var(--skipToMenuitemFocusBackgroundColor)"
       var skipToMenuitemFocusTextColor = "var(--skipToMenuitemFocusTextColor)"
-
+      // var skipToPosition = "calc(50% - 10%)"
       var SkipToConfig = {
         settings: {
           skipTo: {
@@ -68,7 +68,6 @@
             containerElement: "div",
             customClass: "nolatin-skipTo",
             containerRole: "nav",
-            positionLeft: "40%",
             fontFamily: skipToFontFamily,
             buttonLabel: skipToButtonLabel,
             menuTextColor: skipToMenuTextColor,

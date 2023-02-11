@@ -20,6 +20,8 @@
   --primary-05: hsla(var(--h), var(--s), var(--l), 0.05);
 
   --accent: hsl(var(--h-accent), 100%, 50%);
+  --focus: deeppink;
+
   --secondary-10: hsla(var(--h-accent), 50%, 50%, 0);
   --secondary-20: hsla(var(--h-accent), 50%, 50%, 0.1);
   --secondary-25: hsla(var(--h-accent), 50%, 50%, 0.25);
@@ -45,21 +47,24 @@
   /*SkipTo Theme Variables*/
 
   --skipToIcon: "\f11c";
-  --skipToMenuTextColor: var(--primary-100);
+  --skipToMenuTextColor: var(--secondary-100);
   --skipToButtonBackgroundColor: var(--surface-light);
+  --skipToButtonBorderColor: var(--secondary-40);
   --skipToMenuBackgroundColor: var(--surface-light);
   --skipToFocusBorderColor: var(--secondary-100);
   --skipToMenuitemFocusBackgroundColor: var(--secondary-100);
   --skipToMenuitemFocusTextColor: var(--primary-light);
 
-  font-size: 125%;
+  font-size: 100%;
 }
 
 /** SkipTo Styles **/
 
 #skipToHere {
-  border: 1px solid red;
+  display: inline;
+  border: 1px solid var(--skipToButtonBorderColor);
   height: 100%;
+  width: 40px;
 }
 .nolatin-skipTo button:before {
   font-family: "Font Awesome 5 Free";
@@ -69,7 +74,12 @@
 
 .nolatin-skipTo [role="menu"],
 .nolatin-skipTo button {
-  font-size: 80% !important;
+  font-size: 100% !important;
+  border: 1px solid var(--skipToButtonBorderColor) !important;
+}
+
+.nolatin-skipTo button:focus {
+  outline: 8px solid var(--focus) !important;
 }
 
 body {
@@ -229,4 +239,14 @@ blockquote {
 .exportApp p {
   font-size: 1rem !important;
   line-height: normal;
+}
+
+.exportApp header {
+  background-color: #000;
+}
+
+.exportApp *:focus {
+  outline: var(--focus) solid 8px;
+  outline-offset: 4px;
+  border-radius: 4px;
 }

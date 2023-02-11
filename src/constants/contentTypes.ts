@@ -1,6 +1,6 @@
 export enum ContentTypes {
   Title = "Section Title with description",
-  Button = "Call-to-action button",
+  Button = "Button",
   Link = "Text link",
   Input = "Input field",
   Dropdown = "Select field",

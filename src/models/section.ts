@@ -7,6 +7,7 @@ export default interface Section {
   description: string
   element: ElementNames
   children: Content[]
+  draft: boolean
 }
 
 export function isSection(object: Section | Content): object is Section {

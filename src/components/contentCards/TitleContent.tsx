@@ -2,7 +2,6 @@ import Input from "../Input"
 import { LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 import ContentCard from "../ContentCard"
-import styled from "styled-components"
 
 interface TitleProps extends ContentProps {
   pageId: string

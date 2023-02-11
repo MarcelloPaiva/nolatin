@@ -129,15 +129,15 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   const [open, setOpen] = useState(false)
   const [localName, setLocalName] = useState(state.name)
 
-  function getRoles(element: ElementNames): string {
-    let roles = Elements[element].roles
-    let roleString = ""
-    roles.forEach((role, index) => {
-      roleString += role
-      if (index !== roles.length - 1) roleString += ", "
-    })
-    return roleString
-  }
+  // function getRoles(element: ElementNames): string {
+  //   let roles = Elements[element].roles
+  //   let roleString = ""
+  //   roles.forEach((role, index) => {
+  //     roleString += role
+  //     if (index !== roles.length - 1) roleString += ", "
+  //   })
+  //   return roleString
+  // }
 
   function getFormData(): Section {
     const name = document.getElementById(state.id + "-name") as HTMLInputElement
@@ -153,6 +153,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       description: description.value,
       element: element.value as ElementNames,
       children: state.children,
+      draft: false,
     }
   }
 
@@ -165,10 +166,21 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (state.draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId: state.id,
+          id: state.id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {
@@ -181,24 +193,24 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   return state.id === editing ? (
     <Modal open={true}>
       <SectionForm>
+        <EndRow>
+          <IconButton
+            icon={X}
+            aria="Cancel Edit"
+            label="Cancel"
+            onClick={handleCancel}
+          />
+          <IconButton
+            icon={Check}
+            color="hsla(120,100%,10%, 0.9)"
+            aria="Save Section"
+            label="Save MP"
+            styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+            onClick={handleSave}
+            disabled={localName === ""}
+          />
+        </EndRow>
         <div className="scrollMe">
-          <EndRow>
-            <IconButton
-              icon={X}
-              aria="Cancel Edit"
-              label="Cancel"
-              onClick={handleCancel}
-            />
-            <IconButton
-              icon={Check}
-              color="hsla(120,100%,10%, 0.9)"
-              aria="Save Section"
-              label="Save MP"
-              styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
-              onClick={handleSave}
-              disabled={localName === ""}
-            />
-          </EndRow>
           <Input
             id={state.id + "-name"}
             label="Section Name"
@@ -217,6 +229,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           <Input
             id={state.id + "-description"}
             label="Section Description"
+            defaultValue={state.description}
             style={`
             margin-bottom: 16px;
         `}
@@ -301,8 +314,6 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       <p>{state.description}</p>
       <LabelToo>Element</LabelToo>
       <p>{state.element}</p>
-      <LabelToo>Export as</LabelToo>
-      <p>{getRoles(state.element)}</p>
       <Column>
         {state.children.map((contentState) => (
           <ContentCard

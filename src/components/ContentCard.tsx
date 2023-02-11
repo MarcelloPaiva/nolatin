@@ -135,7 +135,7 @@ export default function ContentCard({
     }
   }
 
-  function getFormData(): Omit<Content, "id" | "children" | "type"> {
+  function getFormData(): Omit<Content, "id" | "children" | "type" | "draft"> {
     const title = document.getElementById(
       state.id + "-title"
     ) as HTMLInputElement | null
@@ -179,16 +179,28 @@ export default function ContentCard({
           ...newContent,
           ...formData,
           children: newContent.children,
+          draft: false,
         },
       },
     })
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (state.draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId,
+          id: state.id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {
@@ -221,16 +233,18 @@ export default function ContentCard({
                 onClick={handleSave}
               />
             </EndRow>
-            <Dropdown
-              label="Content type"
-              defaultValue={state.type}
-              options={Object.values(ContentTypes).map((type) => ({
-                label: type,
-                value: type,
-              }))}
-              onSelect={handleSelect}
-            />
-            {renderContent(state.type, true)}
+            <div className="scrollMe">
+              <Dropdown
+                label="Content type"
+                defaultValue={state.type}
+                options={Object.values(ContentTypes).map((type) => ({
+                  label: type,
+                  value: type,
+                }))}
+                onSelect={handleSelect}
+              />
+              {renderContent(state.type, true)}
+            </div>
           </CardForm>
         </Modal>
       )
@@ -261,21 +275,23 @@ export default function ContentCard({
           </ModalContainer>
         </Modal>
         <EndRow>
-          <IconButton
-            icon={PlusSquare}
-            aria="Add Story"
-            label="Add"
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateContent,
-                payload: {
-                  pageId,
-                  sectionId,
-                  parentId: state.id,
-                },
-              })
-            }
-          />
+          {state.type === ContentTypes.Title && (
+            <IconButton
+              icon={PlusSquare}
+              aria="Add Story"
+              label="Add"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.CreateContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId: state.id,
+                  },
+                })
+              }
+            />
+          )}
           <IconButton
             icon={Edit}
             aria="Edit content block"

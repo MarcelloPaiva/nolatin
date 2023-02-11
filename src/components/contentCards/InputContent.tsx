@@ -2,7 +2,6 @@ import Input from "../Input"
 import Dropdown from "../Dropdown"
 import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
-import styled from "styled-components"
 
 const inputTypes = [
   { label: "text", value: "text" },

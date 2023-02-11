@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import { ReactNode, forwardRef } from "react"
 import styled from "styled-components"
 
 interface ButtonProps {
@@ -12,16 +12,12 @@ interface ButtonProps {
   newTab?: boolean
 }
 
-export default function Button({
-  onClick,
-  label,
-  styles,
-  children,
-  link,
-  disabled,
-  newTab,
-}: ButtonProps) {
-  const buttonStyles = ` 
+const Button = forwardRef(
+  (
+    { onClick, label, styles, children, link, disabled, newTab }: ButtonProps,
+    ref
+  ) => {
+    const buttonStyles = ` 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -35,7 +31,7 @@ export default function Button({
     letter-spacing: .05rem;
     ${styles}
   `
-  const buttonLinkStyles = `
+    const buttonLinkStyles = `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,7 +46,7 @@ export default function Button({
   font-weight: bold;
 
   `
-  const buttonDisabledStyles = `
+    const buttonDisabledStyles = `
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,22 +58,35 @@ export default function Button({
   font-size: 120%;
   letter-spacing: .05rem;
   `
-  const Button = styled.button`
-    ${buttonStyles}
-    ${disabled && buttonDisabledStyles}
-  `
-  const Link = styled.a`
-    text-decoration: none;
-    ${buttonLinkStyles}
-  `
+    const Button = styled.button`
+      ${buttonStyles}
+      ${disabled && buttonDisabledStyles}
+    `
+    const Link = styled.a`
+      text-decoration: none;
+      ${buttonLinkStyles}
+    `
 
-  return link ? (
-    <Link href={link} aria-label={label} target={newTab ? "_blank" : undefined}>
-      {children}
-    </Link>
-  ) : (
-    <Button onClick={onClick} aria-label={label} disabled={disabled}>
-      {children}
-    </Button>
-  )
-}
+    return link ? (
+      <Link
+        href={link}
+        aria-label={label}
+        target={newTab ? "_blank" : undefined}
+        ref={ref as React.RefObject<HTMLAnchorElement>}
+      >
+        {children}
+      </Link>
+    ) : (
+      <Button
+        onClick={onClick}
+        aria-label={label}
+        disabled={disabled}
+        ref={ref as React.RefObject<HTMLButtonElement>}
+      >
+        {children}
+      </Button>
+    )
+  }
+)
+
+export default Button

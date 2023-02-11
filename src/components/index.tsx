@@ -11,9 +11,15 @@ export const Text = styled.p`
 export const Bold = styled.strong`
   font-weight: bold;
 `
-export const Label = styled.div`
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+export const Label = styled.label`
+  display: block;
+  margin-top: 1rem;
+`
+export const LabelToo = styled.label`
+  display: block;
+  color: var(--secondary-80);
+  margin-top: 1rem;
+  font-size: 1rem;
 `
 export const Divider = styled.div``
 

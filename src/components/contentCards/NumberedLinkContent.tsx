@@ -2,7 +2,6 @@ import Input from "../Input"
 import { LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
-import styled from "styled-components"
 
 export default function NumberedLinkContent({
   state: { description, id },

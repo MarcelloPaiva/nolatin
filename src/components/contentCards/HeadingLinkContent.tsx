@@ -1,7 +1,6 @@
 import Input from "../Input"
 import { Text, Link, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
-import styled from "styled-components"
 
 export default function HeadingLinkContent({
   state: { title, url, id },

@@ -1,7 +1,6 @@
 import Input from "../Input"
 import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
-import styled from "styled-components"
 
 export default function ButtonContent({
   state: { url, title, id },

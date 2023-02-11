@@ -222,6 +222,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           <Input
             id={state.id + "-description"}
             label="Section Description"
+            defaultValue={state.description}
             style={`
             margin-bottom: 16px;
         `}

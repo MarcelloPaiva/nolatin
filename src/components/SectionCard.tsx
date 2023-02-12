@@ -21,7 +21,7 @@ const sectionStyles = `
   padding: 16px;
   margin-top: 1rem; 
   flex: 1;
-  width: auto;
+  width: 90%;
   background-color: #fff;
 
   p, ol, ul, a,
@@ -202,10 +202,10 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           />
           <IconButton
             icon={Check}
-            color="hsla(120,100%,10%, 0.9)"
+            color="var(--button-save-label)"
             aria="Save Section"
-            label="Save MP"
-            styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+            label="Save"
+            styles="background:var(--button-save-bg);border-radius:4px;width:60px;"
             onClick={handleSave}
             disabled={localName === ""}
           />
@@ -216,9 +216,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             label="Section Name"
             defaultValue={localName}
             title
-            style={`
-            margin-bottom: 16px;
-        `}
+            style={``}
             onBlur={() => {
               const name = document.getElementById(
                 state.id + "-name"
@@ -230,9 +228,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             id={state.id + "-description"}
             label="Section Description"
             defaultValue={state.description}
-            style={`
-            margin-bottom: 16px;
-        `}
+            style={``}
             multiline
           />
           <Dropdown
@@ -242,9 +238,7 @@ export default function SectionCard({ pageId, state }: SectionProps) {
             options={Object.keys(Elements).map((name) => {
               return { label: name, value: name }
             })}
-            style={`
-            margin-bottom: 16px;
-        `}
+            style={``}
           />
         </div>
       </SectionForm>

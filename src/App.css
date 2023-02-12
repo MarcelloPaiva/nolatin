@@ -6,6 +6,11 @@
   --l: 10%;
   --h-accent: 240;
 
+  --green-10: hsla(120, 100%, 60%, 0.1);
+  --green-50: hsla(120, 60%, 40%, 1);
+  --green-100: hsla(120, 100%, 10%, 1);
+  --light: #fff;
+
   --primary-light: #fafbf6;
   --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
   --primary-100: var(--primary-dark);
@@ -21,6 +26,7 @@
   --primary-03: hsla(var(--h), var(--s), var(--l), 0.03);
 
   --accent: hsl(var(--h-accent), 100%, 50%);
+
   --focus: deeppink;
 
   --secondary-03: hsla(var(--h-accent), 50%, 50%, 0.03);
@@ -43,12 +49,18 @@
   --text-low-emphasis: var(--primary-50);
 
   --inputLabel: var(--secondary-100);
-  --inputValue: hsla(120, 60%, 40%, 1);
+  --inputValue: var(--green-50);
 
   --button-primary: var(--text-light);
   --button-child: blue;
-  --button-save-bg: hsla(120, 100%, 60%, 0.1);
-  --button-save-label: hsla(120, 100%, 10%, 1);
+
+  --button-save-bg: var(--green-10);
+  --button-save-label: var(--green-100);
+
+  --buttonSecondary-bg: var(--surface-light);
+  --buttonSecondary-label: var(--secondary-80);
+  --buttonSecondary-border: var(--secondary-20);
+  --buttonSecondary-borderWidth: 2px;
 
   /*SkipTo Theme Variables*/
 
@@ -173,6 +185,22 @@ select {
   background-repeat: no-repeat;
 }
 
+.instructions,
+.alert-box {
+  display: block;
+  width: 90%;
+  margin: 0 0 1rem;
+  padding: 0 1rem 1rem;
+  background: var(--light);
+  border: 1px solid var(--secondary-30);
+  border-radius: 1rem;
+  filter: drop-shadow(1px 2px 8px var(--secondary-20));
+}
+
+.instructions h3 {
+  color: var(--green-50);
+}
+
 figcaption {
   font-family: "Roboto Slab", serif;
   font-size: 80%;
@@ -199,9 +227,9 @@ blockquote {
 /* Modal */
 .scrollMe {
   display: block;
-  border: 1px solid red !important;
   overflow-y: scroll !important;
   max-height: 80vh;
+  padding: 16px;
 }
 
 .una {
@@ -279,13 +307,33 @@ blockquote {
   font-size: 0.67em;
 }
 
-.exportApp p {
+.exportApp p,
+.exportApp label {
   font-size: 1rem !important;
   line-height: normal;
+  color: #000;
 }
 
 .exportApp header {
   background-color: #000;
+}
+
+.exportApp input {
+  border-color: #000;
+}
+
+.exportApp button {
+  background-color: #000;
+}
+
+.exportApp article,
+.exportApp [role="alert"] {
+  display: box;
+  padding: 1rem;
+  background-color: var(--secondary-05);
+  border: 1px solid var(--secondary-30);
+  border-radius: 0.25rem;
+  color: var(--secondary-100);
 }
 
 .exportApp *:focus {

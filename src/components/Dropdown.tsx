@@ -36,10 +36,10 @@ export default function Dropdown({
     border-radius: 4px;
     padding: 8px;
     font-family: "Roboto Mono", sans-serif;
-    font-size: "auto";
+    font-size: 90%;
     font-weight: bold;
     line-height: "auto";
-    color: var(--text-light);
+    color: var(--secondary-80);
   `
 
   const Option = styled.option``

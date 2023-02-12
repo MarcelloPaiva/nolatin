@@ -23,6 +23,16 @@ const BackLink = styled.a`
   justify-content: flex-start;
   align-items: center;
   width: fit-content;
+  border: 3px solid var(--accent);
+  border-radius: 12px;
+  background-color: #fff;
+  color: var(--accent);
+  padding: 16px;
+  margin-top: 2rem;
+  font-size: 120%;
+  letter-spacing: 0.05rem;
+  font-weight: bold;
+  text-decoration: none;
 `
 const Row = styled.div`
   display: flex;

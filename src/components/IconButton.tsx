@@ -39,7 +39,8 @@ export default function IconButton({
     background-color: transparent;
     border-radius:8px;
     margin:4px;
-    padding: 16px 0 0;
+    margin-bottom: 1rem;
+    padding: 1rem 0;
     flex-direction: column;
     ${styles}
   `

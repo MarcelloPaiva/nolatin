@@ -41,9 +41,8 @@ const Input = forwardRef(
     border-radius: 4px;
     padding: 8px;
     font-family: "Roboto Mono", sans-serif;
-    font-size: ${title ? "1.25rem" : "auto"};
+    font-size: "1rem";
     font-weight: bold;
-    line-height: ${title ? "1.25rem" : "auto"};
     color: var(--inputValue);
 
   `

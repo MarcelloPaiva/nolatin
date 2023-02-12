@@ -226,10 +226,10 @@ export default function ContentCard({
               />
               <IconButton
                 icon={Check}
-                color="hsla(120,100%,10%, 0.9)"
+                color="var(--button-save-label)"
                 aria="Save Section"
                 label="Save"
-                styles="background:hsla(120,100%,60%, 0.2);border-radius:4px;width:60px;padding-top:16px;"
+                styles="background:var(--button-save-bg);border-radius:4px;width:60px;"
                 onClick={handleSave}
               />
             </EndRow>

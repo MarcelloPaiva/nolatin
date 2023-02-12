@@ -72,15 +72,15 @@ export default function Pages() {
           </ModalContainer>
         </Modal>
         <LeftTitle>Pages</LeftTitle>
-        <Text>
-          {pages.length > 0
-            ? `You have created ${
-                pages.length === 1
-                  ? `${pages.length} page`
-                  : `${pages.length} pages`
-              } so far`
-            : "Start by adding a page"}
-        </Text>
+        <div className="instructions">
+          <h3>{pages.length > 0 ? "Carry on" : "Getting started"}</h3>
+          <p>
+            {pages.length > 0
+              ? "Add more pages or click on the page name to start building your priority guides."
+              : "Start by adding a page"}
+          </p>
+        </div>
+        <br />
         {pages.map((page, index) => (
           <PageCard
             key={page.id}

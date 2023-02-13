@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Divider, Text, Title } from "../components/"
+import { Divider, Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import PageCard from "../components/PageCard"
@@ -12,10 +12,11 @@ import Page from "../models/page"
 const LeftTitle = styled(Title)`
   align-self: flex-start;
 `
-const Root = styled.div`
+const Root = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
+  padding: 0 1rem;
   align-items: center;
 `
 
@@ -73,7 +74,7 @@ export default function Pages() {
         </Modal>
         <LeftTitle>Pages</LeftTitle>
         <div className="instructions">
-          <h3>{pages.length > 0 ? "Carry on" : "Getting started"}</h3>
+          <h2>{pages.length > 0 ? "Carry on" : "Getting started"}</h2>
           <p>
             {pages.length > 0
               ? "Add more pages or click on the page name to start building your priority guides."

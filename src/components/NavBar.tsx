@@ -3,12 +3,11 @@ import IconButton from "./IconButton"
 import styled from "styled-components"
 
 const Header = styled.header`
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: space-between;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: solid 8px var(--secondary-20);
+  padding: 1rem 1rem 0;
+  background: var(--secondary-20);
 `
 
 const Row = styled.div`

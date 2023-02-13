@@ -76,6 +76,22 @@
   font-size: 100%;
 }
 
+#nolatin-logo {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  color: #cc092e;
+  font-weight: bold;
+  height: 60px;
+  width: 60px;
+}
+#nolatin-logo a,
+#nolatin-logo object {
+  display: block;
+  width: auto;
+  color: hsla(120, 60%, 40%, 1);
+}
+
 /** SkipTo Styles **/
 
 #skipToHere {
@@ -100,11 +116,18 @@
   outline: 8px solid var(--focus) !important;
 }
 
+.skip-to .skip-to-tooltip {
+  color: #fff !important;
+  background-color: var(--secondary-100) !important;
+  border: 1px solid #fff !important;
+  padding: 0 0.5rem !important;
+  box-shadow: 2px 2px 8px var(--secondary-100) !important;
+}
+
 body {
   font-family: "Sofia Sans", serif;
   max-width: 1024px;
   margin: 0 auto;
-  padding: 0 16px;
   float: none;
   background-color: var(--surface-light);
   color: var(--text-light);
@@ -129,8 +152,6 @@ h6 {
 
 h1 {
   font-weight: 800;
-  margin-bottom: 2rem;
-  line-height: 120%;
   color: var(--secondary-100);
 }
 
@@ -185,11 +206,22 @@ select {
   background-repeat: no-repeat;
 }
 
+.toolbar {
+  display: block;
+  width: auto;
+  margin: 1rem 2rem 2rem 0;
+}
+
+.toolbar a {
+  margin-top: 0;
+}
+
 .instructions,
 .alert-box {
-  display: block;
-  width: 90%;
-  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin: 0 1rem 1rem;
   padding: 0 1rem 1rem;
   background: var(--light);
   border: 1px solid var(--secondary-30);
@@ -197,8 +229,11 @@ select {
   filter: drop-shadow(1px 2px 8px var(--secondary-20));
 }
 
-.instructions h3 {
+.instructions h2 {
   color: var(--green-50);
+  font-weight: 400;
+  margin-bottom: 0.25rem;
+  font-size: 1.125rem;
 }
 
 figcaption {
@@ -261,9 +296,24 @@ blockquote {
   right: auto;
 }
 
+/*
+Prototyping Styles
+*/
+
 .exportApp {
-  background-color: #fff;
+  background-color: #f7f7f7;
+  padding: 0;
+  margin: 0;
 }
+
+.exportApp main,
+.exportApp header {
+  padding: 0;
+}
+.exportApp header {
+  height: auto;
+}
+
 .exportApp section {
   border: 1px solid var(--primary-10);
   margin: 8px;
@@ -287,7 +337,7 @@ blockquote {
 }
 
 .exportApp h1 {
-  font-size: 2em;
+  font-size: 1.5rem;
   line-height: 100%;
   color: #fff;
 }
@@ -318,8 +368,12 @@ blockquote {
   background-color: #000;
 }
 
+.exportApp label {
+  margin-bottom: 0.75rem;
+}
 .exportApp input {
   border-color: #000;
+  margin-bottom: 1rem;
 }
 
 .exportApp button {
@@ -328,7 +382,7 @@ blockquote {
 
 .exportApp article,
 .exportApp [role="alert"] {
-  display: box;
+  display: flex;
   padding: 1rem;
   background-color: var(--secondary-05);
   border: 1px solid var(--secondary-30);

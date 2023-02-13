@@ -83,7 +83,7 @@ export default function Create() {
 
   return (
     <Layout>
-      <Root>
+      <Root role={"main"}>
         <Row>
           <BackLink href="/pages">
             <ChevronLeft />

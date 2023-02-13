@@ -37,10 +37,11 @@ const BackLink = styled.a`
   font-weight: bold;
   text-decoration: none;
 `
-const Root = styled.div`
+const Root = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
+  padding: 0 1rem;
 `
 
 export default function Page() {
@@ -64,6 +65,9 @@ export default function Page() {
       >
         <Root>
           <Row>
+            <Title>{page.title}</Title>
+          </Row>
+          <Row className="toolbar">
             <BackLink href="/pages">
               <ChevronLeft />
               Back
@@ -72,12 +76,8 @@ export default function Page() {
               Preview &nbsp; <ExternalLink />
             </Button>
           </Row>
-
-          <Row>
-            <Title>{page.title}</Title>
-          </Row>
           <div className="instructions">
-            <h3>Next steps:</h3>
+            <h2>Next steps:</h2>
             <p>
               Add as many headlines you want, but please remember to be
               descriptive. Afterall, not everyone rely on visual interface

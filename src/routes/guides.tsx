@@ -1,4 +1,4 @@
-import { Divider, Title } from "../components/"
+import { Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import styled from "styled-components"

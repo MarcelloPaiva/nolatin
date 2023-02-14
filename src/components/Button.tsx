@@ -71,7 +71,7 @@ const Button = forwardRef(
       <Link
         href={link}
         aria-label={label}
-        aria-role="button"
+        role="button"
         target={newTab ? "_blank" : undefined}
         ref={ref as React.RefObject<HTMLAnchorElement>}
       >

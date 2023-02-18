@@ -65,54 +65,66 @@ export default function Root() {
           assistive technologies feel when designers don't take Accessibility
           into consideration early on.
         </figcaption>
+        <h2>Poor content leads to poor Accessibility:</h2>
+        <p>
+          Content design and Accessibility are often considered an afterthought
+          in any product life-cycle.
+        </p>
+        <br />
+        <p>
+          If designers continue to use Latin content placeholders in early
+          design concepts, people with disabilities that rely on assistive
+          technologies (i.e.: screen readers) will continue to be excluded from
+          early user research studies.
+        </p>
         <hr className="una" />
-        <h2>What is No Latin?</h2>
-        <p>
-          No Latin is a tool that helps designers and researchers bring intent
-          into their design process by elevating the content quality early for
-          people with disabilities.
-        </p>
-        <Button styles={`margin: 40px 0px`} link="/guides">
-          Try No Latin now
-        </Button>
+        <blockquote>
+          <h2>Solution:</h2>
+          Create good content from the beginning, by creating Priority Guides -
+          content and elements for a mobile screen, sorted by hierarchy from top
+          to bottom and without layout specifications.
+        </blockquote>
         <hr className="una" />
-        {/*         <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
+        <h2>Priority Guides to the rescue</h2>
         <p>
-          Adding placeholders like ”Lorem ipsum” create barriers and it only
-          delays any opportunity to start evaluating your design solution with
-          people who relies on assistive technologies, such as screen readers.
+          A good way to start focusing on content designing before the interface
+          designing stage is using a method called "Priority Guides". This
+          content-first practice is well-described in the A List Apart's article{" "}
+          <a
+            href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
+            target="_blank"
+          >
+            <cite>
+              Priority Guides: A Content-First Alternative to Wireframes
+            </cite>
+          </a>{" "}
+          written by Heleen van Nues and Lennart Overkamp.
         </p>
-
-        <h2>Inclusive Tips:</h2>
+        <h3>Priority guides are simple and quick</h3>
         <p>
-          Creating good content is a matter of putting intent in each step of
-          your design effort.
-        </p>
-        <p>
-          Adding placeholders like ”Lorem ipsum” only create barriers to start
-          evaluating your solution with people with disabilities.
-        </p>
-
-        <p>
-          <h3>Instead, follow these tips:</h3>
+          When creating these priority guide headlines you put intent on the
+          user's expectations and it is as simple as following these steps:
           <ol>
-            <li>Write purposeful headlines</li>
-            <li>A brief description for each headline</li>
-            <li>
-              If there's an action to a headline, state the expected action
-            </li>
+            <li>Write purposeful headlines,</li>
+            <li>Add a brief description for each headline,</li>
+            <li>State the expected action by the user.</li>
           </ol>
+          Add as many headlines, then prioritize the content and its
+          accessibility needs before the interface designing. This crucial step
+          will safeguard the user experience creating the opportunity to be more
+          inclusive during usability studies.
         </p>
-        <h3>Use Priority Guides as your first step</h3>
+        <h2>Using the No Latin App:</h2>
         <p>
-          Priority guides prioritize the content and its accessibility needs
-          before the design, ensuring that the user experience is inclusive for
-          all.
+          No Latin is a tool that helps designers and researchers bringing
+          intent into their design process by elevating the content quality
+          early using prority guides and exporting an accessible web page that
+          can be used to test with people with disabilities before the interface
+          design stage.
         </p>
-        <Button styles={`margin: 40px 0px`} link="/guides">
-          Learn about Priority Guides
-        </Button>
- */}{" "}
+        <Button link="/guides">Try No Latin now</Button>
+        <hr className="una" />
+        <footer>Footer goes here.</footer>
       </Main>
     </Layout>
   )

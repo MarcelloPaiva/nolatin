@@ -35,7 +35,10 @@ export default function Guides() {
         <p>
           This content-first practice is well-described in the A List Apart's
           article{" "}
-          <a href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/">
+          <a
+            href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
+            target="_blank"
+          >
             <cite>
               Priority Guides: A Content-First Alternative to Wireframes
             </cite>

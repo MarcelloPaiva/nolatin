@@ -205,7 +205,8 @@ h6 {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   font-weight: 800;
   color: var(--focus);
 }
@@ -215,8 +216,8 @@ h2 {
 }
 
 h3 {
-  font-weight: 400;
-  margin-bottom: 0.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 main img {

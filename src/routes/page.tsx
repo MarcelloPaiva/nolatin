@@ -50,10 +50,22 @@ export default function Page() {
   const page = getPage(id ?? "")
 
   function renderCards(sectionsData: Section[], id: string) {
-    return sectionsData.map((section) => {
-      return <SectionCard key={section.id} pageId={id} state={section} />
+    return sectionsData.map((section, index) => {
+      console.log(index)
+      return (
+        <SectionCard
+          key={section.id}
+          pageId={id}
+          state={section}
+          canMoveUp={sectionsData.length > 1 && index !== 0}
+          canMoveDown={
+            sectionsData.length > 1 && index !== sectionsData.length - 1
+          }
+        />
+      )
     })
   }
+
   if (page) {
     return (
       <Layout

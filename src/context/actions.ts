@@ -24,6 +24,8 @@ export enum ActionTypes {
   UpdateType = "UPDATE_TYPE",
   EditNode = "EDIT_NODE",
   CancelNode = "CANCEL_NODE",
+  MoveSection = "MOVE_SECTION",
+  MoveContent = "MOVE_CONTENT",
 }
 
 type Payload = {
@@ -76,6 +78,18 @@ type Payload = {
   [ActionTypes.CancelNode]: {
     pageId?: string
     sectionId?: string
+  }
+  [ActionTypes.MoveSection]: {
+    pageId: string
+    sectionId: string
+    direction: "up" | "down"
+  }
+  [ActionTypes.MoveContent]: {
+    pageId: string
+    parentId: string
+    sectionId: string
+    id: string
+    direction: "up" | "down"
   }
 }
 

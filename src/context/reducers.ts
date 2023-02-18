@@ -105,6 +105,57 @@ export default function appReducer(state: AppContextState, action: Actions) {
     case ActionTypes.DeletePage:
       pages.splice(pageIndex, 1)
       break
+    case ActionTypes.MoveSection:
+      const section = clone(pages[pageIndex].sections[sectionIndex])
+      pages[pageIndex].sections.splice(sectionIndex, 1)
+      if (action.payload.direction === "up") {
+        pages[pageIndex].sections.splice(sectionIndex - 1, 0, section)
+      } else {
+        pages[pageIndex].sections.splice(sectionIndex + 1, 0, section)
+      }
+      break
+    case ActionTypes.MoveContent:
+      if (action.payload.parentId === action.payload.sectionId) {
+        const contentIndex = pages[pageIndex].sections[
+          sectionIndex
+        ].children.findIndex((content) => content.id === action.payload.id)
+        let content = clone(
+          pages[pageIndex].sections[sectionIndex].children[contentIndex]
+        )
+        pages[pageIndex].sections[sectionIndex].children.splice(contentIndex, 1)
+        if (action.payload.direction === "up") {
+          pages[pageIndex].sections[sectionIndex].children.splice(
+            contentIndex - 1,
+            0,
+            content
+          )
+        } else {
+          pages[pageIndex].sections[sectionIndex].children.splice(
+            contentIndex + 1,
+            0,
+            content
+          )
+        }
+      } else {
+        pages[pageIndex].sections[sectionIndex].children = modifyNode(
+          clone(pages[pageIndex].sections[sectionIndex].children),
+          action.payload.parentId,
+          (node) => {
+            const contentIndex = node.children.findIndex(
+              (content) => content.id === action.payload.id
+            )
+            const content = clone(node.children[contentIndex])
+            node.children.splice(contentIndex, 1)
+            if (action.payload.direction === "up") {
+              node.children.splice(contentIndex - 1, 0, content)
+            } else {
+              node.children.splice(contentIndex + 1, 0, content)
+            }
+            return node
+          }
+        )
+      }
+      break
     default:
       break
   }

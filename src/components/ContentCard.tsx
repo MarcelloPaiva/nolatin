@@ -3,7 +3,15 @@ import styled from "styled-components"
 import { ContentTypes } from "../constants/contentTypes"
 import { ButtonNoStyle, Text } from "."
 import IconButton from "./IconButton"
-import { PlusSquare, Check, Edit, Trash, X } from "react-feather"
+import {
+  PlusSquare,
+  Check,
+  Edit,
+  Trash,
+  X,
+  ArrowDown,
+  ArrowUp,
+} from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
 import TitleContent from "./contentCards/TitleContent"
@@ -25,10 +33,13 @@ import ParagraphContent from "./contentCards/ParagraphContent"
 import { Modal } from "@mui/material"
 import Button from "./Button"
 
-interface ContentProps {
+interface ContentCardProps {
   pageId: string
+  parentId: string
   sectionId: string
   state: Content
+  canMoveUp: boolean
+  canMoveDown: boolean
 }
 
 const Selection = styled.div`
@@ -88,7 +99,10 @@ export default function ContentCard({
   state,
   pageId,
   sectionId,
-}: ContentProps) {
+  parentId,
+  canMoveUp,
+  canMoveDown,
+}: ContentCardProps) {
   const [open, setOpen] = useState(false)
   const {
     dispatch,
@@ -298,6 +312,44 @@ export default function ContentCard({
             label="Edit"
             onClick={handleEdit}
           />
+          {canMoveUp && (
+            <IconButton
+              icon={ArrowUp}
+              aria="Move content block Up"
+              label="Move Up"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.MoveContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId,
+                    id: state.id,
+                    direction: "up",
+                  },
+                })
+              }
+            />
+          )}
+          {canMoveDown && (
+            <IconButton
+              icon={ArrowDown}
+              aria="Move content block down"
+              label="Move Down"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.MoveContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId,
+                    id: state.id,
+                    direction: "down",
+                  },
+                })
+              }
+            />
+          )}
           <IconButton
             icon={Trash}
             color="red"

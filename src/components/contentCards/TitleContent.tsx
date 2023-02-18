@@ -14,32 +14,32 @@ export default function TitleContent({
   state,
   edit,
 }: TitleProps) {
+  const { id, description, title, children } = state
   return (
     <>
       {edit ? (
         <>
+          <Input id={`${id}-title`} label="Title" defaultValue={title} />
           <Input
-            id={`${state.id}-title`}
-            label="Title"
-            defaultValue={state.title}
-          />
-          <Input
-            id={`${state.id}-description`}
+            id={`${id}-description`}
             label="Description"
-            defaultValue={state.description}
+            defaultValue={description}
           />
         </>
       ) : (
         <>
           <LabelToo>Title</LabelToo>
-          <p>{state.title}</p>
+          <p>{title}</p>
           <LabelToo>Description</LabelToo>
-          <p>{state.description}</p>
-          {state.children.map((child) => (
+          <p>{description}</p>
+          {children.map((child, index) => (
             <ContentCard
               state={child}
+              parentId={id}
               sectionId={sectionId}
               pageId={pageId}
+              canMoveUp={children.length > 1 && index !== 0}
+              canMoveDown={children.length > 1 && index !== children.length - 1}
               key={child.id}
             />
           ))}

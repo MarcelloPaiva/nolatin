@@ -3,7 +3,15 @@ import styled from "styled-components"
 import Dropdown from "./Dropdown"
 import Input from "./Input"
 import IconButton from "./IconButton"
-import { PlusSquare, Check, Edit, Trash, X } from "react-feather"
+import {
+  PlusSquare,
+  Check,
+  Edit,
+  Trash,
+  X,
+  ArrowUp,
+  ArrowDown,
+} from "react-feather"
 import Section from "../models/section"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
@@ -119,15 +127,23 @@ const LabelToo = styled.label`
 interface SectionProps {
   pageId: string
   state: Section
+  canMoveUp: boolean
+  canMoveDown: boolean
 }
 
-export default function SectionCard({ pageId, state }: SectionProps) {
+export default function SectionCard({
+  pageId,
+  state,
+  canMoveUp,
+  canMoveDown,
+}: SectionProps) {
   const {
     dispatch,
     state: { editing },
   } = useContext(AppContext)
+  const { id, children, name, description, element, draft } = state
   const [open, setOpen] = useState(false)
-  const [localName, setLocalName] = useState(state.name)
+  const [localName, setLocalName] = useState(name)
 
   // function getRoles(element: ElementNames): string {
   //   let roles = Elements[element].roles
@@ -140,19 +156,19 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   // }
 
   function getFormData(): Section {
-    const name = document.getElementById(state.id + "-name") as HTMLInputElement
+    const name = document.getElementById(id + "-name") as HTMLInputElement
     const description = document.getElementById(
-      state.id + "-description"
+      id + "-description"
     ) as HTMLTextAreaElement
     const element = document.getElementById(
-      state.id + "-element"
+      id + "-element"
     ) as HTMLSelectElement
     return {
-      id: state.id,
+      id: id,
       name: name.value,
       description: description.value,
       element: element.value as ElementNames,
-      children: state.children,
+      children: children,
       draft: false,
     }
   }
@@ -161,18 +177,18 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     let newState = getFormData()
     dispatch({
       type: ActionTypes.UpdateSection,
-      payload: { pageId, sectionId: state.id, state: newState },
+      payload: { pageId, sectionId: id, state: newState },
     })
   }
 
   function handleCancel() {
-    if (state.draft) {
+    if (draft) {
       dispatch({
         type: ActionTypes.DeleteNode,
         payload: {
           pageId,
-          sectionId: state.id,
-          id: state.id,
+          sectionId: id,
+          id: id,
         },
       })
     } else {
@@ -186,11 +202,11 @@ export default function SectionCard({ pageId, state }: SectionProps) {
   function handleEdit() {
     dispatch({
       type: ActionTypes.EditNode,
-      payload: { id: state.id },
+      payload: { id: id },
     })
   }
 
-  return state.id === editing ? (
+  return id === editing ? (
     <Modal open={true}>
       <SectionForm>
         <EndRow>
@@ -212,29 +228,29 @@ export default function SectionCard({ pageId, state }: SectionProps) {
         </EndRow>
         <div className="scrollMe">
           <Input
-            id={state.id + "-name"}
+            id={id + "-name"}
             label="Section Name"
             defaultValue={localName}
             title
             style={``}
             onBlur={() => {
               const name = document.getElementById(
-                state.id + "-name"
+                id + "-name"
               ) as HTMLInputElement
               setLocalName(name.value)
             }}
           />
           <Input
-            id={state.id + "-description"}
+            id={id + "-description"}
             label="Section Description"
-            defaultValue={state.description}
+            defaultValue={description}
             style={``}
             multiline
           />
           <Dropdown
-            id={state.id + "-element"}
+            id={id + "-element"}
             label="Element"
-            defaultValue={state.element}
+            defaultValue={element}
             options={Object.keys(Elements).map((name) => {
               return { label: name, value: name }
             })}
@@ -256,8 +272,8 @@ export default function SectionCard({ pageId, state }: SectionProps) {
                   type: ActionTypes.DeleteNode,
                   payload: {
                     pageId,
-                    sectionId: state.id,
-                    id: state.id,
+                    sectionId: id,
+                    id: id,
                   },
                 })
               }
@@ -278,8 +294,8 @@ export default function SectionCard({ pageId, state }: SectionProps) {
               type: ActionTypes.CreateContent,
               payload: {
                 pageId,
-                parentId: state.id,
-                sectionId: state.id,
+                parentId: id,
+                sectionId: id,
               },
             })
           }
@@ -291,6 +307,42 @@ export default function SectionCard({ pageId, state }: SectionProps) {
           styles="margin-left:24px;"
           onClick={handleEdit}
         />
+        {canMoveUp && (
+          <IconButton
+            icon={ArrowUp}
+            aria="Move Story Up"
+            label="Move Up"
+            styles="margin-left:24px;"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.MoveSection,
+                payload: {
+                  pageId,
+                  sectionId: id,
+                  direction: "up",
+                },
+              })
+            }
+          />
+        )}
+        {canMoveDown && (
+          <IconButton
+            icon={ArrowDown}
+            aria="Move Story Down"
+            label="Move Down"
+            styles="margin-left:24px;"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.MoveSection,
+                payload: {
+                  pageId,
+                  sectionId: id,
+                  direction: "down",
+                },
+              })
+            }
+          />
+        )}
         <IconButton
           icon={Trash}
           aria="Delete Story"
@@ -302,19 +354,22 @@ export default function SectionCard({ pageId, state }: SectionProps) {
       </EndRow>
       <LabelToo>Name</LabelToo>
       <p>
-        <strong>{state.name}</strong>
+        <strong>{name}</strong>
       </p>
       <LabelToo>Description</LabelToo>
-      <p>{state.description}</p>
+      <p>{description}</p>
       <LabelToo>Element</LabelToo>
-      <p>{state.element}</p>
+      <p>{element}</p>
       <Column>
-        {state.children.map((contentState) => (
+        {children.map((contentState, index) => (
           <ContentCard
             pageId={pageId}
-            sectionId={state.id}
+            parentId={id}
+            sectionId={id}
             state={contentState}
             key={pageId}
+            canMoveUp={children.length > 1 && index !== 0}
+            canMoveDown={children.length > 1 && index !== children.length - 1}
           />
         ))}
       </Column>

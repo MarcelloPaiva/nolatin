@@ -7,9 +7,10 @@
   --h-accent: 240;
 
   --green-10: hsla(120, 100%, 60%, 0.1);
-  --green-50: hsla(120, 60%, 40%, 1);
+  --green-50: hsla(120, 60%, 35%, 1);
   --green-100: hsla(120, 100%, 10%, 1);
   --light: #fff;
+  --dark: #000;
 
   --primary-light: #fafbf6;
   --primary-dark: hsla(var(--h), var(--s), var(--l), 1);
@@ -54,13 +55,13 @@
   --button-primary: var(--text-light);
   --button-child: blue;
 
-  --button-save-bg: var(--green-10);
-  --button-save-label: var(--green-100);
+  --button-save-bg: var(--green-50);
+  --button-save-label: var(--light);
 
-  --buttonSecondary-bg: var(--surface-light);
+  --buttonSecondary-bg: var(--light);
   --buttonSecondary-label: var(--secondary-80);
-  --buttonSecondary-border: var(--secondary-20);
-  --buttonSecondary-borderWidth: 2px;
+  --buttonSecondary-border: var(--secondary-80);
+  --buttonSecondary-borderWidth: 4px;
 
   /*SkipTo Theme Variables*/
 
@@ -74,6 +75,11 @@
   --skipToMenuitemFocusTextColor: var(--primary-light);
 
   font-size: 100%;
+}
+
+body {
+  background: url(/public/images/body-bg-128.png) repeat-x top center;
+  background-position-y: -16px;
 }
 
 #nolatin-logo {
@@ -148,6 +154,7 @@ h5,
 h6 {
   font-family: "Roboto Slab", serif;
   color: var(--secondary-80);
+  line-height: normal;
 }
 
 h1 {
@@ -164,7 +171,7 @@ h3 {
   margin-bottom: 0.25rem;
 }
 
-img {
+main img {
   margin-top: 3rem;
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
   border: 1rem solid var(--secondary-25);
@@ -172,6 +179,14 @@ img {
 
 button {
   font-family: "Sofia Sans", serif;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+input {
+  margin-bottom: 0.75rem;
 }
 
 select {
@@ -301,9 +316,14 @@ Prototyping Styles
 */
 
 .exportApp {
-  background-color: #f7f7f7;
   padding: 0;
   margin: 0;
+  background: var(--primary-05);
+  padding-bottom: 80px;
+}
+
+.exportApp main {
+  background: none;
 }
 
 .exportApp main,
@@ -312,14 +332,51 @@ Prototyping Styles
 }
 .exportApp header {
   height: auto;
+  padding-left: 1rem;
 }
 
-.exportApp section {
-  border: 1px solid var(--primary-10);
-  margin: 8px;
-  padding: 8px;
+.exportApp section,
+.exportApp [role="search"],
+.exportApp article,
+.exportApp [role="alert"] {
+  background-color: var(--light);
+  border: 8px solid var(--primary-10);
+  border-radius: 16px;
+  margin: 16px;
+  padding: 16px;
   padding-bottom: 24px;
 }
+
+.exportApp [role="alert"] {
+  background-color: var(--dark);
+  border: 8px solid #ddd;
+}
+
+.exportApp [role="alert"] h2,
+.exportApp [role="alert"] h3,
+.exportApp [role="alert"] h4,
+.exportApp [role="alert"] h5,
+.exportApp [role="alert"] h6,
+.exportApp [role="alert"] p {
+  color: var(--light);
+}
+
+.exportApp [role="alert"] h2::before,
+.exportApp [role="alert"] h3::before,
+.exportApp [role="alert"] h4::before,
+.exportApp [role="alert"] h5::before,
+.exportApp [role="alert"] h6::before {
+  display: block;
+  content: "Alert Message: \A";
+  font-size: 0.75rem;
+  letter-spacing: 0.125rem;
+  text-transform: uppercase;
+  line-height: 1rem;
+  color: #aaa;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
 .exportApp h1,
 .exportApp h2,
 .exportApp h3,
@@ -365,10 +422,12 @@ Prototyping Styles
 }
 
 .exportApp header {
-  background-color: #000;
+  background-color: var(--dark);
+  height: 112px;
 }
 
 .exportApp label {
+  font-weight: bold;
   margin-bottom: 0.75rem;
 }
 .exportApp input {
@@ -378,16 +437,7 @@ Prototyping Styles
 
 .exportApp button {
   background-color: #000;
-}
-
-.exportApp article,
-.exportApp [role="alert"] {
-  display: flex;
-  padding: 1rem;
-  background-color: var(--secondary-05);
-  border: 1px solid var(--secondary-30);
-  border-radius: 0.25rem;
-  color: var(--secondary-100);
+  margin-bottom: 4px;
 }
 
 .exportApp *:focus {

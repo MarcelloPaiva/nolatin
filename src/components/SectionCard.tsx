@@ -63,6 +63,13 @@ const sectionStyles = `
     counter-increment: item;
     margin-bottom: 4px;
   }
+
+  li a {
+    display: inline;
+    margin:0;
+    padding: 0;
+    background-color: transparent;
+  }
   ol>li:before {
     margin-right: 10px;
     content: counter(item);

@@ -21,7 +21,7 @@ export default function Root() {
             eliminating the use of Latin-based scripts (a.k.a.: Lorem Ipsum) in
             the design industry.
           </p>
-          <Button link="/guides">Try No Latin now</Button>
+          <Button link="/pages">Build an accessible prototype now</Button>
           <br />
           <p>
             Or carry on to understand how designers can create accessible
@@ -123,7 +123,7 @@ export default function Root() {
           can be used to test with people with disabilities before the interface
           design stage.
         </p>
-        <Button link="/guides">Try No Latin now</Button>
+        <Button link="/guides">Learn how to create priority guides</Button>
         <hr className="una" />
         <footer>Footer goes here.</footer>
       </Main>

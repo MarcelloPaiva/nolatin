@@ -146,7 +146,7 @@ body {
 
 .hero {
   display: block;
-  padding: 1rem 2rem;
+  padding: 0 2rem 2rem;
   background-color: var(--secondary-100);
   margin-top: 40px;
   border-radius: 16px;
@@ -170,6 +170,7 @@ body {
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-top: 2rem;
 }
 .hero p {
   font-size: 1.2rem;
@@ -385,10 +386,17 @@ Prototyping Styles
   padding-left: 1rem;
 }
 
+.exportApp footer,
 .exportApp section,
-.exportApp [role="search"],
 .exportApp article,
-.exportApp [role="alert"] {
+.exportApp aside,
+.exportApp nav,
+.exportApp [role="alert"],
+.exportApp [role="banner"],
+.exportApp [role="main"],
+.exportApp [role="search"],
+.exportApp [role="contentinfo"],
+.exportApp [role="complementary"] {
   background-color: var(--light);
   border: 8px solid var(--primary-10);
   border-radius: 16px;
@@ -397,6 +405,13 @@ Prototyping Styles
   padding-bottom: 24px;
 }
 
+.exportApp header nav {
+  background-color: black;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
 .exportApp [role="alert"] {
   background-color: var(--dark);
   border: 8px solid #ddd;

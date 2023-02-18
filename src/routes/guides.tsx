@@ -14,6 +14,10 @@ export default function Guides() {
   return (
     <Layout>
       <Main>
+        <section className="hero">
+          <h1>Future how to section</h1>
+          <p>Currently creating the images to place here. Coming soon.</p>
+        </section>
         <Title>Content design leads to good Accessibility</Title>
         <p>
           As UX professionals, we are committed to designing solutions as
@@ -66,9 +70,7 @@ export default function Guides() {
         <p>
           The following examples show the content hierachy for a Job Board page:
         </p>
-        <Button styles={`margin: 40px 0px`} link="/pages">
-          Create Priority Guides
-        </Button>
+        <Button link="/pages">Create Priority Guides</Button>
       </Main>
     </Layout>
   )

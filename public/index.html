@@ -33,7 +33,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>No Latin - stop using lorem ipsum for better accessibility</title>
+    <title>No Latin - Stop using "Lorem Ipsum" for better accessibility.</title>
   </head>
   <body style="margin-bottom: 80px">
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -63,6 +63,8 @@
         settings: {
           skipTo: {
             displayOption: "popup",
+            landmarks:
+              "[role=banner],[role=main],[role=search],[role=complementary],[role=contentinfo], header, main, footer, nav, aside",
             headings: "h1, h2, h3, h4, h5, h6",
             colorTheme: "default",
             positionLeft: "39%",

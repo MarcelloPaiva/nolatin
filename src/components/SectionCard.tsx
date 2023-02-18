@@ -214,6 +214,7 @@ export default function SectionCard({
             icon={X}
             aria="Cancel Edit"
             label="Cancel"
+            styles="margin-right: 24px"
             onClick={handleCancel}
           />
           <IconButton
@@ -287,7 +288,7 @@ export default function SectionCard({
       <EndRow>
         <IconButton
           icon={PlusSquare}
-          aria="Add Story"
+          aria="Add headline"
           label="Add"
           onClick={() =>
             dispatch({
@@ -302,17 +303,15 @@ export default function SectionCard({
         />
         <IconButton
           icon={Edit}
-          aria="Edit Story"
+          aria="Edit headline"
           label="Edit"
-          styles="margin-left:24px;"
           onClick={handleEdit}
         />
         {canMoveUp && (
           <IconButton
             icon={ArrowUp}
-            aria="Move Story Up"
-            label="Move Up"
-            styles="margin-left:24px;"
+            aria="Move headline up"
+            label="Up"
             onClick={() =>
               dispatch({
                 type: ActionTypes.MoveSection,
@@ -328,9 +327,8 @@ export default function SectionCard({
         {canMoveDown && (
           <IconButton
             icon={ArrowDown}
-            aria="Move Story Down"
-            label="Move Down"
-            styles="margin-left:24px;"
+            aria="Move headline down"
+            label="Down"
             onClick={() =>
               dispatch({
                 type: ActionTypes.MoveSection,
@@ -345,10 +343,9 @@ export default function SectionCard({
         )}
         <IconButton
           icon={Trash}
-          aria="Delete Story"
+          aria="Delete headline"
           label="Delete"
           color="red"
-          styles="margin-left:24px;"
           onClick={() => setOpen(true)}
         />
       </EndRow>

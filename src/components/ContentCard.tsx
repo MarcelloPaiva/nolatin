@@ -292,7 +292,7 @@ export default function ContentCard({
           {state.type === ContentTypes.Title && (
             <IconButton
               icon={PlusSquare}
-              aria="Add Story"
+              aria="Add content block"
               label="Add"
               onClick={() =>
                 dispatch({
@@ -316,7 +316,7 @@ export default function ContentCard({
             <IconButton
               icon={ArrowUp}
               aria="Move content block Up"
-              label="Move Up"
+              label="Up"
               onClick={() =>
                 dispatch({
                   type: ActionTypes.MoveContent,
@@ -335,7 +335,7 @@ export default function ContentCard({
             <IconButton
               icon={ArrowDown}
               aria="Move content block down"
-              label="Move Down"
+              label="Down"
               onClick={() =>
                 dispatch({
                   type: ActionTypes.MoveContent,
@@ -368,8 +368,9 @@ export default function ContentCard({
         <Corner>
           <IconButton
             icon={X}
-            aria="Remove Content Block"
-            label="Cancel"
+            aria="Cancel action"
+            label="Cancel MP"
+            styles="margin-right: 24px"
             onClick={() =>
               dispatch({
                 type: ActionTypes.DeleteNode,

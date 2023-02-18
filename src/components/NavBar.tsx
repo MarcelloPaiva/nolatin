@@ -1,7 +1,7 @@
 import { Menu } from "react-feather"
 import IconButton from "./IconButton"
 import styled from "styled-components"
-import NoLatin from "../assets/svgs/nolatinLogo.svg"
+import NoLatin from "../assets/svgs/nolatinLogo03.svg"
 
 const Header = styled.header`
   width: auto;
@@ -16,9 +16,13 @@ const Row = styled.div`
   justify-content: space-between;
 `
 const Logo = styled.img`
-  width: 200px;
+  width: 160px;
   border: none;
   margin: 0;
+
+  /* change color: https://codepen.io/sosuke/pen/Pjoqqp */
+  filter: invert(8%) sepia(85%) saturate(5996%) hue-rotate(244deg)
+    brightness(101%) contrast(102%);
 `
 
 export default function NavBar() {

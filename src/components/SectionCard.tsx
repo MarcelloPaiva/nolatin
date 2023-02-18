@@ -38,7 +38,7 @@ const sectionStyles = `
 
   p, ol, ul, li { 
     line-height: 1.25rem;
-    color: var(--secondary-70);
+    color: var(--secondary-90);
     
   }
 

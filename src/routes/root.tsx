@@ -13,32 +13,59 @@ export default function Root() {
   return (
     <Layout>
       <Main>
-        <h1>No Latin</h1>
-        <p>Tagline 1: A content-first tool for good Accessibility</p>
-        <p>
-          Tagline 2: A shift-left tool to help people with disabilities, one
-          word at the time.
-        </p>
-        <hr className="una" />
-
-        <blockquote>
-          Our goal is to improve accessibility for people with disabilities by
-          identifying and eliminating the use of Latin-based scripts (a.k.a.:
-          Lorem Ipsum) in the design industry.
-        </blockquote>
-        <hr className="una" />
+        <section className="hero">
+          <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
+          <p>
+            Welcome to <strong>No Latin</strong>. Our goal is to improve
+            accessibility for people with disabilities by identifying and
+            eliminating the use of Latin-based scripts (a.k.a.: Lorem Ipsum) in
+            the design industry.
+          </p>
+          <Button link="/guides">Try No Latin now</Button>
+          <br />
+          <p>
+            Or carry on to understand how designers can create accessible
+            solutions from day-1.
+          </p>
+        </section>
         <img src="images/InclusiveBunch.png" alt=""></img>
         <figcaption>
           An illustration of a multicultural children, including a boy in a
           wheelchair, smiling for a photo celebrating those who design with
           Accessibility in mind.
         </figcaption>
-        <h2>The Industry Problem:</h2>
-        <p>
+        <hr className="una" />
+        <blockquote>
+          <h2>The Industry Problem:</h2>
           Many UX designers and user researchers struggle to incorporate
           accessibility considerations into their design process, resulting in
           poor experiences for users with disabilities.
+        </blockquote>
+        <hr className="una" />
+        <h2>Poor content leads to poor Accessibility:</h2>
+        <p>
+          Content design and Accessibility are often considered an afterthought
+          in any product life-cycle.
         </p>
+        <br />
+        <p>
+          If designers continue to use Latin content placeholders in early
+          design concepts, people with disabilities that rely on assistive
+          technologies (i.e.: screen readers) will continue to be excluded from
+          early user research studies.
+        </p>
+        <hr className="una" />
+        <img
+          src="images/NoLorem.png"
+          alt="A young blind student, wearing glasses and a backpack, walking carefully with the assistance of a white cane"
+        ></img>
+        <figcaption>
+          A blind young man walks carefully down a hill with his friend and a
+          dog on this rough terrain full of rocks. That is how most people using
+          assistive technologies feel when designers don't take Accessibility
+          into consideration early on.
+        </figcaption>
+        <hr className="una" />
         <h2>What is No Latin?</h2>
         <p>
           No Latin is a tool that helps designers and researchers bring intent
@@ -49,24 +76,13 @@ export default function Root() {
           Try No Latin now
         </Button>
         <hr className="una" />
-        <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
+        {/*         <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
         <p>
           Adding placeholders like ”Lorem ipsum” create barriers and it only
           delays any opportunity to start evaluating your design solution with
           people who relies on assistive technologies, such as screen readers.
         </p>
 
-        <img
-          src="images/NoLorem.png"
-          alt="A young blind student, wearing glasses and a backpack, walking carefully with the assistance of a white cane"
-        ></img>
-        <figcaption>
-          A young blind boy with his friend and a dog. The visually impaired kid
-          walks carefully with the assistance of a white cane, because the
-          terrain is rough and full of rocks. That's how most people using
-          assistive technologies feel when designers don't take Accessibility
-          into consideration early on.
-        </figcaption>
         <h2>Inclusive Tips:</h2>
         <p>
           Creating good content is a matter of putting intent in each step of
@@ -96,6 +112,7 @@ export default function Root() {
         <Button styles={`margin: 40px 0px`} link="/guides">
           Learn about Priority Guides
         </Button>
+ */}{" "}
       </Main>
     </Layout>
   )

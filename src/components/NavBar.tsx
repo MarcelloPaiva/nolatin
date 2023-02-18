@@ -8,8 +8,13 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   padding: 1rem 1rem 0;
-  background: var(--secondary-20);
   align-items: center;
+  background: linear-gradient(
+    0.25turn,
+    var(--navbar-grad-01),
+    var(--navbar-grad-02),
+    var(--navbar-grad-03)
+  );
 `
 const Row = styled.div`
   display: flex;
@@ -21,8 +26,8 @@ const Logo = styled.img`
   margin: 0;
 
   /* change color: https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(8%) sepia(85%) saturate(5996%) hue-rotate(244deg)
-    brightness(101%) contrast(102%);
+  filter: invert(21%) sepia(31%) saturate(4037%) hue-rotate(222deg)
+    brightness(90%) contrast(93%);
 `
 
 export default function NavBar() {

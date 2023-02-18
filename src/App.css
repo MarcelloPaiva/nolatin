@@ -30,6 +30,10 @@
 
   --focus: deeppink;
 
+  --navbar-grad-01: var(--secondary-03);
+  --navbar-grad-02: hsla(320, 100%, 90%, 0.5);
+  --navbar-grad-03: var(--secondary-03);
+
   --secondary-03: hsla(var(--h-accent), 50%, 50%, 0.03);
   --secondary-05: hsla(var(--h-accent), 50%, 50%, 0.05);
   --secondary-10: hsla(var(--h-accent), 50%, 50%, 0);
@@ -42,7 +46,7 @@
   --secondary-70: hsla(var(--h-accent), 40%, 40%, 0.7);
   --secondary-80: hsla(var(--h-accent), 80%, 40%, 0.8);
   --secondary-90: hsla(var(--h-accent), 40%, 40%, 0.9);
-  --secondary-100: hsla(var(--h-accent), 50%, 50%, 1);
+  --secondary-100: hsla(var(--h-accent), 50%, 40%, 1);
 
   --surface-light: var(--primary-light);
 
@@ -140,10 +144,53 @@ body {
   line-height: 150%;
 }
 
+.hero {
+  display: block;
+  padding: 1rem 2rem;
+  background-color: var(--secondary-100);
+  margin-top: 40px;
+  border-radius: 16px;
+}
+
+.hero h1,
+.hero p {
+  color: var(--light);
+  font-size: 1.25rem;
+  line-height: auto;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  color: hsla(146, 30%, 90%, 1);
+  background: #d5ffbd;
+  background: linear-gradient(
+    to bottom right,
+    hsl(320, 100%, 90%) 20%,
+    hsl(320, 100%, 85%) 80%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero p {
+  font-size: 1.2rem;
+  line-height: 1.75rem;
+  color: hsl(320, 100%, 95%);
+}
+.hero a:focus {
+  outline-color: deeppink;
+}
+
 p {
   margin: 0;
-  margin-bottom: 0.5rem;
-  color: var(--primary-90);
+  margin-bottom: 1rem;
+  color: var(--secondary-100);
+  line-height: 150%;
+  font-size: 1.25rem;
+}
+
+h1 {
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 h1,
@@ -157,9 +204,10 @@ h6 {
   line-height: normal;
 }
 
-h1 {
+h1,
+h2 {
   font-weight: 800;
-  color: var(--secondary-100);
+  color: var(--focus);
 }
 
 h2 {
@@ -266,6 +314,7 @@ blockquote {
   color: var(--secondary-100);
   line-height: 150%;
   margin: 0 16px;
+  font-size: 1.5rem;
 }
 
 *:focus {

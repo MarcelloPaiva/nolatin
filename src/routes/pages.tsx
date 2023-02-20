@@ -4,6 +4,7 @@ import { Divider, Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import PageCard from "../components/PageCard"
+import Input from "../components/Input"
 import { AppContext } from "../context/AppContext"
 import { Modal } from "@mui/material"
 import { ActionTypes } from "../context/actions"
@@ -38,7 +39,8 @@ const Row = styled.div`
 `
 
 export default function Pages() {
-  const [open, setOpen] = useState<Page | null>(null)
+  const [openDelete, setOpenDelete] = useState<Page | null>(null)
+  const [openEdit, setOpenEdit] = useState<Page | null>(null)
   const {
     state: { pages },
     dispatch,
@@ -52,22 +54,54 @@ export default function Pages() {
           pageId: id,
         },
       })
-    setOpen(null)
+    setOpenDelete(null)
+  }
+
+  function handleEdit(id?: string) {
+    const title = document.getElementById("page-title") as HTMLInputElement
+    id &&
+      dispatch({
+        type: ActionTypes.UpdatePage,
+        payload: {
+          pageId: id,
+          title: title.value,
+        },
+      })
+    setOpenEdit(null)
   }
 
   return (
     <Layout>
       <Root>
-        <Modal open={open !== null} onClose={() => setOpen(null)}>
+        <Modal open={openDelete !== null} onClose={() => setOpenDelete(null)}>
           <ModalContainer>
-            <p>Are you sure you want to delete the {open?.title} page?</p>
+            <p>Are you sure you want to delete the {openDelete?.title} page?</p>
             <Row>
-              <Button onClick={() => setOpen(null)}>Cancel</Button>
+              <Button onClick={() => setOpenDelete(null)}>Cancel</Button>
               <Button
-                onClick={() => handleDelete(open?.id)}
+                onClick={() => handleDelete(openDelete?.id)}
                 styles="background: red"
               >
                 Delete
+              </Button>
+            </Row>
+          </ModalContainer>
+        </Modal>
+        <Modal open={openEdit !== null} onClose={() => setOpenEdit(null)}>
+          <ModalContainer>
+            <p>Edit the title of your page.</p>
+            <Input
+              id={"page-title"}
+              label="Page Title"
+              defaultValue={openEdit?.title}
+            />
+            <Row>
+              <Button onClick={() => setOpenEdit(null)}>Cancel</Button>
+              <Button
+                onClick={() => handleEdit(openEdit?.id)}
+                styles="background: green"
+              >
+                Save
               </Button>
             </Row>
           </ModalContainer>
@@ -88,7 +122,8 @@ export default function Pages() {
             id={page.id}
             title={page.title}
             last={pages.length === index + 1}
-            onDelete={() => setOpen(page)}
+            onDelete={() => setOpenDelete(page)}
+            onEdit={() => setOpenEdit(page)}
           />
         ))}
         <Button

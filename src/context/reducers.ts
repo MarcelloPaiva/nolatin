@@ -108,6 +108,9 @@ export default function appReducer(state: AppContextState, action: Actions) {
     case ActionTypes.CancelNode:
       editing = null
       break
+    case ActionTypes.UpdatePage:
+      pages[pageIndex].title = action.payload.title
+      break
     case ActionTypes.UpdateSection:
       pages[pageIndex].sections[sectionIndex] = action.payload.state
       editing = null

@@ -23,6 +23,7 @@ export enum ActionTypes {
   DeletePage = "DELETE_PAGE",
   UpdateSection = "UPDATE_SECTION",
   UpdateContent = "UPDATE_CONTENT",
+  UpdatePage = "UPDATE_PAGE",
   UpdateType = "UPDATE_TYPE",
   EditNode = "EDIT_NODE",
   CancelNode = "CANCEL_NODE",
@@ -63,6 +64,11 @@ type Payload = {
   }
   [ActionTypes.DeletePage]: {
     pageId: string
+    sectionId?: string
+  }
+  [ActionTypes.UpdatePage]: {
+    pageId: string
+    title: string
     sectionId?: string
   }
   [ActionTypes.UpdateSection]: {

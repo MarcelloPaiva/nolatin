@@ -147,9 +147,24 @@ function generateContents(contents: Content[], level?: number) {
           </ol>
         )
       case ContentTypes.HeadingLink:
-        return getHeading(headingLevel, content.title, content.url)
+        return (
+          <>
+            {getHeading(
+              headingLevel,
+              content.title,
+              `h-desc-${content.id}`,
+              content.url
+            )}
+            <p id={`h-desc-${content.id}`}>{content.description}</p>
+          </>
+        )
       case ContentTypes.HeadingText:
-        return getHeading(headingLevel, content.title)
+        return (
+          <>
+            {getHeading(headingLevel, content.title, `h-desc-${content.id}`)}
+            <p id={`h-desc-${content.id}`}>{content.description}</p>
+          </>
+        )
       case ContentTypes.Paragraph:
         return <p>{content.title}</p>
       case ContentTypes.Title:
@@ -166,20 +181,25 @@ function generateContents(contents: Content[], level?: number) {
   })
 }
 
-function getHeading(level: number, text: string, link?: string) {
+function getHeading(
+  level: number,
+  text: string,
+  describedBy?: string,
+  link?: string
+) {
   let inner = link ? <a href={link}>{text}</a> : text
   switch (level) {
     case 1:
-      return <h1>{inner}</h1>
+      return <h1 aria-describedby={describedBy}>{inner}</h1>
     case 2:
-      return <h2>{inner}</h2>
+      return <h2 aria-describedby={describedBy}>{inner}</h2>
     case 3:
-      return <h3>{inner}</h3>
+      return <h3 aria-describedby={describedBy}>{inner}</h3>
     case 4:
-      return <h4>{inner}</h4>
+      return <h4 aria-describedby={describedBy}>{inner}</h4>
     case 5:
-      return <h5>{inner}</h5>
+      return <h5 aria-describedby={describedBy}>{inner}</h5>
     default:
-      return <h6>{inner}</h6>
+      return <h6 aria-describedby={describedBy}>{inner}</h6>
   }
 }

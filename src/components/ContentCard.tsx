@@ -11,6 +11,7 @@ import {
   X,
   ArrowDown,
   ArrowUp,
+  Copy,
 } from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
@@ -311,6 +312,22 @@ export default function ContentCard({
             aria="Edit content block"
             label="Edit"
             onClick={handleEdit}
+          />
+          <IconButton
+            icon={Copy}
+            aria="Duplicate content block"
+            label="Duplicate"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.DuplicateContent,
+                payload: {
+                  pageId,
+                  sectionId,
+                  parentId,
+                  duplicateId: state.id,
+                },
+              })
+            }
           />
           {canMoveUp && (
             <IconButton

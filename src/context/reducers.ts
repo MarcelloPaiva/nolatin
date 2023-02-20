@@ -64,6 +64,44 @@ export default function appReducer(state: AppContextState, action: Actions) {
       }
       editing = contentId
       break
+    case ActionTypes.DuplicateSection:
+      const newSection = clone(pages[pageIndex].sections[sectionIndex])
+      newSection.id = uuid()
+      newSection.children = refreshChildrenIds(clone(newSection.children))
+      pages[pageIndex].sections.splice(sectionIndex, 0, newSection)
+      break
+    case ActionTypes.DuplicateContent:
+      if (action.payload.sectionId === action.payload.parentId) {
+        const contentIndex = pages[pageIndex].sections[
+          sectionIndex
+        ].children.findIndex((node) => node.id === action.payload.duplicateId)
+        const newContent = clone(
+          pages[pageIndex].sections[sectionIndex].children[contentIndex]
+        )
+        newContent.id = uuid()
+        newContent.children = refreshChildrenIds(clone(newContent.children))
+        pages[pageIndex].sections[sectionIndex].children.splice(
+          contentIndex,
+          0,
+          newContent
+        )
+      } else {
+        pages[pageIndex].sections[sectionIndex].children = modifyNode(
+          clone(pages[pageIndex].sections[sectionIndex].children),
+          action.payload.parentId,
+          (node) => {
+            const contentIndex = node.children.findIndex(
+              (node) => node.id === action.payload.duplicateId
+            )
+            const newContent = clone(node.children[contentIndex])
+            newContent.id = uuid()
+            newContent.children = refreshChildrenIds(clone(newContent.children))
+            node.children.splice(contentIndex, 0, newContent)
+            return node
+          }
+        )
+      }
+      break
     case ActionTypes.EditNode:
       editing = action.payload.id
       break
@@ -184,6 +222,16 @@ function modifyNode(
       return nodeChange(node)
     }
     node.children = modifyNode(clone(node.children), id, nodeChange)
+    return node
+  })
+}
+
+function refreshChildrenIds(nodes: Content[]) {
+  return nodes.map((node) => {
+    node.id = uuid()
+    if (node.children.length > 0) {
+      node.children = refreshChildrenIds(clone(node.children))
+    }
     return node
   })
 }

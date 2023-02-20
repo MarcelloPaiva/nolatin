@@ -11,6 +11,7 @@ import {
   X,
   ArrowUp,
   ArrowDown,
+  Copy,
 } from "react-feather"
 import Section from "../models/section"
 import Elements, { ElementNames } from "../constants/elements"
@@ -313,6 +314,20 @@ export default function SectionCard({
           aria="Edit headline"
           label="Edit"
           onClick={handleEdit}
+        />
+        <IconButton
+          icon={Copy}
+          aria="Duplicate headline"
+          label="Duplicate"
+          onClick={() =>
+            dispatch({
+              type: ActionTypes.DuplicateSection,
+              payload: {
+                pageId,
+                sectionId: id,
+              },
+            })
+          }
         />
         {canMoveUp && (
           <IconButton

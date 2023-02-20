@@ -91,11 +91,21 @@ function generateContents(contents: Content[], level?: number) {
       case ContentTypes.BulletsLink:
         return (
           <ul>
-            {getQuoteList(content.description)?.map((item) => (
-              <li>
-                <a href={item}>{item}</a>
-              </li>
-            ))}
+            {getQuoteList(content.description)?.map((item) => {
+              const urlArray = item.split(", ")
+              if (urlArray.length > 1) {
+                return (
+                  <li key={content.id + item}>
+                    <a href={urlArray[1]}>{urlArray[0]}</a>
+                  </li>
+                )
+              }
+              return (
+                <li key={content.id + item}>
+                  <a href={item}>{item}</a>
+                </li>
+              )
+            })}
           </ul>
         )
       case ContentTypes.Button:
@@ -139,11 +149,21 @@ function generateContents(contents: Content[], level?: number) {
       case ContentTypes.NumbersLink:
         return (
           <ol>
-            {getQuoteList(content.description)?.map((item) => (
-              <li>
-                <a href={item}>{item}</a>
-              </li>
-            ))}
+            {getQuoteList(content.description)?.map((item) => {
+              const urlArray = item.split(", ")
+              if (urlArray.length > 1) {
+                return (
+                  <li key={content.id + item}>
+                    <a href={urlArray[1]}>{urlArray[0]}</a>
+                  </li>
+                )
+              }
+              return (
+                <li key={content.id + item}>
+                  <a href={item}>{item}</a>
+                </li>
+              )
+            })}
           </ol>
         )
       case ContentTypes.HeadingLink:

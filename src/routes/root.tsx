@@ -28,7 +28,7 @@ export default function Root() {
             solutions from day-1.
           </p>
         </section>
-        <img src="images/InclusiveBunch.png" alt=""></img>
+        <img className="landing" src="images/InclusiveBunch.png" alt=""></img>
         <figcaption>
           An illustration of a multicultural children, including a boy in a
           wheelchair, smiling for a photo celebrating those who design with
@@ -56,6 +56,7 @@ export default function Root() {
         </p>
         <hr className="una" />
         <img
+          className="landing"
           src="images/NoLorem.png"
           alt="A young blind student, wearing glasses and a backpack, walking carefully with the assistance of a white cane"
         ></img>
@@ -65,18 +66,7 @@ export default function Root() {
           assistive technologies feel when designers don't take Accessibility
           into consideration early on.
         </figcaption>
-        <h2>Poor content leads to poor Accessibility:</h2>
-        <p>
-          Content design and Accessibility are often considered an afterthought
-          in any product life-cycle.
-        </p>
-        <br />
-        <p>
-          If designers continue to use Latin content placeholders in early
-          design concepts, people with disabilities that rely on assistive
-          technologies (i.e.: screen readers) will continue to be excluded from
-          early user research studies.
-        </p>
+
         <hr className="una" />
         <blockquote>
           <h2>Solution:</h2>

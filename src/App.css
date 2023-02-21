@@ -81,6 +81,18 @@
   font-size: 100%;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*:focus {
+  outline: var(--accent) solid 8px;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 body {
   background: url(/public/images/body-bg-128.png) repeat-x top center;
   background-position-y: -16px;
@@ -221,11 +233,45 @@ h3 {
   margin-bottom: 0.5rem;
 }
 
-main img {
+img.landing {
   margin-top: 3rem;
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
   border: 1rem solid var(--secondary-25);
 }
+
+/* How to page styles */
+
+.post-container {
+  margin: 1rem 0;
+  padding: 1rem;
+  overflow: auto;
+  border: 4px solid var(--secondary-05);
+  border-radius: 1rem;
+}
+.post-thumb {
+  float: left;
+}
+.post-thumb img,
+.post-thumb figcaption {
+  display: block;
+  width: 200px;
+}
+.post-content {
+  margin-left: 216px;
+}
+.post-content p {
+  font-size: 100%;
+}
+
+.post-content ul {
+  margin: 0.5rem 0 0 1.5rem;
+}
+
+.post-title {
+  margin-bottom: 1.5rem;
+}
+
+/* How to styles end */
 
 button {
   font-family: "Sofia Sans", serif;
@@ -285,9 +331,9 @@ select {
 .alert-box {
   display: flex;
   flex-direction: column;
-  width: auto;
-  margin: 0 1rem 1rem;
-  padding: 0 1rem 1rem;
+  width: 92%;
+  margin: 0 auto;
+  padding: 0.25rem 1rem;
   background: var(--light);
   border: 1px solid var(--secondary-30);
   border-radius: 1rem;
@@ -317,12 +363,6 @@ blockquote {
   line-height: 150%;
   margin: 0 16px;
   font-size: 1.5rem;
-}
-
-*:focus {
-  outline: var(--accent) solid 8px;
-  outline-offset: 4px;
-  border-radius: 4px;
 }
 
 /* Modal */

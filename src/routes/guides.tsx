@@ -18,6 +18,74 @@ export default function Guides() {
           <h1>Future how to section</h1>
           <p>Currently creating the images to place here. Coming soon.</p>
         </section>
+        <div id="howTo01">
+          <div className="post-container">
+            <h2 className="post-title">
+              Start by learning how to write purposeful content
+            </h2>
+            <div className="post-thumb">
+              <img
+                src="images/how-to-01.svg"
+                alt=" An illustration of wireframing bars indicating the four elements of a priority guide: headline, description, role and user's expectation."
+              />
+            </div>
+            <div className="post-content">
+              <p>
+                Writing priority guides provides a tool for creating purposeful
+                content early. Each guide has four important elements:
+                <ul>
+                  <li>Headline</li>
+                  <li>Description</li>
+                  <li>Role</li>
+                  <li>Expectation</li>
+                </ul>
+              </p>
+              <p>
+                The secret is to put a little intent - read{" "}
+                <span aria-label="love">❤️</span> - on writing these simple
+                guides. The goal is to create simple, but described set of
+                headlines that can be read aloud to any user.
+              </p>
+            </div>
+          </div>
+        </div>
+        <section id="howTo02">
+          <div className="post-container">
+            <h2 className="post-title">Post title</h2>
+            <div className="post-thumb">
+              <img src="images/how-to-02.svg" />
+              <figcaption>Figure caption...</figcaption>
+            </div>
+            <div className="post-content">
+              <p> Description here ...</p>
+            </div>
+          </div>
+        </section>
+        <section id="howTo03">
+          <div className="post-container">
+            <h2 className="post-title">Post title</h2>
+            <div className="post-thumb">
+              <img src="images/how-to-03.svg" />
+              <figcaption>Figure caption...</figcaption>
+            </div>
+            <div className="post-content">
+              <p> Description here ...</p>
+            </div>
+          </div>
+        </section>
+        <section id="howTo04">
+          <div className="post-container">
+            <h2 className="post-title">Post title</h2>
+            <div className="post-thumb">
+              <img src="images/how-to-04.svg" />
+              <figcaption>Figure caption...</figcaption>
+            </div>
+            <div className="post-content">
+              <p> Description here ...</p>
+            </div>
+          </div>
+        </section>
+        <hr className="una" />
         <Title>Content design leads to good Accessibility</Title>
         <p>
           As UX professionals, we are committed to designing solutions as

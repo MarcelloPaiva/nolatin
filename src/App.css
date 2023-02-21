@@ -358,6 +358,10 @@ figcaption {
 }
 
 blockquote {
+  display: block;
+  position: relative;
+  left: -1rem;
+  width: 100%;
   font-family: "Roboto Slab", "Times New Roman", Times, serif;
   color: var(--secondary-100);
   line-height: 150%;

@@ -5,6 +5,7 @@ on:
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
+    environment: dev
     name: 🎉 Deploy
     runs-on: ubuntu-latest
     steps:

@@ -53,7 +53,7 @@ export default function Guides() {
           <div className="post-container">
             <h2 className="post-title">Post title</h2>
             <div className="post-thumb">
-              <img src="images/how-to-02.svg" />
+              <img src="images/how-to-02.svg" alt="decorative" />
               <figcaption>Figure caption...</figcaption>
             </div>
             <div className="post-content">
@@ -65,7 +65,7 @@ export default function Guides() {
           <div className="post-container">
             <h2 className="post-title">Post title</h2>
             <div className="post-thumb">
-              <img src="images/how-to-03.svg" />
+              <img src="images/how-to-03.svg" alt="decorative" />
               <figcaption>Figure caption...</figcaption>
             </div>
             <div className="post-content">
@@ -77,7 +77,7 @@ export default function Guides() {
           <div className="post-container">
             <h2 className="post-title">Post title</h2>
             <div className="post-thumb">
-              <img src="images/how-to-04.svg" />
+              <img src="images/how-to-04.svg" alt="decorative" />
               <figcaption>Figure caption...</figcaption>
             </div>
             <div className="post-content">

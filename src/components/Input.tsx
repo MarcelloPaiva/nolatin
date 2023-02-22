@@ -1,6 +1,5 @@
-import React from "react"
+import { forwardRef } from "react"
 import styled from "styled-components"
-import { Label } from "."
 
 interface InputProps {
   label: string
@@ -10,61 +9,85 @@ interface InputProps {
   style?: string
   multiline?: boolean
   onBlur?: () => void
+  onKeyDown?: (event: React.KeyboardEvent) => void
   type?: string
 }
 
-export default function Input({
-  label,
-  defaultValue,
-  id,
-  title = false,
-  multiline = false,
-  style,
-  onBlur,
-  type,
-}: InputProps) {
-  const InputContainer = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    ${style}
+const Input = forwardRef(
+  (
+    {
+      label,
+      defaultValue,
+      id,
+      title = false,
+      multiline = false,
+      style,
+      onBlur,
+      onKeyDown,
+      type,
+    }: InputProps,
+    ref
+  ) => {
+    const InputContainer = styled.div`
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      ${style}
+    `
+
+    const inputStyles = `
+    background-color: #fff;
+    border: 3px solid var(--secondary-80);
+    border-radius: 4px;
+    padding: 8px;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: "1rem";
+    font-weight: bold;
+    color: var(--inputValue);
+
+  `
+    const labelStyles = `
+    color: var(--inputLabel);
+    font-size: 90%;
+    margin-top: 1rem;
   `
 
-  const inputStyles = `
-    background-color: #fff;
-    border: 3px solid #000;
-    border-radius: 4px;
-    padding: 1rem;
-    font-family: "Roboto", sans-serif;
-    font-size: ${title ? 1.5 : 1.25}rem;
-    font-weight: ${title ? "bold" : "regular"};
-    line-height: ${title ? 1.5 : 1.25}rem;
-  `
-  const TextInput = styled.input`
-    ${inputStyles}
-  `
-  const TextArea = styled.textarea`
-    ${inputStyles}
-  `
-  return (
-    <InputContainer>
-      <Label>{label}</Label>
-      {multiline ? (
-        <TextArea
-          aria-label={label}
-          defaultValue={defaultValue}
-          id={id}
-          onBlur={onBlur}
-        />
-      ) : (
-        <TextInput
-          aria-label={label}
-          defaultValue={defaultValue}
-          id={id}
-          onBlur={onBlur}
-          type={type}
-        />
-      )}
-    </InputContainer>
-  )
-}
+    const Label = styled.label`
+      ${labelStyles}
+    `
+
+    const TextInput = styled.input`
+      ${inputStyles}
+    `
+    const TextArea = styled.textarea`
+      ${inputStyles}
+    `
+    return (
+      <InputContainer>
+        <Label>{label}</Label>
+        {multiline ? (
+          <TextArea
+            aria-label={label}
+            defaultValue={defaultValue}
+            id={id}
+            onBlur={onBlur}
+            onKeyDown={(event) => onKeyDown && onKeyDown(event)}
+            ref={ref as React.RefObject<HTMLTextAreaElement>}
+          />
+        ) : (
+          <TextInput
+            aria-label={label}
+            defaultValue={defaultValue}
+            id={id}
+            onBlur={onBlur}
+            onKeyDown={(event) => onKeyDown && onKeyDown(event)}
+            type={type}
+            ref={ref as React.RefObject<HTMLInputElement>}
+          />
+        )}
+      </InputContainer>
+    )
+  }
+)
+
+export default Input

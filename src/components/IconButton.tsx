@@ -1,4 +1,4 @@
-import React, { RefObject } from "react"
+import { RefObject } from "react"
 import styled from "styled-components"
 import { IconLabel } from "."
 import { Icon as IconType } from "react-feather"
@@ -31,13 +31,16 @@ export default function IconButton({
   ref,
 }: IconButtonProps) {
   const buttonStyles = `
-    min-height: 44px;
-    min-width: 44px;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border: none;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
+    border-radius:8px;
+    margin:4px;
+    margin-bottom: 1rem;
+    padding: .5rem;
     flex-direction: column;
     ${styles}
   `

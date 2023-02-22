@@ -1,21 +1,23 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Divider, Text, Title } from "../components/"
+import { Divider, Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import PageCard from "../components/PageCard"
+import Input from "../components/Input"
 import { AppContext } from "../context/AppContext"
-import { Modal, Typography } from "@mui/material"
+import { Modal } from "@mui/material"
 import { ActionTypes } from "../context/actions"
 import Page from "../models/page"
 
 const LeftTitle = styled(Title)`
   align-self: flex-start;
 `
-const Root = styled.div`
+const Root = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: auto;
+  padding: 0 1rem;
   align-items: center;
 `
 
@@ -37,7 +39,8 @@ const Row = styled.div`
 `
 
 export default function Pages() {
-  const [open, setOpen] = useState<Page | null>(null)
+  const [openDelete, setOpenDelete] = useState<Page | null>(null)
+  const [openEdit, setOpenEdit] = useState<Page | null>(null)
   const {
     state: { pages },
     dispatch,
@@ -51,53 +54,84 @@ export default function Pages() {
           pageId: id,
         },
       })
-    setOpen(null)
+    setOpenDelete(null)
+  }
+
+  function handleEdit(id?: string) {
+    const title = document.getElementById("page-title") as HTMLInputElement
+    id &&
+      dispatch({
+        type: ActionTypes.UpdatePage,
+        payload: {
+          pageId: id,
+          title: title.value,
+        },
+      })
+    setOpenEdit(null)
   }
 
   return (
     <Layout>
       <Root>
-        <Modal open={open !== null} onClose={() => setOpen(null)}>
+        <Modal open={openDelete !== null} onClose={() => setOpenDelete(null)}>
           <ModalContainer>
-            <Typography>
-              Are you sure you want to delete the {open?.title} page?
-            </Typography>
+            <p>Are you sure you want to delete the {openDelete?.title} page?</p>
             <Row>
-              <Button onClick={() => setOpen(null)}>Cancel</Button>
+              <Button onClick={() => setOpenDelete(null)}>Cancel</Button>
               <Button
-                onClick={() => handleDelete(open?.id)}
-                style="background: red"
+                onClick={() => handleDelete(openDelete?.id)}
+                styles="background: red"
               >
                 Delete
               </Button>
             </Row>
           </ModalContainer>
         </Modal>
+        <Modal open={openEdit !== null} onClose={() => setOpenEdit(null)}>
+          <ModalContainer>
+            <p>Edit the title of your page.</p>
+            <Input
+              id={"page-title"}
+              label="Page Title"
+              defaultValue={openEdit?.title}
+            />
+            <Row>
+              <Button onClick={() => setOpenEdit(null)}>Cancel</Button>
+              <Button
+                onClick={() => handleEdit(openEdit?.id)}
+                styles="background: green"
+              >
+                Save
+              </Button>
+            </Row>
+          </ModalContainer>
+        </Modal>
         <LeftTitle>Pages</LeftTitle>
-        <Text>
-          {pages.length > 0
-            ? `You have created ${
-                pages.length === 1
-                  ? `${pages.length} page`
-                  : `${pages.length} pages`
-              } so far`
-            : "Start by adding a page"}
-        </Text>
+        <div className="instructions">
+          <h2>{pages.length > 0 ? "Carry on" : "Getting started"}</h2>
+          <p>
+            {pages.length > 0
+              ? "Add more pages or click on the page name to start building your priority guides."
+              : "Start by adding a page"}
+          </p>
+        </div>
+        <br />
         {pages.map((page, index) => (
           <PageCard
             key={page.id}
             id={page.id}
             title={page.title}
             last={pages.length === index + 1}
-            onDelete={() => setOpen(page)}
+            onDelete={() => setOpenDelete(page)}
+            onEdit={() => setOpenEdit(page)}
           />
         ))}
         <Button
-          style={`
+          styles={`
             margin: 40px 0px;
             width: 100%;
         `}
-          link="create"
+          link="/create"
         >
           Add a page
         </Button>

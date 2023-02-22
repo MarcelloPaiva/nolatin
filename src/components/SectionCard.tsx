@@ -1,10 +1,18 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Label, Text, SubHeading } from "."
 import Dropdown from "./Dropdown"
 import Input from "./Input"
 import IconButton from "./IconButton"
-import { Check, Edit, Trash, X } from "react-feather"
+import {
+  PlusSquare,
+  Check,
+  Edit,
+  Trash,
+  X,
+  ArrowUp,
+  ArrowDown,
+  Copy,
+} from "react-feather"
 import Section from "../models/section"
 import Elements, { ElementNames } from "../constants/elements"
 import Button from "./Button"
@@ -12,31 +20,80 @@ import ContentCard from "./ContentCard"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import { Modal } from "@mui/material"
-import { red } from "@mui/material/colors"
 
 const sectionStyles = `
   border-radius: 16px;
-  border: 2px dashed var(--secondary-40);
+  border: 2px dashed var(--secondary-20);
   display: flex;
+  width: 100%;
   flex-direction: column;
   padding: 16px;
-  margin: 0px; 
+  margin-top: 1rem; 
   flex: 1;
-  width: auto;
+  width: 100%;
   background-color: #fff;
 
-  p,
+  p, ol, ul, a,
   h2,
   h3 {
+    display: block;
     margin-top: 0px;
     margin-bottom: 0;
+    padding: 8px;
     line-height: auto;
+    background-color: var(--secondary-05);
+    font-family: "Roboto Mono", sans-serif;
   }
 
-  p { 
-    font-size: 1.25rem !important;
+  p, ol, ul, li { 
     line-height: 1.25rem;
+    color: var(--secondary-90);
+    
   }
+
+  p:after {
+    content: ".";
+    color: transparent;
+  }
+
+  ol, ul {
+    list-style: none;
+    counter-reset: item;
+  }
+  li {
+    counter-increment: item;
+    margin-bottom: 4px;
+  }
+
+  li a {
+    display: inline;
+    margin:0;
+    padding: 0;
+    background-color: transparent;
+  }
+  ol>li:before {
+    margin-right: 10px;
+    content: counter(item);
+    font-size: .75rem;
+    background: var(--secondary-60);
+    border-radius: 100%;
+    color: white;
+    width: 1.25rem;
+    text-align: center;
+    display: inline-block;
+  }
+  ul>li:before {
+    margin-right: 10px;
+    content: "•";
+    font-size: .75rem;
+    background: var(--secondary-60);
+    border-radius: 100%;
+    color: white;
+    width: 1.25rem;
+    text-align: center;
+    display: inline-block;
+  }
+}
 `
 
 const SectionContainer = styled.div`
@@ -52,48 +109,75 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
 `
-const Row = styled.div`
+const EndRow = styled.div`
   display: flex;
   justify-content: flex-end;
 `
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`
+const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 24px;
+  margin: 40px;
+  border-radius: 8px;
+`
 const LabelToo = styled.label`
-  color: var(--primary-60);
+  color: var(--primary-70);
   margin-top: 16px;
-  font-size: 1rem;
 `
 
 interface SectionProps {
   pageId: string
   state: Section
+  canMoveUp: boolean
+  canMoveDown: boolean
 }
 
-export default function SectionCard({ pageId, state }: SectionProps) {
+export default function SectionCard({
+  pageId,
+  state,
+  canMoveUp,
+  canMoveDown,
+}: SectionProps) {
   const {
     dispatch,
     state: { editing },
   } = useContext(AppContext)
-  const [localName, setLocalName] = useState(state.name)
+  const { id, children, name, description, element, draft } = state
+  const [open, setOpen] = useState(false)
+  const [localName, setLocalName] = useState(name)
 
-  function getRoles(element: ElementNames): string {
-    let roles = Elements[element].roles
-    let roleString = ""
-    roles.forEach((role, index) => {
-      roleString += role
-      if (index !== roles.length - 1) roleString += ", "
-    })
-    return roleString
-  }
+  // function getRoles(element: ElementNames): string {
+  //   let roles = Elements[element].roles
+  //   let roleString = ""
+  //   roles.forEach((role, index) => {
+  //     roleString += role
+  //     if (index !== roles.length - 1) roleString += ", "
+  //   })
+  //   return roleString
+  // }
 
   function getFormData(): Section {
-    const name = document.getElementById(state.id + "-name") as HTMLInputElement
+    const name = document.getElementById(id + "-name") as HTMLInputElement
+    const description = document.getElementById(
+      id + "-description"
+    ) as HTMLTextAreaElement
     const element = document.getElementById(
-      state.id + "-element"
+      id + "-element"
     ) as HTMLSelectElement
     return {
-      id: state.id,
+      id: id,
       name: name.value,
+      description: description.value,
       element: element.value as ElementNames,
-      children: state.children,
+      children: children,
+      draft: false,
     }
   }
 
@@ -101,138 +185,213 @@ export default function SectionCard({ pageId, state }: SectionProps) {
     let newState = getFormData()
     dispatch({
       type: ActionTypes.UpdateSection,
-      payload: { pageId, sectionId: state.id, state: newState },
+      payload: { pageId, sectionId: id, state: newState },
     })
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId: id,
+          id: id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {
     dispatch({
       type: ActionTypes.EditNode,
-      payload: { id: state.id },
+      payload: { id: id },
     })
   }
 
-  return state.id === editing ? (
+  return id === editing ? (
     <Modal open={true}>
       <SectionForm>
-        <Row>
-          <IconButton
-            icon={Check}
-            aria="Save Section"
-            label="Save"
-            onClick={handleSave}
-            disabled={localName === ""}
-          />
+        <EndRow>
           <IconButton
             icon={X}
             aria="Cancel Edit"
             label="Cancel"
+            styles="margin-right: 24px"
             onClick={handleCancel}
           />
-        </Row>
-        <Input
-          id={state.id + "-name"}
-          label="Section Name"
-          defaultValue={localName}
-          title
-          style={`
-            margin-bottom: 16px;
-        `}
-          onBlur={() => {
-            const name = document.getElementById(
-              state.id + "-name"
-            ) as HTMLInputElement
-            setLocalName(name.value)
-          }}
-        />
-        <Dropdown
-          id={state.id + "-element"}
-          label="Element"
-          defaultValue={state.element}
-          options={Object.keys(Elements).map((name) => {
-            return { label: name, value: name }
-          })}
-          style={`
-            margin-bottom: 16px;
-        `}
-        />
+          <IconButton
+            icon={Check}
+            color="var(--button-save-label)"
+            aria="Save Section"
+            label="Save"
+            styles="background:var(--button-save-bg);border-radius:4px;width:60px;"
+            onClick={handleSave}
+            disabled={localName === ""}
+          />
+        </EndRow>
+        <div className="scrollMe">
+          <Input
+            id={id + "-name"}
+            label="Section Name"
+            defaultValue={localName}
+            title
+            style={``}
+            onBlur={() => {
+              const name = document.getElementById(
+                id + "-name"
+              ) as HTMLInputElement
+              setLocalName(name.value)
+            }}
+          />
+          <Input
+            id={id + "-description"}
+            label="Section Description"
+            defaultValue={description}
+            style={``}
+            multiline
+          />
+          <Dropdown
+            id={id + "-element"}
+            label="Element"
+            defaultValue={element}
+            options={Object.keys(Elements).map((name) => {
+              return { label: name, value: name }
+            })}
+            style={``}
+          />
+        </div>
       </SectionForm>
     </Modal>
   ) : (
     <SectionContainer>
-      <Row>
+      <Modal open={open}>
+        <ModalContainer>
+          <p>Are you sure you want to delete this section?</p>
+          <Row>
+            <Button onClick={() => setOpen(false)}>Cancel</Button>
+            <Button
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.DeleteNode,
+                  payload: {
+                    pageId,
+                    sectionId: id,
+                    id: id,
+                  },
+                })
+              }
+              styles="background: red"
+            >
+              Delete
+            </Button>
+          </Row>
+        </ModalContainer>
+      </Modal>
+      <EndRow>
         <IconButton
-          icon={Edit}
-          aria="Edit Story"
-          label="Edit"
-          onClick={handleEdit}
-        />
-        <IconButton
-          icon={Trash}
-          aria="Delete Story"
-          label="Delete"
-          color="red"
-          styles="margin-left:24px;"
+          icon={PlusSquare}
+          aria="Add headline"
+          label="Add"
           onClick={() =>
             dispatch({
-              type: ActionTypes.DeleteNode,
+              type: ActionTypes.CreateContent,
               payload: {
                 pageId,
-                sectionId: state.id,
-                id: state.id,
+                parentId: id,
+                sectionId: id,
               },
             })
           }
         />
-      </Row>
+        <IconButton
+          icon={Edit}
+          aria="Edit headline"
+          label="Edit"
+          onClick={handleEdit}
+        />
+        <IconButton
+          icon={Copy}
+          aria="Duplicate headline"
+          label="Clone"
+          onClick={() =>
+            dispatch({
+              type: ActionTypes.DuplicateSection,
+              payload: {
+                pageId,
+                sectionId: id,
+              },
+            })
+          }
+        />
+        {canMoveUp && (
+          <IconButton
+            icon={ArrowUp}
+            aria="Move headline up"
+            label="Up"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.MoveSection,
+                payload: {
+                  pageId,
+                  sectionId: id,
+                  direction: "up",
+                },
+              })
+            }
+          />
+        )}
+        {canMoveDown && (
+          <IconButton
+            icon={ArrowDown}
+            aria="Move headline down"
+            label="Down"
+            onClick={() =>
+              dispatch({
+                type: ActionTypes.MoveSection,
+                payload: {
+                  pageId,
+                  sectionId: id,
+                  direction: "down",
+                },
+              })
+            }
+          />
+        )}
+        <IconButton
+          icon={Trash}
+          aria="Delete headline"
+          label="Delete"
+          color="red"
+          onClick={() => setOpen(true)}
+        />
+      </EndRow>
       <LabelToo>Name</LabelToo>
       <p>
-        <strong>{state.name}</strong>
+        <strong>{name}</strong>
       </p>
+      <LabelToo>Description</LabelToo>
+      <p>{description}</p>
       <LabelToo>Element</LabelToo>
-      <p>{state.element}</p>
-      <LabelToo>Export as</LabelToo>
-      <p>{getRoles(state.element)}</p>
+      <p>{element}</p>
       <Column>
-        {state.children.map((contentState) => (
+        {children.map((contentState, index) => (
           <ContentCard
             pageId={pageId}
-            sectionId={state.id}
+            parentId={id}
+            sectionId={id}
             state={contentState}
             key={pageId}
+            canMoveUp={children.length > 1 && index !== 0}
+            canMoveDown={children.length > 1 && index !== children.length - 1}
           />
         ))}
       </Column>
-      <Button
-        style={`
-        margin-top: 1rem;
-        font-size: 1.25rem;
-        background-color: hsla(120,100%,60%, 0.1);
-        color: hsla(120,100%,25%, 0.85);
-        border: 3px solid hsla(120,100%,30%, 0.75);
-        width: auto;
-        margin: 2rem auto 0;
-      `}
-        onClick={() =>
-          dispatch({
-            type: ActionTypes.CreateContent,
-            payload: {
-              pageId,
-              parentId: state.id,
-              sectionId: state.id,
-            },
-          })
-        }
-      >
-        Add content block
-      </Button>
     </SectionContainer>
   )
 }

@@ -3,11 +3,20 @@ import styled from "styled-components"
 import { ContentTypes } from "../constants/contentTypes"
 import { ButtonNoStyle, Text } from "."
 import IconButton from "./IconButton"
-import { Check, Edit, Trash, X } from "react-feather"
+import {
+  PlusSquare,
+  Check,
+  Edit,
+  Trash,
+  X,
+  ArrowDown,
+  ArrowUp,
+  Copy,
+} from "react-feather"
 import { clone } from "../utilities/arrayUtilities"
 import ButtonContent from "./contentCards/ButtonContent"
 import TitleContent from "./contentCards/TitleContent"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { AppContext } from "../context/AppContext"
 import { ActionTypes } from "../context/actions"
 import BulletedContent from "./contentCards/BulletedContent"
@@ -23,11 +32,15 @@ import HeadingLinkContent from "./contentCards/HeadingLinkContent"
 import HeadingContent from "./contentCards/HeadingContent"
 import ParagraphContent from "./contentCards/ParagraphContent"
 import { Modal } from "@mui/material"
+import Button from "./Button"
 
-interface ContentProps {
+interface ContentCardProps {
   pageId: string
+  parentId: string
   sectionId: string
   state: Content
+  canMoveUp: boolean
+  canMoveDown: boolean
 }
 
 const Selection = styled.div`
@@ -45,7 +58,7 @@ const Corner = styled.div`
   right: 16px;
 `
 const cardStyles = `
-  background-color: hsla(var(--h-accent),100%,80%, 0.15);
+  background-color: hsla(var(--h-accent),100%,80%, 0.125);
   border: 2px solid hsla(var(--h-accent),100%,20%, 0.05); 
   margin-top: 1rem;
   margin-bottom: .5rem;
@@ -62,16 +75,36 @@ const CardForm = styled.form`
   background: white;
 `
 
-const Row = styled.div`
+const EndRow = styled.div`
   display: flex;
   justify-content: flex-end;
+`
+
+const Row = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+`
+
+const ModalContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--primary-light);
+  padding: 24px;
+  margin: 40px;
+  border-radius: 8px;
 `
 
 export default function ContentCard({
   state,
   pageId,
   sectionId,
-}: ContentProps) {
+  parentId,
+  canMoveUp,
+  canMoveDown,
+}: ContentCardProps) {
+  const [open, setOpen] = useState(false)
   const {
     dispatch,
     state: { editing },
@@ -117,7 +150,7 @@ export default function ContentCard({
     }
   }
 
-  function getFormData(): Omit<Content, "id" | "children" | "type"> {
+  function getFormData(): Omit<Content, "id" | "children" | "type" | "draft"> {
     const title = document.getElementById(
       state.id + "-title"
     ) as HTMLInputElement | null
@@ -161,16 +194,28 @@ export default function ContentCard({
           ...newContent,
           ...formData,
           children: newContent.children,
+          draft: false,
         },
       },
     })
   }
 
   function handleCancel() {
-    dispatch({
-      type: ActionTypes.CancelNode,
-      payload: {},
-    })
+    if (state.draft) {
+      dispatch({
+        type: ActionTypes.DeleteNode,
+        payload: {
+          pageId,
+          sectionId,
+          id: state.id,
+        },
+      })
+    } else {
+      dispatch({
+        type: ActionTypes.CancelNode,
+        payload: {},
+      })
+    }
   }
 
   function handleEdit() {
@@ -187,59 +232,149 @@ export default function ContentCard({
       return (
         <Modal open={true}>
           <CardForm>
-            <Row>
-              <IconButton
-                icon={Check}
-                aria="Save Section"
-                label="Save"
-                onClick={handleSave}
-              />
+            <EndRow>
               <IconButton
                 icon={X}
                 aria="Cancel Edit"
                 label="Cancel"
                 onClick={handleCancel}
               />
-            </Row>
-            <Dropdown
-              label="Content type"
-              defaultValue={state.type}
-              options={Object.values(ContentTypes).map((type) => ({
-                label: type,
-                value: type,
-              }))}
-              onSelect={handleSelect}
-            />
-            {renderContent(state.type, true)}
+              <IconButton
+                icon={Check}
+                color="var(--button-save-label)"
+                aria="Save Section"
+                label="Save"
+                styles="background:var(--button-save-bg);border-radius:4px;width:60px;"
+                onClick={handleSave}
+              />
+            </EndRow>
+            <div className="scrollMe">
+              <Dropdown
+                label="Content type"
+                defaultValue={state.type}
+                options={Object.values(ContentTypes).map((type) => ({
+                  label: type,
+                  value: type,
+                }))}
+                onSelect={handleSelect}
+              />
+              {renderContent(state.type, true)}
+            </div>
           </CardForm>
         </Modal>
       )
     }
     return (
       <CardContainer>
-        <Row>
+        <Modal open={open}>
+          <ModalContainer>
+            <p>Are you sure you want to delete this content block?</p>
+            <Row>
+              <Button onClick={() => setOpen(false)}>Cancel</Button>
+              <Button
+                onClick={() =>
+                  dispatch({
+                    type: ActionTypes.DeleteNode,
+                    payload: {
+                      pageId,
+                      sectionId,
+                      id: state.id,
+                    },
+                  })
+                }
+                styles="background: red"
+              >
+                Delete
+              </Button>
+            </Row>
+          </ModalContainer>
+        </Modal>
+        <EndRow>
+          {state.type === ContentTypes.Title && (
+            <IconButton
+              icon={PlusSquare}
+              aria="Add content block"
+              label="Add"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.CreateContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId: state.id,
+                  },
+                })
+              }
+            />
+          )}
           <IconButton
             icon={Edit}
-            aria="Edit Story"
+            aria="Edit content block"
             label="Edit"
             onClick={handleEdit}
           />
           <IconButton
-            icon={Trash}
-            aria="Delete Story"
-            label="Delete"
+            icon={Copy}
+            aria="Duplicate content block"
+            label="Clone"
             onClick={() =>
               dispatch({
-                type: ActionTypes.DeleteNode,
+                type: ActionTypes.DuplicateContent,
                 payload: {
                   pageId,
                   sectionId,
-                  id: state.id,
+                  parentId,
+                  duplicateId: state.id,
                 },
               })
             }
           />
-        </Row>
+          {canMoveUp && (
+            <IconButton
+              icon={ArrowUp}
+              aria="Move content block Up"
+              label="Up"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.MoveContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId,
+                    id: state.id,
+                    direction: "up",
+                  },
+                })
+              }
+            />
+          )}
+          {canMoveDown && (
+            <IconButton
+              icon={ArrowDown}
+              aria="Move content block down"
+              label="Down"
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.MoveContent,
+                  payload: {
+                    pageId,
+                    sectionId,
+                    parentId,
+                    id: state.id,
+                    direction: "down",
+                  },
+                })
+              }
+            />
+          )}
+          <IconButton
+            icon={Trash}
+            color="red"
+            aria="Delete content block"
+            label="Delete"
+            onClick={() => setOpen(true)}
+          />
+        </EndRow>
         {renderContent(state.type, false)}
       </CardContainer>
     )
@@ -250,8 +385,9 @@ export default function ContentCard({
         <Corner>
           <IconButton
             icon={X}
-            aria="Remove Content Block"
-            label="Cancel"
+            aria="Cancel action"
+            label="Cancel MP"
+            styles="margin-right: 24px"
             onClick={() =>
               dispatch({
                 type: ActionTypes.DeleteNode,

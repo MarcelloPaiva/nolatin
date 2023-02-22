@@ -24,7 +24,7 @@ const ExportApp = styled.div`
 const Main = styled.main`
   background-color: #fff;
   margin: 0;
-  padding: 40px;
+  padding-top: 40px !important;
 `
 export default function Preview() {
   const { pageId } = useParams()
@@ -47,6 +47,7 @@ function generateSections(sections: Section[]) {
     const content = (
       <>
         <h2>{section.name}</h2>
+        {section.description && <p>{section.description}</p>}
         {generateContents(section.children)}
       </>
     )
@@ -67,10 +68,8 @@ function generateSections(sections: Section[]) {
         return <form role="search">{content}</form>
       case ElementNames.Complementary:
         return <aside>{content}</aside>
-      // case ElementNames.Main:
-      //   return <main>{content}</main>
-      // case ElementNames.Alert:
-      //   return <section aria-live="assertive">{content}</section>
+      case ElementNames.Alert:
+        return <div role="alert">{content}</div>
       default:
         return null
     }
@@ -92,16 +91,30 @@ function generateContents(contents: Content[], level?: number) {
       case ContentTypes.BulletsLink:
         return (
           <ul>
-            {getQuoteList(content.description)?.map((item) => (
-              <li>
-                <a href="item">{item}</a>
-              </li>
-            ))}
+            {getQuoteList(content.description)?.map((item) => {
+              const urlArray = item.split(", ")
+              if (urlArray.length > 1) {
+                return (
+                  <li key={content.id + item}>
+                    <a href={urlArray[1]}>{urlArray[0]}</a>
+                  </li>
+                )
+              }
+              return (
+                <li key={content.id + item}>
+                  <a href={item}>{item}</a>
+                </li>
+              )
+            })}
           </ul>
         )
       case ContentTypes.Button:
         // What do I do with "Button Action"?
-        return <Button>{content.title}</Button>
+        return (
+          <Button link={content.url !== "" ? content.url : undefined}>
+            {content.title}
+          </Button>
+        )
       case ContentTypes.Dropdown:
         return (
           <Dropdown
@@ -122,13 +135,7 @@ function generateContents(contents: Content[], level?: number) {
           </>
         )
       case ContentTypes.Input:
-        return (
-          <Input
-            label={content.title}
-            defaultValue={content.description}
-            type={content.url}
-          />
-        )
+        return <Input label={content.title} type={content.url} />
       case ContentTypes.Link:
         return <a href={content.url}>{content.title}</a>
       case ContentTypes.Numbers:
@@ -142,17 +149,42 @@ function generateContents(contents: Content[], level?: number) {
       case ContentTypes.NumbersLink:
         return (
           <ol>
-            {getQuoteList(content.description)?.map((item) => (
-              <li>
-                <a href="item">{item}</a>
-              </li>
-            ))}
+            {getQuoteList(content.description)?.map((item) => {
+              const urlArray = item.split(", ")
+              if (urlArray.length > 1) {
+                return (
+                  <li key={content.id + item}>
+                    <a href={urlArray[1]}>{urlArray[0]}</a>
+                  </li>
+                )
+              }
+              return (
+                <li key={content.id + item}>
+                  <a href={item}>{item}</a>
+                </li>
+              )
+            })}
           </ol>
         )
       case ContentTypes.HeadingLink:
-        return getHeading(headingLevel, content.title, content.url)
+        return (
+          <>
+            {getHeading(
+              headingLevel,
+              content.title,
+              `h-desc-${content.id}`,
+              content.url
+            )}
+            <p id={`h-desc-${content.id}`}>{content.description}</p>
+          </>
+        )
       case ContentTypes.HeadingText:
-        return getHeading(headingLevel, content.title)
+        return (
+          <>
+            {getHeading(headingLevel, content.title, `h-desc-${content.id}`)}
+            <p id={`h-desc-${content.id}`}>{content.description}</p>
+          </>
+        )
       case ContentTypes.Paragraph:
         return <p>{content.title}</p>
       case ContentTypes.Title:
@@ -169,20 +201,25 @@ function generateContents(contents: Content[], level?: number) {
   })
 }
 
-function getHeading(level: number, text: string, link?: string) {
+function getHeading(
+  level: number,
+  text: string,
+  describedBy?: string,
+  link?: string
+) {
   let inner = link ? <a href={link}>{text}</a> : text
   switch (level) {
     case 1:
-      return <h1>{inner}</h1>
+      return <h1 aria-describedby={describedBy}>{inner}</h1>
     case 2:
-      return <h2>{inner}</h2>
+      return <h2 aria-describedby={describedBy}>{inner}</h2>
     case 3:
-      return <h3>{inner}</h3>
+      return <h3 aria-describedby={describedBy}>{inner}</h3>
     case 4:
-      return <h4>{inner}</h4>
+      return <h4 aria-describedby={describedBy}>{inner}</h4>
     case 5:
-      return <h5>{inner}</h5>
+      return <h5 aria-describedby={describedBy}>{inner}</h5>
     default:
-      return <h6>{inner}</h6>
+      return <h6 aria-describedby={describedBy}>{inner}</h6>
   }
 }

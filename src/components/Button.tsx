@@ -1,61 +1,93 @@
-import React from "react"
+import { ReactNode, forwardRef } from "react"
 import styled from "styled-components"
 
 interface ButtonProps {
   onClick?: () => void
   label?: string
-  style?: string
+  styles?: string
   size?: number
-  children?: React.ReactNode
+  children?: ReactNode
   link?: string
   disabled?: boolean
   newTab?: boolean
 }
 
-export default function Button({
-  onClick,
-  label,
-  style,
-  children,
-  link,
-  disabled,
-  newTab,
-}: ButtonProps) {
-  const buttonStyles = `
-  font-family: "Roboto", sans-serif;  
-    padding: 16px;
+const Button = forwardRef(
+  (
+    { onClick, label, styles, children, link, disabled, newTab }: ButtonProps,
+    ref
+  ) => {
+    const buttonStyles = ` 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    border-radius: 12px;
-    background-color: var(--secondary-90);
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.2rem; 
-    line-height: 1.2rem;
-    margin-top: 2rem;
-    letter-spacing: 0.025rem;
-    height: 100%;
-    width: auto;
-    ${style}
-  `
+      justify-content: center;
+      align-items: center;
+      border: none;
+      border-radius: 12px;
+      background-color: var(--secondary-90);
+      color: #fff;
+      padding: 16px;
+      margin-top: 2rem;
+      font-size: 120%;
+      letter-spacing: .05rem;
+      ${styles}
+    `
+    const buttonLinkStyles = `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
+      background-color: var(--buttonSecondary-bg);
+      color: var(--buttonSecondary-label);
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 2rem;
+      font-size: 120%;
+      letter-spacing: .05rem;
+      font-weight: bold;
 
-  const Button = styled.button`
-    ${buttonStyles}
-  `
-  const Link = styled.a`
-    text-decoration: none;
-    ${buttonStyles}
-  `
+      `
+    const buttonDisabledStyles = `
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      background-color: var(--secondary-20);
+      color: var(--secondary-50);
+      padding: 16px;
+      margin-top: 2rem;
+      font-size: 120%;
+      letter-spacing: .05rem;
+      `
+    const Button = styled.button`
+      ${buttonStyles}
+      ${disabled && buttonDisabledStyles}
+    `
+    const Link = styled.a`
+      text-decoration: none;
+      ${buttonLinkStyles}
+    `
 
-  return link ? (
-    <Link href={link} aria-label={label} target={newTab ? "_blank" : undefined}>
-      {children}
-    </Link>
-  ) : (
-    <Button onClick={onClick} aria-label={label} disabled={disabled}>
-      {children}
-    </Button>
-  )
-}
+    return link ? (
+      <Link
+        href={link}
+        aria-label={label}
+        role="button"
+        target={newTab ? "_blank" : undefined}
+        ref={ref as React.RefObject<HTMLAnchorElement>}
+      >
+        {children}
+      </Link>
+    ) : (
+      <Button
+        onClick={onClick}
+        aria-label={label}
+        disabled={disabled}
+        ref={ref as React.RefObject<HTMLButtonElement>}
+      >
+        {children}
+      </Button>
+    )
+  }
+)
+
+export default Button

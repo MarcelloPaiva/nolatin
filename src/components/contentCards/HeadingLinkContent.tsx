@@ -1,9 +1,9 @@
 import Input from "../Input"
-import { Label, Text, Link } from ".."
+import { Text, Link, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function HeadingLinkContent({
-  state: { title, url, id },
+  state: { title, url, id, description },
   edit,
 }: ContentProps) {
   return (
@@ -15,13 +15,20 @@ export default function HeadingLinkContent({
             label="Heading Link Text"
             defaultValue={title}
           />
+          <Input
+            id={`${id}-description`}
+            label="Heading Description"
+            defaultValue={description}
+          />
           <Input id={`${id}-url`} label="Destination URL" defaultValue={url} />
         </>
       ) : (
         <>
-          <Label>Heading Link Text</Label>
+          <LabelToo>Heading Link Text</LabelToo>
           <Text>{title}</Text>
-          <Label>Destination URL</Label>
+          <LabelToo>Heading Description</LabelToo>
+          <Text>{description}</Text>
+          <LabelToo>Destination URL</LabelToo>
           <Link href={url}>{url}</Link>
         </>
       )}

@@ -1,9 +1,9 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function ButtonContent({
-  state: { description, title, id },
+  state: { url, title, id },
   edit,
 }: ContentProps) {
   return (
@@ -15,18 +15,14 @@ export default function ButtonContent({
             label="Descriptive label"
             defaultValue={title}
           />
-          <Input
-            id={`${id}-description`}
-            label="Action"
-            defaultValue={description}
-          />
+          <Input id={`${id}-url`} label="Action" defaultValue={url} />
         </>
       ) : (
         <>
-          <Label>Descriptive label</Label>
+          <LabelToo>Descriptive labelToo</LabelToo>
           <Text>{title}</Text>
-          <Label>Action</Label>
-          <Text>{description}</Text>
+          <LabelToo>Destination Link - enter URL</LabelToo>
+          <Text>{url}</Text>
         </>
       )}
     </>

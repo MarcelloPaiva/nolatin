@@ -17,13 +17,18 @@ export enum ActionTypes {
   CreatePage = "CREATE_PAGE",
   CreateSection = "CREATE_SECTION",
   CreateContent = "CREATE_CONTENT",
+  DuplicateSection = "DUPLICATE_SECTION",
+  DuplicateContent = "DUPLICATE_CONTENT",
   DeleteNode = "DELETE_NODE",
   DeletePage = "DELETE_PAGE",
   UpdateSection = "UPDATE_SECTION",
   UpdateContent = "UPDATE_CONTENT",
+  UpdatePage = "UPDATE_PAGE",
   UpdateType = "UPDATE_TYPE",
   EditNode = "EDIT_NODE",
   CancelNode = "CANCEL_NODE",
+  MoveSection = "MOVE_SECTION",
+  MoveContent = "MOVE_CONTENT",
 }
 
 type Payload = {
@@ -42,6 +47,16 @@ type Payload = {
     parentId: string
     sectionId: string
   }
+  [ActionTypes.DuplicateSection]: {
+    pageId: string
+    sectionId: string
+  }
+  [ActionTypes.DuplicateContent]: {
+    pageId: string
+    parentId: string
+    sectionId: string
+    duplicateId: string
+  }
   [ActionTypes.DeleteNode]: {
     pageId: string
     sectionId: string
@@ -49,6 +64,11 @@ type Payload = {
   }
   [ActionTypes.DeletePage]: {
     pageId: string
+    sectionId?: string
+  }
+  [ActionTypes.UpdatePage]: {
+    pageId: string
+    title: string
     sectionId?: string
   }
   [ActionTypes.UpdateSection]: {
@@ -76,6 +96,18 @@ type Payload = {
   [ActionTypes.CancelNode]: {
     pageId?: string
     sectionId?: string
+  }
+  [ActionTypes.MoveSection]: {
+    pageId: string
+    sectionId: string
+    direction: "up" | "down"
+  }
+  [ActionTypes.MoveContent]: {
+    pageId: string
+    parentId: string
+    sectionId: string
+    id: string
+    direction: "up" | "down"
   }
 }
 

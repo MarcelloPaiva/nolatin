@@ -1,6 +1,6 @@
 import Input from "../Input"
 import Dropdown from "../Dropdown"
-import { Label, Text } from ".."
+import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 const inputTypes = [
@@ -16,7 +16,7 @@ const inputTypes = [
 ]
 
 export default function InputContent({
-  state: { title, url, description, id },
+  state: { title, url, id },
   edit,
 }: ContentProps) {
   return (
@@ -34,20 +34,13 @@ export default function InputContent({
             options={inputTypes}
             defaultValue={url}
           />
-          <Input
-            id={`${id}-description`}
-            label="Placeholder"
-            defaultValue={description}
-          />
         </>
       ) : (
         <>
-          <Label>Descriptive label</Label>
+          <LabelToo>Descriptive label</LabelToo>
           <Text>{title}</Text>
-          <Label>Input type</Label>
+          <LabelToo>Input type (Set to "Text" if in doubt)</LabelToo>
           <Text>{url}</Text>
-          <Label>Placeholder</Label>
-          <Text>{description}</Text>
         </>
       )}
     </>

@@ -7,4 +7,5 @@ export default interface Content {
   url?: string
   type?: ContentTypes
   children: Content[]
+  draft: boolean
 }

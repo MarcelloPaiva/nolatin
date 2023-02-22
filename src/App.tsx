@@ -1,5 +1,5 @@
 import { AppProvider } from "./context/AppContext"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Root from "./routes/root"
 import Guides from "./routes/guides"
 import Create from "./routes/create"
@@ -8,37 +8,19 @@ import Page from "./routes/page"
 import Preview from "./routes/preview"
 import "./App.css"
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-  },
-  {
-    path: "guides",
-    element: <Guides />,
-  },
-  {
-    path: "create",
-    element: <Create />,
-  },
-  {
-    path: "preview/:pageId",
-    element: <Preview />,
-  },
-  {
-    path: "pages",
-    element: <Pages />,
-  },
-  {
-    path: "page/:id",
-    element: <Page />,
-  },
-])
-
 function App() {
   return (
     <AppProvider>
-      <RouterProvider router={router} />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Root />} />
+          <Route path="/guides" element={<Guides />} />
+          <Route path="/create" element={<Create />} />
+          <Route path="/preview/:pageId" element={<Preview />} />
+          <Route path="/pages" element={<Pages />} />
+          <Route path="/page/:id" element={<Page />} />
+        </Routes>
+      </BrowserRouter>
     </AppProvider>
   )
 }

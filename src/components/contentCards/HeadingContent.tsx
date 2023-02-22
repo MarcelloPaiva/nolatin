@@ -1,9 +1,9 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function HeadingContent({
-  state: { title, id },
+  state: { title, id, description },
   edit,
 }: ContentProps) {
   return (
@@ -11,11 +11,18 @@ export default function HeadingContent({
       {edit ? (
         <>
           <Input id={`${id}-title`} label="Heading Text" defaultValue={title} />
+          <Input
+            id={`${id}-description`}
+            label="Heading Description"
+            defaultValue={description}
+          />
         </>
       ) : (
         <>
-          <Label>Heading Text</Label>
+          <LabelToo>Heading Text</LabelToo>
           <Text>{title}</Text>
+          <LabelToo>Heading Description</LabelToo>
+          <Text>{description}</Text>
         </>
       )}
     </>

@@ -1,57 +1,31 @@
 import styled from "styled-components"
 
-export const Title = styled.h1`
-  font-weight: bold;
-  // font-size: 2.625rem;
-  line-height: 50px;
-`
-export const SubTitle = styled.h2`
-  font-weight: normal;
-  // font-size: 1.5rem;
-  // line-height: 28px;
-`
-export const SubTitleBold = styled.h2`
-  font-weight: normal;
-  // font-size: 1rem;
-  // line-height: 26px;
-`
-export const SubHeading = styled.h2`
-  font-weight: bold;
-  // font-size: 1.5rem;
-  // line-height: 32px;
-`
+export const Title = styled.h1``
+export const SubTitle = styled.h2``
+export const SubTitleBold = styled.h2``
+export const SubHeading = styled.h2``
 export const Text = styled.p`
-  width: 100%;
   text-align: left;
-  font-weight: normal;
-  font-size: 1.25rem;
   overflow-wrap: anywhere;
-  // line-height: 26px;
 `
 export const Bold = styled.strong`
-  width: 100%;
-  text-align: left;
   font-weight: bold;
-  // font-size: 1rem;
-  // line-height: 26px;
 `
-export const Label = styled.div`
-  font-size: 1.25rem;
-  // line-height: 17px;
-  // color: #000;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
+export const Label = styled.label`
+  display: block;
+  margin-top: 1rem;
 `
-export const Divider = styled.div`
-  height: 2px;
-  width: 100%;
-  background-color: #000;
+export const LabelToo = styled.label`
+  display: block;
+  color: var(--secondary-80);
+  margin-top: 1rem;
+  font-size: 90%;
 `
+export const Divider = styled.div``
+
 export const IconLabel = styled.div`
-  font-size: 1.25rem;
-  line-height: 3rem;
-  font-family: "Sofia Sans";
-  // color: #000;
+  font-family: "Sofia Sans", serif;
+  font-size: 120%;
 `
 export const ButtonNoStyle = styled.button`
   min-height: 44px;
@@ -60,9 +34,5 @@ export const ButtonNoStyle = styled.button`
   border: none;
 `
 export const Link = styled.a`
-  width: 100%;
-  text-align: left;
-  font-weight: normal;
-  font-size: 1.25rem;
   overflow-wrap: anywhere;
 `

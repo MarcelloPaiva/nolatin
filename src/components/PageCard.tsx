@@ -1,9 +1,6 @@
-import { useContext } from "react"
-import { AppContext } from "../context/AppContext"
 import styled from "styled-components"
-import { ChevronRight, Trash } from "react-feather"
+import { ChevronRight, Trash, Edit } from "react-feather"
 import IconButton from "./IconButton"
-import { ActionTypes } from "../context/actions"
 
 const PageTitle = styled.span`
   text-align: left;
@@ -14,14 +11,15 @@ const PageTitle = styled.span`
 const Row = styled.div`
   display: flex;
   align-items: center;
-  border: solid 1px blue;
-  line-height: 80px;
+  // border: solid 1px blue;
+  // line-height: 80px;
 `
 
 interface PageCardProps {
   id: string
   title: string
   onDelete: () => void
+  onEdit: () => void
   last?: boolean
 }
 
@@ -29,6 +27,7 @@ export default function PageCard({
   id,
   title,
   onDelete,
+  onEdit,
   last = false,
 }: PageCardProps) {
   const CardContainer = styled.a`
@@ -45,7 +44,7 @@ export default function PageCard({
   `
 
   return (
-    <CardContainer href={`page/${id}`}>
+    <CardContainer href={`/page/${id}`}>
       <PageTitle>{title}</PageTitle>
       <Row>
         <IconButton
@@ -54,6 +53,14 @@ export default function PageCard({
           onClick={(event) => {
             event?.preventDefault()
             onDelete()
+          }}
+        />
+        <IconButton
+          icon={Edit}
+          aria={`Edit ${title} page title`}
+          onClick={(event) => {
+            event?.preventDefault()
+            onEdit()
           }}
         />
         <ChevronRight size={32} />

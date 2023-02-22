@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Label } from "./"
+import { LabelToo } from "./"
 
 interface OptionData {
   label: string
@@ -32,23 +32,20 @@ export default function Dropdown({
 
   const Select = styled.select`
     background-color: #fff;
-    border: 3px solid #000;
+    border: 3px solid var(--secondary-80);
     border-radius: 4px;
-    padding: 1rem;
-    font-size: 1.25rem;
-    // font-weight: regular;
-    // font-family: "Roboto", sans-serif;
-    // line-height: 26px;
+    padding: 8px;
+    font-family: "Roboto Mono", sans-serif;
+    font-size: 90%;
+    font-weight: bold;
+    line-height: "auto";
+    color: var(--secondary-80);
   `
 
-  const Option = styled.option`
-    // font-size: 1rem;
-    // font-weight: regular;
-    // line-height: 26px;
-  `
+  const Option = styled.option``
   return (
     <InputContainer>
-      <Label>{label}</Label>
+      <LabelToo>{label}</LabelToo>
       <Select
         defaultValue={defaultValue}
         id={id}

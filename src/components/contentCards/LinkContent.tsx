@@ -1,5 +1,5 @@
 import Input from "../Input"
-import { Label, Text, Link } from ".."
+import { Text, Link, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function LinkContent({
@@ -19,9 +19,9 @@ export default function LinkContent({
         </>
       ) : (
         <>
-          <Label>Descriptive Link</Label>
+          <LabelToo>Descriptive Link</LabelToo>
           <Text>{title}</Text>
-          <Label>Destination URL</Label>
+          <LabelToo>Destination URL</LabelToo>
           <Link href={url}>{url}</Link>
         </>
       )}

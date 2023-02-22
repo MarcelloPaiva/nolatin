@@ -1,5 +1,5 @@
 import Input from "../Input"
-import { Label } from ".."
+import { LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 import { getQuoteList } from "../../utilities/listUtilities"
 
@@ -20,7 +20,7 @@ export default function BulletedContent({
         </>
       ) : (
         <>
-          <Label>List items</Label>
+          <LabelToo>List items</LabelToo>
           <ul>
             {getQuoteList(description)?.map((item) => (
               <li key={id + item}>{item}</li>

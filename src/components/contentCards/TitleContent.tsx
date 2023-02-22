@@ -1,22 +1,12 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
-import Button from "../Button"
-import { useContext } from "react"
-import { AppContext } from "../../context/AppContext"
-import { ActionTypes } from "../../context/actions"
 import ContentCard from "../ContentCard"
-import styled from "styled-components"
 
 interface TitleProps extends ContentProps {
   pageId: string
   sectionId: string
 }
-const LabelToo = styled.label`
-  color: var(--primary-60);
-  margin-top: 32px;
-  font-size: 1rem;
-`
 
 export default function TitleContent({
   pageId,
@@ -24,55 +14,35 @@ export default function TitleContent({
   state,
   edit,
 }: TitleProps) {
-  const { dispatch } = useContext(AppContext)
+  const { id, description, title, children } = state
   return (
     <>
       {edit ? (
         <>
+          <Input id={`${id}-title`} label="Title" defaultValue={title} />
           <Input
-            id={`${state.id}-title`}
-            label="Title"
-            defaultValue={state.title}
-          />
-          <Input
-            id={`${state.id}-description`}
+            id={`${id}-description`}
             label="Description"
-            defaultValue={state.description}
+            defaultValue={description}
           />
         </>
       ) : (
         <>
           <LabelToo>Title</LabelToo>
-          <p>{state.title}</p>
+          <p>{title}</p>
           <LabelToo>Description</LabelToo>
-          <p>{state.description}</p>
-          {state.children.map((child) => (
+          <p>{description}</p>
+          {children.map((child, index) => (
             <ContentCard
               state={child}
+              parentId={id}
               sectionId={sectionId}
               pageId={pageId}
+              canMoveUp={children.length > 1 && index !== 0}
+              canMoveDown={children.length > 1 && index !== children.length - 1}
               key={child.id}
             />
           ))}
-
-          <Button
-            style={`
-              width: 100%;
-              margin-top: 16px;
-            `}
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateContent,
-                payload: {
-                  pageId,
-                  sectionId,
-                  parentId: state.id,
-                },
-              })
-            }
-          >
-            Add content block
-          </Button>
         </>
       )}
     </>

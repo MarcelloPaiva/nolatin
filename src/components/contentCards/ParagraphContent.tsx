@@ -1,5 +1,5 @@
 import Input from "../Input"
-import { Label, Text } from ".."
+import { Text, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
 
 export default function ParagraphContent({
@@ -19,7 +19,7 @@ export default function ParagraphContent({
         </>
       ) : (
         <>
-          <Label>Paragraph Text</Label>
+          <LabelToo>Paragraph Text</LabelToo>
           <Text>{title}</Text>
         </>
       )}

@@ -83,14 +83,22 @@ export default function Create() {
 
   return (
     <Layout>
-      <Root role={"main"}>
-        <Row>
+      <Root role={"main"} className="main">
+        <Row className="back-row">
           <BackLink href="/pages">
             <ChevronLeft />
-            Back to Pages
           </BackLink>
+
+          <LeftTitle>Create Page</LeftTitle>
         </Row>
-        <LeftTitle>Create Page</LeftTitle>
+        <Row>
+          {" "}
+          <p>
+            Add a meaningful title followed by a purposeful description. This
+            simple step will allow screen-reader users to have a better context
+            about this page.
+          </p>
+        </Row>
         <Input
           id="title"
           label="Page Title"

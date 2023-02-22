@@ -316,7 +316,7 @@ export default function ContentCard({
           <IconButton
             icon={Copy}
             aria="Duplicate content block"
-            label="Duplicate"
+            label="Clone"
             onClick={() =>
               dispatch({
                 type: ActionTypes.DuplicateContent,

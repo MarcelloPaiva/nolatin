@@ -31,7 +31,7 @@ export default function IconButton({
   ref,
 }: IconButtonProps) {
   const buttonStyles = `
-    min-width: 72px;
+    min-width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,7 +40,7 @@ export default function IconButton({
     border-radius:8px;
     margin:4px;
     margin-bottom: 1rem;
-    padding: 1rem 0;
+    padding: .5rem;
     flex-direction: column;
     ${styles}
   `

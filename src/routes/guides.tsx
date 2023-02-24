@@ -15,14 +15,16 @@ export default function Guides() {
     <Layout>
       <Main>
         <section className="hero">
-          <h1>Future how to section</h1>
-          <p>Currently creating the images to place here. Coming soon.</p>
+          <h1>Adopt an Inclusive Mindset:</h1>
+          <p>As the Beatles would say: "All we need is love."</p>{" "}
+          <p>
+            Put some love into your daily work and the result will be better for
+            all users.{" "}
+          </p>
         </section>
         <div id="howTo01">
           <div className="post-container">
-            <h2 className="post-title">
-              Start by learning how to write purposeful content
-            </h2>
+            <h2 className="post-title">Objective: Be purposeful!</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-01.svg"
@@ -31,45 +33,82 @@ export default function Guides() {
             </div>
             <div className="post-content">
               <p>
-                Writing priority guides provides a tool for creating purposeful
-                content early. Each guide has four important elements:
+                Create purposeful content by writing priority guides with four
+                essential elements:
+              </p>
+              <p>
                 <ul>
-                  <li>Headline</li>
-                  <li>Description</li>
-                  <li>Role</li>
-                  <li>Expectation</li>
+                  <li>Headline,</li>
+                  <li>Description,</li>
+                  <li>Role,</li>
+                  <li>Expectation.</li>
                 </ul>
               </p>
               <p>
-                The secret is to put a little intent - read{" "}
-                <span aria-label="love">❤️</span> - on writing these simple
-                guides. The goal is to create simple, but described set of
-                headlines that can be read aloud to any user.
+                <strong>
+                  The objective is to create high-quality content that enables
+                  the creation of a prototype that is inclusive of people with
+                  disabilities, thereby facilitating their participation in
+                  usability studies early in the design process.
+                </strong>
               </p>
             </div>
           </div>
         </div>
         <section id="howTo02">
           <div className="post-container">
-            <h2 className="post-title">Post title</h2>
+            <h2>Focus on the content, we'll build the prototype</h2>
+
             <div className="post-thumb">
               <img src="images/how-to-02.svg" alt="decorative" />
-              <figcaption>Figure caption...</figcaption>
             </div>
             <div className="post-content">
-              <p> Description here ...</p>
+              <p>
+                No Latin helps you creating and prioritizing the headlines in a
+                page, and export an{" "}
+                <strong>accessible web-based prototype</strong>.
+              </p>
+              <p>
+                The first step is to{" "}
+                <a
+                  href="/create"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="This link will open a new tab, so you can follow along."
+                >
+                  create a page
+                </a>
+                . Then start creating multiple guides with headlines. You can
+                create multiple pages if needed.
+              </p>
+              <p>
+                As soon as you create a page, you can start previewing your
+                accessible prototype.
+              </p>
             </div>
           </div>
         </section>
         <section id="howTo03">
           <div className="post-container">
-            <h2 className="post-title">Post title</h2>
+            <h2 className="post-title">Follow these simple steps:</h2>
             <div className="post-thumb">
               <img src="images/how-to-03.svg" alt="decorative" />
               <figcaption>Figure caption...</figcaption>
             </div>
             <div className="post-content">
-              <p> Description here ...</p>
+              <p>
+                <strong>Step 1: </strong>Add one headline, focusing on writing
+                good and descriptive content;
+              </p>
+              <p>
+                <strong>Step 2: </strong>Describe
+              </p>
+              <p>
+                <strong>Step 3: </strong>Describe
+              </p>
+              <p>
+                <strong>Step 4: </strong>Describe
+              </p>
             </div>
           </div>
         </section>
@@ -110,7 +149,7 @@ export default function Guides() {
           <a
             href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <cite>
               Priority Guides: A Content-First Alternative to Wireframes

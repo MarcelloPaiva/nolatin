@@ -44,7 +44,6 @@ const Button = forwardRef(
       font-size: 120%;
       letter-spacing: .05rem;
       font-weight: bold;
-
       `
     const buttonDisabledStyles = `
       display: flex;

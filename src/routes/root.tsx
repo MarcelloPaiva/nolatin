@@ -83,7 +83,7 @@ export default function Root() {
           <a
             href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <cite>
               Priority Guides: A Content-First Alternative to Wireframes

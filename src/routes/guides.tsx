@@ -38,10 +38,10 @@ export default function Guides() {
               </p>
               <p>
                 <ul>
-                  <li>Headline,</li>
-                  <li>Description,</li>
-                  <li>Role,</li>
-                  <li>Expectation.</li>
+                  <li>Headline</li>
+                  <li>Description</li>
+                  <li>Role</li>
+                  <li>Expectation</li>
                 </ul>
               </p>
               <p>

@@ -156,6 +156,18 @@ body {
   line-height: 150%;
 }
 
+a:link,
+a:visited {
+  color: var(--accent);
+}
+
+a:hover,
+a:active {
+  color: var(--focus);
+  background-color: var(--light);
+  text-decoration: none;
+}
+
 .main {
   display: block;
   padding: 0 1rem;
@@ -257,7 +269,17 @@ h3 {
 img.landing {
   margin-top: 3rem;
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
-  border: 1rem solid var(--secondary-25);
+  border: 1rem solid var(--secondary-05);
+  border-width: 1rem 0;
+  display: cover;
+  width: calc(100% + 2rem);
+  position: relative;
+  left: -1rem;
+  right: -2rem;
+}
+
+cite {
+  font-style: normal;
 }
 
 /* How to page styles */

@@ -207,7 +207,18 @@ p {
   margin-bottom: 1rem;
   color: var(--secondary-100);
   line-height: 150%;
-  font-size: 1.25rem;
+  font-size: 1rem;
+}
+
+ul,
+ol {
+  display: block;
+  margin: 0.5rem 0 1rem 2rem;
+}
+
+.post-content ul {
+  display: inline-block;
+  margin: 0 0 0 1rem;
 }
 
 h1 {
@@ -231,6 +242,8 @@ h2,
 h3 {
   font-weight: 800;
   color: var(--focus);
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
 }
 
 h2 {
@@ -239,7 +252,6 @@ h2 {
 
 h3 {
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 
 img.landing {
@@ -251,35 +263,20 @@ img.landing {
 /* How to page styles */
 
 .post-container {
+  display: block;
   margin: 1rem 0;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   overflow: auto;
   border: 4px solid var(--secondary-05);
   border-radius: 1rem;
 }
 .post-thumb {
+  width: auto;
+  max-width: 320px;
+  padding: 0 1rem 0 0;
+  height: auto;
   float: left;
 }
-.post-thumb img,
-.post-thumb figcaption {
-  display: block;
-  width: 200px;
-}
-.post-content {
-  margin-left: 216px;
-}
-.post-content p {
-  font-size: 100%;
-}
-
-.post-content ul {
-  margin: 0.5rem 0 0 1.5rem;
-}
-
-.post-title {
-  margin-bottom: 1.5rem;
-}
-
 /* How to styles end */
 
 button {
@@ -444,6 +441,7 @@ Prototyping Styles
 .exportApp article,
 .exportApp aside,
 .exportApp nav,
+.exportApp main header,
 .exportApp [role="alert"],
 .exportApp [role="banner"],
 .exportApp [role="main"],
@@ -544,6 +542,11 @@ Prototyping Styles
   height: 112px;
 }
 
+.exportApp main header {
+  background-color: var(--light);
+  height: auto;
+}
+
 .exportApp label {
   font-weight: bold;
   margin-bottom: 0.75rem;
@@ -562,9 +565,4 @@ Prototyping Styles
   outline: var(--focus) solid 8px;
   outline-offset: 4px;
   border-radius: 4px;
-}
-
-.exportApp ul,
-.exportApp ol {
-  margin: 0.5rem 0 0 1.5rem;
 }

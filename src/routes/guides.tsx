@@ -1,4 +1,3 @@
-import { Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import styled from "styled-components"
@@ -15,24 +14,28 @@ export default function Guides() {
     <Layout>
       <Main>
         <section className="hero">
-          <h1>Future how to section</h1>
-          <p>Currently creating the images to place here. Coming soon.</p>
+          <h1>Our objective:</h1>
+          <p>
+            To motivate designers to write quality content early, so that we can
+            generate fully accessible prototypes for testing with people with
+            disabilities.
+          </p>
         </section>
         <div id="howTo01">
           <div className="post-container">
-            <h2 className="post-title">
-              Start by learning how to write purposeful content
-            </h2>
+            <h2 className="post-title">Getting started</h2>
             <div className="post-thumb">
               <img
-                src="images/how-to-01.svg"
-                alt=" An illustration of wireframing bars indicating the four elements of a priority guide: headline, description, role and user's expectation."
+                src="images/how-to-00.svg"
+                alt="An illustration of wireframing bars indicating the four essential elements of a priority guide: headline, description, role and user's expectation."
               />
             </div>
             <div className="post-content">
               <p>
-                Writing priority guides provides a tool for creating purposeful
-                content early. Each guide has four important elements:
+                Create purposeful content by writing priority guides with four
+                essential elements:
+              </p>
+              <p>
                 <ul>
                   <li>Headline</li>
                   <li>Description</li>
@@ -40,105 +43,139 @@ export default function Guides() {
                   <li>Expectation</li>
                 </ul>
               </p>
-              <p>
-                The secret is to put a little intent - read{" "}
-                <span aria-label="love">❤️</span> - on writing these simple
-                guides. The goal is to create simple, but described set of
-                headlines that can be read aloud to any user.
-              </p>
             </div>
           </div>
         </div>
         <section id="howTo02">
           <div className="post-container">
-            <h2 className="post-title">Post title</h2>
+            <h2>Create a page</h2>
+
             <div className="post-thumb">
-              <img src="images/how-to-02.svg" alt="decorative" />
-              <figcaption>Figure caption...</figcaption>
+              <img
+                src="images/how-to-02.svg"
+                alt="An illustration of wireframing page that will soon contain multiple guides with purposeful content"
+              />
             </div>
             <div className="post-content">
-              <p> Description here ...</p>
+              <p>
+                <strong>No Latin</strong> helps you creating and prioritizing
+                the headlines in a page, and export an{" "}
+                <strong>accessible web-based prototype</strong>.
+              </p>
+              <p>
+                Let's{" "}
+                <a
+                  href="/create"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="This link will open a new tab, so you can follow along."
+                >
+                  add a page
+                </a>
+                , then start creating multiple guides with headlines. You can
+                create multiple pages if needed.
+              </p>
+              <p>
+                As soon as you create a new page, <strong>No Latin</strong> will
+                start building your accessible prototype for preview.
+              </p>
             </div>
           </div>
         </section>
         <section id="howTo03">
           <div className="post-container">
-            <h2 className="post-title">Post title</h2>
+            <h2 className="post-title">Create well-written headlines</h2>
             <div className="post-thumb">
-              <img src="images/how-to-03.svg" alt="decorative" />
-              <figcaption>Figure caption...</figcaption>
+              <img
+                src="images/how-to-05.svg"
+                alt="An illustration of wireframing page containing four guides in the order of the user needs."
+              />
             </div>
             <div className="post-content">
-              <p> Description here ...</p>
+              <p>
+                <strong>Step 1: </strong>Start by adding a single headline,
+                focusing on writing good and descriptive content;
+              </p>
+              <p>
+                <strong>Step 2: </strong>Create additional headlines to address
+                your user's needs.
+              </p>
+              <p>
+                <strong>Step 3: </strong>Prioritize your headlines up or down,
+                based on you think is most important for your user.
+              </p>
             </div>
           </div>
         </section>
         <section id="howTo04">
           <div className="post-container">
-            <h2 className="post-title">Post title</h2>
+            <h2 className="post-title">Test your prototype</h2>
+            <p>
+              <strong>No Latin</strong> generates web prototypes with
+              Accessibility in mind by providing:
+            </p>
             <div className="post-thumb">
-              <img src="images/how-to-04.svg" alt="decorative" />
-              <figcaption>Figure caption...</figcaption>
+              <img
+                src="images/how-to-06.svg"
+                alt="An illustration of wireframing page with properly structured headlines, with descriptive paragraphs, labels inputs and button."
+              />
             </div>
             <div className="post-content">
-              <p> Description here ...</p>
+              <p>
+                <ul>
+                  <li>
+                    Detailed <strong>skip-links</strong>
+                  </li>
+                  <li>
+                    Purposeful <strong>landmarks</strong>
+                  </li>
+                  <li>
+                    Semantic <strong>headings</strong>
+                  </li>
+                  <li>
+                    Good <strong>aria</strong> attributes
+                  </li>
+                  <li>
+                    Image <strong>alternative</strong> text
+                  </li>
+                  <li>
+                    Visual <strong>focus</strong> appearance
+                  </li>
+                </ul>
+              </p>
+              <p>All that before designing or developing anything!</p>{" "}
+              <p>
+                We believe this method will enable UX professionals including
+                people with disabilities early in the design process, this
+                approach is known as "<strong>shift-left</strong>".{" "}
+              </p>
             </div>
           </div>
         </section>
         <hr className="una" />
-        <Title>Content design leads to good Accessibility</Title>
+        <h2>Content design leads to good Accessibility</h2>
         <p>
-          As UX professionals, we are committed to designing solutions as
+          As UX professionals, you are committed to designing solutions as
           ambassadors for all users, including people with disabilities.
         </p>
         <p>
-          This tool invites all UX designers and researchers to bring intent
-          into our design process by elevating the content quality early for
-          People with Disabilities.
+          This tool invites all designers and researchers to bringing intent
+          into their design process by elevating the content quality early for
+          people with disabilities.
         </p>
 
-        <h2>Priority Guides to the rescue</h2>
-        <p>
-          A good way to start focusing on the content design is using a method
-          called Priority Guides to evolve your content into accessible
-          prototyping, which you can start evaluating with assistive
-          technologies early in the design process.
-        </p>
-        <p>
-          This content-first practice is well-described in the A List Apart's
-          article{" "}
-          <a
-            href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <cite>
-              Priority Guides: A Content-First Alternative to Wireframes
-            </cite>
-          </a>{" "}
-          written by Heleen van Nues and Lennart Overkamp.
-        </p>
-
-        <hr className="una" />
-        <blockquote>
-          Simply put, a priority guide contains content and elements for a
-          mobile screen, sorted by hierarchy from top to bottom and without
-          layout specifications. The hierarchy is based on relevance to users,
-          with the content most critical to satisfying user needs and supporting
-          user (and company) goals higher up.
-        </blockquote>
-        <hr className="una" />
+        <h3>Prototyping with Accessibility in mind</h3>
 
         <p>
-          Priority guide contains content and elements for a mobile screen,
-          sorted by hierarchy from top to bottom and without layout
-          specifications. The hierarchy is based on relevance to users, with the
-          content most critical to satisfying user needs. (credits)
+          As simple as 1, 2, 3:
+          <ul>
+            <li>Create a page</li>
+            <li>Add headlines</li>
+            <li>Prioritize them</li>
+            <li>Test with all users!</li>
+          </ul>
         </p>
-        <p>
-          The following examples show the content hierachy for a Job Board page:
-        </p>
-        <Button link="/pages">Create Priority Guides</Button>
+        <Button link="/pages">Start prototyping</Button>
       </Main>
     </Layout>
   )

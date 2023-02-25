@@ -14,10 +14,10 @@ export default function Root() {
     <Layout>
       <Main>
         <section className="hero">
-          <h1>Stop using 'Lorem Ipsum', it creates barriers.</h1>
+          <h1>Stop using 'Lorem Ipsum'! It creates barriers.</h1>
           <p>
-            Welcome to <strong>No Latin</strong>. Our goal is to improve
-            accessibility for people with disabilities by identifying and
+            Welcome to <strong>No Latin</strong>. Our goal is to improve the
+            user experience for people with disabilities by identifying and
             eliminating the use of Latin-based scripts (a.k.a.: Lorem Ipsum) in
             the design industry.
           </p>
@@ -83,7 +83,7 @@ export default function Root() {
           <a
             href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             <cite>
               Priority Guides: A Content-First Alternative to Wireframes

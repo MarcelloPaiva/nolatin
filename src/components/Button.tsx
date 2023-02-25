@@ -20,6 +20,7 @@ const Button = forwardRef(
     const buttonStyles = ` 
     display: flex;
       justify-content: center;
+      text-align: center;
       align-items: center;
       border: none;
       border-radius: 12px;
@@ -34,6 +35,7 @@ const Button = forwardRef(
     const buttonLinkStyles = `
       display: flex;
       justify-content: center;
+      text-align: center;
       align-items: center;
       border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
       background-color: var(--buttonSecondary-bg);
@@ -44,7 +46,6 @@ const Button = forwardRef(
       font-size: 120%;
       letter-spacing: .05rem;
       font-weight: bold;
-
       `
     const buttonDisabledStyles = `
       display: flex;

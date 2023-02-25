@@ -22,8 +22,7 @@ export default function Root() {
             the design industry.
           </p>
           <Button link="/pages">
-            Start prototyping with
-            <br /> Accesibility in mind
+            Start prototyping with Accesibility in mind
           </Button>
           <br />
           <p>

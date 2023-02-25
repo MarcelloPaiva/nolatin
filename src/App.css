@@ -561,7 +561,7 @@ Prototyping Styles
 
 .exportApp header {
   background-color: var(--dark);
-  height: 112px;
+  height: 96px;
 }
 
 .exportApp main header {

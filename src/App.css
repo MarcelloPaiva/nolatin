@@ -207,7 +207,7 @@ p {
   margin-bottom: 1rem;
   color: var(--secondary-100);
   line-height: 150%;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 ul,
@@ -218,6 +218,7 @@ ol {
 
 .post-content ul {
   display: inline-block;
+  margin: 0 0 0 1rem;
 }
 
 h1 {
@@ -264,16 +265,15 @@ img.landing {
 .post-container {
   display: block;
   margin: 1rem 0;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
   overflow: auto;
   border: 4px solid var(--secondary-05);
   border-radius: 1rem;
-  vertical-align: baseline;
 }
 .post-thumb {
   width: auto;
-  max-width: 350px;
-  padding: 0 1rem 0rem 0;
+  max-width: 320px;
+  padding: 0 1rem 0 0;
   height: auto;
   float: left;
 }

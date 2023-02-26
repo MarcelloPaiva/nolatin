@@ -51,10 +51,11 @@ export default function Create() {
       "description"
     ) as HTMLSelectElement
     return {
-      title: title.value ?? "Rename this page",
+      title: title.value === "" ? "Rename this page" : title.value,
       description:
-        description.value ??
-        "Don't procrastinate, add a good description to this page, screen-reader users depend on you to have a better user experience.",
+        description.value === ""
+          ? "Don't procrastinate, add a good description to this page, screen-reader users depend on you to have a better user experience."
+          : description.value,
     }
   }
 

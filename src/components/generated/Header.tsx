@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import PopoverMenu from "../PopoverMenu"
-import { Info, Menu as Hamburger } from "react-feather"
+import { Info } from "react-feather"
 import { Menu } from "@mui/material"
 import { useState, useRef } from "react"
 
@@ -12,21 +12,16 @@ const GenHeader = styled.header`
   align-items: center;
   padding: 24px 16px;
 `
-
-const Nav = styled.nav`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-`
-
 const Heading = styled.h1`
   color: var(--primary-light);
   margin: 0;
   margin-left: 8px;
 `
-
 const Row = styled.div`
   display: flex;
+`
+const Description = styled.span`
+  padding: 16px 8px;
 `
 
 interface PageItem {
@@ -41,15 +36,6 @@ interface HeaderProps {
 }
 
 export default function Header({ pages, info, title }: HeaderProps) {
-  const [menuOpen, setMenuOpen] = useState(false)
-  const menuRef = useRef<HTMLElement>(null)
-  const handleMenuClick = () => {
-    setMenuOpen(true)
-  }
-  const handleMenuClose = () => {
-    setMenuOpen(false)
-  }
-
   const [infoOpen, setInfoOpen] = useState(false)
   const infoRef = useRef<HTMLDivElement>(null)
   const handleInfoClick = () => {
@@ -73,24 +59,6 @@ export default function Header({ pages, info, title }: HeaderProps) {
               }
             })}
           />
-          // <Nav aria-label="Page Navigation" ref={menuRef}>
-          //   <IconButton
-          //     key="page-menu"
-          //     id="page-menu"
-          //     size={32}
-          //     color="var(--primary-light)"
-          //     icon={Hamburger}
-          //     aria="Navigate to another page"
-          //     onClick={handleMenuClick}
-          //   />
-          //   <Menu
-          //     anchorEl={menuRef.current}
-          //     open={menuOpen}
-          //     onClose={handleMenuClose}
-          //   >
-          //     <Nav>{menuItems(pages)}</Nav>
-          //   </Menu>
-          // </Nav>
         )}
         <Heading>{title}</Heading>
       </Row>
@@ -120,19 +88,4 @@ export default function Header({ pages, info, title }: HeaderProps) {
       </div>
     </GenHeader>
   )
-}
-
-const Description = styled.span`
-  padding: 16px 8px;
-`
-
-const MenuItem = styled.a`
-  padding: 8px;
-  text-decoration: none;
-`
-
-function menuItems(pages: PageItem[]) {
-  return pages.map((page) => (
-    <MenuItem href={`/preview/${page.id}`}>{page.title}</MenuItem>
-  ))
 }

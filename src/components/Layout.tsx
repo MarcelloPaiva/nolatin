@@ -18,6 +18,8 @@ export default function Layout({ children, style }: LayoutProps) {
     <RootContainer>
       <NavBar />
       {children}
+
+      <hr className="una" />
       <Footer />
       <div className="post-footer">
         <p>

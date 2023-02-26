@@ -101,7 +101,6 @@ export default function Root() {
         <Button link="/guides">
           Learn how to create accessible prototypes
         </Button>
-        <hr className="una" />
       </Main>
     </Layout>
   )

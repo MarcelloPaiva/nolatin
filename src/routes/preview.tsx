@@ -55,21 +55,73 @@ function generateSections(sections: Section[]) {
       case ElementNames.Article:
         return <article>{content}</article>
       case ElementNames.Header:
-        return <header>{content}</header>
+        return (
+          <header
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </header>
+        )
       case ElementNames.Footer:
-        return <footer>{content}</footer>
+        return (
+          <footer
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </footer>
+        )
       case ElementNames.Navigation:
-        return <nav>{content}</nav>
+        return (
+          <nav aria-label={`${section.name}`} title={`${section.description}`}>
+            {content}
+          </nav>
+        )
       case ElementNames.Section:
-        return <section>{content}</section>
+        return (
+          <section
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </section>
+        )
       case ElementNames.Form:
-        return <form>{content}</form>
+        return (
+          <form aria-label={`${section.name}`} title={`${section.description}`}>
+            {content}
+          </form>
+        )
       case ElementNames.Search:
-        return <form role="search">{content}</form>
+        return (
+          <form
+            role="search"
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </form>
+        )
       case ElementNames.Complementary:
-        return <aside>{content}</aside>
+        return (
+          <aside
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </aside>
+        )
       case ElementNames.Alert:
-        return <div role="alert">{content}</div>
+        return (
+          <div
+            role="alert"
+            aria-label={`${section.name}`}
+            title={`${section.description}`}
+          >
+            {content}
+          </div>
+        )
       default:
         return null
     }

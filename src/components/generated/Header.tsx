@@ -1,9 +1,9 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
+import PopoverMenu from "../PopoverMenu"
 import { Info, Menu as Hamburger } from "react-feather"
 import { Menu } from "@mui/material"
-import { useState } from "react"
-import { useRef } from "react"
+import { useState, useRef } from "react"
 
 const GenHeader = styled.header`
   background-color: var(--accent);
@@ -63,24 +63,34 @@ export default function Header({ pages, info, title }: HeaderProps) {
     <GenHeader>
       <Row>
         {pages.length > 1 && (
-          <Nav aria-label="Page Navigation" ref={menuRef}>
-            <IconButton
-              key="page-menu"
-              id="page-menu"
-              size={32}
-              color="var(--primary-light)"
-              icon={Hamburger}
-              aria="Navigate to another page"
-              onClick={handleMenuClick}
-            />
-            <Menu
-              anchorEl={menuRef.current}
-              open={menuOpen}
-              onClose={handleMenuClose}
-            >
-              <Nav>{menuItems(pages)}</Nav>
-            </Menu>
-          </Nav>
+          <PopoverMenu
+            navLabel="Page Navigation"
+            buttonLabel="Navigate to another page"
+            items={pages.map((page) => {
+              return {
+                link: `/preview/${page.id}`,
+                title: page.title,
+              }
+            })}
+          />
+          // <Nav aria-label="Page Navigation" ref={menuRef}>
+          //   <IconButton
+          //     key="page-menu"
+          //     id="page-menu"
+          //     size={32}
+          //     color="var(--primary-light)"
+          //     icon={Hamburger}
+          //     aria="Navigate to another page"
+          //     onClick={handleMenuClick}
+          //   />
+          //   <Menu
+          //     anchorEl={menuRef.current}
+          //     open={menuOpen}
+          //     onClose={handleMenuClose}
+          //   >
+          //     <Nav>{menuItems(pages)}</Nav>
+          //   </Menu>
+          // </Nav>
         )}
         <Heading>{title}</Heading>
       </Row>

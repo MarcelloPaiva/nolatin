@@ -40,15 +40,17 @@ export default function NavBar() {
         />
       </a>
       <Row>
-        <IconButton
-          size={24}
-          icon={Menu}
-          onClick={() => {}}
-          aria="Menu"
-          label="Menu"
-          color="var( --secondary-80)"
-          styles="color: var( --secondary-80);"
-        />
+        <nav aria-label="Primary">
+          <IconButton
+            size={24}
+            icon={Menu}
+            onClick={() => {}}
+            aria="Menu"
+            label="Menu"
+            color="var( --secondary-80)"
+            styles="color: var( --secondary-80);"
+          />
+        </nav>
       </Row>
     </Header>
   )

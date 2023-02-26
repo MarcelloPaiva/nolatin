@@ -12,7 +12,7 @@ export default function Accessibility() {
   return (
     <Layout>
       <Main>
-        <h1>Accessibility statement for No Latin</h1>
+        <h1>Accessibility Statement</h1>
 
         <p>
           We want everyone who visits the No Latin website to feel welcome and

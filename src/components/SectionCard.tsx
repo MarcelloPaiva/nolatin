@@ -151,7 +151,6 @@ export default function SectionCard({
   } = useContext(AppContext)
   const { id, children, name, description, element, draft } = state
   const [open, setOpen] = useState(false)
-  const [localName, setLocalName] = useState(name)
 
   // function getRoles(element: ElementNames): string {
   //   let roles = Elements[element].roles
@@ -173,8 +172,11 @@ export default function SectionCard({
     ) as HTMLSelectElement
     return {
       id: id,
-      name: name.value,
-      description: description.value,
+      name: name.value === "" ? "Rename this section" : name.value,
+      description:
+        description.value === ""
+          ? "Don't procrastinate, add a good description to this section, screen-reader users depend on you to have a better user experience."
+          : description.value,
       element: element.value as ElementNames,
       children: children,
       draft: false,
@@ -232,22 +234,14 @@ export default function SectionCard({
             label="Save"
             styles="background:var(--button-save-bg);border-radius:4px;width:60px;"
             onClick={handleSave}
-            disabled={localName === ""}
           />
         </EndRow>
         <div className="scrollMe">
           <Input
             id={id + "-name"}
             label="Section Name"
-            defaultValue={localName}
+            defaultValue={name}
             title
-            style={``}
-            onBlur={() => {
-              const name = document.getElementById(
-                id + "-name"
-              ) as HTMLInputElement
-              setLocalName(name.value)
-            }}
           />
           <Input
             id={id + "-description"}

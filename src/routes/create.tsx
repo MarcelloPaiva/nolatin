@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { Title } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
@@ -43,10 +43,6 @@ const Row = styled.div`
 
 export default function Create() {
   const { dispatch } = useContext(AppContext)
-  const [localTitle, setLocalTitle] = useState("")
-  const [localDescription, setLocalDescription] = useState("")
-  // const descriptionRef = useRef(null)
-  // const buttonRef = useRef(null)
   const navigate = useNavigate()
 
   function getFormData(): { title: string; description: string } {
@@ -55,8 +51,11 @@ export default function Create() {
       "description"
     ) as HTMLSelectElement
     return {
-      title: title.value,
-      description: description.value,
+      title: title.value === "" ? "Rename this page" : title.value,
+      description:
+        description.value === ""
+          ? "Don't procrastinate, add a good description to this page, screen-reader users depend on you to have a better user experience."
+          : description.value,
     }
   }
 
@@ -64,22 +63,6 @@ export default function Create() {
     dispatch({ type: ActionTypes.CreatePage, payload: getFormData() })
     navigate("/pages")
   }
-
-  function handleBlur() {
-    const data = getFormData()
-    setLocalTitle(data.title)
-    setLocalDescription(data.description)
-  }
-
-  // function handleFocusOnTab(
-  //   event: React.KeyboardEvent,
-  //   ref: React.RefObject<HTMLElement>
-  // ) {
-  //   if (event.code === "Tab") {
-  //     console.log("CURRENT REF", ref.current)
-  //     ref.current?.focus()
-  //   }
-  // }
 
   return (
     <Layout>
@@ -99,30 +82,14 @@ export default function Create() {
             about this page.
           </p>
         </Row>
-        <Input
-          id="title"
-          label="Page Title"
-          onBlur={handleBlur}
-          // onKeyDown={(event) => handleFocusOnTab(event, descriptionRef)}
-          defaultValue={localTitle}
-        />
-        <Input
-          id="description"
-          label="Description"
-          onBlur={handleBlur}
-          // onKeyDown={(event) => handleFocusOnTab(event, buttonRef)}
-          // ref={descriptionRef}
-          defaultValue={localDescription}
-          multiline
-        />
+        <Input id="title" label="Page Title" />
+        <Input id="description" label="Description" multiline />
         <Button
           styles={`
             margin: 40px 0px;
             width: 100%;
         `}
           onClick={handleCreate}
-          disabled={localTitle === "" || localDescription === ""}
-          // ref={buttonRef}
         >
           Add Page
         </Button>

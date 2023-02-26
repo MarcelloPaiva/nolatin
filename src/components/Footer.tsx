@@ -1,3 +1,3 @@
 export default function Footer() {
-  return <footer role="navigation"></footer>
+  return <footer>Accessibility Statement</footer>
 }

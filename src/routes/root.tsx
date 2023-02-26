@@ -102,7 +102,6 @@ export default function Root() {
           Learn how to create accessible prototypes
         </Button>
         <hr className="una" />
-        <footer>Footer goes here.</footer>
       </Main>
     </Layout>
   )

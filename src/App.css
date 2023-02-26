@@ -345,6 +345,27 @@ select {
   background-repeat: no-repeat;
 }
 
+.site-footer {
+  position: relative;
+  bottom: 0;
+  display: block;
+  height: auto;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  background-color: var(--secondary-20);
+  text-align: center;
+}
+
+.site-footer li {
+  display: inline;
+  margin: 1rem;
+}
+
+.post-footer {
+  text-align: center;
+  padding: 2rem;
+}
+
 .toolbar {
   display: block;
   width: auto;
@@ -369,8 +390,9 @@ select {
 }
 
 .instructions h2 {
-  color: var(--green-50);
+  color: var(--secondary-100);
   font-weight: 400;
+  margin: 0;
   margin-bottom: 0.25rem;
   font-size: 1.125rem;
 }

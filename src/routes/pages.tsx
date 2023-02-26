@@ -16,9 +16,8 @@ const LeftTitle = styled(Title)`
 const Root = styled.main`
   display: flex;
   flex-direction: column;
-  width: auto;
+  width: 100%;
   padding: 0 1rem;
-  align-items: center;
 `
 
 const ModalContainer = styled.div`
@@ -33,7 +32,7 @@ const ModalContainer = styled.div`
 
 const Row = styled.div`
   display: flex;
-  align-items: center;
+  align-items: left;
   width: 100%;
   justify-content: space-around;
 `
@@ -106,35 +105,44 @@ export default function Pages() {
             </Row>
           </ModalContainer>
         </Modal>
-        <LeftTitle>Pages</LeftTitle>
-        <div className="instructions">
-          <h2>{pages.length > 0 ? "Carry on" : "Getting started"}</h2>
+        <main>
+          <LeftTitle>Pages</LeftTitle>
           <p>
-            {pages.length > 0
-              ? "Add more pages or click on the page name to start building your priority guides."
-              : "Start by adding a page"}
+            If you haven't done so, this is a good time to pause and read the
+            following article{" "}
+            <a
+              href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <cite>
+                Priority Guides: A Content-First Alternative to Wireframes
+              </cite>
+            </a>
+            . It will make you a better human.
           </p>
-        </div>
-        <br />
-        {pages.map((page, index) => (
-          <PageCard
-            key={page.id}
-            id={page.id}
-            title={page.title}
-            last={pages.length === index + 1}
-            onDelete={() => setOpenDelete(page)}
-            onEdit={() => setOpenEdit(page)}
-          />
-        ))}
-        <Button
-          styles={`
-            margin: 40px 0px;
-            width: 100%;
-        `}
-          link="/create"
-        >
-          Add a page
-        </Button>
+          <br />
+          <div className="instructions">
+            <h2>{pages.length > 0 ? "Carry on" : "Add a page"}</h2>
+            <p>
+              {pages.length > 0
+                ? "Add more pages or click on the page name to start building your priority guides."
+                : "But please remember to be intentful about writing the page title and description."}
+            </p>
+          </div>
+          <br />
+          {pages.map((page, index) => (
+            <PageCard
+              key={page.id}
+              id={page.id}
+              title={page.title}
+              last={pages.length === index + 1}
+              onDelete={() => setOpenDelete(page)}
+              onEdit={() => setOpenEdit(page)}
+            />
+          ))}
+          <Button link="/create">Add a page</Button>
+        </main>
       </Root>
       <Divider />
     </Layout>

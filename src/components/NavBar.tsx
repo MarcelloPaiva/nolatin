@@ -33,7 +33,7 @@ const Logo = styled.img`
 export default function NavBar() {
   return (
     <Header>
-      <a href="/">
+      <a href="/" id="nolatin-logo">
         <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"

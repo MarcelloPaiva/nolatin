@@ -37,7 +37,7 @@ const Button = forwardRef(
       justify-content: center;
       text-align: center;
       align-items: center;
-      width: 100%;
+      width: auto;
       max-width: 678px;
       margin: auto;
       margin-top: 2rem;

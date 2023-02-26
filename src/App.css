@@ -609,13 +609,16 @@ Prototyping Styles
   margin-bottom: 0.75rem;
 }
 .exportApp input {
-  border-color: #000;
+  border-color: var(--dark);
   margin-bottom: 1rem;
 }
 
-.exportApp button {
-  background-color: #000;
+.exportApp button,
+.exportApp [role="button"] {
+  background-color: var(--dark);
   margin-bottom: 4px;
+  color: var(--light);
+  border: none;
 }
 
 .exportApp *:focus {

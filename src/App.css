@@ -202,6 +202,16 @@ a:active {
   outline-color: deeppink;
 }
 
+.bad-ipsum {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: wavy;
+  text-decoration-color: deeppink;
+  -webkit-text-fill-color: var(--light);
+  color: var(--light);
+  cursor: not-allowed;
+}
+
 p {
   margin: 0;
   margin-bottom: 1rem;

@@ -2,6 +2,9 @@ import { AppProvider } from "./context/AppContext"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Root from "./routes/root"
 import Guides from "./routes/guides"
+import About from "./routes/about"
+import Credits from "./routes/credits"
+import Accessibility from "./routes/accessibility"
 import Create from "./routes/create"
 import Pages from "./routes/pages"
 import Page from "./routes/page"
@@ -15,6 +18,9 @@ function App() {
         <Routes>
           <Route path="/" element={<Root />} />
           <Route path="/guides" element={<Guides />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/credits" element={<Credits />} />
+          <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/create" element={<Create />} />
           <Route path="/preview/:pageId" element={<Preview />} />
           <Route path="/pages" element={<Pages />} />

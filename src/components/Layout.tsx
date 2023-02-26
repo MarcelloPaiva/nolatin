@@ -23,13 +23,7 @@ export default function Layout({ children, style }: LayoutProps) {
       <Footer />
       <div className="post-footer">
         <p>
-          <strong>No Latin</strong> is made with love by a{" "}
-          <a href="/credits">bunch of folks</a> that give a damn and licensed
-          under a{" "}
-          <a rel="license" href="http://creativecommons.org/licenses/by/2.0/">
-            Creative Commons Attribution 2.0 Generic License
-          </a>
-          .
+          <strong>No Latin</strong> - (version 0.1)
         </p>
       </div>
     </RootContainer>

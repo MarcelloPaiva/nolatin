@@ -152,7 +152,7 @@ body {
   margin: 0 auto;
   float: none;
   background-color: var(--surface-light);
-  color: var(--text-light);
+  color: var(--secondary-100);
   line-height: 150%;
 }
 
@@ -217,7 +217,6 @@ a:active {
 p {
   margin: 0;
   margin-bottom: 1rem;
-  color: var(--secondary-100);
   line-height: 150%;
   font-size: 1rem;
 }
@@ -267,9 +266,9 @@ h3 {
 }
 
 img.landing {
-  margin-top: 3rem;
+  margin-top: 2rem;
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
-  border: 1rem solid var(--secondary-05);
+  border: 1rem solid var(--dark);
   border-width: 1rem 0;
   display: cover;
   width: calc(100% + 2rem);
@@ -350,20 +349,34 @@ select {
   bottom: 0;
   display: block;
   height: auto;
-  padding: 2rem 1rem;
-  margin-top: 2rem;
+  padding: 2rem;
+  margin: 2rem 1rem 0;
+  border-radius: 1rem;
   background-color: var(--secondary-20);
   text-align: center;
 }
 
+.site-footer h2 {
+  color: var(--secondary-100);
+}
+
 .site-footer li {
-  display: inline;
-  margin: 1rem;
+  display: inline-block;
+  margin: 0.5rem;
+}
+.site-footer a {
+  padding: 4px;
+  line-height: 2rem;
 }
 
 .post-footer {
   text-align: center;
   padding: 2rem;
+}
+
+.post-footer p {
+  font-size: 0.9rem;
+  line-height: 1.5rem;
 }
 
 .toolbar {

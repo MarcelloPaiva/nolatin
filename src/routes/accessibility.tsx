@@ -41,8 +41,10 @@ export default function Accessibility() {
         <p>
           We've worked hard on the No Latin website and believe we've achieved
           our goal of Level AA accessibility. We monitor the website regularly
-          to maintain this, but if you do find any problems, please get in
-          touch.
+          to maintain this, but if you do find any problems,{" "}
+          <a href="https://github.com/MarcelloPaiva/nolatin/issues/new/choose">
+            please get in touch by creating an issue on github.
+          </a>
         </p>
 
         <p>

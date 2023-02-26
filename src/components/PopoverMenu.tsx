@@ -19,12 +19,14 @@ interface HeaderProps {
   buttonLabel: string
   navLabel: string
   items: MenuItemProps[]
+  color?: string
 }
 
 export default function PopoverMenu({
   navLabel,
   buttonLabel,
   items,
+  color,
 }: HeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
   const menuRef = useRef<HTMLElement>(null)
@@ -32,7 +34,6 @@ export default function PopoverMenu({
     setMenuOpen(true)
     setTimeout(() => {
       const firstItem = document.getElementById(`${items[0].title}-0`)
-      console.log("FIRST ITEM", firstItem)
       firstItem?.focus()
     }, 1)
   }
@@ -43,7 +44,7 @@ export default function PopoverMenu({
     <Nav aria-label={navLabel} ref={menuRef}>
       <IconButton
         size={32}
-        color="var(--primary-light)"
+        color={color ?? "var(--primary-light)"}
         icon={Hamburger}
         aria={buttonLabel}
         onClick={handleMenuClick}

@@ -3,10 +3,10 @@ export default function Footer() {
     <footer className="site-footer">
       <ul>
         <li>
-          <a href="#">About</a>
+          <a href="/">About</a>
         </li>
         <li>
-          <a href="#">Credits</a>
+          <a href="/">Credits</a>
         </li>
         <li>
           <a href="/accessibility">Accessibility Statement</a>

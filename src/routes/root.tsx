@@ -21,11 +21,13 @@ export default function Root() {
             eliminating the use of Latin-based scripts (a.k.a.: Lorem Ipsum) in
             the design industry.
           </p>
-          <Button link="/pages">Build an accessible prototype now</Button>
+          <Button link="/pages">
+            Start prototyping with Accesibility in mind
+          </Button>
           <br />
           <p>
-            Or carry on to understand how designers can create accessible
-            solutions from day-1.
+            Or carry on to understand why{" "}
+            <strong>Lorem Ipsum is an act of exclusion.</strong>
           </p>
         </section>
         <img className="landing" src="images/InclusiveBunch.png" alt=""></img>
@@ -36,25 +38,24 @@ export default function Root() {
         </figcaption>
         <hr className="una" />
         <blockquote>
-          <h2>The Industry Problem:</h2>
-          Many UX designers and user researchers struggle to incorporate
-          accessibility considerations into their design process, resulting in
-          poor experiences for users with disabilities.
+          <h2>Industry Problem</h2>
+          Most UX professionals struggle to incorporate accessibility
+          considerations into their design process, resulting in poor
+          experiences for users with disabilities.
+          <h3>Possible Reason</h3>
+          Poor content leads to poor Accessibility.
         </blockquote>
+
         <hr className="una" />
-        <h2>Poor content leads to poor Accessibility:</h2>
+        <h2>Content and Accessibility are considered an afterthought.</h2>
         <p>
-          Content design and Accessibility are often considered an afterthought
-          in any product life-cycle.
-        </p>
-        <br />
-        <p>
+          <strong>Poor content leads to poor Accessibility</strong>
+          <br />
           If designers continue to use Latin content placeholders in early
           design concepts, people with disabilities that rely on assistive
           technologies (i.e.: screen readers) will continue to be excluded from
           early user research studies.
         </p>
-        <hr className="una" />
         <img
           className="landing"
           src="images/NoLorem.png"
@@ -69,10 +70,10 @@ export default function Root() {
 
         <hr className="una" />
         <blockquote>
-          <h2>Solution:</h2>
-          Create good content from the beginning, by creating Priority Guides -
-          content and elements for a mobile screen, sorted by hierarchy from top
-          to bottom and without layout specifications.
+          <h2>Solution</h2>
+          Create good content from the beginning using{" "}
+          <strong>Priority Guides</strong> with headlines and elements blocks,
+          sorted by user needs.
         </blockquote>
         <hr className="una" />
         <h2>Priority Guides to the rescue</h2>
@@ -89,33 +90,17 @@ export default function Root() {
               Priority Guides: A Content-First Alternative to Wireframes
             </cite>
           </a>{" "}
-          written by Heleen van Nues and Lennart Overkamp.
+          written by Heleen van Nues and Lennart Overkamp. (Thank you!)
         </p>
-        <h3>Priority guides are simple and quick</h3>
+        <h2>Using the No Latin tool</h2>
         <p>
-          When creating these priority guide headlines you put intent on the
-          user's expectations and it is as simple as following these steps:
-          <ol>
-            <li>Write purposeful headlines,</li>
-            <li>Add a brief description for each headline,</li>
-            <li>State the expected action by the user.</li>
-          </ol>
-          Add as many headlines, then prioritize the content and its
-          accessibility needs before the interface designing. This crucial step
-          will safeguard the user experience creating the opportunity to be more
-          inclusive during usability studies.
+          This tool invites all UX professionals to bring intent into their
+          design process by elevating the content quality early for people with
+          disabilities.
         </p>
-        <h2>Using the No Latin App:</h2>
-        <p>
-          No Latin is a tool that helps designers and researchers bringing
-          intent into their design process by elevating the content quality
-          early using prority guides and exporting an accessible web page that
-          can be used to test with people with disabilities before the interface
-          design stage.
-        </p>
-        <Button link="/guides">Learn how to create priority guides</Button>
-        <hr className="una" />
-        <footer>Footer goes here.</footer>
+        <Button link="/guides">
+          Learn how to create accessible prototypes
+        </Button>
       </Main>
     </Layout>
   )

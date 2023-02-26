@@ -156,6 +156,18 @@ body {
   line-height: 150%;
 }
 
+a:link,
+a:visited {
+  color: var(--accent);
+}
+
+a:hover,
+a:active {
+  color: var(--focus);
+  background-color: var(--light);
+  text-decoration: none;
+}
+
 .main {
   display: block;
   padding: 0 1rem;
@@ -257,7 +269,17 @@ h3 {
 img.landing {
   margin-top: 3rem;
   filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
-  border: 1rem solid var(--secondary-25);
+  border: 1rem solid var(--secondary-05);
+  border-width: 1rem 0;
+  display: cover;
+  width: calc(100% + 2rem);
+  position: relative;
+  left: -1rem;
+  right: -2rem;
+}
+
+cite {
+  font-style: normal;
 }
 
 /* How to page styles */
@@ -323,6 +345,27 @@ select {
   background-repeat: no-repeat;
 }
 
+.site-footer {
+  position: relative;
+  bottom: 0;
+  display: block;
+  height: auto;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  background-color: var(--secondary-20);
+  text-align: center;
+}
+
+.site-footer li {
+  display: inline;
+  margin: 1rem;
+}
+
+.post-footer {
+  text-align: center;
+  padding: 2rem;
+}
+
 .toolbar {
   display: block;
   width: auto;
@@ -347,8 +390,9 @@ select {
 }
 
 .instructions h2 {
-  color: var(--green-50);
+  color: var(--secondary-100);
   font-weight: 400;
+  margin: 0;
   margin-bottom: 0.25rem;
   font-size: 1.125rem;
 }
@@ -539,7 +583,7 @@ Prototyping Styles
 
 .exportApp header {
   background-color: var(--dark);
-  height: 112px;
+  height: 96px;
 }
 
 .exportApp main header {

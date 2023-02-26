@@ -1,5 +1,4 @@
-import { Menu } from "react-feather"
-import IconButton from "./IconButton"
+import PopoverMenu from "./PopoverMenu"
 import styled from "styled-components"
 import NoLatin from "../assets/svgs/nolatinLogo03.svg"
 
@@ -33,24 +32,36 @@ const Logo = styled.img`
 export default function NavBar() {
   return (
     <Header>
-      <a href="/">
+      <a href="/" id="nolatin-logo">
         <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"
         />
       </a>
       <Row>
-        <nav aria-label="Primary">
-          <IconButton
-            size={24}
-            icon={Menu}
-            onClick={() => {}}
-            aria="Menu"
-            label="Menu"
-            color="var( --secondary-80)"
-            styles="color: var( --secondary-80);"
-          />
-        </nav>
+        <PopoverMenu
+          navLabel="Primary Site Navigation"
+          buttonLabel="Open Site Menu"
+          color="var( --secondary-80)"
+          items={[
+            {
+              link: "/",
+              title: "Home",
+            },
+            {
+              link: "/guides",
+              title: "How To",
+            },
+            {
+              link: "/pages",
+              title: "Get Started",
+            },
+            {
+              link: "/about",
+              title: "About",
+            },
+          ]}
+        />
       </Row>
     </Header>
   )

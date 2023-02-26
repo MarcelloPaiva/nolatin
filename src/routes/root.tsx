@@ -14,12 +14,14 @@ export default function Root() {
     <Layout>
       <Main>
         <section className="hero">
-          <h1>Stop using 'Lorem Ipsum'! It creates barriers.</h1>
+          <h1>
+            Stop using <span className="bad-ipsum">Lorem Ipsum</span>. It
+            creates barriers.
+          </h1>
           <p>
-            Welcome to <strong>No Latin</strong>. Our goal is to improve the
-            user experience for people with disabilities by identifying and
-            eliminating the use of Latin-based scripts (a.k.a.: Lorem Ipsum) in
-            the design industry.
+            Our goal is to improve the user experience for people with
+            disabilities by identifying and eliminating the use of Latin-based
+            scripts (a.k.a.: Lorem Ipsum) in the design industry.
           </p>
           <Button link="/pages">
             Start prototyping with Accesibility in mind

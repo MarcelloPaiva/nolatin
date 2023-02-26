@@ -33,22 +33,21 @@ const Button = forwardRef(
       ${styles}
     `
     const buttonLinkStyles = `
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      align-items: center;
-      width: 100%;
-      max-width: 678px;
-      margin: auto;
-      margin-top: 2rem;
-      border-radius: 12px;
-      padding: 16px;
-      border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
-      background-color: var(--buttonSecondary-bg);
-      color: var(--buttonSecondary-label);
-      font-size: 120%;
-      letter-spacing: .05rem;
-      font-weight: bold;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: auto;
+    max-width: 678px;
+    margin-top: 2rem;
+    border-radius: 12px;
+    padding: 16px;
+    border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
+    background-color: var(--buttonSecondary-bg);
+    color: var(--buttonSecondary-label);
+    font-size: 120%;
+    letter-spacing: .05rem;
+    font-weight: bold;
       `
     const buttonDisabledStyles = `
       display: flex;

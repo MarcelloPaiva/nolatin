@@ -98,22 +98,6 @@ body {
   background-position-y: -32px;
 }
 
-#nolatin-logo {
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  color: #cc092e;
-  font-weight: bold;
-  height: 60px;
-  width: 60px;
-}
-#nolatin-logo a,
-#nolatin-logo object {
-  display: block;
-  width: auto;
-  color: hsla(120, 60%, 40%, 1);
-}
-
 /** SkipTo Styles **/
 
 #skipToHere {
@@ -167,6 +151,10 @@ a:active {
   background-color: var(--light);
   text-decoration: none;
 }
+#nolatin-logo:hover,
+#nolatin-logo:active {
+  background-color: transparent;
+}
 
 .main {
   display: block;
@@ -212,6 +200,16 @@ a:active {
 }
 .hero a:focus {
   outline-color: deeppink;
+}
+
+.bad-ipsum {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-style: wavy;
+  text-decoration-color: deeppink;
+  -webkit-text-fill-color: var(--light);
+  color: var(--light);
+  cursor: not-allowed;
 }
 
 p {
@@ -499,6 +497,7 @@ Prototyping Styles
 .exportApp aside,
 .exportApp nav,
 .exportApp main header,
+.exportApp form,
 .exportApp [role="alert"],
 .exportApp [role="banner"],
 .exportApp [role="main"],
@@ -609,13 +608,16 @@ Prototyping Styles
   margin-bottom: 0.75rem;
 }
 .exportApp input {
-  border-color: #000;
+  border-color: var(--dark);
   margin-bottom: 1rem;
 }
 
-.exportApp button {
-  background-color: #000;
+.exportApp button,
+.exportApp [role="button"] {
+  background-color: var(--dark);
   margin-bottom: 4px;
+  color: var(--light);
+  border: none;
 }
 
 .exportApp *:focus {

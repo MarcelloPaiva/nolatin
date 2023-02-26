@@ -30,7 +30,7 @@ const sectionStyles = `
   padding: 16px;
   margin-top: 1rem; 
   flex: 1;
-  width: 90%;
+  width: 100%;
   background-color: #fff;
 
   p, ol, ul, a,
@@ -312,7 +312,7 @@ export default function SectionCard({
         <IconButton
           icon={Copy}
           aria="Duplicate headline"
-          label="Duplicate"
+          label="Clone"
           onClick={() =>
             dispatch({
               type: ActionTypes.DuplicateSection,

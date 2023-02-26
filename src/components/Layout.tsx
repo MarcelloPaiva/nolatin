@@ -18,7 +18,14 @@ export default function Layout({ children, style }: LayoutProps) {
     <RootContainer>
       <NavBar />
       {children}
+
+      <hr className="una" />
       <Footer />
+      <div className="post-footer">
+        <p>
+          <strong>No Latin</strong> - (version 0.1)
+        </p>
+      </div>
     </RootContainer>
   )
 }

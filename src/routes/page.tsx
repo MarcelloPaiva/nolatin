@@ -79,6 +79,9 @@ export default function Page() {
           <Row>
             <Title>{page.title}</Title>
           </Row>
+          <Row>
+            <p>{page.description}</p>
+          </Row>
           <Row className="toolbar">
             <BackLink href="/pages">
               <ChevronLeft />
@@ -96,7 +99,9 @@ export default function Page() {
               elements.
             </p>
           </div>
-          <Column>{renderCards(page.sections, page.id)}</Column>
+          <Column className="page-box">
+            {renderCards(page.sections, page.id)}
+          </Column>
           <Button
             onClick={() =>
               dispatch({

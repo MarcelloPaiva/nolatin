@@ -88,7 +88,7 @@ export default function Page() {
               <ChevronLeft />
               Back
             </BackLink>
-            <div className="site-cta">
+            <div className="preview">
               <Button link={`/preview/${id}`} newTab>
                 Preview &nbsp; <ExternalLink />
               </Button>

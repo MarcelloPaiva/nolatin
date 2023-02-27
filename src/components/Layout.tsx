@@ -19,7 +19,7 @@ export default function Layout({ children, style }: LayoutProps) {
       <NavBar />
       {children}
 
-      <hr className="una" />
+      <hr className="una" aria-hidden="true" />
       <Footer />
       <div className="post-footer">
         <p>

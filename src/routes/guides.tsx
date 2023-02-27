@@ -145,12 +145,15 @@ export default function Guides() {
               </p>
               <p>All that before designing or developing anything!</p>{" "}
               <p>
-              We believe this method will enable UX professionals to be proactive about including people with disabilities early in the design process; this approach is known as "<strong>shift-left</strong>."
+                We believe this method will enable UX professionals to be
+                proactive about including people with disabilities early in the
+                design process; this approach is known as "
+                <strong>shift-left</strong>."
               </p>
             </div>
           </div>
         </section>
-        <hr className="una" />
+        <hr className="una" aria-hidden="true" />
         <h2>Content design leads to good Accessibility</h2>
         <p>
           As UX professionals, you are committed to designing solutions as

@@ -38,7 +38,7 @@ export default function Root() {
           wheelchair, smiling for a photo celebrating those who design with
           Accessibility in mind.
         </figcaption>
-        <hr className="una" />
+        <hr className="una" aria-hidden="true" />
         <blockquote>
           <h2>Industry Problem</h2>
           Most UX professionals struggle to incorporate accessibility
@@ -48,7 +48,7 @@ export default function Root() {
           Poor content leads to poor Accessibility.
         </blockquote>
 
-        <hr className="una" />
+        <hr className="una" aria-hidden="true" />
         <h2>Content and Accessibility are considered an afterthought.</h2>
         <p>
           <strong>Poor content leads to poor Accessibility</strong>
@@ -70,14 +70,14 @@ export default function Root() {
           into consideration early on.
         </figcaption>
 
-        <hr className="una" />
+        <hr className="una" aria-hidden="true" />
         <blockquote>
           <h2>Solution</h2>
           Create good content from the beginning using{" "}
           <strong>Priority Guides</strong> with headlines and elements blocks,
           sorted by user needs.
         </blockquote>
-        <hr className="una" />
+        <hr className="una" aria-hidden="true" />
         <h2>Priority Guides to the rescue</h2>
         <p>
           A good way to start focusing on content designing before the interface

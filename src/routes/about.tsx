@@ -12,7 +12,7 @@ export default function About() {
   return (
     <Layout>
       <Main>
-        <h1>Why We Created No Latin</h1>
+        <h1>Why we created No Latin</h1>
         <p>
           Once upon a time, there was a team of designers and developers who
           were passionate about creating accessible solutions for everyone. They

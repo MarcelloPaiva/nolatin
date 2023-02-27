@@ -215,6 +215,14 @@ footer .hero {
   margin: auto;
 }
 
+.hero a {
+  color: var(--light);
+}
+
+.hero a:hover {
+  color: deeppink;
+}
+
 .bad-ipsum {
   text-decoration: underline;
   text-decoration-thickness: 2px;

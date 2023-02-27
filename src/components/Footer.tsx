@@ -9,8 +9,16 @@ export default function Footer() {
         <p>
           Diego Baca, Becky Gibson, Marcelo Paiva and Claudio Luis Vera will be
           presenting the session "
-          <strong>Rapid Prototyping with Accessibility in Mind</strong>" to
-          introduce this free tool to help designers bringing people with
+          <strong>
+            <a
+              href="https://www.csun.edu/cod/conference/sessions/index.php/public/presentations/view/1467"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Rapid Prototyping with Accessibility in Mind
+            </a>
+          </strong>
+          " to introduce this free tool to help designers bringing people with
           disabilities early in the design process.
         </p>
         <p>

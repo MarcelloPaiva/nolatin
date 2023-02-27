@@ -195,7 +195,7 @@ footer .hero {
   background: #d5ffbd;
   background: linear-gradient(
     to bottom right,
-    hsl(320, 100%, 90%) 20%,
+    hsl(320, 100%, 95%) 20%,
     hsl(320, 100%, 75%) 80%
   );
   -webkit-background-clip: text;
@@ -213,6 +213,7 @@ footer .hero {
 
 .hero [role="button"] {
   margin: auto;
+  color: deeppink;
 }
 
 .hero a {

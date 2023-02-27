@@ -171,36 +171,41 @@ a:active {
 
 .hero {
   display: block;
-  padding: 0 2rem 2rem;
+  padding: 2rem 2rem;
   background-color: var(--secondary-100);
   margin-top: 40px;
   border-radius: 16px;
 }
 
+footer .hero {
+  margin: 1rem;
+}
+
 .hero h1,
+.hero h2,
 .hero p {
   color: var(--light);
-  font-size: 1.25rem;
   line-height: auto;
 }
 
-.hero h1 {
+.hero h1,
+.hero h2 {
   font-size: 2rem;
   color: hsla(146, 30%, 90%, 1);
   background: #d5ffbd;
   background: linear-gradient(
     to bottom right,
     hsl(320, 100%, 90%) 20%,
-    hsl(320, 100%, 85%) 80%
+    hsl(320, 100%, 75%) 80%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 .hero p {
-  font-size: 1.2rem;
-  line-height: 1.75rem;
-  color: hsl(320, 100%, 95%);
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: hsl(320, 100%, 100%);
 }
 .hero a:focus {
   outline-color: deeppink;
@@ -289,6 +294,10 @@ cite {
 
 /* How to page styles */
 
+.credits .post-title {
+  font-weight: 800;
+  color: var(--secondary-90);
+}
 .post-container {
   display: block;
   margin: 1rem 0;

@@ -65,8 +65,7 @@ export default function About() {
           <strong>To be continued...</strong>
         </p>
         <p>
-          Made with <span aria-label="love">❤️</span> by{" "}
-          <a href="/credits">a bunch of people</a> that{" "}
+          Made with love by <a href="/credits">a bunch of people</a> that{" "}
           <a href="https://github.com/MarcelloPaiva/nolatin/issues/new/choose">
             give a damn
           </a>

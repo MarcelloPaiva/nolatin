@@ -2,12 +2,6 @@ import styled from "styled-components"
 import { ChevronRight, Trash, Edit } from "react-feather"
 import IconButton from "./IconButton"
 
-const PageTitle = styled.span`
-  text-align: left;
-  font-weight: normal;
-  line-height: 80px;
-`
-
 const Row = styled.div`
   display: flex;
   align-items: center;

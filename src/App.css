@@ -218,6 +218,7 @@ footer .hero {
   margin: auto;
   color: deeppink;
   background-color: var(--light);
+  border-radius: 2rem;
 }
 
 .hero a {
@@ -416,13 +417,15 @@ main [role="button"] {
 
 .site-cta [role="button"] {
   margin: auto;
+  border-radius: 2rem;
 }
 
 .card-toolbar button {
   background-color: var(--light) !important;
   font-weight: normal !important;
   margin-left: 0.5rem;
-  border: 2px solid var(--secondary-30);
+  border: 2px solid var(--secondary-20);
+  border-radius: 0.5rem !important;
 }
 
 .toolbar {
@@ -543,6 +546,8 @@ Prototyping Styles
   background-color: var(--focus);
   color: var(--light);
   font-weight: bold;
+
+  border-radius: 2rem;
 }
 
 .proto-mgt [role="button"] {
@@ -550,6 +555,10 @@ Prototyping Styles
   color: var(--light);
   font-weight: bold;
   margin: auto;
+}
+
+.preview [role="button"] {
+  border-radius: 1rem;
 }
 
 .card-container h3 {

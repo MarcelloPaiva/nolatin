@@ -15,7 +15,9 @@ export default function Credits() {
         <h1>Thank you</h1>
         <p>
           We couldn't have created this accessible design solution without the
-          help of these amazing people passionate about Accessibility.
+          help of these amazing people passionate about Accessibility. A special
+          thanks and appreciation for my wife Juliana, for understanding how
+          important this subject is to me.
         </p>
         <p>
           Thank you all for your hard work and dedication.
@@ -92,8 +94,10 @@ export default function Credits() {
           <h2 className="post-title">Claudio Luis Vera</h2>
           <div className="post-content">
             <p>
-              for spreading the knowledge and passion for Accessibility to our
-              South Florida UX community.
+              For spreading your knowledge and passion for Accessibility to our
+              South Florida UX community. There are no words to express my
+              gratitude towards you for introducing me into the Accessibility
+              field years ago.
             </p>
           </div>
         </div>
@@ -106,21 +110,6 @@ export default function Credits() {
             </p>
           </div>
         </div>
-        <section className="hero">
-          <h1>
-            We are presenting at the 38th Annual CSUN Assistive Technology
-            Conference
-          </h1>
-          <p>
-            Diego Baca, Becky Gibson, Marcelo Paiva and Claudio Luis Vera will
-            be presenting the session "Rapid Prototyping with Accessibility in
-            Mind" to introduce this free tool to help designers bringing people
-            with disabilities early in the design process.
-          </p>
-          <p>
-            Join us at the "Grand GH" room on March 14, 2023, at 10:20 AM PDT.
-          </p>
-        </section>
       </Main>
     </Layout>
   )

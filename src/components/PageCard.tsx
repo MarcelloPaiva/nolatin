@@ -32,6 +32,7 @@ export default function PageCard({
 }: PageCardProps) {
   const CardContainer = styled.a`
     width: 100%;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     padding: 0 24px;
@@ -44,8 +45,8 @@ export default function PageCard({
   `
 
   return (
-    <CardContainer href={`/page/${id}`}>
-      <PageTitle>{title}</PageTitle>
+    <CardContainer href={`/page/${id}`} className="card-container">
+      <h3>{title}</h3>
       <Row>
         <IconButton
           icon={Trash}

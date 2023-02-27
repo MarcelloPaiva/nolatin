@@ -25,7 +25,7 @@ export default function Root() {
             <span className="bad-ipsum">Lorem Ipsum</span>) in the design
             industry.
           </p>
-          <Button link="/pages">
+          <Button link="/create">
             Start prototyping with Accesibility in mind
           </Button>
           <br />

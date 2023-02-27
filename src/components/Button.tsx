@@ -42,8 +42,6 @@ const Button = forwardRef(
     margin-top: 2rem;
     border-radius: 12px;
     padding: 16px;
-    border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
-    background-color: var(--buttonSecondary-bg);
     color: var(--buttonSecondary-label);
     font-size: 120%;
     letter-spacing: .05rem;

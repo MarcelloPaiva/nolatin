@@ -21,9 +21,29 @@ export default function Guides() {
             disabilities.
           </p>
         </section>
+
+        <div className="post-container">
+          <h2 className="post-title">Adopt a content-first mindset</h2>
+          <div className="post-content">
+            <p>
+              If you haven't done so, this is a good time to pause and read the
+              following article{" "}
+              <a
+                href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <cite>
+                  Priority Guides: A Content-First Alternative to Wireframes
+                </cite>
+              </a>
+              . It will make you a better human.
+            </p>
+          </div>
+        </div>
         <div id="howTo01">
           <div className="post-container">
-            <h2 className="post-title">Getting started</h2>
+            <h2 className="post-title">Master your priority guides</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-00.svg"
@@ -43,12 +63,17 @@ export default function Guides() {
                   <li>Expectation</li>
                 </ul>
               </p>
+              <p>
+                Most importantly, a priority guide is automatically
+                content-first, with a strong focus on providing best value for
+                users.
+              </p>
             </div>
           </div>
         </div>
         <section id="howTo02">
           <div className="post-container">
-            <h2>Create a page</h2>
+            <h2>Create a page to host your guides</h2>
 
             <div className="post-thumb">
               <img
@@ -84,7 +109,7 @@ export default function Guides() {
         </section>
         <section id="howTo03">
           <div className="post-container">
-            <h2 className="post-title">Create well-written headlines</h2>
+            <h2 className="post-title">Create intentful headlines</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-05.svg"
@@ -154,7 +179,7 @@ export default function Guides() {
           </div>
         </section>
         <hr className="una" aria-hidden="true" />
-        <h2>Content design leads to good Accessibility</h2>
+        <h2>Conclusion: Content design leads to good Accessibility</h2>
         <p>
           As UX professionals, you are committed to designing solutions as
           ambassadors for all users, including people with disabilities.
@@ -163,18 +188,6 @@ export default function Guides() {
           This tool invites all designers and researchers to bringing intent
           into their design process by elevating the content quality early for
           people with disabilities.
-        </p>
-
-        <h3>Prototyping with Accessibility in mind</h3>
-
-        <p>
-          As simple as 1, 2, 3:
-          <ul>
-            <li>Create a page</li>
-            <li>Add headlines</li>
-            <li>Prioritize them</li>
-            <li>Test with all users!</li>
-          </ul>
         </p>
         <Button link="/pages">Start prototyping</Button>
       </Main>

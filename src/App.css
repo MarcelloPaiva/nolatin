@@ -181,6 +181,7 @@ a:active {
 
 footer .hero {
   margin: 1rem;
+  margin-top: 8rem;
 }
 
 .hero h1,
@@ -229,7 +230,7 @@ footer .hero {
 
 .bad-ipsum {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
   text-decoration-style: wavy;
   text-decoration-color: deeppink;
   -webkit-text-fill-color: var(--light);
@@ -411,6 +412,10 @@ main [role="button"] {
   margin-right: 0;
   background-color: deeppink;
   color: var(--light);
+}
+
+.site-cta [role="button"] {
+  margin: auto;
 }
 
 .card-toolbar button {

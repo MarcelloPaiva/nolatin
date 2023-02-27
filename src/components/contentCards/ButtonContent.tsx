@@ -19,7 +19,7 @@ export default function ButtonContent({
         </>
       ) : (
         <>
-          <LabelToo>Descriptive labelToo</LabelToo>
+          <LabelToo>Descriptive label</LabelToo>
           <Text>{title}</Text>
           <LabelToo>Destination Link - enter URL</LabelToo>
           <Text>{url}</Text>

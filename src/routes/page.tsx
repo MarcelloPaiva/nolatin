@@ -88,9 +88,11 @@ export default function Page() {
               <ChevronLeft />
               Back
             </BackLink>
-            <Button link={`/preview/${id}`} newTab>
-              Preview &nbsp; <ExternalLink />
-            </Button>
+            <div className="site-cta">
+              <Button link={`/preview/${id}`} newTab>
+                Preview &nbsp; <ExternalLink />
+              </Button>
+            </div>
           </Row>
           <Row className="proto-mgt-header">
             <div>

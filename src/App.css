@@ -166,7 +166,8 @@ a:active {
 }
 
 .back-row a {
-  margin-right: 1rem;
+  margin: auto 1rem;
+  margin-left: 0;
 }
 
 .hero {
@@ -195,7 +196,7 @@ footer .hero {
   background: #d5ffbd;
   background: linear-gradient(
     to bottom right,
-    hsl(320, 100%, 90%) 20%,
+    hsl(320, 100%, 95%) 20%,
     hsl(320, 100%, 75%) 80%
   );
   -webkit-background-clip: text;
@@ -213,6 +214,16 @@ footer .hero {
 
 .hero [role="button"] {
   margin: auto;
+  color: deeppink;
+  background-color: var(--light);
+}
+
+.hero a {
+  color: var(--light);
+}
+
+.hero a:hover {
+  color: deeppink;
 }
 
 .bad-ipsum {
@@ -397,7 +408,10 @@ select {
 .toolbar {
   display: block;
   width: auto;
-  margin: 1rem 2rem 2rem 0;
+  margin: 2rem 0 0;
+  background-color: var(--secondary-05);
+  border-radius: 1rem;
+  padding: 0.25rem;
 }
 
 .toolbar a {
@@ -411,10 +425,7 @@ select {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 1rem 0;
-  background: var(--light);
-  border: 1px solid var(--secondary-30);
-  border-radius: 1rem;
-  filter: drop-shadow(1px 2px 8px var(--secondary-20));
+  border-left: 0.25rem solid var(--secondary-20);
 }
 
 .instructions h2 {
@@ -488,6 +499,36 @@ blockquote {
 Prototyping Styles
 */
 
+.proto-mgt {
+  display: block;
+  margin-top: 1rem;
+}
+.proto-mgt-header {
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.proto-mgt h1,
+.proto-mgt-desc {
+  margin-top: 0;
+  font-weight: bold;
+  color: var(--focus);
+}
+
+.proto-mgt button,
+.proto-mgt [role="button"] {
+  background-color: var(--focus);
+  color: var(--light);
+  font-weight: bold;
+}
+
+.card-container h3 {
+  color: var(--accent);
+  margin: auto 0;
+}
+.card-container button {
+  margin: auto 0.25rem;
+}
 .exportApp {
   padding: 0;
   margin: 0;

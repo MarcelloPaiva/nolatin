@@ -595,6 +595,11 @@ Prototyping Styles
   margin: 0;
   padding: 0;
 }
+
+.exportApp header nav button {
+  margin: auto;
+}
+
 .exportApp [role="alert"] {
   background-color: var(--dark);
   border: 8px solid #ddd;
@@ -643,7 +648,7 @@ Prototyping Styles
 
 .exportApp h1 {
   font-size: 1.5rem;
-  line-height: 100%;
+  /* line-height: 100%; */
   color: #fff;
 }
 .exportApp h2 {
@@ -693,11 +698,11 @@ Prototyping Styles
   background-color: var(--dark);
   color: var(--light);
   border: none;
-  margin: auto;
-  margin-top: 2rem;
+  /* margin: auto; */
+  /* margin-top: 2rem; */
   width: auto;
-  max-width: fit-content;
-  padding: 1rem 4rem;
+  /* max-width: fit-content; */
+  /* padding: 1rem 4rem; */
 }
 
 .exportApp *:focus {

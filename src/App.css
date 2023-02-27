@@ -98,6 +98,10 @@ body {
   background-position-y: -32px;
 }
 
+header {
+  height: 6rem;
+}
+
 /** SkipTo Styles **/
 
 #skipToHere {
@@ -200,6 +204,10 @@ a:active {
 }
 .hero a:focus {
   outline-color: deeppink;
+}
+
+.hero [role="button"] {
+  margin: auto;
 }
 
 .bad-ipsum {
@@ -595,7 +603,7 @@ Prototyping Styles
 
 .exportApp header {
   background-color: var(--dark);
-  height: 96px;
+  height: 6rem;
 }
 
 .exportApp main header {
@@ -615,9 +623,13 @@ Prototyping Styles
 .exportApp button,
 .exportApp [role="button"] {
   background-color: var(--dark);
-  margin-bottom: 4px;
   color: var(--light);
   border: none;
+  margin: auto;
+  margin-top: 2rem;
+  width: auto;
+  max-width: fit-content;
+  padding: 1rem 4rem;
 }
 
 .exportApp *:focus {

@@ -24,7 +24,6 @@ const ExportApp = styled.div`
 const Main = styled.main`
   background-color: #fff;
   margin: 0;
-  padding-top: 40px !important;
 `
 export default function Preview() {
   const { pageId } = useParams()

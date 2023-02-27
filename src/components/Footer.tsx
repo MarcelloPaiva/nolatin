@@ -24,7 +24,7 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <hr className="una" />
+      <hr className="una" aria-hidden="true" />
 
       <div className="post-footer">
         <p>

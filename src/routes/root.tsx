@@ -21,7 +21,9 @@ export default function Root() {
           <p>
             Our goal is to improve the user experience for people with
             disabilities by identifying and eliminating the use of Latin-based
-            scripts (a.k.a.: Lorem Ipsum) in the design industry.
+            scripts (<abbr title="also known as">a.k.a.</abbr>:{" "}
+            <span className="bad-ipsum">Lorem Ipsum</span>) in the design
+            industry.
           </p>
           <Button link="/pages">
             Start prototyping with Accesibility in mind
@@ -29,7 +31,10 @@ export default function Root() {
           <br />
           <p>
             Or carry on to understand why{" "}
-            <strong>Lorem Ipsum is an act of exclusion.</strong>
+            <strong>
+              <span className="bad-ipsum">Lorem Ipsum</span> is an act of
+              exclusion.
+            </strong>
           </p>
         </section>
         <img className="landing" src="images/InclusiveBunch.png" alt=""></img>

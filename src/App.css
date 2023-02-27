@@ -540,6 +540,13 @@ Prototyping Styles
   font-weight: bold;
 }
 
+.proto-mgt [role="button"] {
+  background-color: var(--focus);
+  color: var(--light);
+  font-weight: bold;
+  margin: auto;
+}
+
 .card-container h3 {
   color: var(--accent);
   margin: auto 0;

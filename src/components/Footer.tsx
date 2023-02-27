@@ -8,8 +8,9 @@ export default function Footer() {
         </h2>
         <p>
           Diego Baca, Becky Gibson, Marcelo Paiva and Claudio Luis Vera will be
-          presenting the session "Rapid Prototyping with Accessibility in Mind"
-          to introduce this free tool to help designers bringing people with
+          presenting the session "
+          <strong>Rapid Prototyping with Accessibility in Mind</strong>" to
+          introduce this free tool to help designers bringing people with
           disabilities early in the design process.
         </p>
         <p>

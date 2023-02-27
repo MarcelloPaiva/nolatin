@@ -189,7 +189,9 @@ export default function Guides() {
           into their design process by elevating the content quality early for
           people with disabilities.
         </p>
-        <Button link="/pages">Start prototyping</Button>
+        <div className="site-cta">
+          <Button link="/pages">Start prototyping</Button>
+        </div>
       </Main>
     </Layout>
   )

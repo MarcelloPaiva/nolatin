@@ -68,6 +68,16 @@ export default function Credits() {
             </p>
           </div>
         </div>
+
+        <div className="post-container">
+          <h2 className="post-title">Shaun Pansolli and Marta Guerra</h2>
+          <div className="post-content">
+            <p>
+              For taking the time to test-drive our idea and providing us with
+              your UX expertise and feedback.
+            </p>
+          </div>
+        </div>
         <div className="post-container">
           <h2 className="post-title">Diego Baca and Becky Gibson</h2>
           <div className="post-content">
@@ -79,7 +89,7 @@ export default function Credits() {
           </div>
         </div>
         <div className="post-container">
-          <h2 className="post-title">Cladio Luis Vera</h2>
+          <h2 className="post-title">Claudio Luis Vera</h2>
           <div className="post-content">
             <p>
               for spreading the knowledge and passion for Accessibility to our

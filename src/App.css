@@ -155,6 +155,7 @@ a:active {
   background-color: var(--light);
   text-decoration: none;
 }
+
 #nolatin-logo:hover,
 #nolatin-logo:active {
   background-color: transparent;
@@ -405,6 +406,19 @@ select {
   line-height: 1.5rem;
 }
 
+main [role="button"] {
+  margin: auto;
+  background-color: deeppink;
+  color: var(--light);
+}
+
+.card-toolbar button {
+  background-color: var(--light) !important;
+  font-weight: normal !important;
+  margin-left: 0.5rem;
+  border: 2px solid var(--secondary-30);
+}
+
 .toolbar {
   display: block;
   width: auto;
@@ -416,6 +430,9 @@ select {
 
 .toolbar a {
   margin-top: 0;
+}
+
+.toolbar [role="button"] {
 }
 
 .instructions,

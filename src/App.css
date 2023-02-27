@@ -408,6 +408,7 @@ select {
 
 main [role="button"] {
   margin: auto;
+  margin-right: 0;
   background-color: deeppink;
   color: var(--light);
 }

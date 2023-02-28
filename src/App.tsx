@@ -4,6 +4,7 @@ import Root from "./routes/root"
 import Guides from "./routes/guides"
 import About from "./routes/about"
 import Credits from "./routes/credits"
+import Usability from "./routes/usability"
 import Accessibility from "./routes/accessibility"
 import Create from "./routes/create"
 import Pages from "./routes/pages"
@@ -20,6 +21,7 @@ function App() {
           <Route path="/guides" element={<Guides />} />
           <Route path="/about" element={<About />} />
           <Route path="/credits" element={<Credits />} />
+          <Route path="/usability" element={<Usability />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/create" element={<Create />} />
           <Route path="/preview/:pageId" element={<Preview />} />

@@ -60,6 +60,10 @@ export default function NavBar() {
               link: "/about",
               title: "About",
             },
+            {
+              link: "/usability",
+              title: "User Testing Guidelines",
+            },
           ]}
         />
       </Row>

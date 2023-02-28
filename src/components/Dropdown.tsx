@@ -35,7 +35,7 @@ export default function Dropdown({
     border: 3px solid var(--secondary-80);
     border-radius: 4px;
     padding: 8px;
-    font-family: "Roboto Mono", sans-serif;
+    font-family: var(--body-family);
     font-size: 90%;
     font-weight: bold;
     line-height: "auto";

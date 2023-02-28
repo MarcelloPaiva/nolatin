@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;600;800&family=Roboto+Mono:wght@200;400;600;800&family=Sofia+Sans:wght@300;400;800&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 :root {
   --h: 60;
   --s: 2%;
@@ -28,10 +28,16 @@
 
   --accent: hsl(var(--h-accent), 100%, 50%);
 
-  --focus: deeppink;
+  --focus: var(--accent);
+
+  --body-family: "Roboto", sans-serif;
+  --body: var(--primary-80);
+
+  --heading-family: "Merriweather", serif;
+  --heading: var(--primary-100);
 
   --navbar-grad-01: var(--secondary-03);
-  --navbar-grad-02: hsla(320, 100%, 90%, 0.5);
+  --navbar-grad-02: var(--secondary-03);
   --navbar-grad-03: var(--secondary-03);
 
   --secondary-03: hsla(var(--h-accent), 50%, 50%, 0.03);
@@ -48,15 +54,15 @@
   --secondary-90: hsla(var(--h-accent), 40%, 40%, 0.9);
   --secondary-100: hsla(var(--h-accent), 50%, 40%, 1);
 
-  --surface-light: var(--primary-light);
+  --surface-light: var(--light);
 
   --text-light: #151514;
   --text-low-emphasis: var(--primary-50);
 
   --inputLabel: var(--secondary-100);
-  --inputValue: var(--green-50);
+  --inputValue: var(--primary-100);
 
-  --button-primary: var(--text-light);
+  --button-primary: var(--accent);
   --button-child: blue;
 
   --button-save-bg: var(--green-50);
@@ -135,12 +141,13 @@ header {
 }
 
 body {
-  font-family: "Sofia Sans", serif;
+  font-family: var(--body-family);
+  font-weight: 400;
   max-width: 1024px;
   margin: 0 auto;
   float: none;
   background-color: var(--surface-light);
-  color: var(--secondary-100);
+  color: var(--body);
   line-height: 150%;
 }
 
@@ -194,15 +201,7 @@ footer .hero {
 .hero h1,
 .hero h2 {
   font-size: 2rem;
-  color: hsla(146, 30%, 90%, 1);
-  background: #d5ffbd;
-  background: linear-gradient(
-    to bottom right,
-    hsl(320, 100%, 95%) 20%,
-    hsl(320, 100%, 75%) 80%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--light);
   margin-top: 1rem;
 }
 .hero p {
@@ -211,12 +210,12 @@ footer .hero {
   color: hsl(320, 100%, 100%);
 }
 .hero a:focus {
-  outline-color: deeppink;
+  outline-color: var(--accent);
 }
 
 .hero [role="button"] {
   margin: auto;
-  color: deeppink;
+  color: var(--primary-100);
   background-color: var(--light);
   border-radius: 2rem;
 }
@@ -226,7 +225,7 @@ footer .hero {
 }
 
 .hero a:hover {
-  color: deeppink;
+  color: var(--primary-100);
 }
 
 .bad-ipsum {
@@ -240,10 +239,9 @@ footer .hero {
 }
 
 p {
-  margin: 0;
-  margin-bottom: 1rem;
-  line-height: 150%;
-  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 2rem;
+  font-size: 1.125rem;
 }
 
 ul,
@@ -268,32 +266,24 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Roboto Slab", serif;
-  color: var(--secondary-80);
+  font-family: var(--heading-family);
+  font-weight: 900;
+  font-style: normal;
+  font-stretch: normal;
+  color: var(--heading);
   line-height: normal;
 }
 
 h1,
 h2,
 h3 {
-  font-weight: 800;
-  color: var(--focus);
   margin-bottom: 1rem;
   margin-top: 1.5rem;
 }
 
-h2 {
-  font-weight: 600;
-}
-
-h3 {
-  font-weight: 600;
-}
-
 img.landing {
   margin-top: 2rem;
-  filter: grayscale(100%) contrast(110%) brightness(95%) sepia(0.8);
-  border: 1rem solid var(--dark);
+  border: 1rem solid var(--secondary-100);
   border-width: 1rem 0;
   display: cover;
   width: calc(100% + 2rem);
@@ -330,11 +320,13 @@ cite {
 /* How to styles end */
 
 button {
-  font-family: "Sofia Sans", serif;
+  font-family: var(--body-family);
+  font-weight: 600;
 }
 
 label {
-  font-weight: bold;
+  font-family: var(--body-family);
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 input {
@@ -411,7 +403,7 @@ select {
 main [role="button"] {
   margin: auto;
   margin-right: 0;
-  background-color: deeppink;
+  background-color: var(--button-primary);
   color: var(--light);
 }
 
@@ -422,7 +414,6 @@ main [role="button"] {
 
 .card-toolbar button {
   background-color: var(--light) !important;
-  font-weight: normal !important;
   margin-left: 0.5rem;
   border: 2px solid var(--secondary-20);
   border-radius: 0.5rem !important;
@@ -463,9 +454,9 @@ main [role="button"] {
 }
 
 figcaption {
-  font-family: "Roboto Slab", serif;
-  font-size: 80%;
-  color: var(--secondary-80);
+  font-family: var(--body-family);
+  font-size: 100%;
+  color: var(--primary-100);
   margin-top: 8px;
   margin-bottom: 3rem;
   letter-spacing: normal;
@@ -474,14 +465,22 @@ figcaption {
 
 blockquote {
   display: block;
-  position: relative;
-  left: -1rem;
-  width: 100%;
-  font-family: "Roboto Slab", "Times New Roman", Times, serif;
-  color: var(--secondary-100);
+  margin: 1rem 0rem;
+  padding: 2rem;
+  width: 90%;
+  font-family: var(--body-family);
+  font-style: italic;
+  letter-spacing: -0.025rem;
   line-height: 150%;
-  margin: 0 16px;
   font-size: 1.5rem;
+  color: var(--secondary-80);
+  border-left: 3px solid var(--secondary-30);
+}
+
+blockquote h1,
+blockquote h2,
+blockquote h3 {
+  color: var(--secondary-80);
 }
 
 /* Modal */

@@ -24,7 +24,7 @@ export const LabelToo = styled.label`
 export const Divider = styled.div``
 
 export const IconLabel = styled.div`
-  font-family: "Sofia Sans", serif;
+  font-family: var(--body-family), serif;
   font-size: 120%;
 `
 export const ButtonNoStyle = styled.button`

@@ -21,9 +21,9 @@ export default function Guides() {
             disabilities.
           </p>
         </section>
-
+        <h1>Step by step guide</h1>
         <div className="post-container">
-          <h2 className="post-title">Adopt a content-first mindset</h2>
+          <h2 className="post-title">1. Adopt a content-first mindset</h2>
           <div className="post-content">
             <p>
               If you haven't done so, this is a good time to pause and read the
@@ -39,11 +39,13 @@ export default function Guides() {
               </a>
               . It will make you a better human.
             </p>
+            <h3>What are prioritized content guides?</h3>
+            <p>describe</p>
           </div>
         </div>
         <div id="howTo01">
           <div className="post-container">
-            <h2 className="post-title">Master your priority guides</h2>
+            <h2 className="post-title">2. Master your content guides</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-00.svg"
@@ -52,7 +54,7 @@ export default function Guides() {
             </div>
             <div className="post-content">
               <p>
-                Create purposeful content by writing priority guides with four
+                Create purposeful content by writing content guides with four
                 essential elements:
               </p>
               <p>
@@ -73,7 +75,7 @@ export default function Guides() {
         </div>
         <section id="howTo02">
           <div className="post-container">
-            <h2>Create a page to host your guides</h2>
+            <h2>3. Use No Latin to create your content guides</h2>
 
             <div className="post-thumb">
               <img
@@ -84,8 +86,8 @@ export default function Guides() {
             <div className="post-content">
               <p>
                 <strong>No Latin</strong> helps you creating and prioritizing
-                the headlines in a page, and export an{" "}
-                <strong>accessible web-based prototype</strong>.
+                the content guides in a web page, and export an accessible web
+                page to test with screen-reader users, for example. .
               </p>
               <p>
                 Let's{" "}
@@ -109,7 +111,7 @@ export default function Guides() {
         </section>
         <section id="howTo03">
           <div className="post-container">
-            <h2 className="post-title">Create intentful headlines</h2>
+            <h2 className="post-title">4. Create intentful headlines</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-05.svg"
@@ -134,7 +136,7 @@ export default function Guides() {
         </section>
         <section id="howTo04">
           <div className="post-container">
-            <h2 className="post-title">Test your prototype</h2>
+            <h2 className="post-title">5. Test your prototype</h2>
             <p>
               <strong>No Latin</strong> generates web prototypes with
               Accessibility in mind by providing:

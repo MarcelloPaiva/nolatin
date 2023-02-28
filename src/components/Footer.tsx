@@ -2,10 +2,7 @@ export default function Footer() {
   return (
     <footer aria-label="Footer">
       <section className="hero">
-        <h2>
-          We are presenting at the 38th Annual CSUN Assistive Technology
-          Conference
-        </h2>
+        <h2>Join us at the CSUN Conference</h2>
         <p>
           Diego Baca, Becky Gibson, Marcelo Paiva and Claudio Luis Vera will be
           presenting the session "
@@ -22,7 +19,11 @@ export default function Footer() {
           disabilities early in the design process.
         </p>
         <p>
-          Join us at the "Grand GH" room on March 14, 2023, at 10:20 AM PDT.
+          Anaheim Marriott 700 West Convention Way, Anaheim, California 92802
+          <br />
+          Room: "Grand GH"
+          <br />
+          Date: March 14, 2023, at 10:20 AM PDT.
         </p>
       </section>
 
@@ -50,7 +51,7 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
-        <hr className="una" aria-hidden="true" />
+        <hr aria-hidden="true" />
 
         <div className="post-footer">
           <p>

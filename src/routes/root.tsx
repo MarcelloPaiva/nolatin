@@ -29,17 +29,6 @@ export default function Root() {
             <span className="bad-ipsum">Lorem Ipsum</span>) in the design
             industry.
           </p>
-          <Button link="/create">
-            Start prototyping with Accesibility in mind
-          </Button>
-          <br />
-          <p>
-            Continue to understand why{" "}
-            <strong>
-              <span className="bad-ipsum">Lorem Ipsum</span> is an act of
-              exclusion.
-            </strong>
-          </p>
         </section>
         <img className="landing" src="images/InclusiveBunch.png" alt=""></img>
         <figcaption>
@@ -47,20 +36,18 @@ export default function Root() {
           wheelchair, smiling for a photo celebrating those who design with
           Accessibility in mind.
         </figcaption>
-        <hr className="una" aria-hidden="true" />
         <blockquote>
-          <h2>Industry Problem</h2>
+          <h2>An Industry Challenge</h2>
           Most UX professionals struggle to incorporate accessibility
           considerations into their design process, resulting in poor
           experiences for users with disabilities.
-          <h3>Possible Reason</h3>
-          Poor content leads to poor Accessibility.
         </blockquote>
 
-        <hr className="una" aria-hidden="true" />
-        <h2>Content and Accessibility are considered an afterthought.</h2>
+        <h2>Poor content leads to poor Accessibility</h2>
         <p>
-          <strong>Poor content leads to poor Accessibility</strong>
+          <strong>
+            Content and Accessibility are considered an afterthought.
+          </strong>
           <br />
           If designers continue to use Latin content placeholders in early
           design concepts, people with disabilities that rely on assistive
@@ -78,15 +65,12 @@ export default function Root() {
           assistive technologies feel when designers don't take Accessibility
           into consideration early on.
         </figcaption>
-
-        <hr className="una" aria-hidden="true" />
         <blockquote>
           <h2>Solution</h2>
           Create good content from the beginning using{" "}
           <strong>Priority Guides</strong> with headlines and elements blocks,
           sorted by user needs.
         </blockquote>
-        <hr className="una" aria-hidden="true" />
         <h2>Priority Guides to the rescue</h2>
         <p>
           A good way to start focusing on content designing before the interface
@@ -103,14 +87,14 @@ export default function Root() {
           </a>{" "}
           written by Heleen van Nues and Lennart Overkamp. (Thank you!)
         </p>
-        <h2>Using the No Latin tool</h2>
+        <h2>Ready to start using the Priority Guides method?</h2>
         <p>
-          This tool invites all UX professionals to bring intent into their
-          design process by elevating the content quality early for people with
-          disabilities.
+          No Latin makes it very simple to build priority guides, prioritized
+          them, and preview a fully accessible page to test your content early
+          with people with disabilities.
         </p>
         <div className="site-cta">
-          <Button link="/guides">Learn how</Button>
+          <Button link="/guides">Learn how to create Priority Guides</Button>
         </div>
       </Main>
     </Layout>

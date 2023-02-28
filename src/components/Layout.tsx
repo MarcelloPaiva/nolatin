@@ -19,8 +19,8 @@ export default function Layout({ children, style }: LayoutProps) {
       <NavBar />
       {children}
 
-      <hr className="una" aria-hidden="true" />
       <Footer />
+
       <div className="post-footer">
         <p>
           <strong>No Latin</strong> - (version 0.1)

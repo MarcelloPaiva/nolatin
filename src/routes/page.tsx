@@ -27,8 +27,6 @@ const BackLink = styled.a`
   align-items: center;
   width: fit-content;
   border-radius: 12px;
-  border: var(--buttonSecondary-borderWidth) solid var(--buttonSecondary-border);
-  background-color: var(--buttonSecondary-bg);
   color: var(--buttonSecondary-label);
   padding: 16px;
   margin-top: 2rem;
@@ -75,22 +73,7 @@ export default function Page() {
           }
       `}
       >
-        <Root>
-          <Row>
-            <Title>{page.title}</Title>
-          </Row>
-          <Row>
-            <p>{page.description}</p>
-          </Row>
-          <Row className="toolbar">
-            <BackLink href="/pages">
-              <ChevronLeft />
-              Back
-            </BackLink>
-            <Button link={`/preview/${id}`} newTab>
-              Preview &nbsp; <ExternalLink />
-            </Button>
-          </Row>
+        <Root className="proto-mgt">
           <div className="instructions">
             <h2>Next steps:</h2>
             <p>
@@ -99,6 +82,26 @@ export default function Page() {
               elements.
             </p>
           </div>
+
+          <Row className="toolbar">
+            <BackLink href="/pages">
+              <ChevronLeft />
+              Back
+            </BackLink>
+            <div className="preview">
+              <Button link={`/preview/${id}`} newTab>
+                Preview &nbsp; <ExternalLink />
+              </Button>
+            </div>
+          </Row>
+          <Row className="proto-mgt-header">
+            <div>
+              <div className="proto-mgt-cat">Prototype page title:</div>
+              <h1>{page.title}</h1>
+              <div className="proto-mgt-cat">Prototype page description:</div>
+              <p className="proto-mgt-desc">{page.description}</p>
+            </div>
+          </Row>
           <Column className="page-box">
             {renderCards(page.sections, page.id)}
           </Column>

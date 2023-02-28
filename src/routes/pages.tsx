@@ -106,28 +106,27 @@ export default function Pages() {
           </ModalContainer>
         </Modal>
         <main>
-          <LeftTitle>Pages</LeftTitle>
-          <p>
-            If you haven't done so, this is a good time to pause and read the
-            following article{" "}
-            <a
-              href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <cite>
-                Priority Guides: A Content-First Alternative to Wireframes
-              </cite>
-            </a>
-            . It will make you a better human.
-          </p>
-          <br />
+          <LeftTitle>Create your accessible prototype</LeftTitle>
           <div className="instructions">
             <h2>{pages.length > 0 ? "Carry on" : "Add a page"}</h2>
             <p>
               {pages.length > 0
                 ? "Add more pages or click on the page name to start building your priority guides."
                 : "But please remember to be intentful about writing the page title and description."}
+            </p>
+            <p>
+              If you haven't done so, this is a good time to pause and read the
+              following article{" "}
+              <a
+                href="https://alistapart.com/article/priority-guides-a-content-first-alternative-to-wireframes/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <cite>
+                  Priority Guides: A Content-First Alternative to Wireframes
+                </cite>
+              </a>
+              . It will make you a better human.
             </p>
           </div>
           <br />
@@ -141,7 +140,9 @@ export default function Pages() {
               onEdit={() => setOpenEdit(page)}
             />
           ))}
-          <Button link="/create">Add a page</Button>
+          <div className="proto-mgt">
+            <Button link="/create">Add a page</Button>
+          </div>
         </main>
       </Root>
       <Divider />

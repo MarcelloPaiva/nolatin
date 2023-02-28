@@ -19,18 +19,22 @@ export default function Root() {
             creates barriers.
           </h1>
           <p>
+            No Latin is a free web-based app that converts priority guides into
+            an accessible web prototype.
+          </p>
+          <p>
             Our goal is to improve the user experience for people with
             disabilities by identifying and eliminating the use of Latin-based
             scripts (<abbr title="also known as">a.k.a.</abbr>:{" "}
             <span className="bad-ipsum">Lorem Ipsum</span>) in the design
             industry.
           </p>
-          <Button link="/pages">
+          <Button link="/create">
             Start prototyping with Accesibility in mind
           </Button>
           <br />
           <p>
-            Or carry on to understand why{" "}
+            Continue to understand why{" "}
             <strong>
               <span className="bad-ipsum">Lorem Ipsum</span> is an act of
               exclusion.
@@ -105,9 +109,9 @@ export default function Root() {
           design process by elevating the content quality early for people with
           disabilities.
         </p>
-        <Button link="/guides">
-          Learn how to create accessible prototypes
-        </Button>
+        <div className="site-cta">
+          <Button link="/guides">Learn how</Button>
+        </div>
       </Main>
     </Layout>
   )

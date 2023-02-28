@@ -155,6 +155,7 @@ a:active {
   background-color: var(--light);
   text-decoration: none;
 }
+
 #nolatin-logo:hover,
 #nolatin-logo:active {
   background-color: transparent;
@@ -166,7 +167,8 @@ a:active {
 }
 
 .back-row a {
-  margin-right: 1rem;
+  margin: auto 1rem;
+  margin-left: 0;
 }
 
 .hero {
@@ -179,6 +181,7 @@ a:active {
 
 footer .hero {
   margin: 1rem;
+  margin-top: 8rem;
 }
 
 .hero h1,
@@ -214,6 +217,8 @@ footer .hero {
 .hero [role="button"] {
   margin: auto;
   color: deeppink;
+  background-color: var(--light);
+  border-radius: 2rem;
 }
 
 .hero a {
@@ -226,7 +231,7 @@ footer .hero {
 
 .bad-ipsum {
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: 1px;
   text-decoration-style: wavy;
   text-decoration-color: deeppink;
   -webkit-text-fill-color: var(--light);
@@ -403,14 +408,40 @@ select {
   line-height: 1.5rem;
 }
 
+main [role="button"] {
+  margin: auto;
+  margin-right: 0;
+  background-color: deeppink;
+  color: var(--light);
+}
+
+.site-cta [role="button"] {
+  margin: auto;
+  border-radius: 2rem;
+}
+
+.card-toolbar button {
+  background-color: var(--light) !important;
+  font-weight: normal !important;
+  margin-left: 0.5rem;
+  border: 2px solid var(--secondary-20);
+  border-radius: 0.5rem !important;
+}
+
 .toolbar {
   display: block;
   width: auto;
-  margin: 1rem 2rem 2rem 0;
+  margin: 2rem 0 0;
+  background-color: var(--secondary-05);
+  border-radius: 1rem;
+  padding: 0.25rem;
 }
 
 .toolbar a {
   margin-top: 0;
+}
+
+.toolbar [role="button"] {
 }
 
 .instructions,
@@ -420,10 +451,7 @@ select {
   width: 100%;
   margin: 0 auto;
   padding: 1rem 1rem 0;
-  background: var(--light);
-  border: 1px solid var(--secondary-30);
-  border-radius: 1rem;
-  filter: drop-shadow(1px 2px 8px var(--secondary-20));
+  border-left: 0.25rem solid var(--secondary-20);
 }
 
 .instructions h2 {
@@ -497,6 +525,49 @@ blockquote {
 Prototyping Styles
 */
 
+.proto-mgt {
+  display: block;
+  margin-top: 1rem;
+}
+.proto-mgt-header {
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+
+.proto-mgt h1,
+.proto-mgt-desc {
+  margin-top: 0;
+  font-weight: bold;
+  color: var(--focus);
+}
+
+.proto-mgt button,
+.proto-mgt [role="button"] {
+  background-color: var(--focus);
+  color: var(--light);
+  font-weight: bold;
+
+  border-radius: 2rem;
+}
+
+.proto-mgt [role="button"] {
+  background-color: var(--focus);
+  color: var(--light);
+  font-weight: bold;
+  margin: auto;
+}
+
+.preview [role="button"] {
+  border-radius: 1rem;
+}
+
+.card-container h3 {
+  color: var(--accent);
+  margin: auto 0;
+}
+.card-container button {
+  margin: auto 0.25rem;
+}
 .exportApp {
   padding: 0;
   margin: 0;
@@ -545,6 +616,11 @@ Prototyping Styles
   margin: 0;
   padding: 0;
 }
+
+.exportApp header nav button {
+  margin: auto;
+}
+
 .exportApp [role="alert"] {
   background-color: var(--dark);
   border: 8px solid #ddd;
@@ -593,7 +669,7 @@ Prototyping Styles
 
 .exportApp h1 {
   font-size: 1.5rem;
-  line-height: 100%;
+  /* line-height: 100%; */
   color: #fff;
 }
 .exportApp h2 {
@@ -643,11 +719,11 @@ Prototyping Styles
   background-color: var(--dark);
   color: var(--light);
   border: none;
-  margin: auto;
-  margin-top: 2rem;
+  /* margin: auto; */
+  /* margin-top: 2rem; */
   width: auto;
-  max-width: fit-content;
-  padding: 1rem 4rem;
+  /* max-width: fit-content; */
+  /* padding: 1rem 4rem; */
 }
 
 .exportApp *:focus {

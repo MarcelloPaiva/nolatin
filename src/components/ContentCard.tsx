@@ -289,7 +289,7 @@ export default function ContentCard({
             </Row>
           </ModalContainer>
         </Modal>
-        <EndRow>
+        <EndRow className="card-toolbar">
           {state.type === ContentTypes.Title && (
             <IconButton
               icon={PlusSquare}

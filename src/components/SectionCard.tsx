@@ -287,7 +287,7 @@ export default function SectionCard({
           </Row>
         </ModalContainer>
       </Modal>
-      <EndRow>
+      <EndRow className="card-toolbar">
         <IconButton
           icon={PlusSquare}
           aria="Add headline"

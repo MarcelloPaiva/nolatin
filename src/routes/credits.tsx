@@ -12,7 +12,7 @@ export default function Credits() {
   return (
     <Layout>
       <Main className="credits">
-        <h1>Thank you</h1>
+        <h1>Gracias</h1>
         <p>
           We couldn't have created this accessible design solution without the
           help of these amazing people passionate about Accessibility. A special

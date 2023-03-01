@@ -170,17 +170,28 @@ export default function Guides() {
                   </li>
                 </ul>
               </p>
-              <p>All that before designing or developing anything!</p>{" "}
+              <p>
+                <strong>
+                  All free for our UX community to use before starting the
+                  interface designing phase.
+                </strong>
+              </p>
               <p>
                 We believe this method will enable UX professionals to be
                 proactive about including people with disabilities early in the
                 design process; this approach is known as "
                 <strong>shift-left</strong>."
               </p>
+              <h3>Including people with disabilities in Usability studies</h3>
+              <p>
+                We created a <a href="/usability">user testing guidelines</a> on
+                how to provide proper accomodations for assistive technology
+                users during your usability studies.{" "}
+              </p>
             </div>
           </div>
         </section>
-        <hr className="una" aria-hidden="true" />
+        <hr aria-hidden="true" />
         <h2>Conclusion: Content design leads to good Accessibility</h2>
         <p>
           As UX professionals, you are committed to designing solutions as

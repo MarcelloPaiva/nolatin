@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <Header>
       <a href="/" id="nolatin-logo">
-        No Latin
+        No <span className="bad-ipsum">Latin</span>
         {/* <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"

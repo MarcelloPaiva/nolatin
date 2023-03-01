@@ -51,6 +51,7 @@ export default function Footer() {
             </li>
           </ul>
         </nav>
+
         <hr aria-hidden="true" />
 
         <div className="post-footer">

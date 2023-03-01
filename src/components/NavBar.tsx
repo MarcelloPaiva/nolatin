@@ -19,15 +19,6 @@ const Row = styled.div`
   display: flex;
   justify-content: space-between;
 `
-const Logo = styled.img`
-  width: 160px;
-  border: none;
-  margin: 0;
-
-  /* change color: https://codepen.io/sosuke/pen/Pjoqqp */
-  filter: invert(21%) sepia(31%) saturate(4037%) hue-rotate(222deg)
-    brightness(90%) contrast(93%);
-`
 
 export default function NavBar() {
   return (

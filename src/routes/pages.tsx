@@ -1,6 +1,6 @@
 import { useContext, useState } from "react"
 import styled from "styled-components"
-import { Divider, Title } from "../components/"
+import { Divider } from "../components/"
 import Button from "../components/Button"
 import Layout from "../components/Layout"
 import PageCard from "../components/PageCard"

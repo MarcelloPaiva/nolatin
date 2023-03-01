@@ -32,9 +32,9 @@
 
   --focus: deeppink;
 
-  --logo-family: "Fredericka the Great", cursive;
+  --logo-family: "Roboto", "Fredericka the Great", cursive;
   --body-family: "Roboto", sans-serif;
-  --body: var(--secondary-90);
+  --body: var(--secondary-100);
 
   --heading-family: "Merriweather", serif;
   --heading: var(--secondary-100);
@@ -115,6 +115,15 @@ body {
   background-size: 120% 96px, 10% 20px;
 }
 
+body {
+  font-family: var(--body-family);
+  font-weight: 400;
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: var(--surface-light);
+  color: var(--body);
+}
+
 header {
   height: 6rem;
 }
@@ -151,17 +160,6 @@ header {
   box-shadow: 2px 2px 8px var(--secondary-100) !important;
 }
 
-body {
-  font-family: var(--body-family);
-  font-weight: 500;
-  max-width: 1024px;
-  margin: 0 auto;
-  float: none;
-  background-color: var(--surface-light);
-  color: var(--body);
-  line-height: 125%;
-}
-
 a:link,
 a:visited {
   color: var(--accent);
@@ -177,14 +175,15 @@ a:active {
 #nolatin-logo {
   display: block;
   font-family: var(--logo-family);
+  font-weight: 900;
   color: hsla(0, 100%, 100%, 0.8);
   font-size: 2.5rem;
-  text-decoration: none;
   height: 4rem;
   line-height: 4rem;
   padding: 0 0.75rem;
   position: relative;
   left: -0.5rem;
+  text-decoration: none;
 }
 
 #nolatin-logo:hover,
@@ -234,7 +233,7 @@ footer .hero {
 .hero p {
   font-size: 1rem;
   line-height: 1.5rem;
-  color: var(--secondary-80);
+  color: var(--secondary-100);
 }
 .hero a:focus {
   outline-color: var(--focus);
@@ -257,14 +256,17 @@ footer .hero {
   text-decoration-style: wavy;
   text-decoration-color: var(--focus);
   -webkit-text-fill-color: var(--focus);
-  color: var(--focus);
   cursor: not-allowed;
+}
+
+#nolatin-logo .bad-ipsum {
+  color: var(--light);
+  -webkit-text-fill-color: var(--light);
 }
 
 p {
   margin-bottom: 2rem;
-  line-height: 125%;
-  font-size: 1.125rem;
+  line-height: 145%;
 }
 
 ul,
@@ -518,7 +520,7 @@ figcaption {
 
 blockquote {
   display: block;
-  margin: 1rem 0rem;
+  margin: 1rem 0;
   padding: 2rem;
   width: 90%;
   font-family: var(--body-family);
@@ -547,11 +549,10 @@ blockquote h3 {
   padding: 16px;
 }
 
-.una {
+hr {
   text-align: center;
   display: block;
-  line-height: 2px;
-  height: 2px;
+  height: 0.25rem;
   margin: 3rem 0;
   background: linear-gradient(
     to right,
@@ -560,20 +561,6 @@ blockquote h3 {
     var(--secondary-10)
   );
   border: none;
-}
-.una:before,
-.una:after {
-  content: "\2021";
-  font-size: 4rem;
-  color: var(--secondary-100);
-  position: absolute;
-  transform: rotate(90deg);
-}
-.una:before {
-  left: auto;
-}
-.una:after {
-  right: auto;
 }
 
 /*

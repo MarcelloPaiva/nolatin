@@ -40,7 +40,7 @@ export default function PageCard({
 
   return (
     <CardContainer href={`/page/${id}`} className="card-container">
-      <h3>{title}</h3>
+      <div className="pagecard-title">{title}</div>
       <Row>
         <IconButton
           icon={Trash}

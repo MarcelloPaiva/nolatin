@@ -21,7 +21,7 @@ const Row = styled.div`
   display: flex;
 `
 const Description = styled.span`
-  padding: 16px 8px;
+  padding: 0;
 `
 
 interface PageItem {

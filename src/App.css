@@ -680,11 +680,10 @@ Prototyping Styles
 .exportApp [role="contentinfo"],
 .exportApp [role="complementary"] {
   background-color: var(--light);
-  border: 8px solid var(--primary-10);
+  border: 4px solid var(--primary-10);
   border-radius: 16px;
-  margin: 16px;
-  padding: 16px;
-  padding-bottom: 24px;
+  margin: 0.125rem;
+  padding: 0.75rem;
 }
 
 .exportApp header nav {
@@ -697,6 +696,11 @@ Prototyping Styles
 
 .exportApp header nav button {
   margin: auto;
+}
+
+.MuiPopover-paper ul {
+  padding: 0.5rem;
+  background-color: #f7f7d1;
 }
 
 .exportApp [role="alert"] {
@@ -741,8 +745,10 @@ Prototyping Styles
   line-height: 200%;
   -webkit-text-size-adjust: none;
   text-size-adjust: none;
-  margin: auto;
   color: var(--primary-80);
+  border: none;
+  padding: 0;
+  margin: 0;
 }
 
 .exportApp h1 {

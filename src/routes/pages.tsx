@@ -135,7 +135,7 @@ export default function Pages() {
               onEdit={() => setOpenEdit(page)}
             />
           ))}
-          <div className="proto-mgt">
+          <div className="proto-mgt pages-button">
             <Button link="/create">
               {pages.length > 0 ? "Add another page" : "Add new page"}
             </Button>

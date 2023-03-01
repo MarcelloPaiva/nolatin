@@ -27,7 +27,7 @@ const Button = forwardRef(
       background-color: var(--button-primary);
       color: #fff;
       padding: 16px;
-      margin-top: 2rem;
+      margin-top: 1rem;
       font-size: 120%;
       letter-spacing: .05rem;
       ${styles}
@@ -39,7 +39,7 @@ const Button = forwardRef(
     align-items: center;
     width: auto;
     max-width: 678px;
-    margin-top: 2rem;
+    margin-top: 1rem;
     border-radius: 12px;
     padding: 16px;
     color: var(--buttonSecondary-label);

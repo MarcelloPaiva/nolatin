@@ -482,7 +482,7 @@ main [role="button"] {
 
 h1 + .instructions {
   position: relative;
-  top: calc(-2rem - 3px);
+  top: calc(-1rem - 3px);
   margin: 0;
 }
 
@@ -563,6 +563,20 @@ hr {
   border: none;
 }
 
+.page-box {
+  background-color: var(--light);
+  padding: 0 0.5rem;
+}
+
+.page-end {
+  background: none;
+  background-color: var(--light);
+  height: 3rem;
+  margin: 0;
+  border: none;
+  border-bottom: 8px solid var(--secondary-40);
+}
+
 /*
 Prototyping Styles
 */
@@ -570,6 +584,7 @@ Prototyping Styles
 .proto-mgt {
   display: block;
 }
+
 .proto-mgt-header {
   margin-top: 1rem;
   padding: 1rem;
@@ -577,12 +592,8 @@ Prototyping Styles
   background-color: var(--light);
 }
 
-.page-end {
-  background-color: var(--light);
-  height: 3rem;
+.pages-button {
   margin-top: 1rem;
-  border: none;
-  border-bottom: 8px solid var(--secondary-40);
 }
 
 .proto-mgt h1,
@@ -626,8 +637,9 @@ Prototyping Styles
 }
 .pagecard-label,
 .proto-mgt-cat {
+  display: block;
   padding: 0;
-  margin-top: 1rem;
+  margin: 1rem 0 1rem 0;
   color: var(--secondary-80);
 }
 

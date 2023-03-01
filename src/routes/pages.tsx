@@ -10,9 +10,6 @@ import { Modal } from "@mui/material"
 import { ActionTypes } from "../context/actions"
 import Page from "../models/page"
 
-const LeftTitle = styled(Title)`
-  align-self: flex-start;
-`
 const Root = styled.main`
   display: flex;
   flex-direction: column;

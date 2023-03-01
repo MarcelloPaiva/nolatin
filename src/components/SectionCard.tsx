@@ -23,7 +23,7 @@ import { Modal } from "@mui/material"
 
 const sectionStyles = `
   border-radius: 16px;
-  border: 2px dashed var(--secondary-20);
+  border: 2px dashed var(--secondary-80);
   display: flex;
   width: 100%;
   flex-direction: column;

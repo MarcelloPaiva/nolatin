@@ -28,7 +28,7 @@ const sectionStyles = `
   width: 100%;
   flex-direction: column;
   padding: 16px;
-  margin-top: 1rem; 
+  margin: 1rem 0; 
   flex: 1;
   width: 100%;
   background-color: #fff;

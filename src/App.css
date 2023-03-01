@@ -295,9 +295,7 @@ h6 {
   font-stretch: normal;
   color: var(--heading);
   line-height: normal;
-  background-color: var(--light);
-  padding: 0.5rem 1rem 0.5rem;
-  border-left: 2px dotted var(--secondary-20);
+  padding: 0.5rem 0rem 0.5rem;
   border-bottom: 4px solid var(--secondary-20);
 }
 
@@ -305,7 +303,7 @@ h1,
 h2,
 h3 {
   /* margin-bottom: 1rem; */
-  margin-top: 2rem;
+  margin: 2rem 0 1rem 0;
 }
 
 .menu-popover a {
@@ -531,6 +529,7 @@ blockquote {
   color: var(--secondary-80);
   border-left: 3px dotted var(--secondary-30);
   font-family: var(--heading-family);
+  background-color: var(--light);
 }
 
 blockquote h1,

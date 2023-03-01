@@ -83,7 +83,7 @@ export default function Header({ pages, info, title }: HeaderProps) {
             horizontal: "right",
           }}
         >
-          <Description>{info}</Description>
+          <Description className="page-description">{info}</Description>
         </Menu>
       </div>
     </GenHeader>

@@ -106,14 +106,8 @@ export default function Pages() {
           </ModalContainer>
         </Modal>
         <main>
-          <LeftTitle>Create your accessible prototype</LeftTitle>
+          <h1>Priority Guides</h1>
           <div className="instructions">
-            <h2>{pages.length > 0 ? "Carry on" : "Add a page"}</h2>
-            <p>
-              {pages.length > 0
-                ? "Add more pages or click on the page name to start building your priority guides."
-                : "But please remember to be intentful about writing the page title and description."}
-            </p>
             <p>
               If you haven't done so, this is a good time to pause and read the
               following article{" "}
@@ -129,7 +123,11 @@ export default function Pages() {
               . It will make you a better human.
             </p>
           </div>
-          <br />
+          <span className="pagecard-label">
+            {pages.length > 0
+              ? "Pages:"
+              : "Create a page to host your priority guides."}
+          </span>
           {pages.map((page, index) => (
             <PageCard
               key={page.id}
@@ -141,7 +139,9 @@ export default function Pages() {
             />
           ))}
           <div className="proto-mgt">
-            <Button link="/create">Add a page</Button>
+            <Button link="/create">
+              {pages.length > 0 ? "Add another page" : "Add new page"}
+            </Button>
           </div>
         </main>
       </Root>

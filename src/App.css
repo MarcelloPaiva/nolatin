@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+
 :root {
   --h: 60;
   --s: 2%;
@@ -28,13 +30,14 @@
 
   --accent: hsl(var(--h-accent), 100%, 50%);
 
-  --focus: var(--accent);
+  --focus: deeppink;
 
+  --logo-family: "Fredericka the Great", cursive;
   --body-family: "Roboto", sans-serif;
-  --body: var(--primary-80);
+  --body: var(--secondary-90);
 
   --heading-family: "Merriweather", serif;
-  --heading: var(--primary-100);
+  --heading: var(--secondary-100);
 
   --navbar-grad-01: var(--secondary-03);
   --navbar-grad-02: var(--secondary-03);
@@ -54,7 +57,7 @@
   --secondary-90: hsla(var(--h-accent), 40%, 40%, 0.9);
   --secondary-100: hsla(var(--h-accent), 50%, 40%, 1);
 
-  --surface-light: var(--light);
+  --surface-light: #f7f7f7;
 
   --text-light: #151514;
   --text-low-emphasis: var(--primary-50);
@@ -69,19 +72,19 @@
   --button-save-label: var(--light);
 
   --buttonSecondary-bg: var(--light);
-  --buttonSecondary-label: var(--secondary-80);
-  --buttonSecondary-border: var(--secondary-80);
+  --buttonSecondary-label: var(--primary-80);
+  --buttonSecondary-border: var(--primary-80);
   --buttonSecondary-borderWidth: 4px;
 
   /*SkipTo Theme Variables*/
 
   --skipToIcon: "\f11c";
-  --skipToMenuTextColor: var(--secondary-100);
+  --skipToMenuTextColor: var(--primary-100);
   --skipToButtonBackgroundColor: var(--surface-light);
-  --skipToButtonBorderColor: var(--secondary-40);
+  --skipToButtonBorderColor: var(--primary-100);
   --skipToMenuBackgroundColor: var(--surface-light);
-  --skipToFocusBorderColor: var(--secondary-100);
-  --skipToMenuitemFocusBackgroundColor: var(--secondary-100);
+  --skipToFocusBorderColor: var(--primary-40);
+  --skipToMenuitemFocusBackgroundColor: var(--focus);
   --skipToMenuitemFocusTextColor: var(--primary-light);
 
   font-size: 100%;
@@ -94,14 +97,22 @@
 }
 
 *:focus {
-  outline: var(--accent) solid 8px;
+  outline: var(--focus) solid 4px;
   outline-offset: 4px;
   border-radius: 4px;
 }
 
 body {
-  background: url(/public/images/body-bg-128.png) repeat-x top center;
-  background-position-y: -32px;
+  overflow-x: hidden;
+  background-color: var(--secondary-100);
+  background-position: top 0px center;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+    50% 50% at top center,
+    var(--secondary-80),
+    var(--secondary-100)
+  );
+  background-size: 120% 96px, 10% 20px;
 }
 
 header {
@@ -129,7 +140,7 @@ header {
 }
 
 .nolatin-skipTo button:focus {
-  outline: 8px solid var(--focus) !important;
+  outline: 4px solid var(--focus) !important;
 }
 
 .skip-to .skip-to-tooltip {
@@ -142,13 +153,13 @@ header {
 
 body {
   font-family: var(--body-family);
-  font-weight: 400;
+  font-weight: 500;
   max-width: 1024px;
   margin: 0 auto;
   float: none;
   background-color: var(--surface-light);
   color: var(--body);
-  line-height: 150%;
+  line-height: 125%;
 }
 
 a:link,
@@ -161,6 +172,19 @@ a:active {
   color: var(--focus);
   background-color: var(--light);
   text-decoration: none;
+}
+
+#nolatin-logo {
+  display: block;
+  font-family: var(--logo-family);
+  color: hsla(0, 100%, 100%, 0.8);
+  font-size: 2.5rem;
+  text-decoration: none;
+  height: 4rem;
+  line-height: 4rem;
+  padding: 0 0.75rem;
+  position: relative;
+  left: -0.5rem;
 }
 
 #nolatin-logo:hover,
@@ -181,7 +205,7 @@ a:active {
 .hero {
   display: block;
   padding: 2rem 2rem;
-  background-color: var(--secondary-100);
+  background-color: var(--secondary-20);
   margin-top: 40px;
   border-radius: 16px;
 }
@@ -194,23 +218,26 @@ footer .hero {
 .hero h1,
 .hero h2,
 .hero p {
-  color: var(--light);
+  color: var(--secondary-80);
+  background-color: transparent;
   line-height: auto;
+  padding-left: 0;
+  border-left: none;
 }
 
 .hero h1,
 .hero h2 {
   font-size: 2rem;
-  color: var(--light);
+  color: var(--secondary-80);
   margin-top: 1rem;
 }
 .hero p {
   font-size: 1rem;
   line-height: 1.5rem;
-  color: hsl(320, 100%, 100%);
+  color: var(--secondary-80);
 }
 .hero a:focus {
-  outline-color: var(--accent);
+  outline-color: var(--focus);
 }
 
 .hero [role="button"] {
@@ -220,27 +247,23 @@ footer .hero {
   border-radius: 2rem;
 }
 
-.hero a {
-  color: var(--light);
-}
-
 .hero a:hover {
-  color: var(--primary-100);
+  color: var(--focus);
 }
 
 .bad-ipsum {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-style: wavy;
-  text-decoration-color: deeppink;
-  -webkit-text-fill-color: var(--light);
-  color: var(--light);
+  text-decoration-color: var(--focus);
+  -webkit-text-fill-color: var(--focus);
+  color: var(--focus);
   cursor: not-allowed;
 }
 
 p {
   margin-bottom: 2rem;
-  line-height: 2rem;
+  line-height: 125%;
   font-size: 1.125rem;
 }
 
@@ -272,19 +295,28 @@ h6 {
   font-stretch: normal;
   color: var(--heading);
   line-height: normal;
+  background-color: var(--light);
+  padding: 0.5rem 1rem 0.5rem;
+  border-left: 2px dotted var(--secondary-20);
+  border-bottom: 4px solid var(--secondary-20);
 }
 
 h1,
 h2,
 h3 {
-  margin-bottom: 1rem;
-  margin-top: 1.5rem;
+  /* margin-bottom: 1rem; */
+  margin-top: 2rem;
+}
+
+.menu-popover a {
+  margin: 0.5rem 1rem;
+  font-weight: 500;
 }
 
 img.landing {
   margin-top: 2rem;
-  border: 1rem solid var(--secondary-100);
-  border-width: 1rem 0;
+  border: 1rem solid var(--focus);
+  border-width: 1px 0;
   display: cover;
   width: calc(100% + 2rem);
   position: relative;
@@ -298,17 +330,29 @@ cite {
 
 /* How to page styles */
 
+.post-container {
+  display: block;
+  background-color: var(--light);
+  margin: 1rem 0;
+  padding: 1.5rem 1rem 0 1rem;
+  overflow: auto;
+  border: 4px solid var(--secondary-20);
+  border-radius: 1rem;
+  color: var(--secondary-90);
+}
+
+.post-container h1,
+.post-container h2,
+.post-container h3 {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-top: auto;
+}
+
 .credits .post-title {
   font-weight: 800;
   color: var(--secondary-90);
-}
-.post-container {
-  display: block;
-  margin: 1rem 0;
-  padding: 0 1rem 1rem;
-  overflow: auto;
-  border: 4px solid var(--secondary-05);
-  border-radius: 1rem;
 }
 .post-thumb {
   width: auto;
@@ -379,6 +423,8 @@ select {
 
 .site-footer h2 {
   color: var(--secondary-100);
+
+  background-color: transparent;
 }
 
 .site-footer li {
@@ -422,8 +468,7 @@ main [role="button"] {
 .toolbar {
   display: block;
   width: auto;
-  margin: 2rem 0 0;
-  background-color: var(--secondary-05);
+  margin: 0;
   border-radius: 1rem;
   padding: 0.25rem;
 }
@@ -435,28 +480,38 @@ main [role="button"] {
 .toolbar [role="button"] {
 }
 
+h1 + .instructions {
+  position: relative;
+  top: calc(-2rem - 3px);
+  margin: 0;
+}
+
 .instructions,
 .alert-box {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 0 auto;
-  padding: 1rem 1rem 0;
-  border-left: 0.25rem solid var(--secondary-20);
+  margin: 1rem 0;
+  padding: 2rem 1rem 0;
+  /* border-left: 0.25rem solid var(--secondary-20); */
+  background-color: var(--secondary-20);
 }
 
 .instructions h2 {
   color: var(--secondary-100);
-  font-weight: 400;
+  font-weight: 900;
   margin: 0;
   margin-bottom: 0.25rem;
-  font-size: 1.125rem;
+  font-size: 1.25rem;
+  background-color: transparent;
+  padding: 0;
+  border: none;
 }
 
 figcaption {
   font-family: var(--body-family);
   font-size: 100%;
-  color: var(--primary-100);
+  color: var(--secondary-100);
   margin-top: 8px;
   margin-bottom: 3rem;
   letter-spacing: normal;
@@ -474,13 +529,15 @@ blockquote {
   line-height: 150%;
   font-size: 1.5rem;
   color: var(--secondary-80);
-  border-left: 3px solid var(--secondary-30);
+  border-left: 3px dotted var(--secondary-30);
+  font-family: var(--heading-family);
 }
 
 blockquote h1,
 blockquote h2,
 blockquote h3 {
   color: var(--secondary-80);
+  margin: 0 0 1rem;
 }
 
 /* Modal */
@@ -526,23 +583,35 @@ Prototyping Styles
 
 .proto-mgt {
   display: block;
-  margin-top: 1rem;
 }
 .proto-mgt-header {
-  margin-top: 2rem;
-  padding-left: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-top: 8px solid var(--secondary-40);
+  background-color: var(--light);
+}
+
+.page-end {
+  background-color: var(--light);
+  height: 3rem;
+  margin-top: 1rem;
+  border: none;
+  border-bottom: 8px solid var(--secondary-40);
 }
 
 .proto-mgt h1,
 .proto-mgt-desc {
-  margin-top: 0;
+  margin: 0;
+  padding: 0;
   font-weight: bold;
-  color: var(--focus);
+  color: var(--secondary-100);
+  background-color: transparent;
+  border: none;
 }
 
 .proto-mgt button,
 .proto-mgt [role="button"] {
-  background-color: var(--focus);
+  background-color: var(--button-primary);
   color: var(--light);
   font-weight: bold;
 
@@ -550,7 +619,7 @@ Prototyping Styles
 }
 
 .proto-mgt [role="button"] {
-  background-color: var(--focus);
+  background-color: var(--button-primary);
   color: var(--light);
   font-weight: bold;
   margin: auto;
@@ -560,10 +629,22 @@ Prototyping Styles
   border-radius: 1rem;
 }
 
-.card-container h3 {
+.card-container {
+  background-color: var(--light);
+}
+
+.card-container .pagecard-title {
   color: var(--accent);
   margin: auto 0;
+  font-weight: 700;
 }
+.pagecard-label,
+.proto-mgt-cat {
+  padding: 0;
+  margin-top: 1rem;
+  color: var(--secondary-80);
+}
+
 .card-container button {
   margin: auto 0.25rem;
 }

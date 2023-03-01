@@ -66,14 +66,8 @@ export default function Page() {
 
   if (page) {
     return (
-      <Layout
-        style={`
-          h1 {
-            align-self: flex-start;
-          }
-      `}
-      >
-        <Root className="proto-mgt">
+      <Layout>
+        <Root>
           <div className="instructions">
             <h2>Next steps:</h2>
             <p>
@@ -95,7 +89,7 @@ export default function Page() {
             </div>
           </Row>
           <Row className="proto-mgt-header">
-            <div>
+            <div className="proto-mgt">
               <div className="proto-mgt-cat">Prototype page title:</div>
               <h1>{page.title}</h1>
               <div className="proto-mgt-cat">Prototype page description:</div>
@@ -105,6 +99,7 @@ export default function Page() {
           <Column className="page-box">
             {renderCards(page.sections, page.id)}
           </Column>
+          <hr className="page-end" />
           <Button
             onClick={() =>
               dispatch({

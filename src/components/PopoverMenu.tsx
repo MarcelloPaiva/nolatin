@@ -54,7 +54,7 @@ export default function PopoverMenu({
         open={menuOpen}
         onClose={handleMenuClose}
       >
-        <Nav>{menuItems(items)}</Nav>
+        <Nav className="menu-popover">{menuItems(items)}</Nav>
       </Menu>
     </Nav>
   )

@@ -1,6 +1,6 @@
 import PopoverMenu from "./PopoverMenu"
 import styled from "styled-components"
-import NoLatin from "../assets/svgs/nolatinLogo03.svg"
+// import NoLatin from "../assets/svgs/nolatinLogo03.svg"
 
 const Header = styled.header`
   width: auto;
@@ -33,16 +33,17 @@ export default function NavBar() {
   return (
     <Header>
       <a href="/" id="nolatin-logo">
-        <Logo
+        No Latin
+        {/* <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"
-        />
+        /> */}
       </a>
       <Row>
         <PopoverMenu
           navLabel="Primary Site Navigation"
           buttonLabel="Open Site Menu"
-          color="var( --secondary-80)"
+          color="var(--light)"
           items={[
             {
               link: "/",

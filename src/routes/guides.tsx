@@ -40,7 +40,13 @@ export default function Guides() {
               . It will make you a better human.
             </p>
             <h3>What are prioritized content guides?</h3>
-            <p>describe</p>
+            <p>
+              Priority guide contains content and elements for a mobile screen,
+              sorted by hierarchy from top to bottom and without layout
+              specifications. The hierarchy is based on relevance to users, with
+              the content most critical to satisfying user needs and supporting
+              user (and company) goals higher up.
+            </p>
           </div>
         </div>
         <div id="howTo01">
@@ -66,9 +72,11 @@ export default function Guides() {
                 </ul>
               </p>
               <p>
-                Most importantly, a priority guide is automatically
-                content-first, with a strong focus on providing best value for
-                users.
+                Your priority guide should only contain real content that's
+                relevant to the user.{" "}
+                <span className="bad-ipsum">Lorem ipsum</span>, or any other
+                type of placeholder text, doesn't communicate how the page
+                supports users in reaching their goals.
               </p>
             </div>
           </div>

@@ -698,9 +698,12 @@ Prototyping Styles
   margin: auto;
 }
 
-.MuiPopover-paper ul {
-  padding: 0.5rem;
+.page-description {
+  display: block;
+  padding: 0.125rem !important;
   background-color: #f7f7d1;
+  margin: 0 0.5rem;
+  outline: 0.5rem solid #f7f7d1;
 }
 
 .exportApp [role="alert"] {

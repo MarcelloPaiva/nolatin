@@ -21,9 +21,9 @@ export default function Guides() {
             disabilities.
           </p>
         </section>
-
+        <h1>Step by step guide</h1>
         <div className="post-container">
-          <h2 className="post-title">Adopt a content-first mindset</h2>
+          <h2 className="post-title">1. Adopt a content-first mindset</h2>
           <div className="post-content">
             <p>
               If you haven't done so, this is a good time to pause and read the
@@ -39,11 +39,19 @@ export default function Guides() {
               </a>
               . It will make you a better human.
             </p>
+            <h3>What are prioritized content guides?</h3>
+            <p>
+              Priority guide contains content and elements for a mobile screen,
+              sorted by hierarchy from top to bottom and without layout
+              specifications. The hierarchy is based on relevance to users, with
+              the content most critical to satisfying user needs and supporting
+              user (and company) goals higher up.
+            </p>
           </div>
         </div>
         <div id="howTo01">
           <div className="post-container">
-            <h2 className="post-title">Master your priority guides</h2>
+            <h2 className="post-title">2. Master your content guides</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-00.svg"
@@ -52,7 +60,7 @@ export default function Guides() {
             </div>
             <div className="post-content">
               <p>
-                Create purposeful content by writing priority guides with four
+                Create purposeful content by writing content guides with four
                 essential elements:
               </p>
               <p>
@@ -64,16 +72,18 @@ export default function Guides() {
                 </ul>
               </p>
               <p>
-                Most importantly, a priority guide is automatically
-                content-first, with a strong focus on providing best value for
-                users.
+                Your priority guide should only contain real content that's
+                relevant to the user.{" "}
+                <span className="bad-ipsum">Lorem ipsum</span>, or any other
+                type of placeholder text, doesn't communicate how the page
+                supports users in reaching their goals.
               </p>
             </div>
           </div>
         </div>
         <section id="howTo02">
           <div className="post-container">
-            <h2>Create a page to host your guides</h2>
+            <h2>3. Use No Latin to create your content guides</h2>
 
             <div className="post-thumb">
               <img
@@ -84,8 +94,8 @@ export default function Guides() {
             <div className="post-content">
               <p>
                 <strong>No Latin</strong> helps you creating and prioritizing
-                the headlines in a page, and export an{" "}
-                <strong>accessible web-based prototype</strong>.
+                the content guides in a web page, and export an accessible web
+                page to test with screen-reader users, for example. .
               </p>
               <p>
                 Let's{" "}
@@ -109,7 +119,7 @@ export default function Guides() {
         </section>
         <section id="howTo03">
           <div className="post-container">
-            <h2 className="post-title">Create intentful headlines</h2>
+            <h2 className="post-title">4. Create intentful headlines</h2>
             <div className="post-thumb">
               <img
                 src="images/how-to-05.svg"
@@ -134,7 +144,7 @@ export default function Guides() {
         </section>
         <section id="howTo04">
           <div className="post-container">
-            <h2 className="post-title">Test your prototype</h2>
+            <h2 className="post-title">5. Test your prototype</h2>
             <p>
               <strong>No Latin</strong> generates web prototypes with
               Accessibility in mind by providing:
@@ -168,17 +178,28 @@ export default function Guides() {
                   </li>
                 </ul>
               </p>
-              <p>All that before designing or developing anything!</p>{" "}
+              <p>
+                <strong>
+                  All free for our UX community to use before starting the
+                  interface designing phase.
+                </strong>
+              </p>
               <p>
                 We believe this method will enable UX professionals to be
                 proactive about including people with disabilities early in the
                 design process; this approach is known as "
                 <strong>shift-left</strong>."
               </p>
+              <h3>Including people with disabilities in Usability studies</h3>
+              <p>
+                We created a <a href="/usability">user testing guidelines</a> on
+                how to provide proper accomodations for assistive technology
+                users during your usability studies.{" "}
+              </p>
             </div>
           </div>
         </section>
-        <hr className="una" aria-hidden="true" />
+        <hr aria-hidden="true" />
         <h2>Conclusion: Content design leads to good Accessibility</h2>
         <p>
           As UX professionals, you are committed to designing solutions as

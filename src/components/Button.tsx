@@ -24,7 +24,7 @@ const Button = forwardRef(
       align-items: center;
       border: none;
       border-radius: 12px;
-      background-color: var(--secondary-90);
+      background-color: var(--button-primary);
       color: #fff;
       padding: 16px;
       margin-top: 2rem;

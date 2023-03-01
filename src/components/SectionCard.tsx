@@ -42,7 +42,7 @@ const sectionStyles = `
     padding: 8px;
     line-height: auto;
     background-color: var(--secondary-05);
-    font-family: "Roboto Mono", sans-serif;
+    font-family: var(--body-family);
   }
 
   p, ol, ul, li { 

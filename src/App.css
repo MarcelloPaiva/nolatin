@@ -62,6 +62,12 @@
   --text-light: #151514;
   --text-low-emphasis: var(--primary-50);
 
+  --h-alert: 170;
+  --alert-bg: hsla(var(--h-alert), 50%, 90%, 1);
+  --alert-border: hsla(var(--h-alert), 50%, 70%, 1);
+  --alert-cat: hsla(var(--h-alert), 50%, 30%, 1);
+  --alert-text: hsla(var(--h-alert), 50%, 10%, 1);
+
   --inputLabel: var(--secondary-100);
   --inputValue: var(--primary-100);
 
@@ -265,7 +271,7 @@ footer .hero {
 }
 
 p {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   line-height: 145%;
 }
 
@@ -727,8 +733,9 @@ Prototyping Styles
 }
 
 .exportApp [role="alert"] {
-  background-color: var(--dark);
-  border: 8px solid #ddd;
+  background-color: var(--alert-bg);
+  border: 4px solid var(--alert-border);
+  margin: 0.25rem;
 }
 
 .exportApp [role="alert"] h2,
@@ -737,7 +744,7 @@ Prototyping Styles
 .exportApp [role="alert"] h5,
 .exportApp [role="alert"] h6,
 .exportApp [role="alert"] p {
-  color: var(--light);
+  color: var(--alert-text);
 }
 
 .exportApp [role="alert"] h2::before,
@@ -751,7 +758,7 @@ Prototyping Styles
   letter-spacing: 0.125rem;
   text-transform: uppercase;
   line-height: 1rem;
-  color: #aaa;
+  color: var(--alert-cat);
   margin: 0;
   white-space: pre-wrap;
 }

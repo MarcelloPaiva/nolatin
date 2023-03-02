@@ -1,5 +1,6 @@
 import { forwardRef } from "react"
 import styled from "styled-components"
+import { LabelToo } from "./"
 
 interface InputProps {
   label: string
@@ -41,21 +42,10 @@ const Input = forwardRef(
     border-radius: 4px;
     padding: 8px;
     font-family: var(--body-family);
-    font-size: "1rem";
-    font-weight: bold;
     color: var(--inputValue);
+    font-size: 1rem;
 
   `
-    const labelStyles = `
-    color: var(--inputLabel);
-    font-size: 90%;
-    margin-top: 1rem;
-  `
-
-    const Label = styled.label`
-      ${labelStyles}
-    `
-
     const TextInput = styled.input`
       ${inputStyles}
     `
@@ -64,7 +54,7 @@ const Input = forwardRef(
     `
     return (
       <InputContainer>
-        <Label>{label}</Label>
+        <LabelToo>{label}</LabelToo>
         {multiline ? (
           <TextArea
             aria-label={label}

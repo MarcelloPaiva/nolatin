@@ -90,10 +90,11 @@ const ModalContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--primary-light);
+  background-color: var(--light);
   padding: 24px;
   margin: 40px;
   border-radius: 8px;
+  max-width: 600px;
 `
 
 export default function ContentCard({

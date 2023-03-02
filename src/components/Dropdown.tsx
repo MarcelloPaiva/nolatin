@@ -36,10 +36,7 @@ export default function Dropdown({
     border-radius: 4px;
     padding: 8px;
     font-family: var(--body-family);
-    font-size: 90%;
-    font-weight: bold;
-    line-height: "auto";
-    color: var(--secondary-80);
+    color: var(--inputValue);
   `
 
   const Option = styled.option``

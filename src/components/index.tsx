@@ -17,16 +17,11 @@ export const Label = styled.label`
 `
 export const LabelToo = styled.label`
   display: block;
-  color: var(--secondary-80);
-  margin-top: 1rem;
-  font-size: 90%;
+  margin: 1rem 0 0.25rem;
 `
 export const Divider = styled.div``
 
-export const IconLabel = styled.div`
-  font-family: var(--body-family), serif;
-  font-size: 120%;
-`
+export const IconLabel = styled.div``
 export const ButtonNoStyle = styled.button`
   min-height: 44px;
   min-width: 44px;

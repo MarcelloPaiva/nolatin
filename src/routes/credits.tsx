@@ -14,7 +14,7 @@ export default function Credits() {
       <Main className="credits">
         <h1>Thank you!</h1>
         <p>
-          Over the past four years, I've been on a mission to find a way for
+          Over the past five years, I've been on a mission to find a way for
           designers to create accessible prototypes without needing to know how
           to code. Along the way, I've had the pleasure of meeting and working
           with some incredible individuals who share my passion for

@@ -354,6 +354,26 @@ cite {
   font-weight: 800;
   color: var(--secondary-90);
 }
+
+.credits [lang="pt"] {
+  color: green;
+}
+
+.credits [lang="ru"] {
+  color: firebrick;
+}
+
+.credits [lang="it"] {
+  color: green;
+}
+
+.credits [lang="nl"] {
+  color: royalblue;
+}
+
+.credits [lang="es"] {
+  color: goldenrod;
+}
 .post-thumb {
   width: auto;
   max-width: 320px;

@@ -39,7 +39,11 @@ export default function PageCard({
   `
 
   return (
-    <CardContainer href={`/page/${id}`} className="card-container">
+    <CardContainer
+      aria-label={`Enter page titled: "${title}" to build your accessible prototype`}
+      href={`/page/${id}`}
+      className="card-container"
+    >
       <div className="pagecard-title">{title}</div>
       <Row>
         <IconButton

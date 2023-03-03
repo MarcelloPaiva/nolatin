@@ -68,7 +68,12 @@ export default function Page() {
     return (
       <Layout>
         <Root>
-          <div className="instructions">
+          <h1>Build your prototype</h1>
+          <div
+            className="instructions"
+            role="region"
+            aria-label="Page instructions"
+          >
             <h2>Next steps:</h2>
             <p>
               Add as many headlines you want, but please remember to be
@@ -78,20 +83,21 @@ export default function Page() {
           </div>
 
           <Row className="toolbar">
-            <BackLink href="/pages">
+            <BackLink aria-label="Back to previous page" href="/pages">
               <ChevronLeft />
               Back
             </BackLink>
             <div className="preview">
               <Button link={`/preview/${id}`} newTab>
-                Preview &nbsp; <ExternalLink />
+                Preview prototype &nbsp;
+                <ExternalLink />
               </Button>
             </div>
           </Row>
           <Row className="proto-mgt-header">
             <div className="proto-mgt">
               <div className="proto-mgt-cat">Prototype page title:</div>
-              <h1>{page.title}</h1>
+              <h2>{page.title}</h2>
               <div className="proto-mgt-cat">Prototype page description:</div>
               <p className="proto-mgt-desc">{page.description}</p>
             </div>
@@ -100,19 +106,21 @@ export default function Page() {
             {renderCards(page.sections, page.id)}
           </Column>
           <hr className="page-end" />
-          <Button
-            onClick={() =>
-              dispatch({
-                type: ActionTypes.CreateSection,
-                payload: { pageId: page.id },
-              })
-            }
-            styles="
+          <section aria-label="Add new headline" className="row-add-headline">
+            <Button
+              onClick={() =>
+                dispatch({
+                  type: ActionTypes.CreateSection,
+                  payload: { pageId: page.id },
+                })
+              }
+              styles="
             margin-bottom:32px;
             "
-          >
-            Add new headline
-          </Button>
+            >
+              Add new headline
+            </Button>
+          </section>
         </Root>
       </Layout>
     )

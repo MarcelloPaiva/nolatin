@@ -245,14 +245,14 @@ export default function SectionCard({
           />
           <Input
             id={id + "-description"}
-            label="Section Description"
+            label="Describe this section with intent"
             defaultValue={description}
             style={``}
             multiline
           />
           <Dropdown
             id={id + "-element"}
-            label="Element"
+            label="What type of region is this?"
             defaultValue={element}
             options={Object.keys(Elements).map((name) => {
               return { label: name, value: name }

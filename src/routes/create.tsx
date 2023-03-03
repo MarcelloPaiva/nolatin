@@ -68,7 +68,7 @@ export default function Create() {
     <Layout>
       <Root role={"main"} className="main">
         <Row className="back-row">
-          <BackLink href="/pages">
+          <BackLink aria-label="back to previous page" href="/pages">
             <ChevronLeft />
           </BackLink>
 

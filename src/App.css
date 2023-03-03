@@ -622,7 +622,11 @@ Prototyping Styles
   margin-top: 1rem;
 }
 
-.proto-mgt h1,
+.row-add-headline {
+  align-self: center;
+}
+
+.proto-mgt h2,
 .proto-mgt-desc {
   margin: 0;
   padding: 0;

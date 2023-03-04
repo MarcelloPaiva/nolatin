@@ -53,8 +53,9 @@ export default function Root() {
             Content and Accessibility are considered an afterthought.
           </strong>
           <br />
-          If designers continue to use Latin content placeholders in early
-          design concepts, people with disabilities that rely on assistive
+          If designers continue to use{" "}
+          <span className="bad-ipsum">Loren Ipsum</span> content placeholders in
+          early design concepts, people with disabilities that rely on assistive
           technologies (i.e.: screen readers) will continue to be excluded from
           early user research studies.
         </p>

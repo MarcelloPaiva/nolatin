@@ -29,11 +29,15 @@ export default function Root() {
             <span className="bad-ipsum">Lorem Ipsum</span>) in the design
             industry.
           </p>
+          <br />
+          <div className="site-cta">
+            <Button link="/guides">Get started</Button>
+          </div>
         </section>
         <img className="landing" src="images/InclusiveBunch.png" alt=""></img>
         <figcaption>
-          An illustration of a multicultural children, including a boy in a
-          wheelchair, smiling for a photo celebrating those who design with
+          An illustration of a multicultural group of children, including a boy
+          in a wheelchair, smiling for a photo celebrating those who design with
           Accessibility in mind.
         </figcaption>
         <blockquote>

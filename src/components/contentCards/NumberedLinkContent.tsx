@@ -21,7 +21,7 @@ export default function NumberedLinkContent({
       ) : (
         <>
           <LabelToo>List items</LabelToo>
-          <ol>
+          <ol className="proto-mgt-list">
             {getQuoteList(description)?.map((url) => {
               const urlArray = url.split(", ")
               if (urlArray.length > 1) {

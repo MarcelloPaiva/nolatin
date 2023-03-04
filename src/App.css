@@ -253,7 +253,8 @@ footer .hero {
 }
 
 .hero a:hover {
-  color: var(--focus);
+  color: var(--light);
+  background-color: var(--secondary-90);
 }
 
 .bad-ipsum {
@@ -472,18 +473,15 @@ select {
   line-height: 1.5rem;
 }
 
-main [role="button"] {
-  margin: auto;
-  margin-right: 0;
-  background-color: var(--button-primary);
-  color: var(--light);
-}
-
 .site-cta [role="button"] {
   margin: auto;
   color: var(--light);
   background-color: var(--secondary-100);
   border-radius: 2rem;
+}
+.site-cta [role="button"]:hover {
+  color: var(--light);
+  background-color: var(--secondary-90);
 }
 
 .card-toolbar button {
@@ -618,6 +616,10 @@ Prototyping Styles
   padding: 1rem;
   border-top: 8px solid var(--secondary-40);
   background-color: var(--light);
+}
+
+.proto-mgt-list {
+  margin-left: auto;
 }
 
 .pages-button {
@@ -809,10 +811,15 @@ Prototyping Styles
 }
 
 .exportApp p,
-.exportApp label {
+.exportApp label,
+.exportApp li {
   font-size: 1rem !important;
   line-height: normal;
   color: #000;
+}
+
+.exportApp li {
+  line-height: 200%;
 }
 
 .exportApp header {

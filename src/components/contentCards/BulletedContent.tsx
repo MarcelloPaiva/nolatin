@@ -21,7 +21,7 @@ export default function BulletedContent({
       ) : (
         <>
           <LabelToo>List items</LabelToo>
-          <ul>
+          <ul className="proto-mgt-list">
             {getQuoteList(description)?.map((item) => (
               <li key={id + item}>{item}</li>
             ))}

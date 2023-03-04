@@ -21,7 +21,7 @@ export default function BulletedLinkContent({
       ) : (
         <>
           <LabelToo>List items</LabelToo>
-          <ul>
+          <ul className="proto-mgt-list">
             {getQuoteList(description)?.map((url) => {
               const urlArray = url.split(", ")
               if (urlArray.length > 1) {

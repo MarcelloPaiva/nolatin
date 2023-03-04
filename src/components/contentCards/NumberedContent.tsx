@@ -21,7 +21,7 @@ export default function NumberedContent({
       ) : (
         <>
           <LabelToo>List items</LabelToo>
-          <ol>
+          <ol className="proto-mgt-list">
             {getQuoteList(description)?.map((item) => (
               <li key={id + item}>{item}</li>
             ))}

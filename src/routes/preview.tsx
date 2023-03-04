@@ -113,13 +113,14 @@ function generateSections(sections: Section[]) {
         )
       case ElementNames.Alert:
         return (
-          <div
+          <section
             role="alert"
-            aria-label={`${section.name}`}
-            title={`${section.description}`}
+            aria-label="Alert"
+            aria-atomic="true"
+            aria-describedby={`${section.description}`}
           >
             {content}
-          </div>
+          </section>
         )
       default:
         return null

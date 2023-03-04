@@ -837,8 +837,7 @@ Prototyping Styles
   background-color: var(--dark);
   color: var(--light);
   border: none;
-  /* margin: auto; */
-  /* margin-top: 2rem; */
+  margin: auto;
   width: auto;
   /* max-width: fit-content; */
   /* padding: 1rem 4rem; */

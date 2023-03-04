@@ -31,6 +31,7 @@ export default function Preview() {
   const page = getPage(pageId ?? "")
   return (
     <ExportApp className="exportApp">
+      <script>document.title = getPage(pageTitle);</script>
       <Header
         title={page?.title ?? ""}
         pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}

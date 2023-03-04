@@ -24,13 +24,13 @@ export default function About() {
         <img
           className="landing"
           src="images/ourStory.png"
-          alt="A group of children seating on a quietly observing the sunset."
+          alt="A group of children sitting on a quietly observing the sunset."
         ></img>
         <figcaption>
-          A group of children seating quietly, on top of hill, looking far away
-          as if something is about to happen. They have played hard all day, and
-          are now awaiting for your feedback. If you have any ideas or comments,
-          please{" "}
+          A group of children sitting quietly, on top of a hill, looking far
+          away as if something is about to happen. They have played hard all
+          day, and now awaiting your feedback. If you have any ideas or
+          comments, please{" "}
           <a href="https://github.com/MarcelloPaiva/nolatin/issues/new/choose">
             create an issue on github
           </a>

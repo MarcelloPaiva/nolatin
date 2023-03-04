@@ -84,9 +84,11 @@ export default function Credits() {
         </div>
 
         <div className="post-container">
-          <h2 className="post-title">Shaun Pansolli and Marta Guerra</h2>
+          <h2 className="post-title">
+            Loren Mack, Shaun Pansolli and Marta Guerra
+          </h2>
           <h3>
-            Thanks! <span lang="pt">Obrigado prima!</span>
+            Thanks gents! <span lang="pt">Obrigado prima!</span>
           </h3>
           <div className="post-content">
             <p>

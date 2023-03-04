@@ -15,7 +15,7 @@ export default function Footer() {
               Rapid Prototyping with Accessibility in Mind
             </a>
           </strong>
-          " to introduce this free tool to help designers bringing people with
+          " to introduce this free tool to help designers bring in people with
           disabilities early in the design process.
         </p>
         <p>

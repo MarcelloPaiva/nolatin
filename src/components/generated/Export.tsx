@@ -13,7 +13,7 @@ interface ApiResponse {
   message: string
 }
 
-const apiUrl = "https://api.nolatin.com/json"
+const apiUrl = "https://api.nolatin.com/json/save.php"
 
 const PostDataExample = () => {
   const [friendlyName, setFriendlyName] = useState("")
@@ -87,9 +87,10 @@ const PostDataExample = () => {
           />
         </div>
         <div>
+          <label htmlFor="jsonContent">JSON Data:</label>
           <input
             id="jsonContent"
-            type="hidden"
+            type="text"
             value={jsonContent}
             onChange={(event) => setJsonContent(event.target.value)}
             required

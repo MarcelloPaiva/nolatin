@@ -82,6 +82,9 @@
   --buttonSecondary-border: var(--primary-80);
   --buttonSecondary-borderWidth: 4px;
 
+  --share-label: var(--light);
+  --share-bg: var(--accent);
+  --share-border: var(--light);
   /*SkipTo Theme Variables*/
 
   --skipToIcon: "\f11c";
@@ -810,6 +813,14 @@ Prototyping Styles
   font-size: 0.67em;
 }
 
+.exportApp .proto-actions button {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+  border: 2px solid var(--share-border);
+  border-radius: 8px;
+  background-color: var(--share-bg);
+}
 .exportApp p,
 .exportApp label,
 .exportApp li {

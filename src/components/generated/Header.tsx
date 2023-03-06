@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import PopoverMenu from "../PopoverMenu"
-import { Info } from "react-feather"
+import { Info, Send } from "react-feather"
 import { Menu } from "@mui/material"
 import { useState, useRef } from "react"
 
@@ -61,15 +61,24 @@ export default function Header({ pages, info, title }: HeaderProps) {
           />
         )}
         <Heading>{title}</Heading>
-      </Row>
-      <div ref={infoRef}>
         <IconButton
-          size={32}
+          size={24}
           color="var(--primary-light)"
           icon={Info}
           aria="Page Description"
           onClick={handleInfoClick}
         />
+      </Row>
+      <div ref={infoRef}>
+        <div className="proto-actions">
+          <IconButton
+            size={32}
+            color="var(--share-label)"
+            icon={Send}
+            aria="Share this prototype"
+            onClick={handleInfoClick}
+          />
+        </div>
         <Menu
           anchorEl={infoRef.current}
           open={infoOpen}

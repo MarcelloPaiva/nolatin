@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import PopoverMenu from "../PopoverMenu"
+import ExportUi from "./Export"
 import { Info, Send } from "react-feather"
 import { Menu, Modal } from "@mui/material"
 import { useState, useRef } from "react"
-import Input from "../Input"
 
 const GenHeader = styled.header`
   background-color: var(--accent);
@@ -30,6 +30,9 @@ const InfoContainer = styled.div`
 `
 const ExportForm = styled.form`
   background-color: var(--primary-light);
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 1rem;
 `
 
 interface PageItem {
@@ -106,7 +109,7 @@ export default function Header({ pages, info, title }: HeaderProps) {
       </InfoContainer>
       <Modal open={exportOpen} onClose={() => setExportOpen(false)}>
         <ExportForm>
-          <Input label="Link" />
+          <ExportUi />
         </ExportForm>
       </Modal>
     </GenHeader>

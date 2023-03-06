@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import { Send, X } from "react-feather"
-import { Hidden } from "@mui/material"
 
 const EndRow = styled.div`
   display: flex;

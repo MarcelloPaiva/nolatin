@@ -30,7 +30,6 @@ const BackLink = styled.a`
   padding: 16px;
   margin-top: 2rem;
   font-size: 120%;
-  letter-spacing: 0.05rem;
   font-weight: bold;
   text-decoration: none;
 `

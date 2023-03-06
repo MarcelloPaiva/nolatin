@@ -1,5 +1,5 @@
-import PopoverMenu from "./PopoverMenu";
-import styled from "styled-components";
+import PopoverMenu from "./PopoverMenu"
+import styled from "styled-components"
 // import NoLatin from "../assets/svgs/nolatinLogo03.svg"
 
 const Header = styled.header`
@@ -14,17 +14,17 @@ const Header = styled.header`
     var(--navbar-grad-02),
     var(--navbar-grad-03)
   );
-`;
+`
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 export default function NavBar() {
   return (
     <Header>
       <a href="/" id="nolatin-logo">
-        No <span className="bad-ipsum">Latin</span>
+        No<span className="bad-ipsum">Latin</span>
         {/* <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"
@@ -60,5 +60,5 @@ export default function NavBar() {
         />
       </Row>
     </Header>
-  );
+  )
 }

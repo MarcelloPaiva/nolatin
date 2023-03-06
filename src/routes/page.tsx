@@ -31,7 +31,6 @@ const BackLink = styled.a`
   padding: 16px;
   margin-top: 2rem;
   font-size: 120%;
-  letter-spacing: 0.05rem;
   font-weight: bold;
   text-decoration: none;
 `
@@ -83,9 +82,9 @@ export default function Page() {
           </div>
 
           <Row className="toolbar">
-            <BackLink aria-label="Back to previous page" href="/pages">
+            <BackLink aria-label="Back to list of pages" href="/pages">
               <ChevronLeft />
-              Back
+              Pages List
             </BackLink>
             <div className="preview">
               <Button link={`/preview/${id}`} newTab>

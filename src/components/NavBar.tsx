@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <Header>
       <a href="/" id="nolatin-logo">
-        No <span className="bad-ipsum">Latin</span>
+        No<span className="bad-ipsum">Latin</span>
         {/* <Logo
           src={NoLatin}
           alt="No Latin - A shift-left tool for product designers"
@@ -42,15 +42,15 @@ export default function NavBar() {
             },
             {
               link: "/guides",
-              title: "How To",
+              title: "How To Guides",
             },
             {
               link: "/pages",
-              title: "Get Started",
+              title: "Start Prototyping",
             },
             {
               link: "/about",
-              title: "About",
+              title: "About This Project",
             },
             {
               link: "/usability",

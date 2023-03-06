@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
 
 :root {
   --h: 60;
@@ -32,11 +32,11 @@
 
   --focus: deeppink;
 
-  --logo-family: "Roboto", "Fredericka the Great", cursive;
+  --logo-family: "Montserrat", cursive;
   --body-family: "Roboto", sans-serif;
   --body: var(--secondary-100);
 
-  --heading-family: "Merriweather", serif;
+  --heading-family: "Montserrat", serif;
   --heading: var(--secondary-100);
 
   --navbar-grad-01: var(--secondary-03);
@@ -185,7 +185,7 @@ a:active {
   display: block;
   font-family: var(--logo-family);
   font-weight: 900;
-  color: hsla(0, 100%, 100%, 0.8);
+  color: hsla(328, 100%, 54%, 0.9);
   font-size: 2.5rem;
   height: 4rem;
   line-height: 4rem;
@@ -226,7 +226,6 @@ footer .hero {
 .hero h1,
 .hero h2,
 .hero p {
-  color: var(--secondary-80);
   background-color: transparent;
   line-height: auto;
   padding-left: 0;
@@ -236,8 +235,9 @@ footer .hero {
 .hero h1,
 .hero h2 {
   font-size: 2rem;
-  color: var(--secondary-80);
+  color: var(--secondary-100);
   margin-top: 1rem;
+  font-weight: 700;
 }
 .hero p {
   font-size: 1rem;
@@ -290,11 +290,6 @@ ol {
   margin: 0 0 0 1rem;
 }
 
-h1 {
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-}
-
 h1,
 h2,
 h3,
@@ -302,7 +297,7 @@ h4,
 h5,
 h6 {
   font-family: var(--heading-family);
-  font-weight: 900;
+  font-weight: 700;
   font-style: normal;
   font-stretch: normal;
   color: var(--heading);
@@ -316,6 +311,11 @@ h2,
 h3 {
   /* margin-bottom: 1rem; */
   margin: 2rem 0 1rem 0;
+}
+
+h1 {
+  margin-top: 2rem;
+  font-weight: 900;
 }
 
 .menu-popover a {
@@ -521,14 +521,15 @@ h1 + .instructions {
   flex-direction: column;
   width: 100%;
   margin: 1rem 0;
-  padding: 2rem 1rem 0;
+  padding: 1rem 1rem 0;
   /* border-left: 0.25rem solid var(--secondary-20); */
   background-color: var(--secondary-20);
+  border-radius: 0 0 1rem 1rem;
 }
 
 .instructions h2 {
   color: var(--secondary-100);
-  font-weight: 900;
+  font-weight: 700;
   margin: 0;
   margin-bottom: 0.25rem;
   font-size: 1.25rem;
@@ -553,13 +554,12 @@ blockquote {
   padding: 2rem;
   width: 90%;
   font-family: var(--body-family);
-  font-style: italic;
+  /* font-style: italic; */
   letter-spacing: -0.025rem;
   line-height: 150%;
   font-size: 1.5rem;
   color: var(--secondary-80);
   border-left: 3px dotted var(--secondary-30);
-  font-family: var(--heading-family);
   background-color: var(--light);
 }
 
@@ -568,6 +568,7 @@ blockquote h2,
 blockquote h3 {
   color: var(--secondary-80);
   margin: 0 0 1rem;
+  font-family: var(--heading-family);
 }
 
 /* Modal */

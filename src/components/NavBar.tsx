@@ -1,5 +1,5 @@
-import PopoverMenu from "./PopoverMenu"
-import styled from "styled-components"
+import PopoverMenu from "./PopoverMenu";
+import styled from "styled-components";
 // import NoLatin from "../assets/svgs/nolatinLogo03.svg"
 
 const Header = styled.header`
@@ -14,11 +14,11 @@ const Header = styled.header`
     var(--navbar-grad-02),
     var(--navbar-grad-03)
   );
-`
+`;
 const Row = styled.div`
   display: flex;
   justify-content: space-between;
-`
+`;
 
 export default function NavBar() {
   return (
@@ -42,15 +42,15 @@ export default function NavBar() {
             },
             {
               link: "/guides",
-              title: "How To",
+              title: "How To Guides",
             },
             {
               link: "/pages",
-              title: "Get Started",
+              title: "Start Prototyping",
             },
             {
               link: "/about",
-              title: "About",
+              title: "About This Project",
             },
             {
               link: "/usability",
@@ -60,5 +60,5 @@ export default function NavBar() {
         />
       </Row>
     </Header>
-  )
+  );
 }

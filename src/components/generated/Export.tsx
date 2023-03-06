@@ -1,4 +1,13 @@
 import React, { useState } from "react"
+import styled from "styled-components"
+import IconButton from "../IconButton"
+import { Send, X } from "react-feather"
+import { Hidden } from "@mui/material"
+
+const EndRow = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
 
 interface ApiResponse {
   status: string
@@ -42,6 +51,31 @@ const PostDataExample = () => {
 
   return (
     <div>
+      <EndRow>
+        <IconButton
+          icon={X}
+          aria="Cancel Edit"
+          label="Cancel"
+          styles="margin-right: 24px"
+          //   onClick={handleCancel}
+        />
+        <IconButton
+          icon={Send}
+          color="var(--button-save-label)"
+          aria="Send"
+          label="Send"
+          styles="background:var(--share-bg);border-radius:4px;width:60px;"
+          //   onClick={handleSave}
+        />
+      </EndRow>
+
+      <p>
+        <p>
+          Add a friendly name for your URL (example:
+          https://nolatin.com/preview/
+          <span className="friendlyName">myAccessiblePrototype</span>)
+        </p>
+      </p>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="friendlyName">Friendly Name:</label>
@@ -54,9 +88,9 @@ const PostDataExample = () => {
           />
         </div>
         <div>
-          <label htmlFor="jsonContent">JSON Content:</label>
-          <textarea
+          <input
             id="jsonContent"
+            type="hidden"
             value={jsonContent}
             onChange={(event) => setJsonContent(event.target.value)}
             required
@@ -113,7 +147,6 @@ async function postData(url: string, data: any): Promise<ApiResponse> {
 const ExportUi = () => {
   return (
     <div>
-      <h1>Enter JSON Data</h1>
       <PostDataExample />
     </div>
   )

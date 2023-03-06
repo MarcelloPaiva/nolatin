@@ -400,11 +400,23 @@ button {
 
 label {
   font-family: var(--body-family);
-  font-weight: 600;
+  color: var(--inputLabel);
+  font-weight: 500;
   margin-bottom: 0.5rem;
+  display: block;
+  margin: 1rem 0 0.25rem;
 }
-input {
+input,
+textarea {
   margin-bottom: 0.75rem;
+  background-color: #fff;
+  border: 3px solid var(--secondary-80);
+  border-radius: 4px;
+  padding: 8px;
+  font-family: var(--body-family);
+  color: var(--inputValue);
+  font-size: 1rem;
+  width: 100%;
 }
 
 select {
@@ -868,4 +880,9 @@ Prototyping Styles
   outline: var(--focus) solid 8px;
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+.friendlyName {
+  color: var(--focus);
+  font-weight: 500;
 }

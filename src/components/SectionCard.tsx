@@ -128,7 +128,7 @@ const ModalContainer = styled.div`
   border-radius: 8px;
 `
 const LabelToo = styled.label`
-  color: var(--primary-70);
+  color: var(--inputLabel);
   margin-top: 16px;
 `
 

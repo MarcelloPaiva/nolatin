@@ -10,6 +10,7 @@ interface InputProps {
   style?: string
   multiline?: boolean
   onBlur?: () => void
+  onChange?: () => void
   onKeyDown?: (event: React.KeyboardEvent) => void
   type?: string
 }

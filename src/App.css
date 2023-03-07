@@ -893,3 +893,8 @@ Prototyping Styles
   color: var(--focus);
   font-weight: 500;
 }
+
+.MuiModal-root {
+  max-width: 768px;
+  margin: auto;
+}

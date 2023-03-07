@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { AppContext } from "../context/AppContext"
 import { useParams } from "react-router-dom"
 import styled from "styled-components"
@@ -29,9 +29,17 @@ export default function Preview() {
   const { pageId } = useParams()
   const { state, getPage } = useContext(AppContext)
   const page = getPage(pageId ?? "")
+
+  useEffect(() => {
+    if (page?.title) document.title = page.title
+    if (page?.description)
+      document
+        .querySelector('meta[name="description"]')
+        ?.setAttribute("content", page.description)
+  }, [page])
+
   return (
     <ExportApp className="exportApp">
-      <script>document.title = getPage(pageTitle);</script>
       <Header
         title={page?.title ?? ""}
         pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}

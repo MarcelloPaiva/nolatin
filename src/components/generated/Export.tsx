@@ -64,7 +64,7 @@ const PostDataExample = () => {
           aria="Send"
           label="Send"
           styles="background:var(--share-bg);border-radius:4px;width:60px;"
-          //   onClick={handleSave}
+          onClick={handleSubmit}
         />
       </EndRow>
 

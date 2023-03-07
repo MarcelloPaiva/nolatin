@@ -16,7 +16,6 @@ const Image = styled.img`
   border: 1px solid #a8a8a8;
   width: 100%;
 `
-
 const ExportApp = styled.div`
   font-family: "Roboto", Tahoma, Geneva, Verdana, sans-serif;
   font-style: normal;
@@ -25,6 +24,7 @@ const Main = styled.main`
   background-color: #fff;
   margin: 0;
 `
+
 export default function Preview() {
   const { pageId } = useParams()
   const { state, getPage } = useContext(AppContext)

@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useContext, useState } from "react"
+import { AppContext } from "../../context/AppContext"
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import { Send, X } from "react-feather"
@@ -16,8 +17,8 @@ interface ApiResponse {
 const apiUrl = "https://api.nolatin.com/json/save.php"
 
 const PostDataExample = () => {
+  const { state } = useContext(AppContext)
   const [friendlyName, setFriendlyName] = useState("")
-  const [jsonContent, setJsonContent] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [response, setResponse] = useState<ApiResponse | null>(null)
   const [error, setError] = useState<string>("")
@@ -28,7 +29,7 @@ const PostDataExample = () => {
 
     const data = {
       friendly_name: friendlyName,
-      json_content: jsonContent,
+      json_content: JSON.stringify(state),
       emailaddress: emailAddress,
     }
 
@@ -42,7 +43,6 @@ const PostDataExample = () => {
 
   const handleReset = () => {
     setFriendlyName("")
-    setJsonContent("")
     setEmailAddress("")
     setResponse(null)
     setError("")
@@ -87,16 +87,6 @@ const PostDataExample = () => {
           />
         </div>
         <div>
-          <label htmlFor="jsonContent">JSON Data:</label>
-          <input
-            id="jsonContent"
-            type="text"
-            value={jsonContent}
-            onChange={(event) => setJsonContent(event.target.value)}
-            required
-          />
-        </div>
-        <div>
           <label htmlFor="emailAddress">Email Address:</label>
           <input
             type="email"
@@ -105,12 +95,6 @@ const PostDataExample = () => {
             onChange={(event) => setEmailAddress(event.target.value)}
             required
           />
-        </div>
-        <div>
-          <button type="submit">Submit</button>
-          <button type="button" onClick={handleReset}>
-            Reset
-          </button>
         </div>
       </form>
       {response && (

@@ -41,13 +41,6 @@ const PostDataExample = () => {
     }
   }
 
-  const handleReset = () => {
-    setFriendlyName("")
-    setEmailAddress("")
-    setResponse(null)
-    setError("")
-  }
-
   return (
     <div>
       <EndRow>

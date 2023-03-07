@@ -610,6 +610,11 @@ hr {
   padding: 0 0.5rem;
 }
 
+.page-box ul,
+ol {
+  margin-left: 0;
+}
+
 .page-end {
   background: none;
   background-color: var(--light);

@@ -674,6 +674,13 @@ Prototyping Styles
 
 .preview [role="button"] {
   border-radius: 1rem;
+  width: auto;
+  text-align: right;
+  padding-right: 0;
+}
+
+.preview svg {
+  margin-left: 0.5rem;
 }
 
 .card-container {

@@ -28,11 +28,12 @@ const BackLink = styled.a`
   width: fit-content;
   border-radius: 12px;
   color: var(--buttonSecondary-label);
-  padding: 16px;
+  padding: 0px;
   margin-top: 2rem;
   font-size: 120%;
   font-weight: bold;
   text-decoration: none;
+  padding-right: 1rem;
 `
 const Root = styled.main`
   display: flex;
@@ -67,7 +68,7 @@ export default function Page() {
     return (
       <Layout>
         <Root>
-          <h1>Build your prototype</h1>
+          <h1>Prototype page</h1>
           <div
             className="instructions"
             role="region"
@@ -88,7 +89,7 @@ export default function Page() {
             </BackLink>
             <div className="preview">
               <Button link={`/preview/${id}`} newTab>
-                Preview prototype &nbsp;
+                Preview
                 <ExternalLink />
               </Button>
             </div>

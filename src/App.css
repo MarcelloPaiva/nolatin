@@ -674,6 +674,13 @@ Prototyping Styles
 
 .preview [role="button"] {
   border-radius: 1rem;
+  width: auto;
+  text-align: right;
+  padding-right: 0;
+}
+
+.preview svg {
+  margin-left: 0.5rem;
 }
 
 .card-container {
@@ -885,4 +892,9 @@ Prototyping Styles
 .friendlyName {
   color: var(--focus);
   font-weight: 500;
+}
+
+.MuiModal-root {
+  max-width: 768px;
+  margin: auto;
 }

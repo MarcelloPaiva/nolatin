@@ -18,8 +18,6 @@ interface ApiResponse {
   message: string
 }
 
-const apiUrl = "https://api.nolatin.com/json/save.php"
-
 interface ExportFormProps {
   onClose: () => void
 }
@@ -42,7 +40,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
     }
 
     try {
-      await postData(apiUrl, data)
+      await postData(data)
       setSuccess(true)
     } catch (error) {
       let message
@@ -137,8 +135,8 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   )
 }
 
-async function postData(url: string, data: any): Promise<ApiResponse> {
-  const response = await fetch(url, {
+async function postData(data: any): Promise<ApiResponse> {
+  const response = await fetch("https://api.nolatin.com/json/save.php", {
     method: "POST",
     body: JSON.stringify(data),
   })

@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
-import { AppContext } from "../context/AppContext"
-import { useParams } from "react-router-dom"
+import { AppContext, AppContextState } from "../context/AppContext"
+import { useParams, redirect } from "react-router-dom"
 import styled from "styled-components"
 import Header from "../components/generated/Header"
 import Section from "../models/section"
@@ -25,14 +25,36 @@ const Main = styled.main`
   margin: 0;
 `
 
+async function fetchJSON(name?: string) {
+  if (!name) return undefined
+  const response = await fetch(
+    `https://api.nolatin.com/json/?friendly_name=${name}`,
+    {
+      method: "GET",
+    }
+  )
+  const json = await response.json()
+  return JSON.parse(json[0].json_content) as AppContextState
+}
+
 interface PreviewProps {
   share?: boolean
 }
 
-export default function Preview({ share = false }: PreviewProps) {
-  const { pageId } = useParams()
+export default async function Preview({ share = false }: PreviewProps) {
+  const { name, pageId } = useParams()
+  const apiState = await fetchJSON(name)
+  const apiPage = apiState?.pages.find((page) => page.id === pageId) ?? null
+  console.log("API PAGE", apiPage, name)
+
+  useEffect(() => {
+    if (apiState && share && name && !pageId) {
+      redirect(`/share/${name}/${apiState?.pages[0].id}`)
+    }
+  }, [apiState, name, pageId, share])
+
   const { state, getPage } = useContext(AppContext)
-  const page = getPage(pageId ?? "")
+  const page = share ? apiPage : getPage(pageId ?? "")
 
   useEffect(() => {
     if (page?.title) document.title = page.title
@@ -42,12 +64,26 @@ export default function Preview({ share = false }: PreviewProps) {
         ?.setAttribute("content", page.description)
   }, [page])
 
+  function getPages() {
+    if (share) {
+      return (
+        apiState?.pages.map((page) => ({
+          id: page.id,
+          title: page.title,
+        })) ?? []
+      )
+    } else {
+      return state.pages.map((page) => ({ id: page.id, title: page.title }))
+    }
+  }
+
   return (
     <ExportApp className="exportApp">
       <Header
         title={page?.title ?? ""}
-        pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}
+        pages={getPages()}
         info={page?.description ?? ""}
+        shareName={share ? name : undefined}
       />
       <Main>{generateSections(page?.sections ?? [])}</Main>
     </ExportApp>

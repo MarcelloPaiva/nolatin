@@ -44,9 +44,10 @@ interface HeaderProps {
   pages: PageItem[]
   title: string
   info: string
+  shareName?: string
 }
 
-export default function Header({ pages, info, title }: HeaderProps) {
+export default function Header({ pages, info, title, shareName }: HeaderProps) {
   const [exportOpen, setExportOpen] = useState(false)
   const [infoOpen, setInfoOpen] = useState(false)
   const infoRef = useRef<HTMLDivElement>(null)
@@ -66,7 +67,9 @@ export default function Header({ pages, info, title }: HeaderProps) {
             buttonLabel="Navigate to another page"
             items={pages.map((page) => {
               return {
-                link: `/preview/${page.id}`,
+                link: shareName
+                  ? `/share/${shareName}/${page.id}`
+                  : `/preview/${page.id}`,
                 title: page.title,
               }
             })}

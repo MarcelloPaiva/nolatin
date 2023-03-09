@@ -36,8 +36,13 @@ const PostDataExample = () => {
     try {
       const response = await postData(apiUrl, data)
       setResponse(response)
-    } catch (error: any) {
-      setError(error.message)
+    } catch (error) {
+      let message
+      if (error instanceof Error) message = error.message
+      else message = String(error)
+
+      console.log("ERROR", error)
+      setError(message)
     }
   }
 
@@ -106,11 +111,9 @@ const PostDataExample = () => {
 }
 
 async function postData(url: string, data: any): Promise<ApiResponse> {
+  console.log("DATA_VALUES", data)
   const response = await fetch(url, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
     body: JSON.stringify(data),
   })
   const result = await response.json()

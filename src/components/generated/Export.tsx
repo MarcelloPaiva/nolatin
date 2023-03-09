@@ -129,7 +129,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
                 required
               />
             </div>
-            {error && <p>Error: {error}</p>}
+            {error && <p aria-live="polite">Error: {error}</p>}
           </form>
         </>
       )}

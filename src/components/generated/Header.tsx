@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import PopoverMenu from "../PopoverMenu"
-import ExportUi from "./Export"
+import ExportForm from "./Export"
 import { Info, Send } from "react-feather"
 import { Menu, Modal } from "@mui/material"
 import { useState, useRef } from "react"
@@ -28,7 +28,7 @@ const InfoContainer = styled.div`
   display: flex;
   align-items: center;
 `
-const ExportForm = styled.form`
+const ExportContainer = styled.div`
   background-color: var(--primary-light);
   margin: 1rem;
   padding: 2rem;
@@ -108,9 +108,9 @@ export default function Header({ pages, info, title }: HeaderProps) {
         />
       </InfoContainer>
       <Modal open={exportOpen} onClose={() => setExportOpen(false)}>
-        <ExportForm>
-          <ExportUi />
-        </ExportForm>
+        <ExportContainer>
+          <ExportForm onClose={() => setExportOpen(false)} />
+        </ExportContainer>
       </Modal>
     </GenHeader>
   )

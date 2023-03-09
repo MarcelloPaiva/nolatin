@@ -10,7 +10,6 @@ import Create from "./routes/create"
 import Pages from "./routes/pages"
 import Page from "./routes/page"
 import Preview from "./routes/preview"
-import Send from "./routes/send"
 import "./App.css"
 
 function App() {
@@ -28,7 +27,8 @@ function App() {
           <Route path="/preview/:pageId" element={<Preview />} />
           <Route path="/pages" element={<Pages />} />
           <Route path="/page/:id" element={<Page />} />
-          <Route path="/send" element={<Send />} />
+          <Route path="/share/:name" element={<Preview share />} />
+          <Route path="/share/:name/:pageId" element={<Preview share />} />
         </Routes>
       </BrowserRouter>
     </AppProvider>

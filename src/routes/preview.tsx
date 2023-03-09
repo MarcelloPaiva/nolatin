@@ -25,7 +25,11 @@ const Main = styled.main`
   margin: 0;
 `
 
-export default function Preview() {
+interface PreviewProps {
+  share?: boolean
+}
+
+export default function Preview({ share = false }: PreviewProps) {
   const { pageId } = useParams()
   const { state, getPage } = useContext(AppContext)
   const page = getPage(pageId ?? "")

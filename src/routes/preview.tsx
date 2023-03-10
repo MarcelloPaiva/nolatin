@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
-import { AppContext } from "../context/AppContext"
-import { useParams } from "react-router-dom"
+import { AppContext, AppContextState } from "../context/AppContext"
+import { useParams, useLoaderData, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import Header from "../components/generated/Header"
 import Section from "../models/section"
@@ -25,10 +25,23 @@ const Main = styled.main`
   margin: 0;
 `
 
-export default function Preview() {
-  const { pageId } = useParams()
+interface PreviewProps {
+  share?: boolean
+}
+
+export default function Preview({ share = false }: PreviewProps) {
+  const navigate = useNavigate()
+  const apiState = useLoaderData() as AppContextState
   const { state, getPage } = useContext(AppContext)
-  const page = getPage(pageId ?? "")
+  const { name, pageId } = useParams()
+  const apiPage = apiState?.pages.find((page) => page.id === pageId) ?? null
+  const page = share ? apiPage : getPage(pageId ?? "")
+
+  useEffect(() => {
+    if (apiState && share && name && !pageId) {
+      navigate(`/share/${name}/${apiState?.pages[0].id}`)
+    }
+  }, [apiState, name, pageId, share, navigate])
 
   useEffect(() => {
     if (page?.title) document.title = page.title
@@ -38,12 +51,26 @@ export default function Preview() {
         ?.setAttribute("content", page.description)
   }, [page])
 
+  function getPages() {
+    if (share) {
+      return (
+        apiState?.pages.map((page) => ({
+          id: page.id,
+          title: page.title,
+        })) ?? []
+      )
+    } else {
+      return state.pages.map((page) => ({ id: page.id, title: page.title }))
+    }
+  }
+
   return (
     <ExportApp className="exportApp">
       <Header
         title={page?.title ?? ""}
-        pages={state.pages.map((page) => ({ id: page.id, title: page.title }))}
+        pages={getPages()}
         info={page?.description ?? ""}
+        shareName={share ? name : undefined}
       />
       <Main>{generateSections(page?.sections ?? [])}</Main>
     </ExportApp>

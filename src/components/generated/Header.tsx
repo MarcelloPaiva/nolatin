@@ -101,15 +101,17 @@ export default function Header({ pages, info, title, shareName }: HeaderProps) {
           </Menu>
         </div>
       </Row>
-      <InfoContainer className="proto-actions">
-        <IconButton
-          size={32}
-          color="var(--share-label)"
-          icon={Send}
-          aria="Share this prototype"
-          onClick={() => setExportOpen(true)}
-        />
-      </InfoContainer>
+      {!shareName && (
+        <InfoContainer className="proto-actions">
+          <IconButton
+            size={32}
+            color="var(--share-label)"
+            icon={Send}
+            aria="Share this prototype"
+            onClick={() => setExportOpen(true)}
+          />
+        </InfoContainer>
+      )}
       <Modal open={exportOpen} onClose={() => setExportOpen(false)}>
         <ExportContainer>
           <ExportForm onClose={() => setExportOpen(false)} />

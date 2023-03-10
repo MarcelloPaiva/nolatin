@@ -82,6 +82,9 @@
   --buttonSecondary-border: var(--primary-80);
   --buttonSecondary-borderWidth: 4px;
 
+  --share-label: var(--light);
+  --share-bg: var(--accent);
+  --share-border: var(--light);
   /*SkipTo Theme Variables*/
 
   --skipToIcon: "\f11c";
@@ -397,11 +400,23 @@ button {
 
 label {
   font-family: var(--body-family);
-  font-weight: 600;
+  color: var(--inputLabel);
+  font-weight: 500;
   margin-bottom: 0.5rem;
+  display: block;
+  margin: 1rem 0 0.25rem;
 }
-input {
+input,
+textarea {
   margin-bottom: 0.75rem;
+  background-color: #fff;
+  border: 3px solid var(--secondary-80);
+  border-radius: 4px;
+  padding: 8px;
+  font-family: var(--body-family);
+  color: var(--inputValue);
+  font-size: 1rem;
+  width: 100%;
 }
 
 select {
@@ -595,6 +610,11 @@ hr {
   padding: 0 0.5rem;
 }
 
+.page-box ul,
+ol {
+  margin-left: 0;
+}
+
 .page-end {
   background: none;
   background-color: var(--light);
@@ -659,6 +679,13 @@ Prototyping Styles
 
 .preview [role="button"] {
   border-radius: 1rem;
+  width: auto;
+  text-align: right;
+  padding-right: 0;
+}
+
+.preview svg {
+  margin-left: 0.5rem;
 }
 
 .card-container {
@@ -811,6 +838,14 @@ Prototyping Styles
   font-size: 0.67em;
 }
 
+.exportApp .proto-actions button {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+  border: 2px solid var(--share-border);
+  border-radius: 8px;
+  background-color: var(--share-bg);
+}
 .exportApp p,
 .exportApp label,
 .exportApp li {
@@ -857,4 +892,14 @@ Prototyping Styles
   outline: var(--focus) solid 8px;
   outline-offset: 4px;
   border-radius: 4px;
+}
+
+.friendlyName {
+  color: var(--focus);
+  font-weight: 500;
+}
+
+.MuiModal-root {
+  max-width: 768px;
+  margin: auto;
 }

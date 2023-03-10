@@ -85,49 +85,6 @@ function App() {
   return (
     <AppProvider>
       <RouterProvider router={router} />
-      {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Root />} />
-          <Route path="/guides" element={<Guides />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/credits" element={<Credits />} />
-          <Route path="/usability" element={<Usability />} />
-          <Route path={"/accessibility"} element={<Accessibility />} />
-          <Route path="/create" element={<Create />} />
-          <Route path="/pages" element={<Pages />} />
-          <Route path="/page/:id" element={<Page />} />
-          <Route path="/preview/:pageId" element={<Preview />} />
-          <Route
-            path="/share/:name"
-            element={<Preview share />}
-            loader={async ({ params }) => {
-              const response = await fetch(
-                `https://api.nolatin.com/json/?friendly_name=${params.name}`,
-                {
-                  method: "GET",
-                }
-              )
-              const json = await response.json()
-              const data = JSON.parse(json[0].json_content) as AppContextState
-              redirect(`/share/${params.name}/${data?.pages[0].id}`)
-            }}
-          />
-          <Route
-            path="/share/:name/:pageId"
-            element={<Preview share />}
-            loader={async ({ params }) => {
-              const response = await fetch(
-                `https://api.nolatin.com/json/?friendly_name=${params.name}`,
-                {
-                  method: "GET",
-                }
-              )
-              const json = await response.json()
-              return JSON.parse(json[0].json_content) as AppContextState
-            }}
-          />
-        </Routes>
-      </BrowserRouter> */}
     </AppProvider>
   )
 }

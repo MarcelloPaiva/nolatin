@@ -49,7 +49,6 @@ export default function Page() {
 
   function renderCards(sectionsData: Section[], id: string) {
     return sectionsData.map((section, index) => {
-      console.log(index)
       return (
         <SectionCard
           key={section.id}

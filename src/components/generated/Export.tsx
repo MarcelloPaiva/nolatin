@@ -50,10 +50,10 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
       if (message.includes("New record")) {
         setSuccess(true)
       } else if (message.includes("Fri")) {
-        console.log("ERROR", message)
+        console.warn("ERROR", message)
         setError("Error Friendly name already exists")
       } else {
-        console.log("ERROR", message)
+        console.warn("ERROR", message)
         setError(message)
       }
     }

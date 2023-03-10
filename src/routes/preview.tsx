@@ -36,17 +36,9 @@ export default function Preview({ share = false }: PreviewProps) {
   const { name, pageId } = useParams()
   const apiPage = apiState?.pages.find((page) => page.id === pageId) ?? null
   const page = share ? apiPage : getPage(pageId ?? "")
-  console.log(
-    "API PAGE",
-    apiState,
-    apiPage,
-    name,
-    apiState && share && name && !pageId
-  )
 
   useEffect(() => {
     if (apiState && share && name && !pageId) {
-      console.log("REDIRECTING")
       navigate(`/share/${name}/${apiState?.pages[0].id}`)
     }
   }, [apiState, name, pageId, share, navigate])

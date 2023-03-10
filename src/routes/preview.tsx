@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react"
 import { AppContext, AppContextState } from "../context/AppContext"
-import { useParams, redirect } from "react-router-dom"
+import { useParams, useLoaderData, useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import Header from "../components/generated/Header"
 import Section from "../models/section"
@@ -25,36 +25,31 @@ const Main = styled.main`
   margin: 0;
 `
 
-async function fetchJSON(name?: string) {
-  if (!name) return undefined
-  const response = await fetch(
-    `https://api.nolatin.com/json/?friendly_name=${name}`,
-    {
-      method: "GET",
-    }
-  )
-  const json = await response.json()
-  return JSON.parse(json[0].json_content) as AppContextState
-}
-
 interface PreviewProps {
   share?: boolean
 }
 
-export default async function Preview({ share = false }: PreviewProps) {
+export default function Preview({ share = false }: PreviewProps) {
+  const navigate = useNavigate()
+  const apiState = useLoaderData() as AppContextState
+  const { state, getPage } = useContext(AppContext)
   const { name, pageId } = useParams()
-  const apiState = await fetchJSON(name)
   const apiPage = apiState?.pages.find((page) => page.id === pageId) ?? null
-  console.log("API PAGE", apiPage, name)
+  const page = share ? apiPage : getPage(pageId ?? "")
+  console.log(
+    "API PAGE",
+    apiState,
+    apiPage,
+    name,
+    apiState && share && name && !pageId
+  )
 
   useEffect(() => {
     if (apiState && share && name && !pageId) {
-      redirect(`/share/${name}/${apiState?.pages[0].id}`)
+      console.log("REDIRECTING")
+      navigate(`/share/${name}/${apiState?.pages[0].id}`)
     }
-  }, [apiState, name, pageId, share])
-
-  const { state, getPage } = useContext(AppContext)
-  const page = share ? apiPage : getPage(pageId ?? "")
+  }, [apiState, name, pageId, share, navigate])
 
   useEffect(() => {
     if (page?.title) document.title = page.title

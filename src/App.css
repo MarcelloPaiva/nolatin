@@ -903,3 +903,8 @@ Prototyping Styles
   max-width: 768px;
   margin: auto;
 }
+
+.MuiPopover-root {
+  max-width: none;
+  margin: 0;
+}

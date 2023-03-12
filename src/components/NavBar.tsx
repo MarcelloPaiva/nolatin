@@ -35,6 +35,14 @@ export default function NavBar() {
           navLabel="Primary Site Navigation"
           buttonLabel="Open Site Menu"
           color="var(--light)"
+          anchorOrigin={{
+            horizontal: "right",
+            vertical: "bottom",
+          }}
+          transformOrigin={{
+            horizontal: "right",
+            vertical: "top",
+          }}
           items={[
             {
               link: "/",

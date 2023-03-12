@@ -47,7 +47,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
       if (error instanceof Error) message = error.message
       else message = String(error)
 
-      if (message.includes("New record")) {
+      if (message.includes("Your link")) {
         setSuccess(true)
       } else if (message.includes("Fri")) {
         console.warn("ERROR", message)

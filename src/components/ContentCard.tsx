@@ -69,8 +69,8 @@ const CardContainer = styled.div`
   ${cardStyles}
 `
 const CardForm = styled.form`
-  margin: 40px;
-  padding: 40px;
+  margin: 0.5rem;
+  padding: 0.5rem;
   border-radius: 8px;
   background: white;
 `

@@ -602,7 +602,7 @@ blockquote h3 {
   display: block;
   overflow-y: scroll !important;
   max-height: 80vh;
-  padding: 16px;
+  padding: 0.5rem;
 }
 
 hr {

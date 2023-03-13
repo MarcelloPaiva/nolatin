@@ -100,8 +100,8 @@ const SectionContainer = styled.div`
   ${sectionStyles}
 `
 const SectionForm = styled.form`
-  margin: 40px;
-  padding: 40px;
+  margin: 0.5rem;
+  padding: 0.5rem;
   border-radius: 8px;
   background: white;
 `
@@ -126,6 +126,7 @@ const ModalContainer = styled.div`
   padding: 24px;
   margin: 40px;
   border-radius: 8px;
+  max-width: 600px;
 `
 const LabelToo = styled.label`
   color: var(--inputLabel);
@@ -252,7 +253,7 @@ export default function SectionCard({
           />
           <Dropdown
             id={id + "-element"}
-            label="What type of region is this?"
+            label="What type of section is this?"
             defaultValue={element}
             options={Object.keys(Elements).map((name) => {
               return { label: name, value: name }

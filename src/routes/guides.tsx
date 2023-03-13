@@ -13,15 +13,21 @@ export default function Guides() {
   return (
     <Layout>
       <Main>
+        <h1>How to guides</h1>
         <section className="hero">
-          <h1>Our objective:</h1>
+          <h1>For the community</h1>
           <p>
-            To motivate designers to write quality content early, so that we can
-            generate fully accessible prototypes for testing with people with
+            No Latin is a humble initiative by a small group of UX professionals
+            that cares about improving the user experience of people with
             disabilities.
           </p>
+          <p>
+            We aim to motivate UX professionals to write quality content early
+            so that No Latin can generate fully accessible prototypes for
+            testing with people with disabilities.
+          </p>
         </section>
-        <h1>Step by step guide</h1>
+
         <div className="post-container">
           <h2 className="post-title">1. Adopt a content-first mindset</h2>
           <div className="post-content">

@@ -51,8 +51,7 @@ export default function Root() {
         <p>
           <strong>
             Content and Accessibility are considered an afterthought.
-          </strong>
-          <br />
+          </strong>{" "}
           If designers continue to use{" "}
           <span className="bad-ipsum">Loren Ipsum</span> content placeholders in
           early design concepts, people with disabilities that rely on assistive
@@ -66,9 +65,8 @@ export default function Root() {
         ></img>
         <figcaption>
           A blind young man walks carefully down a hill with his friend and a
-          dog on this rough terrain full of rocks. That is how most people using
-          assistive technologies feel when designers don't take Accessibility
-          into consideration early on.
+          dog on a rough terrain of rocks. That is how most assistive-technology
+          users feel when designers don't consider Accessibility early on.
         </figcaption>
         <blockquote>
           <h2>Solution</h2>

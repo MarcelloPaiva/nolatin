@@ -144,6 +144,7 @@ body {
   margin: 0 auto;
   background-color: var(--surface-light);
   color: var(--body);
+  margin-bottom: 2rem;
 }
 
 header {
@@ -493,13 +494,12 @@ select {
 
 .post-footer {
   text-align: center;
-  padding: 2rem;
+  padding: 0.25rem;
 }
 
 .post-footer p {
-  line-height: 1.5rem;
-  color: var(--primary-60) !important;
-  font-size: 0.25rem !important;
+  line-height: 3rem;
+  font-size: 0.95rem !important;
 }
 
 .site-cta [role="button"] {

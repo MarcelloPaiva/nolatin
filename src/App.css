@@ -591,7 +591,6 @@ blockquote {
   letter-spacing: -0.025rem;
   line-height: 150%;
   font-size: 1.5rem;
-  color: var(--secondary-80);
   border-left: 3px dotted var(--secondary-30);
   background-color: var(--light);
 }
@@ -599,7 +598,7 @@ blockquote {
 blockquote h1,
 blockquote h2,
 blockquote h3 {
-  color: var(--secondary-80);
+  color: var(--secondary-90);
   margin: 0 0 1rem;
   font-family: var(--heading-family);
 }

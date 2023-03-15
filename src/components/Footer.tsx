@@ -59,7 +59,8 @@ export default function Footer() {
             Made with love by a <a href="/credits">bunch of folks</a> that give
             a damn.
             <br />
-            All Rights Reserved © Marcelo Paiva
+            All Rights Reserved ©
+            <a href="https://www.linkedin.com/in/mtpaiva/">Marcelo Paiva</a>
           </p>
         </div>
       </section>

@@ -73,6 +73,16 @@ export default function Preview({ share = false }: PreviewProps) {
         shareName={share ? name : undefined}
       />
       <Main>{generateSections(page?.sections ?? [])}</Main>
+
+      <div className="post-footer">
+        <p>
+          Accessible Prototype by{" "}
+          <a href="nolatin.com" target="_blank" rel="noopener noreferrer">
+            No Latin
+          </a>{" "}
+          - Shift-left Accessibility
+        </p>
+      </div>
     </ExportApp>
   )
 }

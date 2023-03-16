@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap");
 
 :root {
   --h: 60;
@@ -31,9 +31,11 @@
   --accent: hsl(var(--h-accent), 100%, 50%);
 
   --focus: deeppink;
+  --captions: var(--secondary-70);
 
   --logo-family: "Montserrat", cursive;
   --body-family: "Roboto", sans-serif;
+  --mono-family: "Roboto Mono", monospace;
   --body: var(--secondary-100);
 
   --heading-family: "Montserrat", serif;
@@ -124,6 +126,19 @@ body {
   background-size: 120% 96px, 10% 20px;
 }
 
+body:has(#root > div.exportApp) {
+  overflow-x: hidden;
+  background-color: #f7f7f7;
+  background-position: top 0px center;
+  background-repeat: no-repeat;
+  background-image: radial-gradient(
+    50% 50% at top center,
+    var(--dark),
+    var(--dark)
+  );
+  background-size: 120% 96px, 10% 20px;
+}
+
 body {
   font-family: var(--body-family);
   font-weight: 400;
@@ -131,6 +146,7 @@ body {
   margin: 0 auto;
   background-color: var(--surface-light);
   color: var(--body);
+  margin-bottom: 2rem;
 }
 
 header {
@@ -285,6 +301,11 @@ ol {
   margin: 0.5rem 0 1rem 2rem;
 }
 
+li {
+  margin-bottom: 1rem;
+  line-height: 125%;
+}
+
 .post-content ul {
   display: inline-block;
   margin: 0 0 0 1rem;
@@ -296,7 +317,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--heading-family);
+  font-family: var(--body-family);
   font-weight: 700;
   font-style: normal;
   font-stretch: normal;
@@ -314,8 +335,8 @@ h3 {
 }
 
 h1 {
-  margin-top: 2rem;
   font-weight: 900;
+  font-family: var(--heading-family);
 }
 
 .menu-popover a {
@@ -325,8 +346,8 @@ h1 {
 
 img.landing {
   margin-top: 2rem;
-  border: 1rem solid var(--focus);
-  border-width: 1px 0;
+  border: 1rem solid var(--secondary-20);
+  border-width: 1rem 0;
   display: cover;
   width: calc(100% + 2rem);
   position: relative;
@@ -480,12 +501,12 @@ select {
 
 .post-footer {
   text-align: center;
-  padding: 2rem;
+  padding: 0.25rem;
 }
 
 .post-footer p {
-  font-size: 0.9rem;
-  line-height: 1.5rem;
+  line-height: 3rem;
+  font-size: 0.95rem !important;
 }
 
 .site-cta [role="button"] {
@@ -551,9 +572,9 @@ h1 + .instructions {
 }
 
 figcaption {
-  font-family: var(--body-family);
-  font-size: 100%;
-  color: var(--secondary-100);
+  font-family: var(--mono-family);
+  font-size: 0.75rem;
+  color: var(--captions);
   margin-top: 8px;
   margin-bottom: 3rem;
   letter-spacing: normal;
@@ -563,14 +584,13 @@ figcaption {
 blockquote {
   display: block;
   margin: 1rem 0;
-  padding: 2rem;
-  width: 90%;
+  padding: 1rem;
+  width: 100%;
   font-family: var(--body-family);
   /* font-style: italic; */
   letter-spacing: -0.025rem;
   line-height: 150%;
   font-size: 1.5rem;
-  color: var(--secondary-80);
   border-left: 3px dotted var(--secondary-30);
   background-color: var(--light);
 }
@@ -578,7 +598,7 @@ blockquote {
 blockquote h1,
 blockquote h2,
 blockquote h3 {
-  color: var(--secondary-80);
+  color: var(--secondary-90);
   margin: 0 0 1rem;
   font-family: var(--heading-family);
 }
@@ -588,7 +608,7 @@ blockquote h3 {
   display: block;
   overflow-y: scroll !important;
   max-height: 80vh;
-  padding: 16px;
+  padding: 0.5rem;
 }
 
 hr {
@@ -711,7 +731,7 @@ Prototyping Styles
 .exportApp {
   padding: 0;
   margin: 0;
-  background: var(--primary-05);
+  background: #f7f7f7;
   padding-bottom: 80px;
 }
 
@@ -726,6 +746,7 @@ Prototyping Styles
 .exportApp header {
   height: auto;
   padding-left: 1rem;
+  margin-bottom: 1rem;
 }
 
 .exportApp footer,
@@ -744,7 +765,8 @@ Prototyping Styles
   background-color: var(--light);
   border: 4px solid var(--primary-10);
   border-radius: 16px;
-  margin: 0.125rem;
+  margin: 1rem;
+  margin-bottom: 1rem;
   padding: 0.75rem;
 }
 
@@ -771,7 +793,8 @@ Prototyping Styles
 .exportApp [role="alert"] {
   background-color: var(--alert-bg);
   border: 4px solid var(--alert-border);
-  margin: 0.25rem;
+  margin: 1rem;
+  margin-bottom: 1rem;
 }
 
 .exportApp [role="alert"] h2,
@@ -845,6 +868,8 @@ Prototyping Styles
   border: 2px solid var(--share-border);
   border-radius: 8px;
   background-color: var(--share-bg);
+  /* hiding export */
+  display: none;
 }
 .exportApp p,
 .exportApp label,
@@ -855,7 +880,7 @@ Prototyping Styles
 }
 
 .exportApp li {
-  line-height: 200%;
+  line-height: 125%;
 }
 
 .exportApp header {
@@ -875,6 +900,39 @@ Prototyping Styles
 .exportApp input {
   border-color: var(--dark);
   margin-bottom: 1rem;
+}
+
+.exportApp select {
+  /* styling */
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5rem 3.5rem 0.5rem 0.5rem;
+
+  /* reset */
+
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* new look */
+  background-image: linear-gradient(
+      45deg,
+      transparent 50%,
+      var(--primary-80) 50%
+    ),
+    linear-gradient(135deg, var(--primary-80) 50%, transparent 50%),
+    linear-gradient(to right, var(--primary-80), var(--primary-80));
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+  border: 3px solid var(--primary-80);
 }
 
 .exportApp button,

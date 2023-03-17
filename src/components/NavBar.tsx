@@ -57,12 +57,16 @@ export default function NavBar() {
               title: "Start Prototyping",
             },
             {
-              link: "/about",
-              title: "About This Project",
+              link: "/workshop",
+              title: "Hands-on Workshop",
             },
             {
               link: "/usability",
               title: "User Testing Guidelines",
+            },
+            {
+              link: "/about",
+              title: "About This Project",
             },
           ]}
         />

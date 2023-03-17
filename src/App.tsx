@@ -10,6 +10,7 @@ import Guides from "./routes/guides"
 import About from "./routes/about"
 import Credits from "./routes/credits"
 import Usability from "./routes/usability"
+import Workshop from "./routes/workshop"
 import Accessibility from "./routes/accessibility"
 import Create from "./routes/create"
 import Preview from "./routes/preview"
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
   {
     path: "/credits",
     element: <Credits />,
+  },
+  {
+    path: "/workshop",
+    element: <Workshop />,
   },
   {
     path: "/usability",

@@ -603,6 +603,12 @@ blockquote h3 {
   font-family: var(--heading-family);
 }
 
+.subtitle {
+  letter-spacing: -0.025rem;
+  line-height: 150%;
+  font-size: 1.25rem;
+}
+
 /* Modal */
 .scrollMe {
   display: block;
@@ -727,6 +733,16 @@ Prototyping Styles
 
 .card-container button {
   margin: auto 0.25rem;
+}
+
+.card-container:first-of-type .pagecard-title:before,
+span.play {
+  font-family: "Font Awesome 5 Free";
+  content: "\f144";
+  display: inline;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
 }
 .exportApp {
   padding: 0;

@@ -103,7 +103,7 @@ export default function Pages() {
           </ModalContainer>
         </Modal>
         <main>
-          <h1>Priority Guides</h1>
+          <h1>Intent Framing Pages</h1>
           <div className="instructions">
             <p>
               If you haven't done so, this is a good time to pause and read the
@@ -120,11 +120,17 @@ export default function Pages() {
               . It will make you a better human.
             </p>
           </div>
-          <span className="pagecard-label">
-            {pages.length > 0
-              ? "Pages:"
-              : "Create a page to host your priority guides."}
-          </span>
+
+          <h3>Next steps:</h3>
+          <p>
+            {" "}
+            <span className="pagecard-label">
+              {pages.length > 0
+                ? "Add another page if needed. The first page of the list will be your prototype's landing page"
+                : "Start by creating an intent framing page to host your priority guides."}
+            </span>
+          </p>
+          <br />
           {pages.map((page, index) => (
             <PageCard
               key={page.id}

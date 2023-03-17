@@ -102,9 +102,8 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
           </EndRow>
 
           <p>
-            Add a friendly name for your URL (example:
-            https://nolatin.com/preview/
-            <span className="friendlyName">myAccessiblePrototype</span>)
+            Add a <span className="friendlyName">friendly name</span> for your
+            URL.
           </p>
           <form onSubmit={handleSubmit}>
             <div>

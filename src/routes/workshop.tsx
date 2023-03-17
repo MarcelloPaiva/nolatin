@@ -70,7 +70,7 @@ export default function Credits() {
         <section>
           <h2>Contact us</h2>
           <p>
-            Any interest in hosting thsi workshop for your product team? <br />
+            Any interest in hosting this workshop for your product team? <br />
             Contact{" "}
             <a href="https://www.linkedin.com/in/mtpaiva/">Marcelo Paiva</a> via
             LinkedIn.

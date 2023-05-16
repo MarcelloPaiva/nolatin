@@ -1,32 +1,6 @@
 export default function Footer() {
   return (
     <footer aria-label="Footer">
-      <section className="hero">
-        <h2>Join us at the CSUN Conference</h2>
-        <p>
-          Diego Baca, Becky Gibson, Marcelo Paiva and Claudio Luis Vera will be
-          presenting the session "
-          <strong>
-            <a
-              href="https://www.csun.edu/cod/conference/sessions/index.php/public/presentations/view/1467"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Rapid Prototyping with Accessibility in Mind
-            </a>
-          </strong>
-          " to introduce this free tool to help designers bring in people with
-          disabilities early in the design process.
-        </p>
-        <p>
-          Anaheim Marriott 700 West Convention Way, Anaheim, California 92802
-          <br />
-          Room: "Grand GH"
-          <br />
-          Date: March 14, 2023, at 10:20 AM PDT.
-        </p>
-      </section>
-
       <section className="site-footer">
         <h2>Under the hood</h2>
         <p>

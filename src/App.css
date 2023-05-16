@@ -885,7 +885,7 @@ span.play {
   border-radius: 8px;
   background-color: var(--share-bg);
   /* hiding export */
-  display: none;
+  /* display: none; */
 }
 .exportApp p,
 .exportApp label,

@@ -899,6 +899,10 @@ span.play {
   line-height: 125%;
 }
 
+.exportApp ol li {
+  margin-left: 1.5rem;
+}
+
 .exportApp header {
   background-color: var(--dark);
   height: 6rem;

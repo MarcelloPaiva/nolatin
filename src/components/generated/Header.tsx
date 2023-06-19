@@ -20,6 +20,7 @@ const Heading = styled.h1`
 `
 const Row = styled.div`
   display: flex;
+  align-items: center;
 `
 const Description = styled.span`
   padding: 0;

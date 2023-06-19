@@ -17,6 +17,7 @@ const Heading = styled.h1`
   color: var(--primary-light);
   margin: 0;
   margin-left: 8px;
+  margin-bottom: 0 !important;
 `
 const Row = styled.div`
   display: flex;

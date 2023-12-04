@@ -34,7 +34,7 @@ export default function Footer() {
             a damn.
             <br />
             All Rights Reserved ©
-            <a href="https://www.linkedin.com/in/mtpaiva/">Marcelo Paiva</a>
+            <a href="https://www.linkedin.com/in/mtpaiva/">Marcelo Paiva.</a>
           </p>
         </div>
       </section>

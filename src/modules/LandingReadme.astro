@@ -1,0 +1,45 @@
+---
+// import Code from 'astro/components/Code.astro';
+// import Confettis from '../components/ConfettiLauncher.astro';
+// import AstroLogo from '../assets/astro-icon.svg?raw';
+
+import NoLatinLogo from '../components/NoLatinLogo.astro';
+import * as readMe from '../../README.md';
+import { SITE_TITLE } from '../app/constants.js';
+---
+
+<div
+	class="bg-gradient-to-r from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-800 text-slate-800 dark:text-slate-100 mb-20 p-4 lg:p-16 shadow-xl shadow-slate-200 dark:shadow-slate-900"
+>
+	<header
+		class="p-8 flex justify-center items-center flex-wrap flex-col w-full mt-16"
+	>
+		<div class="flex justify-center w-full">
+			<div style="width:400px;"><NoLatinLogo /></div>
+		</div>
+	</header>
+
+	<section class="flex justify-center w-full pb-24"></section>
+
+	<article class="flex justify-center pt-32 pb-32">
+		<div class="w-full readme format dark:format-invert lg:format-lg">
+			<h1 class="text-center">
+				<!-- {readMe.getHeadings()[0].text} -->
+				{SITE_TITLE}
+			</h1>
+			<readMe.Content />
+		</div>
+	</article>
+</div>
+
+<style>
+	/* Override in Markdown H1 title */
+	.readme :global(h1:nth-of-type(2)) {
+		display: none;
+	}
+
+	.svg-inline :global(svg) {
+		height: 100%;
+		width: 100%;
+	}
+</style>

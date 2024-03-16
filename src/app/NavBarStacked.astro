@@ -1,5 +1,4 @@
 ---
-import { asset, url } from '../lib/data.js';
 import NoLatinLogo from '../components/NoLatinLogo.astro';
 ---
 
@@ -9,7 +8,7 @@ import NoLatinLogo from '../components/NoLatinLogo.astro';
 	<div class="container py-3 mx-auto">
 		<div class="flex items-center justify-between">
 			<div class="flex items-center justify-start">
-				<a href={url()} class="flex mr-4">
+				<a class="flex mr-4">
 					<NoLatinLogo />
 					<span
 						class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
@@ -20,7 +19,6 @@ import NoLatinLogo from '../components/NoLatinLogo.astro';
 					<ul class="flex space-x-8">
 						<li>
 							<a
-								href={url()}
 								class="text-sm font-medium text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-primary-500"
 								aria-current="page">Home</a
 							>

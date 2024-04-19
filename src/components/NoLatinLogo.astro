@@ -1,7 +1,21 @@
 ---
-import NoLatinLogoSvgDark from '../assets/nolatin-logo-onLight.svg?raw';
-import NoLatinLogoSvgLight from '../assets/nolatin-logo-onDark.svg?raw';
+import NoLatinLogoSvgDark from "../assets/nolatin-logo-onLight.svg?raw"
+import NoLatinLogoSvgLight from "../assets/nolatin-logo-onDark.svg?raw"
+
+interface Props {
+  style: string
+}
+
+const { style } = Astro.props
 ---
 
-<div set:html={NoLatinLogoSvgDark} class="svg-inline block dark:hidden" />
-<div set:html={NoLatinLogoSvgLight} class="svg-inline hidden dark:block" />
+<a
+  href="/"
+  set:html={NoLatinLogoSvgDark}
+  class={`svg-inline block dark:hidden ${style}`}
+/>
+<a
+  href="/"
+  set:html={NoLatinLogoSvgLight}
+  class={`svg-inline hidden dark:block ${style}`}
+/>

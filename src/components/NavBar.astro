@@ -1,0 +1,17 @@
+---
+import NoLatinLogo from "./NoLatinLogo.astro"
+import Slant from "../assets/slant.svg?raw"
+import NavBarInput from "./NavBarInput.astro"
+import Avatar from "./Avatar.astro"
+---
+
+<nav
+  class="px-2 w-full h-10 bg-backgroundDark flex items-center justify-between"
+>
+  <div class="flex items-center">
+    <NoLatinLogo style="h-6" />
+    <div set:html={Slant} />
+    <NavBarInput />
+  </div>
+  <Avatar />
+</nav>

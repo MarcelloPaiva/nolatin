@@ -56,6 +56,8 @@
     "eslint-plugin-astro": "^0.23.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-tsdoc": "^0.2.17"
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0"
   }
 }

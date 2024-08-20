@@ -141,7 +141,7 @@ async function postData(data: any): Promise<ApiResponse> {
   })
   const result = await response.json()
   console.log("RESULT", result)
-  if (result === "Friendly name already exists") {
+  if (result === "Friendly name already exists.") {
     throw new Error(result)
   } else if (response.ok) {
     return result

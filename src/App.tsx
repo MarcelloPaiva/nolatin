@@ -23,6 +23,7 @@ async function loader({ params }: LoaderFunctionArgs) {
     `https://api.nolatin.com/json/?friendly_name=${params.name}`,
     {
       method: "GET",
+      mode: "no-cors", // This sets the mode to no-cors
     }
   )
   const json = await response.json()

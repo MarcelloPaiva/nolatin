@@ -3,6 +3,7 @@ import { AppContext } from "../../context/AppContext"
 import styled from "styled-components"
 import IconButton from "../IconButton"
 import { Send, X } from "react-feather"
+import Button from "../Button"
 
 const EndRow = styled.div`
   display: flex;
@@ -13,11 +14,6 @@ const CopyButton = styled.button`
   background-color: rgba(0, 0, 0, 0);
 `
 
-interface ApiResponse {
-  status: string
-  message: string
-}
-
 interface ExportFormProps {
   onClose: () => void
 }
@@ -26,6 +22,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const { state } = useContext(AppContext)
   const [friendlyName, setFriendlyName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
+  const [update, setUpdate] = useState<false | string>(false)
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string>("")
 
@@ -40,18 +37,26 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
     }
 
     try {
-      await postData(data)
-      setSuccess(true)
+      const result = await postData(data)
+
+      if (
+        result.includes(
+          "Friendly name already exists. Would you like to update"
+        )
+      ) {
+        setUpdate(result)
+      } else {
+        setSuccess(true)
+      }
     } catch (error) {
       let message
       if (error instanceof Error) message = error.message
       else message = String(error)
-
-      if (message.includes("Your link")) {
+      if (message.includes("Your link was created successfully")) {
         setSuccess(true)
-      } else if (message.includes("Fri")) {
+      } else if (message.includes("Friendly name already exists.")) {
         console.warn("ERROR", message)
-        setError("Error Friendly name already exists")
+        setError("Friendly name already exists, please choose another.")
       } else {
         console.warn("ERROR", message)
         setError(message)
@@ -126,6 +131,12 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
                 required
               />
             </div>
+            {update && (
+              <div>
+                <p>{update}</p>
+                <Button label="Update" />
+              </div>
+            )}
             {error && <p aria-live="polite">Error: {error}</p>}
           </form>
         </>
@@ -134,7 +145,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   )
 }
 
-async function postData(data: any): Promise<ApiResponse> {
+async function postData(data: any): Promise<string> {
   const response = await fetch("https://api.nolatin.com/json/save.php", {
     method: "POST",
     body: JSON.stringify(data),
@@ -143,7 +154,10 @@ async function postData(data: any): Promise<ApiResponse> {
   console.log("RESULT", result)
   if (result === "Friendly name already exists.") {
     throw new Error(result)
-  } else if (response.ok) {
+  } else if (
+    result.includes("Friendly name already exists. Would you like to update") ||
+    response.ok
+  ) {
     return result
   } else {
     throw new Error(result.message)

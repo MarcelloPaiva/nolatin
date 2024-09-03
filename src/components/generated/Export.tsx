@@ -23,11 +23,11 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const [friendlyName, setFriendlyName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [update, setUpdate] = useState<false | string>(false)
-  const [updateData, setUpdateData] = useState({
-    friendly_name: "",
-    json_content: "",
-    emailaddress: "",
-  })
+  // const [_updateData, setUpdateData] = useState({
+  //   friendly_name: "",
+  //   json_content: "",
+  //   emailaddress: "",
+  // })
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string>("")
 
@@ -65,7 +65,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
         )
       ) {
         setUpdate(message)
-        setUpdateData(data)
+        // setUpdateData(data)
       } else if (message.includes("Friendly name already exists.")) {
         console.warn("ERROR", message)
         setError("Friendly name already exists, please choose another.")

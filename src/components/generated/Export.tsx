@@ -33,7 +33,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
 
   const handleUpdate = async () => {
     try {
-      const result = await apiUpdate(updateData)
+      await apiUpdate(updateData)
     } catch (error) {
       let message
       if (error instanceof Error) message = error.message

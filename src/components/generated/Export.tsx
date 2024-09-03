@@ -23,6 +23,11 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const [friendlyName, setFriendlyName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [update, setUpdate] = useState<false | string>(false)
+  const [updateData, setUpdateData] = useState({
+    friendly_name: "",
+    json_content: "",
+    emailaddress: "",
+  })
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string>("")
 
@@ -54,6 +59,13 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
       else message = String(error)
       if (message.includes("Your link was created successfully")) {
         setSuccess(true)
+      } else if (
+        message.includes(
+          "Friendly name already exists. Would you like to update"
+        )
+      ) {
+        setUpdate(message)
+        setUpdateData(data)
       } else if (message.includes("Friendly name already exists.")) {
         console.warn("ERROR", message)
         setError("Friendly name already exists, please choose another.")
@@ -152,12 +164,9 @@ async function postData(data: any): Promise<string> {
   })
   const result = await response.json()
   console.log("RESULT", result)
-  if (result === "Friendly name already exists.") {
+  if (result.includes("Friendly name already exists.")) {
     throw new Error(result)
-  } else if (
-    result.includes("Friendly name already exists. Would you like to update") ||
-    response.ok
-  ) {
+  } else if (response.ok) {
     return result
   } else {
     throw new Error(result.message)

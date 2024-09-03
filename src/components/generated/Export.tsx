@@ -23,17 +23,33 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const [friendlyName, setFriendlyName] = useState("")
   const [emailAddress, setEmailAddress] = useState("")
   const [update, setUpdate] = useState<false | string>(false)
-  // const [_updateData, setUpdateData] = useState({
-  //   friendly_name: "",
-  //   json_content: "",
-  //   emailaddress: "",
-  // })
+  const [updateData, setUpdateData] = useState({
+    friendly_name: "",
+    json_content: "",
+    emailaddress: "",
+  })
   const [success, setSuccess] = useState(false)
   const [error, setError] = useState<string>("")
+
+  const handleUpdate = async () => {
+    try {
+      const result = await apiUpdate(updateData)
+    } catch (error) {
+      let message
+      if (error instanceof Error) message = error.message
+      console.warn("ERROR", message)
+    }
+  }
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     setError("")
+    setUpdate(false)
+    setUpdateData({
+      friendly_name: "",
+      json_content: "",
+      emailaddress: "",
+    })
 
     const data = {
       friendly_name: friendlyName,
@@ -42,7 +58,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
     }
 
     try {
-      const result = await postData(data)
+      const result = await apiPost(data)
 
       if (
         result.includes(
@@ -65,7 +81,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
         )
       ) {
         setUpdate(message)
-        // setUpdateData(data)
+        setUpdateData(data)
       } else if (message.includes("Friendly name already exists.")) {
         console.warn("ERROR", message)
         setError("Friendly name already exists, please choose another.")
@@ -146,7 +162,9 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
             {update && (
               <div>
                 <p>{update}</p>
-                <Button label="Update" />
+                <Button label="Update" onClick={handleUpdate}>
+                  Update
+                </Button>
               </div>
             )}
             {error && <p aria-live="polite">Error: {error}</p>}
@@ -157,7 +175,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   )
 }
 
-async function postData(data: any): Promise<string> {
+async function apiPost(data: any): Promise<string> {
   const response = await fetch("https://api.nolatin.com/json/save.php", {
     method: "POST",
     body: JSON.stringify(data),
@@ -167,6 +185,20 @@ async function postData(data: any): Promise<string> {
   if (result.includes("Friendly name already exists.")) {
     throw new Error(result)
   } else if (response.ok) {
+    return result
+  } else {
+    throw new Error(result.message)
+  }
+}
+
+async function apiUpdate(data: any): Promise<string> {
+  const response = await fetch("https://api.nolatin.com/json/update.php", {
+    method: "POST",
+    body: JSON.stringify(data),
+  })
+  const result = await response.json()
+  console.log("RESULT", result)
+  if (response.ok) {
     return result
   } else {
     throw new Error(result.message)

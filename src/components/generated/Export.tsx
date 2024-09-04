@@ -96,7 +96,8 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
     }
   }
 
-  const linkText = `https://nolatin.com/share/${friendlyName}`
+  const getLinkText = (friendly_name: string) =>
+    `https://nolatin.com/share/${friendly_name}`
 
   return (
     <div>
@@ -111,6 +112,15 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
             />
           </EndRow>
           <p>Friendly name successfully updated.</p>
+          <CopyButton
+            onClick={() =>
+              navigator.clipboard.writeText(
+                getLinkText(updateData.friendly_name)
+              )
+            }
+          >
+            <p>{getLinkText(updateData.friendly_name)}</p>
+          </CopyButton>
         </>
       ) : (
         <>
@@ -129,9 +139,11 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
                 clipboard
               </p>
               <CopyButton
-                onClick={() => navigator.clipboard.writeText(linkText)}
+                onClick={() =>
+                  navigator.clipboard.writeText(getLinkText(friendlyName))
+                }
               >
-                <p>{linkText}</p>
+                <p>{getLinkText(friendlyName)}</p>
               </CopyButton>
             </>
           ) : (

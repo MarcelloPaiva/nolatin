@@ -9,10 +9,6 @@ const EndRow = styled.div`
   display: flex;
   justify-content: flex-end;
 `
-const CopyButton = styled.button`
-  border: none;
-  background-color: rgba(0, 0, 0, 0);
-`
 
 interface ExportFormProps {
   onClose: () => void
@@ -99,6 +95,10 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const getLinkText = (friendly_name: string) =>
     `https://nolatin.com/share/${friendly_name}`
 
+  const handleCopy = (url: string) => {
+    navigator.clipboard.writeText(url)
+  }
+
   return (
     <div>
       {updateSuccess ? (
@@ -112,15 +112,18 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
             />
           </EndRow>
           <p>Friendly name successfully updated.</p>
-          <CopyButton
-            onClick={() =>
-              navigator.clipboard.writeText(
-                getLinkText(updateData.friendly_name)
-              )
-            }
+          <a
+            href={getLinkText(updateData.friendly_name)}
+            target="_blank"
+            rel="noreferrer"
           >
-            <p>{getLinkText(updateData.friendly_name)}</p>
-          </CopyButton>
+            {getLinkText(updateData.friendly_name)}
+          </a>
+          <Button
+            onClick={() => handleCopy(getLinkText(updateData.friendly_name))}
+          >
+            Copy link
+          </Button>
         </>
       ) : (
         <>
@@ -138,13 +141,16 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
                 Link successfully created, click the link to add it to your
                 clipboard
               </p>
-              <CopyButton
-                onClick={() =>
-                  navigator.clipboard.writeText(getLinkText(friendlyName))
-                }
+              <a
+                href={getLinkText(friendlyName)}
+                target="_blank"
+                rel="noreferrer"
               >
-                <p>{getLinkText(friendlyName)}</p>
-              </CopyButton>
+                {getLinkText(friendlyName)}
+              </a>
+              <Button onClick={() => handleCopy(getLinkText(friendlyName))}>
+                Copy link
+              </Button>
             </>
           ) : (
             <>

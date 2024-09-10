@@ -1,10 +1,10 @@
+import styled from "styled-components"
+import { useContext } from "react"
 import { AppContext } from "../../context/AppContext"
 import Input from "../Input"
 import { Text, Link, LabelToo } from ".."
 import { ContentProps } from "./ContentProps"
-import { useContext, useState } from "react"
 import Dropdown from "../Dropdown"
-import styled from "styled-components"
 
 const Radio = styled.input`
   flex-shrink: 28;
@@ -23,19 +23,11 @@ export default function LinkContent({
   const {
     state: { pages },
   } = useContext(AppContext)
-  const [url_Type, setUrlType] = useState<"external" | "internal">(
-    urlType ?? "external"
-  )
 
   return (
     <>
       {edit ? (
         <>
-          <input
-            id={`${id}-urlType`}
-            style={{ display: "none" }}
-            value={url_Type}
-          />
           <Input
             id={`${id}-title`}
             label="Descriptive Link"
@@ -46,12 +38,10 @@ export default function LinkContent({
               name="urlType"
               type="radio"
               value="external"
-              onChange={(e) =>
-                setUrlType(e.target.value as "external" | "internal")
-              }
+              defaultChecked={urlType === "external"}
             />
             <Input
-              id={url_Type === "external" ? `${id}-url` : undefined}
+              id={`${id}-url-external`}
               label="Destination URL (external link)"
               defaultValue={url}
             />
@@ -61,12 +51,10 @@ export default function LinkContent({
               name="urlType"
               type="radio"
               value="internal"
-              onChange={(e) =>
-                setUrlType(e.target.value as "external" | "internal")
-              }
+              defaultChecked={urlType === "internal"}
             />
             <Dropdown
-              id={url_Type === "internal" ? `${id}-url` : undefined}
+              id={`${id}-url-internal`}
               label="Destination URL (existing page)"
               options={pages.map((page) => ({
                 label: `${page.title} - ${page.id}`,

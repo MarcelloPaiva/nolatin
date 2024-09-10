@@ -158,12 +158,13 @@ export default function ContentCard({
     const description = document.getElementById(
       state.id + "-description"
     ) as HTMLSelectElement | null
+    const urlType = document.querySelector(
+      'input[name="urlType"]:checked'
+    ) as HTMLInputElement
     const url = document.getElementById(
-      state.id + "-url"
+      state.id + "-url-" + urlType.value
     ) as HTMLSelectElement | null
-    const urlType = document.getElementById(
-      state.id + "-urlType"
-    ) as HTMLInputElement | null
+
     return {
       title: title?.value ?? "",
       description: description?.value ?? "",

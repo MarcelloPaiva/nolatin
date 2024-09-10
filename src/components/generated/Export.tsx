@@ -27,8 +27,11 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
   const [updateSuccess, setUpdateSuccess] = useState(false)
   const [postSuccess, setPostSuccess] = useState(false)
   const [error, setError] = useState<string>("")
+  const [copied, setCopied] = useState(false)
 
   const handleUpdate = async () => {
+    setError("")
+    setCopied(false)
     try {
       await apiUpdate(updateData)
       setUpdateSuccess(true)
@@ -45,6 +48,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
     event.preventDefault()
     setError("")
     setUpdate(false)
+    setCopied(false)
     setUpdateData({
       friendly_name: "",
       json_content: "",
@@ -97,6 +101,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
 
   const handleCopy = (url: string) => {
     navigator.clipboard.writeText(url)
+    setCopied(true)
   }
 
   return (
@@ -122,7 +127,7 @@ const ExportForm = ({ onClose }: ExportFormProps) => {
           <Button
             onClick={() => handleCopy(getLinkText(updateData.friendly_name))}
           >
-            Copy link
+            {copied ? "Copied!" : "Copy link to clipboard"}
           </Button>
         </>
       ) : (

@@ -5,6 +5,7 @@ export default interface Content {
   title: string
   description: string
   url?: string
+  urlType?: "internal" | "external"
   type?: ContentTypes
   children: Content[]
   draft: boolean

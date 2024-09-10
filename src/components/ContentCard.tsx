@@ -161,10 +161,14 @@ export default function ContentCard({
     const url = document.getElementById(
       state.id + "-url"
     ) as HTMLSelectElement | null
+    const urlType = document.getElementById(
+      state.id + "-urlType"
+    ) as HTMLInputElement | null
     return {
       title: title?.value ?? "",
       description: description?.value ?? "",
       url: url?.value ?? "",
+      urlType: (urlType?.value as "external" | "internal") ?? undefined,
     }
   }
 

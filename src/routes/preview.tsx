@@ -72,7 +72,7 @@ export default function Preview({ share = false }: PreviewProps) {
         info={page?.description ?? ""}
         shareName={share ? name : undefined}
       />
-      <Main>{generateSections(page?.sections ?? [])}</Main>
+      <Main>{generateSections(page?.sections ?? [], share)}</Main>
 
       <div className="post-footer">
         <p>
@@ -87,13 +87,13 @@ export default function Preview({ share = false }: PreviewProps) {
   )
 }
 
-function generateSections(sections: Section[]) {
+function generateSections(sections: Section[], share: boolean) {
   return sections.map((section) => {
     const content = (
       <>
         <h2>{section.name}</h2>
         {section.description && <p>{section.description}</p>}
-        {generateContents(section.children)}
+        {generateContents({ contents: section.children, share })}
       </>
     )
     switch (section.element) {
@@ -174,7 +174,15 @@ function generateSections(sections: Section[]) {
   })
 }
 
-function generateContents(contents: Content[], level?: number) {
+function generateContents({
+  contents,
+  level,
+  share,
+}: {
+  contents: Content[]
+  level?: number
+  share: boolean
+}) {
   let headingLevel = level ?? 3
   return contents.map((content) => {
     switch (content.type) {
@@ -235,7 +243,17 @@ function generateContents(contents: Content[], level?: number) {
       case ContentTypes.Input:
         return <Input label={content.title} type={content.url} />
       case ContentTypes.Link:
-        return <a href={content.url}>{content.title}</a>
+        return (
+          <a
+            href={
+              content.urlType === "internal"
+                ? `${share ? "share" : "preview"}/${content.url}`
+                : content.url
+            }
+          >
+            {content.title}
+          </a>
+        )
       case ContentTypes.Numbers:
         return (
           <ol>
@@ -290,7 +308,11 @@ function generateContents(contents: Content[], level?: number) {
           <section>
             {getHeading(headingLevel, content.title)}
             <p>{content.description}</p>
-            {generateContents(content.children, headingLevel + 1)}
+            {generateContents({
+              contents: content.children,
+              level: headingLevel + 1,
+              share,
+            })}
           </section>
         )
       default:

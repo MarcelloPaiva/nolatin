@@ -243,17 +243,7 @@ function generateContents({
       case ContentTypes.Input:
         return <Input label={content.title} type={content.url} />
       case ContentTypes.Link:
-        return (
-          <a
-            href={
-              content.urlType === "internal"
-                ? `${share ? "share" : "preview"}/${content.url}`
-                : content.url
-            }
-          >
-            {content.title}
-          </a>
-        )
+        return <a href={content.url}>{content.title}</a>
       case ContentTypes.Numbers:
         return (
           <ol>

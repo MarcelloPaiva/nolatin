@@ -31,14 +31,14 @@
   --accent: hsl(var(--h-accent), 100%, 50%);
 
   --focus: deeppink;
-  --captions: var(--secondary-70);
+  --captions: var(--secondary-100);
 
-  --logo-family: "Montserrat", cursive;
+  --logo-family: "Montserrat", sans-serif;
   --body-family: "Roboto", sans-serif;
   --mono-family: "Roboto Mono", monospace;
   --body: var(--secondary-100);
 
-  --heading-family: "Montserrat", serif;
+  --heading-family: "Roboto", serif;
   --heading: var(--secondary-100);
 
   --navbar-grad-01: var(--secondary-03);
@@ -73,7 +73,7 @@
   --inputLabel: var(--secondary-100);
   --inputValue: var(--primary-100);
 
-  --button-primary: var(--accent);
+  --button-primary: var(--secondary-100);
   --button-child: blue;
 
   --button-save-bg: var(--green-50);
@@ -229,9 +229,10 @@ a:active {
 .hero {
   display: block;
   padding: 2rem 2rem;
-  background-color: var(--secondary-20);
+  background-color: #fff;
   margin-top: 40px;
   border-radius: 16px;
+  border: 1px solid var(--secondary-20);
 }
 
 footer .hero {
@@ -346,8 +347,8 @@ h1 {
 
 img.landing {
   margin-top: 2rem;
-  border: 1rem solid var(--secondary-20);
-  border-width: 1rem 0;
+  border: 1rem solid var(--secondary-80);
+  border-width: .1rem 0;
   display: cover;
   width: calc(100% + 2rem);
   position: relative;
@@ -478,8 +479,8 @@ select {
   display: block;
   height: auto;
   padding: 2rem;
-  margin: 2rem 1rem 0;
-  border-radius: 1rem;
+  margin: 6rem 0rem 0;
+  border-radius: 0rem;
   background-color: var(--secondary-20);
   text-align: center;
 }
@@ -513,7 +514,7 @@ select {
   margin: auto;
   color: var(--light);
   background-color: var(--secondary-100);
-  border-radius: 2rem;
+  border-radius: .5rem;
 }
 .site-cta [role="button"]:hover {
   color: var(--light);
@@ -573,7 +574,7 @@ h1 + .instructions {
 
 figcaption {
   font-family: var(--mono-family);
-  font-size: 0.75rem;
+  font-size: 1rem;
   color: var(--captions);
   margin-top: 8px;
   margin-bottom: 3rem;
@@ -693,7 +694,7 @@ Prototyping Styles
   color: var(--light);
   font-weight: bold;
 
-  border-radius: 2rem;
+  border-radius: .2rem;
 }
 
 .proto-mgt [role="button"] {

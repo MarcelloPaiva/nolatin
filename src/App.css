@@ -31,14 +31,14 @@
   --accent: hsl(var(--h-accent), 100%, 50%);
 
   --focus: deeppink;
-  --captions: var(--secondary-70);
+  --captions: var(--secondary-90);
 
-  --logo-family: "Montserrat", cursive;
+  --logo-family: "Roboto", sans-serif;
   --body-family: "Roboto", sans-serif;
   --mono-family: "Roboto Mono", monospace;
   --body: var(--secondary-100);
 
-  --heading-family: "Montserrat", serif;
+  --heading-family: "Roboto", serif;
   --heading: var(--secondary-100);
 
   --navbar-grad-01: var(--secondary-03);
@@ -229,9 +229,10 @@ a:active {
 .hero {
   display: block;
   padding: 2rem 2rem;
-  background-color: var(--secondary-20);
+  background-color: #fff;
   margin-top: 40px;
   border-radius: 16px;
+  border: 1px solid var(--secondary-20);
 }
 
 footer .hero {
@@ -480,7 +481,7 @@ select {
   padding: 2rem;
   margin: 2rem 1rem 0;
   border-radius: 1rem;
-  background-color: var(--secondary-20);
+  background-color: var(--secondary-10);
   text-align: center;
 }
 

@@ -160,10 +160,19 @@ export default function ContentCard({
     ) as HTMLSelectElement | null
     const urlType = document.querySelector(
       'input[name="urlType"]:checked'
-    ) as HTMLInputElement
-    const url = document.getElementById(
-      state.id + "-url-" + urlType.value
-    ) as HTMLSelectElement | null
+    ) as HTMLInputElement | null
+
+    let url: HTMLInputElement | null = null
+
+    if (urlType) {
+      url = document.getElementById(
+        state.id + "-url-" + urlType.value
+      ) as HTMLInputElement | null
+    } else {
+      url = document.getElementById(
+        state.id + "-url"
+      ) as HTMLInputElement | null
+    }
 
     return {
       title: title?.value ?? "",

@@ -41,19 +41,6 @@ export default function HeadingLinkContent({
             <Radio
               name="urlType"
               type="radio"
-              value="external"
-              defaultChecked={urlType === "external"}
-            />
-            <Input
-              id={`${id}-url-external`}
-              label="Destination URL (external link)"
-              defaultValue={url}
-            />
-          </InputContainer>
-          <InputContainer>
-            <Radio
-              name="urlType"
-              type="radio"
               value="internal"
               defaultChecked={urlType === "internal"}
             />
@@ -64,6 +51,19 @@ export default function HeadingLinkContent({
                 label: `${page.title} - ${page.id}`,
                 value: page.id,
               }))}
+            />
+          </InputContainer>
+          <InputContainer>
+            <Radio
+              name="urlType"
+              type="radio"
+              value="external"
+              defaultChecked={urlType === "external"}
+            />
+            <Input
+              id={`${id}-url-external`}
+              label="Destination URL (external link)"
+              defaultValue={url}
             />
           </InputContainer>
         </>

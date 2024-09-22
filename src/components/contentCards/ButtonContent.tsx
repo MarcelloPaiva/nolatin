@@ -36,29 +36,29 @@ export default function ButtonContent({
             <Radio
               name="urlType"
               type="radio"
-              value="external"
-              defaultChecked={urlType === "external"}
+              value="internal"
+              defaultChecked={urlType === "internal"}
             />
-            <Input
-              id={`${id}-url-external`}
-              label="Action URL (external link)"
-              defaultValue={url}
+            <Dropdown
+              id={`${id}-url-internal`}
+              label="Go to page"
+              options={pages.map((page) => ({
+                label: `${page.title}`,
+                value: page.id,
+              }))}
             />
           </InputContainer>
           <InputContainer>
             <Radio
               name="urlType"
               type="radio"
-              value="internal"
-              defaultChecked={urlType === "internal"}
+              value="external"
+              defaultChecked={urlType === "external"}
             />
-            <Dropdown
-              id={`${id}-url-internal`}
-              label="Action URL (existing page)"
-              options={pages.map((page) => ({
-                label: `${page.title} - ${page.id}`,
-                value: page.id,
-              }))}
+            <Input
+              id={`${id}-url-external`}
+              label="Go to external link"
+              defaultValue={url}
             />
           </InputContainer>
         </>

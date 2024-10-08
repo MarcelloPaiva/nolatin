@@ -78,7 +78,11 @@ export default function HeadingLinkContent({
               ? "Destination URL (external link)"
               : "Destination URL (existing page)"}
           </LabelToo>
-          <Link href={url}>{url}</Link>
+          <Link href={url}>
+            {urlType === "external"
+              ? url
+              : pages.filter((page) => page.id === "url")[0].title}
+          </Link>
         </>
       )}
     </>

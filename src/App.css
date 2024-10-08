@@ -30,7 +30,7 @@
 
   --accent: hsl(var(--h-accent), 100%, 50%);
 
-  --focus: var(--share-bg);
+  --focus: fuchsia;
   --captions: var(--secondary-100);
 
   --logo-family: "Montserrat", sans-serif;

@@ -69,7 +69,11 @@ export default function ButtonContent({
           <LabelToo>
             {urlType === "external" ? "Go to external link" : "Go to page"}
           </LabelToo>
-          <Text>{url}</Text>
+          <Text>
+            {urlType === "external"
+              ? url
+              : pages.filter((page) => page.id === "url")[0].title}
+          </Text>
         </>
       )}
     </>

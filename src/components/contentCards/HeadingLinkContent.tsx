@@ -48,7 +48,7 @@ export default function HeadingLinkContent({
               id={`${id}-url-internal`}
               label="Destination URL (existing page)"
               options={pages.map((page) => ({
-                label: `${page.title} - ${page.id}`,
+                label: page.title,
                 value: page.id,
               }))}
             />

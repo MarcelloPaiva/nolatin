@@ -81,7 +81,7 @@ export default function HeadingLinkContent({
           <Link href={url}>
             {urlType === "external"
               ? url
-              : pages.filter((page) => page.id === "url")[0].title}
+              : pages.filter((page) => page.id === "url")[0]?.title ?? ""}
           </Link>
         </>
       )}

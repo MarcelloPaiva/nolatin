@@ -75,7 +75,7 @@ export default function LinkContent({
           <Link href={url}>
             {urlType === "external"
               ? url
-              : pages.filter((page) => page.id === "url")[0].title}
+              : pages.filter((page) => page.id === "url")[0]?.title ?? ""}
           </Link>
         </>
       )}

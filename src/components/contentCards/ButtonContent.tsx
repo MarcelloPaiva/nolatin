@@ -72,7 +72,7 @@ export default function ButtonContent({
           <Text>
             {urlType === "external"
               ? url
-              : pages.filter((page) => page.id === "url")[0].title}
+              : pages.filter((page) => page.id === "url")[0]?.title ?? ""}
           </Text>
         </>
       )}

@@ -67,7 +67,11 @@ export default function LinkContent({
         <>
           <LabelToo>Descriptive Link</LabelToo>
           <Text>{title}</Text>
-          <LabelToo>Destination URL</LabelToo>
+          <LabelToo>
+            {urlType === "external"
+              ? "Destination URL (external link)"
+              : "Destination URL (existing page)"}
+          </LabelToo>
           <Link href={url}>{url}</Link>
         </>
       )}

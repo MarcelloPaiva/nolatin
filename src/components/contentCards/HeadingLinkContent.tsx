@@ -73,7 +73,11 @@ export default function HeadingLinkContent({
           <Text>{title}</Text>
           <LabelToo>Heading Description</LabelToo>
           <Text>{description}</Text>
-          <LabelToo>Destination URL</LabelToo>
+          <LabelToo>
+            {urlType === "external"
+              ? "Destination URL (external link)"
+              : "Destination URL (existing page)"}
+          </LabelToo>
           <Link href={url}>{url}</Link>
         </>
       )}

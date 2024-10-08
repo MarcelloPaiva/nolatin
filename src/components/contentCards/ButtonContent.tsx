@@ -66,7 +66,9 @@ export default function ButtonContent({
         <>
           <LabelToo>Descriptive label</LabelToo>
           <Text>{title}</Text>
-          <LabelToo>Destination Link - enter URL</LabelToo>
+          <LabelToo>
+            {urlType === "external" ? "Go to external link" : "Go to page"}
+          </LabelToo>
           <Text>{url}</Text>
         </>
       )}

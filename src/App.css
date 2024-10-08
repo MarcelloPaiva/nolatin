@@ -30,7 +30,7 @@
 
   --accent: hsl(var(--h-accent), 100%, 50%);
 
-  --focus: deeppink;
+  --focus: var(--share-bg);
   --captions: var(--secondary-100);
 
   --logo-family: "Montserrat", sans-serif;
@@ -348,7 +348,7 @@ h1 {
 img.landing {
   margin-top: 2rem;
   border: 1rem solid var(--secondary-80);
-  border-width: .1rem 0;
+  border-width: 0.1rem 0;
   display: cover;
   width: calc(100% + 2rem);
   position: relative;
@@ -514,7 +514,7 @@ select {
   margin: auto;
   color: var(--light);
   background-color: var(--secondary-100);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
 }
 .site-cta [role="button"]:hover {
   color: var(--light);
@@ -694,7 +694,7 @@ Prototyping Styles
   color: var(--light);
   font-weight: bold;
 
-  border-radius: .2rem;
+  border-radius: 0.2rem;
 }
 
 .proto-mgt [role="button"] {
